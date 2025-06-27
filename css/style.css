@@ -528,8 +528,12 @@ footer a:hover {
     padding: 2rem 1rem;
   }
   
+  .header-item {
+    font-size: 0.9rem;
+  }
+
   .hero-description {
-    font-size: 1rem;
+    font-size: 1.rem;
   }
 
   .project-certifications-list {
