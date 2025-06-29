@@ -1,4 +1,3 @@
-const { createElement } = require("react");
 
 function toggleMenu() {
     const hiddenOptions = document.getElementById('ocult-technologies');
