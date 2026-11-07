@@ -141,8 +141,8 @@ export default async function HomePage({ params }: HomePageProps) {
         <SectionHeading headline={content.home.work.headline} />
         <div className="space-y-8 mb-12">
           {caseStudies.slice(0, 3).map((study) => (
-            <Card key={study.id}>
-              <Link href={`/work/${study.slug}`} className="group">
+            <Link key={study.id} href={`/work/${study.slug}`} className="group block">
+              <Card>
                 <p className="text-eyebrow text-text-tertiary mb-4 group-hover:text-text-secondary transition-colors">
                   {study.eyebrow}
                 </p>
@@ -152,14 +152,17 @@ export default async function HomePage({ params }: HomePageProps) {
                 <p className="text-body text-text-secondary mb-6 group-hover:text-text-primary transition-colors">
                   {study.description}
                 </p>
-                <TextLink href={`/work/${study.slug}`}>Read the case study</TextLink>
-              </Link>
+                <div className="flex items-center gap-1 text-link group-hover:opacity-75 transition-opacity">
+                  Read the case study
+                  <span className="text-xs">›</span>
+                </div>
+              </Card>
               {study.image && (
                 <div className="rounded-large bg-gradient-to-br from-accent-fill to-purple-600 h-40 mt-8 flex items-center justify-center text-white text-center text-caption">
                   {study.image}
                 </div>
               )}
-            </Card>
+            </Link>
           ))}
         </div>
         <div className="text-center">
@@ -172,8 +175,8 @@ export default async function HomePage({ params }: HomePageProps) {
         <SectionHeading headline={content.home.blog.headline} />
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
           {featuredPosts.map((post) => (
-            <Card key={post.id}>
-              <Link href={`/blog/${post.slug}`} className="group">
+            <Link key={post.id} href={`/blog/${post.slug}`} className="group block">
+              <Card>
                 <p className="text-eyebrow text-text-tertiary mb-4 group-hover:text-text-secondary transition-colors">
                   {post.category}
                 </p>
@@ -183,10 +186,13 @@ export default async function HomePage({ params }: HomePageProps) {
                 <p className="text-body text-text-secondary mb-6 line-clamp-2">{post.excerpt}</p>
                 <div className="flex items-center justify-between">
                   <span className="text-caption text-text-tertiary">{post.readingTime} min read</span>
-                  <TextLink href={`/blog/${post.slug}`}>Read</TextLink>
+                  <div className="flex items-center gap-1 text-link group-hover:opacity-75 transition-opacity">
+                    Read
+                    <span className="text-xs">›</span>
+                  </div>
                 </div>
-              </Link>
-            </Card>
+              </Card>
+            </Link>
           ))}
         </div>
         <div className="text-center">

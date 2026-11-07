@@ -24,27 +24,29 @@ export function Footer({ lang }: FooterProps) {
                 {column.title}
               </h3>
               <ul className="space-y-4">
-                {column.links.map((link) => (
-                  <li key={link.label}>
-                    {link.href ? (
-                      <Link
-                        href={link.href}
-                        className="text-body text-text-secondary dark:text-dark-text-secondary hover:text-text-primary dark:hover:text-dark-text-primary transition-colors duration-ui"
-                      >
-                        {link.label}
-                      </Link>
-                    ) : (
-                      <a
-                        href={link.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-body text-text-secondary dark:text-dark-text-secondary hover:text-text-primary dark:hover:text-dark-text-primary transition-colors duration-ui"
-                      >
-                        {link.label}
-                      </a>
-                    )}
-                  </li>
-                ))}
+                {column.links
+                  .filter(link => !link.href?.includes('[ADD]') && !link.url?.includes('[ADD]'))
+                  .map((link) => (
+                    <li key={link.label}>
+                      {link.href ? (
+                        <Link
+                          href={link.href}
+                          className="text-body text-text-secondary dark:text-dark-text-secondary hover:text-text-primary dark:hover:text-dark-text-primary transition-colors duration-ui"
+                        >
+                          {link.label}
+                        </Link>
+                      ) : (
+                        <a
+                          href={link.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-body text-text-secondary dark:text-dark-text-secondary hover:text-text-primary dark:hover:text-dark-text-primary transition-colors duration-ui"
+                        >
+                          {link.label}
+                        </a>
+                      )}
+                    </li>
+                  ))}
               </ul>
             </div>
           ))}
@@ -55,17 +57,19 @@ export function Footer({ lang }: FooterProps) {
 
         {/* Legal + Controls */}
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-8">
-          {/* Legal links */}
+          {/* Link columns */}
           <div className="flex flex-wrap gap-6">
-            {content.footer.legal.map((link) => (
-              <Link
-                key={link.label}
-                href={link.href}
-                className="text-caption text-text-tertiary dark:text-dark-text-secondary hover:text-text-secondary dark:hover:text-dark-text-primary transition-colors duration-ui"
-              >
-                {link.label}
-              </Link>
-            ))}
+            {content.footer.legal
+              .filter(link => !link.href.includes('[ADD]'))
+              .map((link) => (
+                <Link
+                  key={link.label}
+                  href={link.href}
+                  className="text-caption text-text-tertiary dark:text-dark-text-secondary hover:text-text-secondary dark:hover:text-dark-text-primary transition-colors duration-ui"
+                >
+                  {link.label}
+                </Link>
+              ))}
           </div>
 
           {/* Controls */}

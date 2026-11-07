@@ -51,14 +51,19 @@ export function Button({
 }
 
 interface TextLinkProps {
-  href: string;
+  href?: string;
   children: ReactNode;
   external?: boolean;
   className?: string;
 }
 
-export function TextLink({ href, children, external = false, className = '' }: TextLinkProps) {
+export function TextLink({ href = '#', children, external = false, className = '' }: TextLinkProps) {
   const classes = `inline-flex items-center gap-1 text-link dark:text-dark-link hover:opacity-75 transition-opacity duration-ui ${className}`;
+
+  // Skip rendering if href is a placeholder
+  if (href.includes('[ADD]') || href === '#[ADD]') {
+    return null;
+  }
 
   if (external) {
     return (
