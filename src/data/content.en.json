@@ -1,0 +1,123 @@
+{
+  "meta": {
+    "site": "Enmanuel Nunez Matias",
+    "author": "Enmanuel Nunez Matias",
+    "description": "Full Stack Developer & Systems Designer from Santo Domingo, DR. Building systems and the interfaces they live in."
+  },
+  "nav": {
+    "name": "Enmanuel Nunez",
+    "links": [
+      { "label": "Work", "href": "/work" },
+      { "label": "Products", "href": "/products" },
+      { "label": "Blog", "href": "/blog" },
+      { "label": "About", "href": "/about" },
+      { "label": "Contact", "href": "/contact" }
+    ]
+  },
+  "home": {
+    "hero": {
+      "eyebrow": "Santo Domingo, DR",
+      "headline": "Full Stack Developer & Systems Designer",
+      "lead": "I build systems that solve real problems, and the interfaces that bring them to life. From React frontends to Python backends, I focus on clarity, performance, and delightful user experience.",
+      "primaryCTA": { "label": "Hire me", "href": "#contact" },
+      "secondaryCTA": { "label": "See my work", "href": "/work" },
+      "tertiaryCTA": { "label": "Browse products", "href": "/products" },
+      "image": "[ADD screenshot]"
+    },
+    "atGlance": {
+      "headline": "At a glance.",
+      "cards": [
+        {
+          "span": 2,
+          "title": "Frontend to backend",
+          "chips": ["React", "TypeScript", "Tailwind", "Python", "PostgreSQL"]
+        },
+        {
+          "span": 1,
+          "stat": "4",
+          "label": "hackathon finals, 2 of them NASA"
+        },
+        {
+          "span": 1,
+          "title": "Google Summer of Code 2026",
+          "label": "omegaUp contributor"
+        },
+        {
+          "span": 1,
+          "title": "Systems design",
+          "label": "Architecture, data flow, roles and permissions"
+        },
+        {
+          "span": 1,
+          "title": "English B2",
+          "label": "Software Development at ITLA"
+        },
+        {
+          "span": 2,
+          "isHighlight": true,
+          "title": "Open to Frontend / Full Stack (React) roles and custom software projects",
+          "cta": { "label": "Get in touch", "href": "/contact" }
+        }
+      ]
+    },
+    "products": {
+      "headline": "Products.",
+      "lead": "[ADD one-line positioning]",
+      "cta": { "label": "All products", "href": "/products" }
+    },
+    "work": {
+      "headline": "Selected work.",
+      "cta": { "label": "All work", "href": "/work" }
+    },
+    "blog": {
+      "headline": "From the blog.",
+      "cta": { "label": "All posts", "href": "/blog" }
+    },
+    "closing": {
+      "headline": "Let's build something useful.",
+      "primaryCTA": { "label": "Get in touch", "href": "/contact" },
+      "secondaryCTA": { "label": "Download CV", "href": "[ADD cv-link]" }
+    }
+  },
+  "contact": {
+    "headline": "Get in touch.",
+    "email": "enmanuelnunezmatias@gmail.com",
+    "links": [
+      { "label": "LinkedIn", "url": "https://www.linkedin.com/in/enmanuel-nunez-matias-249560340/" },
+      { "label": "GitHub", "url": "https://github.com/mxnueh" },
+      { "label": "Discord", "url": "discord:m4ti_" }
+    ]
+  },
+  "footer": {
+    "columns": [
+      {
+        "title": "Work",
+        "links": [
+          { "label": "All case studies", "href": "/work" },
+          { "label": "GitHub", "url": "https://github.com/mxnueh" },
+          { "label": "Open source repos", "url": "https://github.com/mxnueh" }
+        ]
+      },
+      {
+        "title": "Products",
+        "links": [
+          { "label": "All products", "href": "/products" },
+          { "label": "[ADD categories]", "href": "[ADD]" }
+        ]
+      },
+      {
+        "title": "Learn",
+        "links": [
+          { "label": "Blog", "href": "/blog" },
+          { "label": "About", "href": "/about" },
+          { "label": "Contact", "href": "/contact" }
+        ]
+      }
+    ],
+    "legal": [
+      { "label": "Privacy", "href": "/privacy" },
+      { "label": "Terms", "href": "/terms" },
+      { "label": "Refunds", "href": "/refunds" }
+    ]
+  }
+}

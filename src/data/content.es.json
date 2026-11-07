@@ -1,0 +1,123 @@
+{
+  "meta": {
+    "site": "Enmanuel Nunez Matias",
+    "author": "Enmanuel Nunez Matias",
+    "description": "Full Stack Developer & Systems Designer de Santo Domingo, RD. Construyendo sistemas y las interfaces en las que viven."
+  },
+  "nav": {
+    "name": "Enmanuel Nunez",
+    "links": [
+      { "label": "Trabajo", "href": "/work" },
+      { "label": "Productos", "href": "/products" },
+      { "label": "Blog", "href": "/blog" },
+      { "label": "Acerca", "href": "/about" },
+      { "label": "Contacto", "href": "/contact" }
+    ]
+  },
+  "home": {
+    "hero": {
+      "eyebrow": "Santo Domingo, RD",
+      "headline": "Full Stack Developer & Systems Designer",
+      "lead": "Construyo sistemas que resuelven problemas reales, e interfaces que los hacen posibles. Desde frontends en React hasta backends en Python, me enfoco en claridad, rendimiento y experiencias delightful.",
+      "primaryCTA": { "label": "Contratarme", "href": "#contact" },
+      "secondaryCTA": { "label": "Ver mi trabajo", "href": "/work" },
+      "tertiaryCTA": { "label": "Explorar productos", "href": "/products" },
+      "image": "[ADD screenshot]"
+    },
+    "atGlance": {
+      "headline": "De un vistazo.",
+      "cards": [
+        {
+          "span": 2,
+          "title": "Frontend to backend",
+          "chips": ["React", "TypeScript", "Tailwind", "Python", "PostgreSQL"]
+        },
+        {
+          "span": 1,
+          "stat": "4",
+          "label": "finales de hackathon, 2 de ellas NASA"
+        },
+        {
+          "span": 1,
+          "title": "Google Summer of Code 2026",
+          "label": "contribuidor de omegaUp"
+        },
+        {
+          "span": 1,
+          "title": "Diseño de sistemas",
+          "label": "Arquitectura, flujo de datos, roles y permisos"
+        },
+        {
+          "span": 1,
+          "title": "Inglés B2",
+          "label": "Tecnólogo en Desarrollo de Software ITLA"
+        },
+        {
+          "span": 2,
+          "isHighlight": true,
+          "title": "Abierto a roles de Frontend / Full Stack (React) y proyectos de software personalizado",
+          "cta": { "label": "Contactarme", "href": "/contact" }
+        }
+      ]
+    },
+    "products": {
+      "headline": "Productos.",
+      "lead": "[ADD one-line positioning]",
+      "cta": { "label": "Todos los productos", "href": "/products" }
+    },
+    "work": {
+      "headline": "Trabajo seleccionado.",
+      "cta": { "label": "Todo el trabajo", "href": "/work" }
+    },
+    "blog": {
+      "headline": "Del blog.",
+      "cta": { "label": "Todos los posts", "href": "/blog" }
+    },
+    "closing": {
+      "headline": "Construyamos algo útil.",
+      "primaryCTA": { "label": "Contactarme", "href": "/contact" },
+      "secondaryCTA": { "label": "Descargar CV", "href": "[ADD cv-link]" }
+    }
+  },
+  "contact": {
+    "headline": "Contactarme.",
+    "email": "enmanuelnunezmatias@gmail.com",
+    "links": [
+      { "label": "LinkedIn", "url": "https://www.linkedin.com/in/enmanuel-nunez-matias-249560340/" },
+      { "label": "GitHub", "url": "https://github.com/mxnueh" },
+      { "label": "Discord", "url": "discord:m4ti_" }
+    ]
+  },
+  "footer": {
+    "columns": [
+      {
+        "title": "Trabajo",
+        "links": [
+          { "label": "Todos los casos de estudio", "href": "/work" },
+          { "label": "GitHub", "url": "https://github.com/mxnueh" },
+          { "label": "Repos de código abierto", "url": "https://github.com/mxnueh" }
+        ]
+      },
+      {
+        "title": "Productos",
+        "links": [
+          { "label": "Todos los productos", "href": "/products" },
+          { "label": "[ADD categories]", "href": "[ADD]" }
+        ]
+      },
+      {
+        "title": "Aprende",
+        "links": [
+          { "label": "Blog", "href": "/blog" },
+          { "label": "Acerca", "href": "/about" },
+          { "label": "Contacto", "href": "/contact" }
+        ]
+      }
+    ],
+    "legal": [
+      { "label": "Privacidad", "href": "/privacy" },
+      { "label": "Términos", "href": "/terms" },
+      { "label": "Reembolsos", "href": "/refunds" }
+    ]
+  }
+}
