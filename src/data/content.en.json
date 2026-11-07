@@ -2,7 +2,7 @@
   "meta": {
     "site": "Enmanuel Nunez Matias",
     "author": "Enmanuel Nunez Matias",
-    "description": "Full Stack Developer & Systems Designer from Santo Domingo, DR. Building systems and the interfaces they live in."
+    "description": "Full Stack Developer & Systems Designer from Santo Domingo, DR. I design reliable systems and build the interfaces that power them. Telemetry platforms, real-time dashboards, embedded systems."
   },
   "nav": {
     "name": "Enmanuel Nunez",
@@ -18,66 +18,66 @@
     "hero": {
       "eyebrow": "Santo Domingo, DR",
       "headline": "Full Stack Developer & Systems Designer",
-      "lead": "I build systems that solve real problems, and the interfaces that bring them to life. From React frontends to Python backends, I focus on clarity, performance, and delightful user experience.",
-      "primaryCTA": { "label": "Hire me", "href": "#contact" },
-      "secondaryCTA": { "label": "See my work", "href": "/work" },
-      "tertiaryCTA": { "label": "Browse products", "href": "/products" }
+      "lead": "I design systems that work reliably under pressure, then build the interfaces that bring them to life. Telemetry platforms, real-time dashboards, flood monitoring networks—I focus on solving real problems with clear, performant code.",
+      "primaryCTA": { "label": "View case studies", "href": "/work" },
+      "secondaryCTA": { "label": "Get in touch", "href": "/contact" },
+      "tertiaryCTA": { "label": "Browse projects", "href": "/blog" }
     },
     "atGlance": {
-      "headline": "At a glance.",
+      "headline": "What I bring.",
       "cards": [
         {
           "span": 2,
-          "title": "Frontend to backend",
-          "chips": ["React", "TypeScript", "Tailwind", "Python", "PostgreSQL"]
+          "title": "Full stack systems",
+          "chips": ["React", "TypeScript", "Python", "PostgreSQL", "Embedded Systems"]
         },
         {
           "span": 1,
           "stat": "4",
-          "label": "hackathon finals, 2 of them NASA"
+          "label": "hackathon finals (2 NASA)"
         },
         {
           "span": 1,
-          "title": "Google Summer of Code 2026",
-          "label": "omegaUp contributor"
+          "title": "Real-time & offline",
+          "label": "Telemetry, MQTT, LoRa, SQLite sync"
         },
         {
           "span": 1,
-          "title": "Systems design",
-          "label": "Architecture, data flow, roles and permissions"
+          "title": "Systems thinking",
+          "label": "Architecture, permissions, reliability"
         },
         {
           "span": 1,
-          "title": "English B2",
-          "label": "Software Development at ITLA"
+          "title": "Bilingual",
+          "label": "Spanish native, English B2"
         },
         {
           "span": 2,
           "isHighlight": true,
-          "title": "Open to Frontend / Full Stack (React) roles and custom software projects",
-          "cta": { "label": "Get in touch", "href": "/contact" }
+          "title": "Open to contracts: Full Stack (React) roles, systems design consulting, custom software",
+          "cta": { "label": "Let's talk", "href": "/contact" }
         }
       ]
     },
     "products": {
-      "headline": "Products.",
-      "cta": { "label": "All products", "href": "/products" }
+      "headline": "Projects.",
+      "cta": { "label": "All projects", "href": "/blog" }
     },
     "work": {
-      "headline": "Selected work.",
-      "cta": { "label": "All work", "href": "/work" }
+      "headline": "Case studies.",
+      "cta": { "label": "All case studies", "href": "/work" }
     },
     "blog": {
-      "headline": "From the blog.",
+      "headline": "Thoughts & lessons.",
       "cta": { "label": "All posts", "href": "/blog" }
     },
     "closing": {
-      "headline": "Let's build something useful.",
-      "primaryCTA": { "label": "Get in touch", "href": "/contact" }
+      "headline": "Ready to build something reliable?",
+      "primaryCTA": { "label": "Start a conversation", "href": "/contact" }
     }
   },
   "contact": {
-    "headline": "Get in touch.",
+    "headline": "Let's work together.",
     "email": "enmanuelnunezmatias@gmail.com",
     "links": [
       { "label": "LinkedIn", "url": "https://www.linkedin.com/in/enmanuel-nunez-matias-249560340/" },

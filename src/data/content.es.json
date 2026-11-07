@@ -2,7 +2,7 @@
   "meta": {
     "site": "Enmanuel Nunez Matias",
     "author": "Enmanuel Nunez Matias",
-    "description": "Full Stack Developer & Systems Designer de Santo Domingo, RD. Construyendo sistemas y las interfaces en las que viven."
+    "description": "Full Stack Developer & Systems Designer de Santo Domingo, RD. Diseño sistemas confiables y construyo las interfaces que los impulsan. Plataformas de telemetría, dashboards en tiempo real, sistemas embebidos."
   },
   "nav": {
     "name": "Enmanuel Nunez",
@@ -18,62 +18,62 @@
     "hero": {
       "eyebrow": "Santo Domingo, RD",
       "headline": "Full Stack Developer & Systems Designer",
-      "lead": "Construyo sistemas que resuelven problemas reales, e interfaces que los hacen posibles. Desde frontends en React hasta backends en Python, me enfoco en claridad, rendimiento y experiencias delightful.",
-      "primaryCTA": { "label": "Contratarme", "href": "#contact" },
-      "secondaryCTA": { "label": "Ver mi trabajo", "href": "/work" },
-      "tertiaryCTA": { "label": "Explorar productos", "href": "/products" }
+      "lead": "Diseño sistemas que funcionan bajo presión, luego construyo las interfaces que los hacen posibles. Plataformas de telemetría, dashboards en tiempo real, redes de monitoreo de inundaciones—me enfoco en resolver problemas reales con código claro y performante.",
+      "primaryCTA": { "label": "Ver casos de estudio", "href": "/work" },
+      "secondaryCTA": { "label": "Contactarme", "href": "/contact" },
+      "tertiaryCTA": { "label": "Explorar proyectos", "href": "/blog" }
     },
     "atGlance": {
-      "headline": "De un vistazo.",
+      "headline": "Lo que aporto.",
       "cards": [
         {
           "span": 2,
-          "title": "Frontend to backend",
-          "chips": ["React", "TypeScript", "Tailwind", "Python", "PostgreSQL"]
+          "title": "Sistemas full stack",
+          "chips": ["React", "TypeScript", "Python", "PostgreSQL", "Embedded Systems"]
         },
         {
           "span": 1,
           "stat": "4",
-          "label": "finales de hackathon, 2 de ellas NASA"
+          "label": "finales de hackathon (2 NASA)"
         },
         {
           "span": 1,
-          "title": "Google Summer of Code 2026",
-          "label": "contribuidor de omegaUp"
+          "title": "Tiempo real y offline",
+          "label": "Telemetría, MQTT, LoRa, sincronización SQLite"
         },
         {
           "span": 1,
-          "title": "Diseño de sistemas",
-          "label": "Arquitectura, flujo de datos, roles y permisos"
+          "title": "Pensamiento sistémico",
+          "label": "Arquitectura, permisos, confiabilidad"
         },
         {
           "span": 1,
-          "title": "Inglés B2",
-          "label": "Tecnólogo en Desarrollo de Software ITLA"
+          "title": "Bilingüe",
+          "label": "Español nativo, Inglés B2"
         },
         {
           "span": 2,
           "isHighlight": true,
-          "title": "Abierto a roles de Frontend / Full Stack (React) y proyectos de software personalizado",
-          "cta": { "label": "Contactarme", "href": "/contact" }
+          "title": "Abierto a: roles Full Stack (React), consultoría de sistemas, software personalizado",
+          "cta": { "label": "Conversemos", "href": "/contact" }
         }
       ]
     },
     "products": {
-      "headline": "Productos.",
-      "cta": { "label": "Todos los productos", "href": "/products" }
+      "headline": "Proyectos.",
+      "cta": { "label": "Todos los proyectos", "href": "/blog" }
     },
     "work": {
-      "headline": "Trabajo seleccionado.",
-      "cta": { "label": "Todo el trabajo", "href": "/work" }
+      "headline": "Casos de estudio.",
+      "cta": { "label": "Todos los casos", "href": "/work" }
     },
     "blog": {
-      "headline": "Del blog.",
+      "headline": "Pensamientos y lecciones.",
       "cta": { "label": "Todos los posts", "href": "/blog" }
     },
     "closing": {
-      "headline": "Construyamos algo útil.",
-      "primaryCTA": { "label": "Contactarme", "href": "/contact" }
+      "headline": "¿Listo para construir algo confiable?",
+      "primaryCTA": { "label": "Iniciar una conversación", "href": "/contact" }
     }
   },
   "contact": {
