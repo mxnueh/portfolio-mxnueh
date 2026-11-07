@@ -20,6 +20,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
   const lang = 'en';
   const content = getContent(lang);
   const post = getPost(slug, lang);
+  const allPosts = getPosts(lang);
 
   if (!post) {
     return (
@@ -36,12 +37,19 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     );
   }
 
+  const currentIndex = allPosts.findIndex((p) => p.slug === slug);
+  const prevPost = currentIndex > 0 ? allPosts[currentIndex - 1] : null;
+  const nextPost = currentIndex < allPosts.length - 1 ? allPosts[currentIndex + 1] : null;
+
   return (
     <div className="flex flex-col min-h-screen">
       <GlobalNav lang={lang} />
 
       <Section variant="white">
         <div className="max-w-reading mx-auto">
+          <div className="mb-8">
+            <TextLink href="/blog">← Back to blog</TextLink>
+          </div>
           <p className="text-eyebrow text-text-tertiary mb-4">{post.category}</p>
           <h1 className="text-section md:text-section-tablet lg:text-section-mobile font-600 mb-6">
             {post.title}
@@ -59,6 +67,27 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           <div className="prose dark:prose-invert text-body text-text-secondary leading-relaxed whitespace-pre-line">
             {post.content}
           </div>
+
+          {(prevPost || nextPost) && (
+            <nav className="mt-16 pt-8 border-t border-stroke flex justify-between gap-8">
+              {prevPost ? (
+                <div className="flex-1">
+                  <p className="text-caption text-text-tertiary mb-2">Previous</p>
+                  <TextLink href={`/blog/${prevPost.slug}`}>{prevPost.title}</TextLink>
+                </div>
+              ) : (
+                <div className="flex-1" />
+              )}
+              {nextPost ? (
+                <div className="flex-1 text-right">
+                  <p className="text-caption text-text-tertiary mb-2">Next</p>
+                  <TextLink href={`/blog/${nextPost.slug}`}>{nextPost.title}</TextLink>
+                </div>
+              ) : (
+                <div className="flex-1" />
+              )}
+            </nav>
+          )}
         </div>
       </Section>
 

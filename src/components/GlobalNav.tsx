@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { useState } from 'react';
 import { Language } from '@/lib/types';
 import { getContent } from '@/lib/getContent';
+import { siteConfig } from '@/config/site';
 
 interface GlobalNavProps {
   lang: Language;
@@ -12,6 +13,14 @@ interface GlobalNavProps {
 export function GlobalNav({ lang }: GlobalNavProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const content = getContent(lang);
+
+  // Filter nav links based on feature flags
+  const navLinks = content.nav.links.filter(link => {
+    if (link.href === '/products' && !siteConfig.features.products) return false;
+    if (link.href === '/blog' && !siteConfig.features.blog) return false;
+    if (link.href === '/about' && !siteConfig.about.enabled) return false;
+    return true;
+  });
 
   return (
     <nav className="sticky top-0 z-40 h-12 bg-white/72 dark:bg-black/72 backdrop-blur-nav border-b border-separator dark:border-separator transition-opacity duration-ui">
@@ -26,7 +35,7 @@ export function GlobalNav({ lang }: GlobalNavProps) {
 
         {/* Desktop nav */}
         <div className="hidden md:flex items-center gap-8">
-          {content.nav.links.map((link) => (
+          {navLinks.map((link) => (
             <Link
               key={link.href}
               href={`/${lang === 'es' ? 'es' : ''}${link.href}`}
@@ -37,14 +46,8 @@ export function GlobalNav({ lang }: GlobalNavProps) {
           ))}
         </div>
 
-        {/* CTA Button + Language */}
+        {/* Language toggle (no CTA pill per D3) */}
         <div className="hidden md:flex items-center gap-4">
-          <Link
-            href={`/${lang === 'es' ? 'es' : ''}/contact`}
-            className="h-7 px-4 rounded-full bg-accent-fill hover:bg-accent-hover text-white text-button font-500 flex items-center transition-colors duration-ui"
-          >
-            {lang === 'es' ? 'Contratarme' : 'Hire me'}
-          </Link>
           <button
             onClick={() => {
               const newLang = lang === 'es' ? 'en' : 'es';
@@ -73,7 +76,7 @@ export function GlobalNav({ lang }: GlobalNavProps) {
       {/* Mobile menu */}
       {isMenuOpen && (
         <div className="md:hidden absolute top-12 left-0 right-0 bg-white dark:bg-black border-b border-separator dark:border-separator p-8 flex flex-col gap-4 animate-fade-in">
-          {content.nav.links.map((link, i) => (
+          {navLinks.map((link, i) => (
             <Link
               key={link.href}
               href={`/${lang === 'es' ? 'es' : ''}${link.href}`}
@@ -84,12 +87,6 @@ export function GlobalNav({ lang }: GlobalNavProps) {
               {link.label}
             </Link>
           ))}
-          <Link
-            href={`/${lang === 'es' ? 'es' : ''}/contact`}
-            className="h-11 px-6 rounded-full bg-accent-fill hover:bg-accent-hover text-white text-button font-500 flex items-center justify-center transition-colors duration-ui mt-4"
-          >
-            {lang === 'es' ? 'Contratarme' : 'Hire me'}
-          </Link>
         </div>
       )}
     </nav>

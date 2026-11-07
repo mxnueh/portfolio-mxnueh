@@ -1,8 +1,9 @@
 import { GlobalNav } from '@/components/GlobalNav';
 import { Footer } from '@/components/Footer';
 import { Button, TextLink } from '@/components/Button';
-import { Section, SectionHeading, Card } from '@/components/Section';
+import { Section } from '@/components/Section';
 import { getContent, getFeaturedPosts, getFeaturedProducts, getCaseStudies } from '@/lib/getContent';
+import { siteConfig } from '@/config/site';
 import Link from 'next/link';
 import { Language } from '@/lib/types';
 
@@ -14,7 +15,7 @@ export default async function HomePage({ params }: HomePageProps) {
   const lang: Language = 'en';
   const content = getContent(lang);
   const featuredPosts = getFeaturedPosts(lang, 3);
-  const featuredProducts = getFeaturedProducts(lang, 2);
+  const featuredProducts = siteConfig.features.products ? getFeaturedProducts(lang, 2) : [];
   const caseStudies = getCaseStudies(lang);
 
   return (
@@ -33,16 +34,13 @@ export default async function HomePage({ params }: HomePageProps) {
           <p className="text-xl md:text-2xl text-text-secondary mb-12 max-w-3xl mx-auto leading-relaxed">
             {content.home.hero.lead}
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
-            <Button href="/contact" variant="primary">
-              {content.home.hero.primaryCTA.label}
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <Button href={siteConfig.ctas.hero.primary.href} variant="primary">
+              {siteConfig.ctas.hero.primary.label}
             </Button>
-            <TextLink href="/work">
-              {content.home.hero.secondaryCTA.label}
+            <TextLink href={siteConfig.ctas.hero.secondary.href}>
+              {siteConfig.ctas.hero.secondary.label}
             </TextLink>
-          </div>
-          <div className="rounded-2xl bg-gradient-to-br from-blue-500 to-purple-600 aspect-video max-w-4xl mx-auto flex items-center justify-center text-white/60">
-            {content.home.hero.image}
           </div>
         </div>
       </Section>
@@ -100,7 +98,7 @@ export default async function HomePage({ params }: HomePageProps) {
       </Section>
 
       {/* Products */}
-      {featuredProducts.length > 0 && (
+      {siteConfig.features.products && featuredProducts.length > 0 && (
         <Section variant="black">
           <div className="max-w-6xl mx-auto">
             <h2 className="text-4xl md:text-5xl font-semibold mb-12 text-center text-white">Products</h2>
@@ -200,12 +198,9 @@ export default async function HomePage({ params }: HomePageProps) {
           <h2 className="text-4xl md:text-5xl font-semibold mb-8">
             Let's build something useful
           </h2>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button href="/contact" variant="primary">
-              Get in touch
-            </Button>
-            <TextLink href="#">Download CV</TextLink>
-          </div>
+          <Button href={siteConfig.ctas.closing.primary.href} variant="primary">
+            {siteConfig.ctas.closing.primary.label}
+          </Button>
         </div>
       </Section>
 

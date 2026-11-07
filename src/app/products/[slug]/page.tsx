@@ -1,3 +1,5 @@
+import { notFound } from 'next/navigation';
+import { siteConfig } from '@/config/site';
 import { GlobalNav } from '@/components/GlobalNav';
 import { Footer } from '@/components/Footer';
 import { Section, Card } from '@/components/Section';
@@ -9,10 +11,19 @@ interface ProductPageProps {
 }
 
 export async function generateStaticParams() {
+  if (!siteConfig.features.products) {
+    // Return dummy param to satisfy Next.js build requirement
+    // The actual page will call notFound() anyway
+    return [{ slug: '_' }];
+  }
   return getProducts('en').map((product) => ({ slug: product.slug }));
 }
 
 export default async function ProductPage({ params }: ProductPageProps) {
+  if (!siteConfig.features.products) {
+    notFound();
+  }
+
   const { slug } = await params;
   const product = getProduct(slug, 'en');
 
