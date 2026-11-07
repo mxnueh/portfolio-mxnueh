@@ -22,12 +22,12 @@ const config: Config = {
         'text': {
           primary: '#1D1D1F',
           secondary: '#6E6E73',
-          tertiary: '#86868B',
+          tertiary: '#767676',
         },
         'accent': {
-          fill: '#0071E3',
-          hover: '#0077ED',
-          pressed: '#006EDB',
+          fill: '#0059D6',
+          hover: '#0066E3',
+          pressed: '#005AC9',
         },
         'link': '#0066CC',
         'separator': '#D2D2D7',
