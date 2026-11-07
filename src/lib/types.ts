@@ -8,7 +8,7 @@ export interface Post {
   category: 'Case study' | 'Notes' | 'Beyond code';
   date: string;
   readingTime: number;
-  image: string;
+  image?: string;
   featured: boolean;
   content: string;
   stack?: string[];
@@ -54,7 +54,7 @@ export interface CaseStudy {
   eyebrow: string;
   title: string;
   description: string;
-  image: string;
+  image?: string;
   role: string;
   stack: string[];
   github?: string;

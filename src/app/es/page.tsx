@@ -39,10 +39,6 @@ export default async function EsHomePage() {
           <TextLink href="/es/products" className="justify-center mb-16">
             {content.home.hero.tertiaryCTA.label}
           </TextLink>
-          {/* Hero image */}
-          <div className="rounded-large bg-gradient-to-br from-accent-fill to-purple-600 h-96 md:h-[500px] lg:h-[600px] flex items-center justify-center text-white text-center p-8 animate-fade-in" style={{ animationDelay: '0.32s' }}>
-            <span className="text-body text-white/80">{content.home.hero.image}</span>
-          </div>
         </div>
       </Section>
 
@@ -102,7 +98,6 @@ export default async function EsHomePage() {
         <Section variant="black">
           <SectionHeading
             headline={content.home.products.headline}
-            lead={content.home.products.lead}
           />
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
             {featuredProducts.map((product) => (
@@ -205,9 +200,6 @@ export default async function EsHomePage() {
             <Button href="/es/contact" variant="primary">
               {content.home.closing.primaryCTA.label}
             </Button>
-            <TextLink href="#">
-              {content.home.closing.secondaryCTA.label}
-            </TextLink>
           </div>
         </div>
       </Section>

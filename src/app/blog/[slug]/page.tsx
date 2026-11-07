@@ -61,7 +61,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           </div>
 
           <div className="rounded-large bg-gradient-to-br from-accent-fill to-purple-600 h-96 flex items-center justify-center text-white text-center p-8 mb-12">
-            <span className="text-body text-white/80">{post.image}</span>
+            {post.image && <span className="text-body text-white/80">{post.image}</span>}
           </div>
 
           <div className="prose dark:prose-invert text-body text-text-secondary leading-relaxed whitespace-pre-line">

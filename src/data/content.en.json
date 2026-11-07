@@ -21,8 +21,7 @@
       "lead": "I build systems that solve real problems, and the interfaces that bring them to life. From React frontends to Python backends, I focus on clarity, performance, and delightful user experience.",
       "primaryCTA": { "label": "Hire me", "href": "#contact" },
       "secondaryCTA": { "label": "See my work", "href": "/work" },
-      "tertiaryCTA": { "label": "Browse products", "href": "/products" },
-      "image": "[ADD screenshot]"
+      "tertiaryCTA": { "label": "Browse products", "href": "/products" }
     },
     "atGlance": {
       "headline": "At a glance.",
@@ -62,7 +61,6 @@
     },
     "products": {
       "headline": "Products.",
-      "lead": "[ADD one-line positioning]",
       "cta": { "label": "All products", "href": "/products" }
     },
     "work": {
@@ -75,8 +73,7 @@
     },
     "closing": {
       "headline": "Let's build something useful.",
-      "primaryCTA": { "label": "Get in touch", "href": "/contact" },
-      "secondaryCTA": { "label": "Download CV", "href": "[ADD cv-link]" }
+      "primaryCTA": { "label": "Get in touch", "href": "/contact" }
     }
   },
   "contact": {
@@ -101,8 +98,7 @@
       {
         "title": "Products",
         "links": [
-          { "label": "All products", "href": "/products" },
-          { "label": "[ADD categories]", "href": "[ADD]" }
+          { "label": "All products", "href": "/products" }
         ]
       },
       {

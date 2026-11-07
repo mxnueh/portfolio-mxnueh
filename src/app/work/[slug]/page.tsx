@@ -43,9 +43,11 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
           </div>
           <h1 className="text-section font-600 mb-6">{study.title}</h1>
           <p className="text-lead text-text-secondary mb-12">{study.description}</p>
-          <div className="rounded-large bg-gradient-to-br from-accent-fill to-purple-600 h-96 flex items-center justify-center text-white p-8 mb-12">
-            {study.image}
-          </div>
+          {study.image && (
+            <div className="rounded-large bg-gradient-to-br from-accent-fill to-purple-600 h-96 flex items-center justify-center text-white p-8 mb-12">
+              {study.image}
+            </div>
+          )}
           <Card>
             <div className="prose dark:prose-invert">{study.content}</div>
           </Card>

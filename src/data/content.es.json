@@ -21,8 +21,7 @@
       "lead": "Construyo sistemas que resuelven problemas reales, e interfaces que los hacen posibles. Desde frontends en React hasta backends en Python, me enfoco en claridad, rendimiento y experiencias delightful.",
       "primaryCTA": { "label": "Contratarme", "href": "#contact" },
       "secondaryCTA": { "label": "Ver mi trabajo", "href": "/work" },
-      "tertiaryCTA": { "label": "Explorar productos", "href": "/products" },
-      "image": "[ADD screenshot]"
+      "tertiaryCTA": { "label": "Explorar productos", "href": "/products" }
     },
     "atGlance": {
       "headline": "De un vistazo.",
@@ -62,7 +61,6 @@
     },
     "products": {
       "headline": "Productos.",
-      "lead": "[ADD one-line positioning]",
       "cta": { "label": "Todos los productos", "href": "/products" }
     },
     "work": {
@@ -75,8 +73,7 @@
     },
     "closing": {
       "headline": "Construyamos algo útil.",
-      "primaryCTA": { "label": "Contactarme", "href": "/contact" },
-      "secondaryCTA": { "label": "Descargar CV", "href": "[ADD cv-link]" }
+      "primaryCTA": { "label": "Contactarme", "href": "/contact" }
     }
   },
   "contact": {
@@ -101,8 +98,7 @@
       {
         "title": "Productos",
         "links": [
-          { "label": "Todos los productos", "href": "/products" },
-          { "label": "[ADD categories]", "href": "[ADD]" }
+          { "label": "Todos los productos", "href": "/products" }
         ]
       },
       {

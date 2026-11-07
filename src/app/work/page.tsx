@@ -46,7 +46,7 @@ export default async function WorkPage() {
                         </div>
                       )}
                     </div>
-                    {study.image && study.image !== '[ADD screenshot]' && (
+                    {study.image && (
                       <div className="w-full md:w-80 h-48 rounded-xl bg-bg-alt dark:bg-surface-dark flex items-center justify-center flex-shrink-0">
                         <span className="text-text-tertiary text-sm">{study.image}</span>
                       </div>
