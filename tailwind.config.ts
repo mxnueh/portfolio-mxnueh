@@ -68,7 +68,7 @@ const config: Config = {
         'hero': ['64px', { lineHeight: '72px', fontWeight: '600', letterSpacing: '-0.02em' }],
       },
       fontFamily: {
-        sans: ['-apple-system', 'BlinkMacSystemFont', '"SF Pro Display"', '"SF Pro Text"', '"Inter"', '"Helvetica Neue"', 'Arial', 'sans-serif'],
+        sans: ['var(--font-inter)', '-apple-system', 'BlinkMacSystemFont', '"SF Pro Display"', '"SF Pro Text"', '"Helvetica Neue"', 'Arial', 'sans-serif'],
         mono: ['ui-monospace', '"SF Mono"', 'Menlo', 'monospace'],
       },
       spacing: {
