@@ -29,21 +29,28 @@ const validRoutes = [
   '/work',
   '/blog',
   '/contact',
+  '/es',
+  '/es/work',
+  '/es/blog',
+  '/es/contact',
 ];
 
 // Conditionally add products routes
 if (productsEnabled) {
-  validRoutes.push('/products');
+  validRoutes.push('/products', '/es/products');
 }
 
 // Dynamic route patterns
 const dynamicPatterns = [
   { pattern: /^\/work\/[\w-]+$/, source: 'src/data/caseStudies.ts', slugKey: 'slug' },
   { pattern: /^\/blog\/[\w-]+$/, source: 'src/data/posts.ts', slugKey: 'slug' },
+  { pattern: /^\/es\/work\/[\w-]+$/, source: 'src/data/caseStudies.ts', slugKey: 'slug' },
+  { pattern: /^\/es\/blog\/[\w-]+$/, source: 'src/data/posts.ts', slugKey: 'slug' },
 ];
 
 if (productsEnabled) {
   dynamicPatterns.push({ pattern: /^\/products\/[\w-]+$/, source: 'src/data/products.ts', slugKey: 'slug' });
+  dynamicPatterns.push({ pattern: /^\/es\/products\/[\w-]+$/, source: 'src/data/products.ts', slugKey: 'slug' });
 }
 
 // Extract slugs from data files
@@ -122,11 +129,9 @@ const files = findFiles(srcDir, /\.(tsx?|jsx?)$/);
 
 const allHrefs = files.flatMap(extractHrefs);
 
-// Filter out /es/ routes (will be handled in WP7)
-// Also filter out /products when products feature is disabled (conditional render)
+// Filter out /products when products feature is disabled (conditional render)
 const hrefsToCheck = allHrefs.filter(({ href }) => {
-  if (href.startsWith('/es/') || href === '/es') return false;
-  if (!productsEnabled && href.startsWith('/products')) return false;
+  if (!productsEnabled && (href.startsWith('/products') || href.startsWith('/es/products'))) return false;
   return true;
 });
 const brokenLinks = hrefsToCheck.filter(({ href }) => !isValidRoute(href));
@@ -134,7 +139,6 @@ const brokenLinks = hrefsToCheck.filter(({ href }) => !isValidRoute(href));
 if (brokenLinks.length === 0) {
   console.log('✅ All internal links are valid');
   console.log(`   Checked ${hrefsToCheck.length} links across ${files.length} files`);
-  console.log(`   Skipped ${allHrefs.length - hrefsToCheck.length} /es/ routes (WP7)`);
   console.log(`   Products feature: ${productsEnabled ? 'enabled' : 'disabled'}`);
   process.exit(0);
 } else {

@@ -36,9 +36,6 @@ export default async function EsHomePage() {
               {content.home.hero.secondaryCTA.label}
             </TextLink>
           </div>
-          <TextLink href="/es/products" className="justify-center mb-16">
-            {content.home.hero.tertiaryCTA.label}
-          </TextLink>
         </div>
       </Section>
 
