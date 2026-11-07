@@ -2,6 +2,7 @@ import { GlobalNav } from '@/components/GlobalNav';
 import { Footer } from '@/components/Footer';
 import { Section, Card } from '@/components/Section';
 import { TextLink } from '@/components/Button';
+import { Markdown } from '@/components/Markdown';
 import { getCaseStudy, getCaseStudies, getContent } from '@/lib/getContent';
 
 interface CaseStudyPageProps {
@@ -48,9 +49,7 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
               {study.image}
             </div>
           )}
-          <Card>
-            <div className="prose dark:prose-invert">{study.content}</div>
-          </Card>
+          <Markdown content={study.content} />
 
           {(prevStudy || nextStudy) && (
             <nav className="mt-16 pt-8 border-t border-stroke flex justify-between gap-8">

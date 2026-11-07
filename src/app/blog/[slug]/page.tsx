@@ -2,6 +2,7 @@ import { GlobalNav } from '@/components/GlobalNav';
 import { Footer } from '@/components/Footer';
 import { Section } from '@/components/Section';
 import { TextLink } from '@/components/Button';
+import { Markdown } from '@/components/Markdown';
 import { getPost, getPosts, getContent } from '@/lib/getContent';
 
 interface BlogPostPageProps {
@@ -64,9 +65,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             {post.image && <span className="text-body text-white/80">{post.image}</span>}
           </div>
 
-          <div className="prose dark:prose-invert text-body text-text-secondary leading-relaxed whitespace-pre-line">
-            {post.content}
-          </div>
+          <Markdown content={post.content} />
 
           {(prevPost || nextPost) && (
             <nav className="mt-16 pt-8 border-t border-stroke flex justify-between gap-8">
