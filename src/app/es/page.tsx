@@ -5,6 +5,7 @@ import { Section, SectionHeading } from '@/components/Section';
 import { Tile } from '@/components/Tile';
 import { CategoryBadge } from '@/components/CategoryBadge';
 import { getContent, getFeaturedPosts, getFeaturedProducts, getCaseStudies } from '@/lib/getContent';
+import { decorativeMotion, decorativeDelay } from '@/lib/motion';
 import Link from 'next/link';
 
 export default async function EsHomePage() {
@@ -21,16 +22,16 @@ export default async function EsHomePage() {
       {/* Hero */}
       <Section variant="white">
         <div className="max-w-text mx-auto text-center">
-          <p className="text-eyebrow text-text-tertiary dark:text-dark-text-secondary mb-8 animate-fade-in">
+          <p className={`text-eyebrow text-text-tertiary dark:text-dark-text-secondary mb-8 ${decorativeMotion('animate-fade-in')}`}>
             {content.home.hero.eyebrow}
           </p>
-          <h1 className="text-hero md:text-hero-tablet lg:text-hero-mobile font-600 mb-8 animate-fade-in" style={{ animationDelay: '0.08s' }}>
+          <h1 className={`text-hero md:text-hero-tablet lg:text-hero-mobile font-600 mb-8 ${decorativeMotion('animate-fade-in')}`} style={decorativeDelay(0.08)}>
             {content.home.hero.headline}
           </h1>
-          <p className="text-lead md:text-lead-tablet lg:text-lead-mobile text-text-secondary dark:text-dark-text-secondary mb-12 animate-fade-in" style={{ animationDelay: '0.16s' }}>
+          <p className={`text-lead md:text-lead-tablet lg:text-lead-mobile text-text-secondary dark:text-dark-text-secondary mb-12 ${decorativeMotion('animate-fade-in')}`} style={decorativeDelay(0.16)}>
             {content.home.hero.lead}
           </p>
-          <div className="flex flex-col sm:flex-row gap-8 justify-center mb-16 animate-fade-in" style={{ animationDelay: '0.24s' }}>
+          <div className={`flex flex-col sm:flex-row gap-8 justify-center mb-16 ${decorativeMotion('animate-fade-in')}`} style={decorativeDelay(0.24)}>
             <Button href="/es/contact" variant="primary">
               {content.home.hero.primaryCTA.label}
             </Button>
@@ -48,10 +49,10 @@ export default async function EsHomePage() {
           {content.home.atGlance.cards.map((card, idx) => (
             <Tile
               key={idx}
-              className={`p-8 flex flex-col justify-between animate-fade-in ${
+              className={`p-8 flex flex-col justify-between ${decorativeMotion('animate-fade-in')} ${
                 card.span === 2 ? 'md:col-span-2' : ''
               }`}
-              style={{ animationDelay: `${idx * 0.06}s` }}
+              style={decorativeDelay(idx * 0.06)}
             >
               {card.isHighlight ? (
                 <>

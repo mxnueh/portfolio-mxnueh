@@ -22,6 +22,13 @@ export const siteConfig = {
     products: false,
     blog: true,
     about: true,
+    /**
+     * U20: Rich motion (decorative animations)
+     * When false: only feedback motion (hover, press, focus) is active
+     * Decorative animations (fade-in, slide-up on page load) are disabled
+     * Respects prefers-reduced-motion at the OS level regardless of this flag
+     */
+    richMotion: false,
   },
 
   /**

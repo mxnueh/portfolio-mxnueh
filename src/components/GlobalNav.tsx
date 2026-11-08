@@ -5,6 +5,7 @@ import { useState } from 'react';
 import { Language } from '@/lib/types';
 import { getContent } from '@/lib/getContent';
 import { siteConfig } from '@/config/site';
+import { decorativeMotion } from '@/lib/motion';
 
 interface GlobalNavProps {
   lang: Language;
@@ -75,7 +76,7 @@ export function GlobalNav({ lang }: GlobalNavProps) {
 
       {/* Mobile menu */}
       {isMenuOpen && (
-        <div className="md:hidden absolute top-12 left-0 right-0 bg-white dark:bg-black border-b border-separator dark:border-separator p-8 flex flex-col gap-4 animate-fade-in">
+        <div className={`md:hidden absolute top-12 left-0 right-0 bg-white dark:bg-black border-b border-separator dark:border-separator p-8 flex flex-col gap-4 ${decorativeMotion('animate-fade-in')}`}>
           {navLinks.map((link, i) => (
             <Link
               key={link.href}
