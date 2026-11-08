@@ -4,6 +4,7 @@ import { GlobalNav } from '@/components/GlobalNav';
 import { Footer } from '@/components/Footer';
 import { Section } from '@/components/Section';
 import { Tile } from '@/components/Tile';
+import { Eyebrow } from '@/components/Eyebrow';
 import { Button } from '@/components/Button';
 import { getProducts } from '@/lib/getContent';
 import type { Metadata } from 'next';
@@ -35,7 +36,7 @@ export default async function ProductsPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {products.map((product) => (
               <Tile key={product.id}>
-                <p className="text-sm uppercase tracking-wider text-accent-fill mb-4">{product.category}</p>
+                <Eyebrow color="accent" className="mb-4">{product.category}</Eyebrow>
                 <h2 className="text-2xl font-semibold mb-4">{product.name}</h2>
                 <p className="text-text-secondary mb-4">{product.tagline}</p>
                 <p className="text-xl font-semibold mb-4">

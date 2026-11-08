@@ -141,7 +141,6 @@ export default async function HomePage({ params }: HomePageProps) {
                 <Tile interactive elevation="e1">
                   <div className="flex flex-col md:flex-row gap-8">
                     <div className="flex-1">
-                      <p className="text-sm uppercase tracking-wider text-accent-fill mb-4">{study.eyebrow}</p>
                       <h3 className="text-3xl font-semibold mb-4 group-hover:text-accent-fill transition-colors">
                         {study.title}
                       </h3>

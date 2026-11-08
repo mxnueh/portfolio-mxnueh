@@ -4,6 +4,7 @@ import { GlobalNav } from '@/components/GlobalNav';
 import { Footer } from '@/components/Footer';
 import { Section } from '@/components/Section';
 import { Tile } from '@/components/Tile';
+import { Eyebrow } from '@/components/Eyebrow';
 import { siteConfig } from '@/config/site';
 import { useState } from 'react';
 import type { Metadata } from 'next';
@@ -35,7 +36,7 @@ export default function ContactPage() {
 
           {/* Email */}
           <Tile className="mb-8">
-            <p className="text-sm uppercase tracking-wider text-text-secondary mb-4">Email</p>
+            <Eyebrow className="mb-4">Email</Eyebrow>
             <p className="text-2xl font-semibold mb-8">{siteConfig.contact.email}</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
@@ -65,7 +66,7 @@ export default function ContactPage() {
                     rel="noopener noreferrer"
                     className="block"
                   >
-                    <p className="text-sm uppercase tracking-wider text-text-secondary mb-4">{social.label}</p>
+                    <Eyebrow className="mb-4">{social.label}</Eyebrow>
                     <p className="text-lg font-semibold text-accent-fill flex items-center justify-center gap-4">
                       View profile
                       <span className="text-xs">→</span>

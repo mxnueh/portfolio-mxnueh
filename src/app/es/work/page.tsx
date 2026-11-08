@@ -23,9 +23,6 @@ export default async function EsWorkPage() {
               <Tile interactive elevation="e1">
                 <div className="flex flex-col md:flex-row gap-8">
                   <div className="flex-1">
-                    <p className="text-eyebrow text-text-tertiary mb-4 group-hover:text-text-secondary transition-colors">
-                      {study.eyebrow}
-                    </p>
                     <h3 className="text-card-title font-600 mb-4">{study.title}</h3>
                     <p className="text-body text-text-secondary mb-4">{study.description}</p>
                     <div className="flex flex-wrap gap-4 mb-4">

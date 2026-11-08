@@ -132,9 +132,6 @@ export default async function EsHomePage() {
           {caseStudies.slice(0, 3).map((study) => (
             <Link key={study.id} href={`/es/work/${study.slug}`} className="group block">
               <Tile interactive elevation="e1">
-                <p className="text-eyebrow text-text-tertiary mb-4 group-hover:text-text-secondary transition-colors">
-                  {study.eyebrow}
-                </p>
                 <h3 className="text-subhead md:text-subhead-tablet lg:text-subhead-mobile font-600 mb-4 group-hover:opacity-75 transition-opacity">
                   {study.title}
                 </h3>
