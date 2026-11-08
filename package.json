@@ -5,7 +5,9 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "typecheck": "tsc --noEmit",
+    "check:site": "node scripts/check-contrast.mjs && node scripts/check-links.mjs"
   },
   "dependencies": {
     "clsx": "^2.1.1",
