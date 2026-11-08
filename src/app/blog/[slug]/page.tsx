@@ -52,10 +52,10 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             <TextLink href="/blog">← Back to blog</TextLink>
           </div>
           <p className="text-eyebrow text-text-tertiary mb-4">{post.category}</p>
-          <h1 className="text-section md:text-section-tablet lg:text-section-mobile font-600 mb-6">
+          <h1 className="text-section md:text-section-tablet lg:text-section-mobile font-600 mb-8">
             {post.title}
           </h1>
-          <div className="flex items-center gap-6 text-caption text-text-tertiary mb-12">
+          <div className="flex items-center gap-8 text-caption text-text-tertiary mb-12">
             <span>{new Date(post.date).toLocaleDateString()}</span>
             <span>•</span>
             <span>{post.readingTime} min read</span>
@@ -71,7 +71,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             <nav className="mt-16 pt-8 border-t border-stroke flex justify-between gap-8">
               {prevPost ? (
                 <div className="flex-1">
-                  <p className="text-caption text-text-tertiary mb-2">Previous</p>
+                  <p className="text-caption text-text-tertiary mb-4">Previous</p>
                   <TextLink href={`/blog/${prevPost.slug}`}>{prevPost.title}</TextLink>
                 </div>
               ) : (
@@ -79,7 +79,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               )}
               {nextPost ? (
                 <div className="flex-1 text-right">
-                  <p className="text-caption text-text-tertiary mb-2">Next</p>
+                  <p className="text-caption text-text-tertiary mb-4">Next</p>
                   <TextLink href={`/blog/${nextPost.slug}`}>{nextPost.title}</TextLink>
                 </div>
               ) : (

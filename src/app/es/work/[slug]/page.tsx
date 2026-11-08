@@ -42,7 +42,7 @@ export default async function EsCaseStudyPage({ params }: CaseStudyPageProps) {
           <div className="mb-8">
             <TextLink href="/es/work">← Volver al trabajo</TextLink>
           </div>
-          <h1 className="text-section font-600 mb-6">{study.title}</h1>
+          <h1 className="text-section font-600 mb-8">{study.title}</h1>
           <p className="text-lead text-text-secondary mb-12">{study.description}</p>
           {study.image && (
             <div className="rounded-large bg-gradient-to-br from-accent-fill to-purple-600 h-96 flex items-center justify-center text-white p-8 mb-12">
@@ -55,7 +55,7 @@ export default async function EsCaseStudyPage({ params }: CaseStudyPageProps) {
             <nav className="mt-16 pt-8 border-t border-stroke flex justify-between gap-8">
               {prevStudy ? (
                 <div className="flex-1">
-                  <p className="text-caption text-text-tertiary mb-2">Anterior</p>
+                  <p className="text-caption text-text-tertiary mb-4">Anterior</p>
                   <TextLink href={`/es/work/${prevStudy.slug}`}>{prevStudy.title}</TextLink>
                 </div>
               ) : (
@@ -63,7 +63,7 @@ export default async function EsCaseStudyPage({ params }: CaseStudyPageProps) {
               )}
               {nextStudy ? (
                 <div className="flex-1 text-right">
-                  <p className="text-caption text-text-tertiary mb-2">Siguiente</p>
+                  <p className="text-caption text-text-tertiary mb-4">Siguiente</p>
                   <TextLink href={`/es/work/${nextStudy.slug}`}>{nextStudy.title}</TextLink>
                 </div>
               ) : (

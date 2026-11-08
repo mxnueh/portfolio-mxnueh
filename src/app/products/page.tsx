@@ -27,7 +27,7 @@ export default async function ProductsPage() {
 
       <Section variant="white">
         <div className="max-w-6xl mx-auto">
-          <h1 className="text-5xl md:text-6xl font-semibold mb-6">Products</h1>
+          <h1 className="text-5xl md:text-6xl font-semibold mb-8">Products</h1>
           <p className="text-xl text-text-secondary mb-12 max-w-3xl">
             Digital products and tools.
           </p>
@@ -35,8 +35,8 @@ export default async function ProductsPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {products.map((product) => (
               <Tile key={product.id}>
-                <p className="text-sm uppercase tracking-wider text-accent-fill mb-3">{product.category}</p>
-                <h2 className="text-2xl font-semibold mb-2">{product.name}</h2>
+                <p className="text-sm uppercase tracking-wider text-accent-fill mb-4">{product.category}</p>
+                <h2 className="text-2xl font-semibold mb-4">{product.name}</h2>
                 <p className="text-text-secondary mb-4">{product.tagline}</p>
                 <p className="text-xl font-semibold mb-4">
                   {product.status === 'Coming soon' ? 'Coming soon' : product.status === 'Waitlist' ? 'Join waitlist' : product.price}

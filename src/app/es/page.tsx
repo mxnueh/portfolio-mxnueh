@@ -20,7 +20,7 @@ export default async function EsHomePage() {
       {/* Hero */}
       <Section variant="white">
         <div className="max-w-text mx-auto text-center">
-          <p className="text-eyebrow text-text-tertiary dark:text-dark-text-secondary mb-6 animate-fade-in">
+          <p className="text-eyebrow text-text-tertiary dark:text-dark-text-secondary mb-8 animate-fade-in">
             {content.home.hero.eyebrow}
           </p>
           <h1 className="text-hero md:text-hero-tablet lg:text-hero-mobile font-600 mb-8 animate-fade-in" style={{ animationDelay: '0.08s' }}>
@@ -29,7 +29,7 @@ export default async function EsHomePage() {
           <p className="text-lead md:text-lead-tablet lg:text-lead-mobile text-text-secondary dark:text-dark-text-secondary mb-12 animate-fade-in" style={{ animationDelay: '0.16s' }}>
             {content.home.hero.lead}
           </p>
-          <div className="flex flex-col sm:flex-row gap-6 justify-center mb-16 animate-fade-in" style={{ animationDelay: '0.24s' }}>
+          <div className="flex flex-col sm:flex-row gap-8 justify-center mb-16 animate-fade-in" style={{ animationDelay: '0.24s' }}>
             <Button href="/es/contact" variant="primary">
               {content.home.hero.primaryCTA.label}
             </Button>
@@ -43,7 +43,7 @@ export default async function EsHomePage() {
       {/* At a Glance */}
       <Section variant="gray">
         <SectionHeading headline={content.home.atGlance.headline} />
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
           {content.home.atGlance.cards.map((card, idx) => (
             <Tile
               key={idx}
@@ -54,7 +54,7 @@ export default async function EsHomePage() {
             >
               {card.isHighlight ? (
                 <>
-                  <p className="text-card-title md:text-card-title-tablet lg:text-card-title-mobile font-600 mb-6">
+                  <p className="text-card-title md:text-card-title-tablet lg:text-card-title-mobile font-600 mb-8">
                     {card.title}
                   </p>
                   <TextLink href={card.cta?.href || '/'}>
@@ -68,16 +68,16 @@ export default async function EsHomePage() {
                 </>
               ) : (
                 <>
-                  <p className="text-card-title md:text-card-title-tablet lg:text-card-title-mobile font-600 mb-2">
+                  <p className="text-card-title md:text-card-title-tablet lg:text-card-title-mobile font-600 mb-4">
                     {card.title}
                   </p>
                   <p className="text-body text-text-secondary dark:text-dark-text-secondary mb-4">{card.label}</p>
                   {card.chips && (
-                    <div className="flex flex-wrap gap-2 mt-auto">
+                    <div className="flex flex-wrap gap-4 mt-auto">
                       {card.chips.map((chip) => (
                         <span
                           key={chip}
-                          className="inline-flex px-3 py-1 rounded-full bg-bg-alt dark:bg-dark-bg-alt text-caption text-text-secondary dark:text-dark-text-secondary"
+                          className="inline-flex px-4 py-4 rounded-full bg-bg-alt dark:bg-dark-bg-alt text-caption text-text-secondary dark:text-dark-text-secondary"
                         >
                           {chip}
                         </span>
@@ -101,11 +101,11 @@ export default async function EsHomePage() {
             {featuredProducts.map((product) => (
               <Tile key={product.id} className="bg-surface-dark dark:bg-surface-dark">
                 <p className="text-eyebrow text-text-tertiary dark:text-white mb-4">{product.category}</p>
-                <h3 className="text-card-title md:text-card-title-tablet lg:text-card-title-mobile font-600 text-text-primary dark:text-white mb-2">
+                <h3 className="text-card-title md:text-card-title-tablet lg:text-card-title-mobile font-600 text-text-primary dark:text-white mb-4">
                   {product.name}
                 </h3>
-                <p className="text-body text-text-secondary dark:text-gray-400 mb-6">{product.tagline}</p>
-                <p className="text-price text-text-primary dark:text-white mb-6">Desde {product.price}</p>
+                <p className="text-body text-text-secondary dark:text-gray-400 mb-8">{product.tagline}</p>
+                <p className="text-price text-text-primary dark:text-white mb-8">Desde {product.price}</p>
                 <div className="flex flex-col sm:flex-row gap-4">
                   <Button href={`/es/products/${product.slug}`} variant="primary">Comprar</Button>
                   <TextLink href={`/es/products/${product.slug}`}>Aprende más</TextLink>
@@ -134,13 +134,13 @@ export default async function EsHomePage() {
                 <p className="text-eyebrow text-text-tertiary mb-4 group-hover:text-text-secondary transition-colors">
                   {study.eyebrow}
                 </p>
-                <h3 className="text-subhead md:text-subhead-tablet lg:text-subhead-mobile font-600 mb-2 group-hover:opacity-75 transition-opacity">
+                <h3 className="text-subhead md:text-subhead-tablet lg:text-subhead-mobile font-600 mb-4 group-hover:opacity-75 transition-opacity">
                   {study.title}
                 </h3>
-                <p className="text-body text-text-secondary mb-6 group-hover:text-text-primary transition-colors">
+                <p className="text-body text-text-secondary mb-8 group-hover:text-text-primary transition-colors">
                   {study.description}
                 </p>
-                <div className="flex items-center gap-1 text-link group-hover:opacity-75 transition-opacity">
+                <div className="flex items-center gap-4 text-link group-hover:opacity-75 transition-opacity">
                   Leer el caso de estudio
                   <span className="text-xs">›</span>
                 </div>
@@ -171,10 +171,10 @@ export default async function EsHomePage() {
                 <h3 className="text-card-title md:text-card-title-tablet lg:text-card-title-mobile font-600 mb-4 group-hover:opacity-75 transition-opacity line-clamp-2">
                   {post.title}
                 </h3>
-                <p className="text-body text-text-secondary mb-6 line-clamp-2">{post.excerpt}</p>
+                <p className="text-body text-text-secondary mb-8 line-clamp-2">{post.excerpt}</p>
                 <div className="flex items-center justify-between">
                   <span className="text-caption text-text-tertiary">{post.readingTime} min lectura</span>
-                  <div className="flex items-center gap-1 text-link group-hover:opacity-75 transition-opacity">
+                  <div className="flex items-center gap-4 text-link group-hover:opacity-75 transition-opacity">
                     Leer
                     <span className="text-xs">›</span>
                   </div>
@@ -194,7 +194,7 @@ export default async function EsHomePage() {
           <h2 className="text-subhead md:text-subhead-tablet lg:text-subhead-mobile font-600 mb-12">
             {content.home.closing.headline}
           </h2>
-          <div className="flex flex-col sm:flex-row gap-6 justify-center">
+          <div className="flex flex-col sm:flex-row gap-8 justify-center">
             <Button href="/es/contact" variant="primary">
               {content.home.closing.primaryCTA.label}
             </Button>

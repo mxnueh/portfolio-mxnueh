@@ -29,7 +29,7 @@ export default async function HomePage({ params }: HomePageProps) {
           <p className="text-sm uppercase tracking-wider text-text-secondary mb-4">
             {content.home.hero.eyebrow}
           </p>
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-semibold mb-6 tracking-tight">
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-semibold mb-8 tracking-tight">
             {content.home.hero.headline}
           </h1>
           <p className="text-xl md:text-2xl text-text-secondary mb-12 max-w-3xl mx-auto leading-relaxed">
@@ -50,13 +50,13 @@ export default async function HomePage({ params }: HomePageProps) {
       <Section variant="gray">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-4xl md:text-5xl font-semibold mb-12 text-center">At a glance</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {/* Frontend to Backend */}
             <Tile className="md:col-span-2">
               <h3 className="text-2xl font-semibold mb-4">Frontend to backend</h3>
-              <div className="flex flex-wrap gap-2">
+              <div className="flex flex-wrap gap-4">
                 {['React', 'TypeScript', 'Tailwind', 'Python', 'PostgreSQL'].map((tech) => (
-                  <span key={tech} className="px-3 py-1 bg-bg-alt dark:bg-dark-bg-alt rounded-full text-sm">
+                  <span key={tech} className="px-4 py-4 bg-bg-alt dark:bg-dark-bg-alt rounded-full text-sm">
                     {tech}
                   </span>
                 ))}
@@ -65,25 +65,25 @@ export default async function HomePage({ params }: HomePageProps) {
 
             {/* Hackathons */}
             <Tile className="flex flex-col justify-center">
-              <div className="text-5xl font-bold mb-2">4</div>
+              <div className="text-5xl font-bold mb-4">4</div>
               <p className="text-text-secondary">hackathon finals, 2 of them NASA</p>
             </Tile>
 
             {/* GSoC */}
             <Tile className="flex flex-col justify-center">
-              <h3 className="text-xl font-semibold mb-2">Google Summer of Code 2026</h3>
+              <h3 className="text-xl font-semibold mb-4">Google Summer of Code 2026</h3>
               <p className="text-text-secondary">omegaUp contributor</p>
             </Tile>
 
             {/* Systems Design */}
             <Tile>
-              <h3 className="text-xl font-semibold mb-2">Systems design</h3>
+              <h3 className="text-xl font-semibold mb-4">Systems design</h3>
               <p className="text-text-secondary">Architecture, data flow, roles and permissions</p>
             </Tile>
 
             {/* Education */}
             <Tile>
-              <h3 className="text-xl font-semibold mb-2">English B2</h3>
+              <h3 className="text-xl font-semibold mb-4">English B2</h3>
               <p className="text-text-secondary">Software Development at ITLA</p>
             </Tile>
 
@@ -106,17 +106,17 @@ export default async function HomePage({ params }: HomePageProps) {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {featuredProducts.map((product) => (
                 <div key={product.id} className="bg-surface-dark rounded-large p-8">
-                  <p className="text-sm uppercase tracking-wider text-blue-400 mb-3">{product.category}</p>
-                  <h3 className="text-2xl font-semibold text-white mb-2">{product.name}</h3>
+                  <p className="text-sm uppercase tracking-wider text-blue-400 mb-4">{product.category}</p>
+                  <h3 className="text-2xl font-semibold text-white mb-4">{product.name}</h3>
                   <p className="text-gray-400 mb-4">{product.tagline}</p>
-                  <p className="text-xl font-semibold text-white mb-6">From {product.price}</p>
+                  <p className="text-xl font-semibold text-white mb-8">From {product.price}</p>
                   <div className="flex gap-4">
                     <Button href={`/products/${product.slug}`} variant="primary">
                       {product.status === 'Available' ? 'Buy' : 'Learn more'}
                     </Button>
                   </div>
                   {product.hero && (
-                    <div className="rounded-large bg-dark-bg-alt h-40 mt-6 flex items-center justify-center text-white/60">
+                    <div className="rounded-large bg-dark-bg-alt h-40 mt-8 flex items-center justify-center text-white/60">
                       {product.hero}
                     </div>
                   )}
@@ -134,18 +134,18 @@ export default async function HomePage({ params }: HomePageProps) {
       <Section variant="white">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-4xl md:text-5xl font-semibold mb-12 text-center">Selected work</h2>
-          <div className="space-y-6">
+          <div className="space-y-8">
             {caseStudies.slice(0, 3).map((study) => (
               <Link key={study.id} href={`/work/${study.slug}`} className="group block">
                 <Tile interactive elevation="e1">
                   <div className="flex flex-col md:flex-row gap-8">
                     <div className="flex-1">
-                      <p className="text-sm uppercase tracking-wider text-accent-fill mb-2">{study.eyebrow}</p>
-                      <h3 className="text-3xl font-semibold mb-3 group-hover:text-accent-fill transition-colors">
+                      <p className="text-sm uppercase tracking-wider text-accent-fill mb-4">{study.eyebrow}</p>
+                      <h3 className="text-3xl font-semibold mb-4 group-hover:text-accent-fill transition-colors">
                         {study.title}
                       </h3>
                       <p className="text-lg text-text-secondary mb-4">{study.description}</p>
-                      <div className="flex items-center gap-2 text-accent-fill">
+                      <div className="flex items-center gap-4 text-accent-fill">
                         Read case study
                         <span>→</span>
                       </div>
@@ -170,12 +170,12 @@ export default async function HomePage({ params }: HomePageProps) {
       <Section variant="gray">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-4xl md:text-5xl font-semibold mb-12 text-center">From the blog</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {featuredPosts.map((post) => (
               <Link key={post.id} href={`/blog/${post.slug}`} className="group block">
                 <Tile interactive elevation="e1" className="h-full">
-                  <p className="text-sm uppercase tracking-wider text-accent-fill mb-3">{post.category}</p>
-                  <h3 className="text-xl font-semibold mb-3 group-hover:text-accent-fill transition-colors line-clamp-2">
+                  <p className="text-sm uppercase tracking-wider text-accent-fill mb-4">{post.category}</p>
+                  <h3 className="text-xl font-semibold mb-4 group-hover:text-accent-fill transition-colors line-clamp-2">
                     {post.title}
                   </h3>
                   <p className="text-text-secondary mb-4 line-clamp-2">{post.excerpt}</p>

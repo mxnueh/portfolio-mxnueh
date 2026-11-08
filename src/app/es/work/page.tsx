@@ -26,16 +26,16 @@ export default async function EsWorkPage() {
                     <p className="text-eyebrow text-text-tertiary mb-4 group-hover:text-text-secondary transition-colors">
                       {study.eyebrow}
                     </p>
-                    <h3 className="text-card-title font-600 mb-2">{study.title}</h3>
+                    <h3 className="text-card-title font-600 mb-4">{study.title}</h3>
                     <p className="text-body text-text-secondary mb-4">{study.description}</p>
-                    <div className="flex flex-wrap gap-2 mb-4">
+                    <div className="flex flex-wrap gap-4 mb-4">
                       {study.stack.slice(0, 3).map((tech) => (
-                        <span key={tech} className="text-caption bg-separator/20 px-3 py-1 rounded-full">
+                        <span key={tech} className="text-caption bg-separator/20 px-4 py-4 rounded-full">
                           {tech}
                         </span>
                       ))}
                       {study.stack.length > 3 && (
-                        <span className="text-caption text-text-secondary px-3 py-1">
+                        <span className="text-caption text-text-secondary px-4 py-4">
                           +{study.stack.length - 3} more
                         </span>
                       )}

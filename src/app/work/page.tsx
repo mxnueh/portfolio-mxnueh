@@ -21,26 +21,26 @@ export default async function WorkPage() {
 
       <Section variant="white">
         <div className="max-w-6xl mx-auto">
-          <h1 className="text-5xl md:text-6xl font-semibold mb-6">Work</h1>
+          <h1 className="text-5xl md:text-6xl font-semibold mb-8">Work</h1>
           <p className="text-xl text-text-secondary mb-12 max-w-3xl">
             Case studies from telemetry platforms to web systems. Each project shows real decisions, technical choices, and outcomes.
           </p>
 
-          <div className="space-y-6">
+          <div className="space-y-8">
             {caseStudies.map((study) => (
               <Link key={study.id} href={`/work/${study.slug}`} className="group block">
                 <Tile interactive elevation="e1">
                   <div className="flex flex-col md:flex-row gap-8">
                     <div className="flex-1">
-                      <p className="text-sm uppercase tracking-wider text-accent-fill mb-2">{study.eyebrow}</p>
-                      <h2 className="text-3xl font-semibold mb-3 group-hover:text-accent-fill transition-colors">
+                      <p className="text-sm uppercase tracking-wider text-accent-fill mb-4">{study.eyebrow}</p>
+                      <h2 className="text-3xl font-semibold mb-4 group-hover:text-accent-fill transition-colors">
                         {study.title}
                       </h2>
                       <p className="text-lg text-text-secondary mb-4">{study.description}</p>
                       {study.stack && study.stack.length > 0 && (
-                        <div className="flex flex-wrap gap-2">
+                        <div className="flex flex-wrap gap-4">
                           {study.stack.map((tech) => (
-                            <span key={tech} className="px-3 py-1 bg-bg-alt dark:bg-dark-bg-alt rounded-full text-sm">
+                            <span key={tech} className="px-4 py-4 bg-bg-alt dark:bg-dark-bg-alt rounded-full text-sm">
                               {tech}
                             </span>
                           ))}

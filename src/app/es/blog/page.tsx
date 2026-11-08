@@ -27,7 +27,7 @@ export default async function EsBlogPage() {
                 <h3 className="text-card-title font-600 mb-4 group-hover:text-accent-fill transition-colors">
                   {post.title}
                 </h3>
-                <p className="text-body text-text-secondary mb-6">{post.excerpt}</p>
+                <p className="text-body text-text-secondary mb-8">{post.excerpt}</p>
                 <div className="flex items-center justify-between">
                   <span className="text-caption text-text-tertiary">
                     {new Date(post.date).toLocaleDateString('es-ES')}

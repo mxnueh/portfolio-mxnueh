@@ -44,9 +44,9 @@ export default async function ProductPage({ params }: ProductPageProps) {
       <GlobalNav lang="en" />
       <Section variant="white">
         <div className="max-w-reading mx-auto">
-          <h1 className="text-section font-600 mb-6">{product.name}</h1>
-          <p className="text-lead text-text-secondary mb-6">{product.tagline}</p>
-          <p className="text-price mb-6">From {product.price}</p>
+          <h1 className="text-section font-600 mb-8">{product.name}</h1>
+          <p className="text-lead text-text-secondary mb-8">{product.tagline}</p>
+          <p className="text-price mb-8">From {product.price}</p>
           <div className="mb-12">
             <Button variant="primary">
               {product.status === 'Available' ? 'Buy now' : 'Coming soon'}

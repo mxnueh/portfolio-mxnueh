@@ -18,7 +18,7 @@ export function Button({
   children,
   external = false,
 }: ButtonProps) {
-  const baseClasses = 'h-11 px-6 rounded-full font-500 text-button flex items-center justify-center transition-colors duration-ui focus-visible';
+  const baseClasses = 'h-11 px-8 rounded-full font-500 text-button flex items-center justify-center transition-colors duration-ui focus-visible';
 
   const variantClasses = {
     primary: 'bg-accent-fill hover:bg-accent-hover text-white dark:bg-accent-fill dark:hover:bg-accent-hover',
@@ -58,7 +58,7 @@ interface TextLinkProps {
 }
 
 export function TextLink({ href = '#', children, external = false, className = '' }: TextLinkProps) {
-  const classes = `inline-flex items-center gap-1 text-link dark:text-dark-link hover:opacity-75 transition-opacity duration-ui ${className}`;
+  const classes = `inline-flex items-center gap-4 text-link dark:text-dark-link hover:opacity-75 transition-opacity duration-ui ${className}`;
 
   // Skip rendering if href is a placeholder
   if (href.includes('[ADD]') || href === '#[ADD]') {

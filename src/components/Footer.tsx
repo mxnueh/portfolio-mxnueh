@@ -51,7 +51,7 @@ export function Footer({ lang }: FooterProps) {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-16 mb-16">
           {footerColumns.map((column) => (
             <div key={column.title}>
-              <h3 className="text-caption font-600 text-text-secondary dark:text-dark-text-secondary uppercase mb-6">
+              <h3 className="text-caption font-600 text-text-secondary dark:text-dark-text-secondary uppercase mb-8">
                 {column.title}
               </h3>
               <ul className="space-y-4">
@@ -88,7 +88,7 @@ export function Footer({ lang }: FooterProps) {
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-8">
           {/* Link columns */}
           {legalLinks.length > 0 && (
-            <div className="flex flex-wrap gap-6">
+            <div className="flex flex-wrap gap-8">
               {legalLinks.map((link) => (
                 <Link
                   key={link.label}
@@ -102,7 +102,7 @@ export function Footer({ lang }: FooterProps) {
           )}
 
           {/* Controls */}
-          <div className="flex items-center gap-6">
+          <div className="flex items-center gap-8">
             {/* Language */}
             {siteConfig.locales.length > 1 && (
               <button
@@ -110,7 +110,7 @@ export function Footer({ lang }: FooterProps) {
                   const newLang = lang === 'es' ? 'en' : 'es';
                   window.location.href = `/${newLang === 'es' ? 'es' : ''}${window.location.pathname.replace(/^\/(es|en)?/, '')}`;
                 }}
-                className="text-caption text-text-secondary dark:text-dark-text-secondary hover:text-text-primary dark:hover:text-dark-text-primary transition-colors duration-ui min-h-[44px] px-3 flex items-center"
+                className="text-caption text-text-secondary dark:text-dark-text-secondary hover:text-text-primary dark:hover:text-dark-text-primary transition-colors duration-ui min-h-[44px] px-4 flex items-center"
                 aria-label="Switch language"
               >
                 {lang === 'es' ? 'EN' : 'ES'}
@@ -128,7 +128,7 @@ export function Footer({ lang }: FooterProps) {
                   // Storage not available
                 }
               }}
-              className="text-caption text-text-secondary dark:text-dark-text-secondary hover:text-text-primary dark:hover:text-dark-text-primary transition-colors duration-ui min-h-[44px] px-3 flex items-center"
+              className="text-caption text-text-secondary dark:text-dark-text-secondary hover:text-text-primary dark:hover:text-dark-text-primary transition-colors duration-ui min-h-[44px] px-4 flex items-center"
               aria-label="Toggle dark mode"
             >
               {lang === 'es' ? 'Tema' : 'Theme'}
@@ -144,7 +144,7 @@ export function Footer({ lang }: FooterProps) {
                   // Storage not available
                 }
               }}
-              className="text-caption text-text-secondary dark:text-dark-text-secondary hover:text-text-primary dark:hover:text-dark-text-primary transition-colors duration-ui min-h-[44px] px-3 flex items-center"
+              className="text-caption text-text-secondary dark:text-dark-text-secondary hover:text-text-primary dark:hover:text-dark-text-primary transition-colors duration-ui min-h-[44px] px-4 flex items-center"
               aria-label="Toggle animations"
             >
               {lang === 'es' ? (animationsEnabled ? 'Pausar' : 'Reanudar') : (animationsEnabled ? 'Pause' : 'Resume')}

@@ -62,7 +62,7 @@ export function GlobalNav({ lang }: GlobalNavProps) {
         {/* Mobile menu button */}
         <button
           onClick={() => setIsMenuOpen(!isMenuOpen)}
-          className="md:hidden p-2"
+          className="md:hidden p-4"
           aria-label="Toggle menu"
         >
           <div className="w-6 h-5 flex flex-col justify-between">

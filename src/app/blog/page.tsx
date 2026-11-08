@@ -21,17 +21,17 @@ export default async function BlogPage() {
 
       <Section variant="white">
         <div className="max-w-6xl mx-auto">
-          <h1 className="text-5xl md:text-6xl font-semibold mb-6">Blog</h1>
+          <h1 className="text-5xl md:text-6xl font-semibold mb-8">Blog</h1>
           <p className="text-xl text-text-secondary mb-12 max-w-3xl">
             Notes on building systems, working with AI tools, and lessons from hackathons and open source.
           </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {posts.map((post) => (
               <Link key={post.id} href={`/blog/${post.slug}`} className="group block">
                 <Tile interactive elevation="e1" className="h-full">
-                  <p className="text-sm uppercase tracking-wider text-accent-fill mb-3">{post.category}</p>
-                  <h2 className="text-xl font-semibold mb-3 group-hover:text-accent-fill transition-colors line-clamp-2">
+                  <p className="text-sm uppercase tracking-wider text-accent-fill mb-4">{post.category}</p>
+                  <h2 className="text-xl font-semibold mb-4 group-hover:text-accent-fill transition-colors line-clamp-2">
                     {post.title}
                   </h2>
                   <p className="text-text-secondary mb-4 line-clamp-2">{post.excerpt}</p>

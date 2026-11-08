@@ -17,12 +17,12 @@ export function Markdown({ content }: MarkdownProps) {
       </h1>
     ),
     h2: ({ children }) => (
-      <h2 className="text-2xl md:text-3xl font-bold mt-8 mb-3 text-text-primary dark:text-dark-text-primary">
+      <h2 className="text-2xl md:text-3xl font-bold mt-8 mb-4 text-text-primary dark:text-dark-text-primary">
         {children}
       </h2>
     ),
     h3: ({ children }) => (
-      <h3 className="text-xl md:text-2xl font-semibold mt-6 mb-2 text-text-primary dark:text-dark-text-primary">
+      <h3 className="text-xl md:text-2xl font-semibold mt-8 mb-4 text-text-primary dark:text-dark-text-primary">
         {children}
       </h3>
     ),
@@ -32,18 +32,18 @@ export function Markdown({ content }: MarkdownProps) {
       </p>
     ),
     ul: ({ children }) => (
-      <ul className="list-disc list-inside text-body text-text-secondary dark:text-dark-text-secondary mb-4 ml-4 space-y-2">
+      <ul className="list-disc list-inside text-body text-text-secondary dark:text-dark-text-secondary mb-4 ml-4 space-y-4">
         {children}
       </ul>
     ),
     ol: ({ children }) => (
-      <ol className="list-decimal list-inside text-body text-text-secondary dark:text-dark-text-secondary mb-4 ml-4 space-y-2">
+      <ol className="list-decimal list-inside text-body text-text-secondary dark:text-dark-text-secondary mb-4 ml-4 space-y-4">
         {children}
       </ol>
     ),
-    li: ({ children }) => <li className="mb-1">{children}</li>,
+    li: ({ children }) => <li className="mb-4">{children}</li>,
     blockquote: ({ children }) => (
-      <blockquote className="border-l-4 border-accent-fill pl-4 py-2 my-4 italic text-text-secondary dark:text-dark-text-secondary">
+      <blockquote className="border-l-4 border-accent-fill pl-4 py-4 my-4 italic text-text-secondary dark:text-dark-text-secondary">
         {children}
       </blockquote>
     ),
@@ -59,7 +59,7 @@ export function Markdown({ content }: MarkdownProps) {
         );
       }
       return (
-        <code className="bg-bg-alt dark:bg-dark-bg-alt px-1.5 py-0.5 rounded font-mono text-sm text-accent-fill">
+        <code className="bg-bg-alt dark:bg-dark-bg-alt px-4 py-4 rounded font-mono text-sm text-accent-fill">
           {children}
         </code>
       );
