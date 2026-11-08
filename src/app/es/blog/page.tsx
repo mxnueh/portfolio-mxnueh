@@ -2,6 +2,7 @@ import { GlobalNav } from '@/components/GlobalNav';
 import { Footer } from '@/components/Footer';
 import { Section, SectionHeading } from '@/components/Section';
 import { Tile } from '@/components/Tile';
+import { CategoryBadge } from '@/components/CategoryBadge';
 import { TextLink } from '@/components/Button';
 import { getPosts, getContent } from '@/lib/getContent';
 import Link from 'next/link';
@@ -21,9 +22,9 @@ export default async function EsBlogPage() {
           {posts.map((post) => (
             <Link key={post.id} href={`/es/blog/${post.slug}`} className="group block">
               <Tile interactive elevation="e1" className="h-full">
-                <p className="text-eyebrow text-text-tertiary mb-4 group-hover:text-text-secondary transition-colors">
-                  {post.category}
-                </p>
+                <div className="mb-4">
+                  <CategoryBadge category={post.category as 'Case study' | 'Notes' | 'Beyond code'} />
+                </div>
                 <h3 className="text-card-title font-600 mb-4 group-hover:text-accent-fill transition-colors">
                   {post.title}
                 </h3>

@@ -2,6 +2,7 @@ import { GlobalNav } from '@/components/GlobalNav';
 import { Footer } from '@/components/Footer';
 import { Section } from '@/components/Section';
 import { Tile } from '@/components/Tile';
+import { CategoryBadge } from '@/components/CategoryBadge';
 import { getPosts } from '@/lib/getContent';
 import Link from 'next/link';
 import type { Metadata } from 'next';
@@ -30,7 +31,9 @@ export default async function BlogPage() {
             {posts.map((post) => (
               <Link key={post.id} href={`/blog/${post.slug}`} className="group block">
                 <Tile interactive elevation="e1" className="h-full">
-                  <p className="text-sm uppercase tracking-wider text-accent-fill mb-4">{post.category}</p>
+                  <div className="mb-4">
+                    <CategoryBadge category={post.category as 'Case study' | 'Notes' | 'Beyond code'} />
+                  </div>
                   <h2 className="text-xl font-semibold mb-4 group-hover:text-accent-fill transition-colors line-clamp-2">
                     {post.title}
                   </h2>
