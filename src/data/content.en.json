@@ -2,27 +2,24 @@
   "meta": {
     "site": "Enmanuel Nunez Matias",
     "author": "Enmanuel Nunez Matias",
-    "description": "Full Stack Developer & Systems Designer from Santo Domingo, DR. I design reliable systems and build the interfaces that power them. Telemetry platforms, real-time dashboards, embedded systems."
+    "description": "Full Stack Developer & Systems Designer. I design reliable systems and build the interfaces that power them. React, TypeScript, Next.js, and Python."
   },
   "nav": {
     "name": "Enmanuel Nunez",
     "links": [
       { "label": "Work", "href": "/work" },
-      { "label": "Components", "href": "/components" },
-      { "label": "Products", "href": "/products" },
       { "label": "Blog", "href": "/blog" },
-      { "label": "About", "href": "/about" },
-      { "label": "Contact", "href": "/contact" }
+      { "label": "About", "href": "/about" }
     ]
   },
   "home": {
     "hero": {
-      "eyebrow": "Santo Domingo, DR",
+      "eyebrow": "Frontend & Full Stack Engineering",
       "headline": "Full Stack Developer & Systems Designer",
-      "lead": "I design systems that work reliably under pressure, then build the interfaces that bring them to life. Telemetry platforms, real-time dashboards, flood monitoring networks—I focus on solving real problems with clear, performant code.",
+      "lead": "I design systems that work reliably under pressure, then build the interfaces that bring them to life. High-performance web applications, real-time dashboards, and distributed architectures—built with clear, performant code.",
       "primaryCTA": { "label": "View case studies", "href": "/work" },
-      "secondaryCTA": { "label": "Get in touch", "href": "/contact" },
-      "tertiaryCTA": { "label": "Browse projects", "href": "/blog" }
+      "secondaryCTA": { "label": "Email me", "href": "mailto:enmanuelnunezmatias@gmail.com" },
+      "tertiaryCTA": { "label": "Read notes", "href": "/blog" }
     },
     "atGlance": {
       "headline": "What I bring.",

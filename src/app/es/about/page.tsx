@@ -2,21 +2,13 @@ import { GlobalNav } from '@/components/GlobalNav';
 import { SiteFooter } from '@/components/SiteFooter';
 import { CtaSection } from '@/components/CtaSection';
 import { Section } from '@/components/Section';
-import { Tile } from '@/components/Tile';
 import type { Metadata } from 'next';
-import {
-  AnimatedGradientText,
-  BorderBeam,
-  ShimmerButton,
-  InteractiveHoverButton,
-  DotPattern,
-} from '@/components/magicui';
-import { ClickSpark, SpotlightCard } from '@/components/reactbits';
-import { Code, Cpu, Layers, Terminal, Sparkles } from 'lucide-react';
+import { Code, Cpu, Layers, Terminal, ShieldCheck } from 'lucide-react';
+import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'Acerca de mí | Enmanuel Núñez Matías',
-  description: 'Desarrollador Full Stack & Diseñador de Sistemas de Santo Domingo, RD. Filosofía de ingeniería, trayectoria y herramientas.',
+  title: 'Sobre mí | Enmanuel Núñez Matías',
+  description: 'Desarrollador Full Stack & Diseñador de Sistemas. Filosofía de ingeniería, trayectoria y capacidades técnicas.',
 };
 
 export default function EsAboutPage() {
@@ -24,35 +16,35 @@ export default function EsAboutPage() {
 
   const milestones = [
     {
-      year: '2024–2025',
+      period: '2024–2025',
       title: 'NASA Space Apps Challenge — 2x Finalista Global',
       description:
         'Lideré la telemetría y la arquitectura full stack para Misión Atabey (hábitat análogo a Marte) y sistemas NOVAX, compitiendo frente a miles de equipos de ingeniería a nivel mundial.',
-      tag: 'Reconocimiento NASA',
+      tag: 'Finalista NASA',
     },
     {
-      year: '2024–2025',
+      period: '2024–2025',
       title: 'NASA HERC — Líder de Telemetría con AstroBosco',
       description:
         'Desarrollé la transmisión de datos por microcontrolador en C++, gestión de energía de baterías y panel de operador para el rover análogo a Marte en Huntsville, Alabama.',
-      tag: 'Aeroespacial y Embebidos',
+      tag: 'Sistemas Aeroespaciales',
     },
     {
-      year: '2026',
+      period: '2026',
       title: 'Google Summer of Code — Contribuidor en omegaUp',
       description:
         'Seleccionado como contribuidor para la plataforma de programación competitiva de código abierto omegaUp, optimizando pipelines de evaluación y herramientas de desarrollo.',
       tag: 'Código Abierto',
     },
     {
-      year: '2025',
+      period: '2025',
       title: 'Hackatón CreaRD — 4to Lugar (Floppy)',
       description:
         'Ideé e implementé un sistema IoT para monitoreo comunitario de inundaciones con sensores ultrasónicos, umbrales de alerta en tiempo real y mapas interactivos.',
-      tag: 'IoT y Clima',
+      tag: 'Telemetría IoT',
     },
     {
-      year: 'Educación',
+      period: 'Educación',
       title: 'Desarrollo de Software en ITLA',
       description:
         'Instituto Tecnológico de Las Américas (ITLA). Formación intensiva en estructuras de datos, diseño de sistemas, bases de datos relacionales y arquitectura de software.',
@@ -63,182 +55,187 @@ export default function EsAboutPage() {
   const toolbox = [
     {
       category: 'Frontend e Interfaces',
-      skills: ['React 19', 'Next.js 16', 'TypeScript', 'Tailwind CSS', 'Turbopack', 'HTML5 Canvas', 'Framer Motion'],
+      skills: ['React 19', 'Next.js 16', 'TypeScript', 'Tailwind CSS', 'Turbopack', 'HTML5 Canvas', 'UI Accesible'],
       icon: Code,
     },
     {
       category: 'Backend y Sistemas',
-      skills: ['Python', 'FastAPI', 'Flask', 'PostgreSQL', 'SQLite', 'Docker', 'APIs REST y WebSockets', 'Supabase'],
+      skills: ['Python', 'FastAPI', 'Flask', 'PostgreSQL', 'SQLite', 'Docker', 'WebSockets', 'APIs REST'],
       icon: Terminal,
     },
     {
-      category: 'Telemetría y Hardware',
-      skills: ['ESP32', 'Arduino', 'C++', 'Protocolo LoRa', 'MQTT', 'Raspberry Pi', 'Comunicación Serial'],
+      category: 'Telemetría y Embebidos',
+      skills: ['ESP32', 'Arduino', 'C++', 'MQTT', 'Protocolo LoRa', 'Raspberry Pi', 'Protocolos Serie'],
       icon: Cpu,
     },
     {
       category: 'Arquitectura y Prácticas',
-      skills: ['Colas Offline-First', 'Permisos por Roles (RBAC)', 'Paneles de Telemetría', 'CI/CD', 'Flujos Git'],
+      skills: ['Sincronización Offline-First', 'Acceso por Roles (RBAC)', 'Paneles de Telemetría', 'Pipelines CI/CD', 'Código Limpio'],
       icon: Layers,
     },
   ];
 
   return (
-    <ClickSpark sparkColor="#0071e3">
-      <div className="flex flex-col min-h-screen bg-white dark:bg-[#0c0c0e] text-text-primary dark:text-white transition-colors">
-        <GlobalNav lang={lang} />
+    <div className="flex flex-col min-h-screen bg-white dark:bg-[#0c0c0e] text-text-primary dark:text-white transition-colors">
+      <GlobalNav lang={lang} />
 
-        {/* Hero */}
-        <Section variant="white" className="relative overflow-hidden pt-20 pb-16">
-          <DotPattern className="opacity-30" />
-          <div className="relative z-10 max-w-4xl mx-auto text-center">
-            <div className="mb-4 flex justify-center">
-              <AnimatedGradientText>
-                👨‍💻 Perfil de Ingeniería & Filosofía
-              </AnimatedGradientText>
+      {/* Hero */}
+      <Section variant="white" className="pt-20 pb-16">
+        <div className="max-w-4xl mx-auto text-center px-4">
+          <span className="inline-block text-xs font-semibold uppercase tracking-wider text-text-secondary dark:text-gray-400 bg-black/[0.04] dark:bg-white/[0.08] px-4 py-1.5 rounded-full mb-6">
+            Perfil de Ingeniería y Filosofía
+          </span>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight mb-8 leading-tight">
+            Diseñando sistemas que funcionan <span className="text-accent-fill">bajo presión real</span>.
+          </h1>
+          <p className="text-xl md:text-2xl text-text-secondary dark:text-gray-300 mb-10 max-w-3xl mx-auto leading-relaxed font-normal">
+            Soy Enmanuel Núñez Matías, Desarrollador Full Stack y Diseñador de Sistemas.
+            Construyo arquitecturas resilientes, aplicaciones web de alto rendimiento e interfaces intuitivas con código limpio y mantenible.
+          </p>
+          <div className="flex flex-wrap items-center justify-center gap-4">
+            <Link
+              href="/es/work"
+              className="inline-flex items-center justify-center rounded-full px-8 py-3.5 text-sm font-semibold bg-accent-fill text-white hover:bg-accent-hover transition-colors shadow-sm"
+              style={{ minHeight: '44px' }}
+            >
+              Ver casos de estudio
+            </Link>
+            <a
+              href="mailto:enmanuelnunezmatias@gmail.com"
+              className="inline-flex items-center justify-center rounded-full px-8 py-3.5 text-sm font-semibold text-text-primary dark:text-white border border-black/10 dark:border-white/15 hover:border-black/30 dark:hover:border-white/30 transition-colors"
+              style={{ minHeight: '44px' }}
+            >
+              Escríbeme
+            </a>
+          </div>
+        </div>
+      </Section>
+
+      {/* Metodología — Clean Apple Cards, sin artefactos IA */}
+      <Section variant="gray">
+        <div className="max-w-6xl mx-auto px-4">
+          <div className="text-center mb-12">
+            <span className="text-xs font-semibold uppercase tracking-wider text-text-tertiary dark:text-gray-400 block mb-2">
+              Metodología
+            </span>
+            <h2 className="text-3xl md:text-4xl font-semibold tracking-tight">Cómo construyo software</h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="rounded-2xl border border-black/[0.08] dark:border-white/[0.1] bg-white dark:bg-[#161617] p-8 transition-colors hover:border-black/[0.18] dark:hover:border-white/[0.22]">
+              <div className="w-10 h-10 rounded-xl bg-black/[0.04] dark:bg-white/[0.08] text-text-primary dark:text-white flex items-center justify-center mb-6">
+                <Layers className="w-5 h-5 text-accent-fill" />
+              </div>
+              <h3 className="text-xl font-semibold mb-3 tracking-tight">1. Pensamiento en Sistemas</h3>
+              <p className="text-sm text-text-secondary dark:text-gray-400 leading-relaxed font-normal">
+                Antes de programar componentes UI, defino modelos de datos, permisos basados en roles, contratos de API y puntos críticos de falla. Una arquitectura sólida evita reescrituras costosas.
+              </p>
             </div>
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-8">
-              Diseño sistemas que funcionan <span className="text-accent-fill">de forma confiable bajo presión</span>.
-            </h1>
-            <p className="text-xl md:text-2xl text-text-secondary dark:text-gray-400 mb-10 max-w-3xl mx-auto leading-relaxed">
-              Soy Enmanuel Núñez Matías, Desarrollador Full Stack y Diseñador de Sistemas radicado en Santo Domingo, República Dominicana.
-              Conecto la telemetría de sensores físicos con interfaces web limpias y de alto rendimiento.
-            </p>
-            <div className="flex flex-wrap items-center justify-center gap-4">
-              <ShimmerButton href="/es/contact" background="#0071e3">
-                Iniciar una Conversación
-              </ShimmerButton>
-              <InteractiveHoverButton href="/es/work" text="Ver Casos de Estudio" />
+
+            <div className="rounded-2xl border border-black/[0.08] dark:border-white/[0.1] bg-white dark:bg-[#161617] p-8 transition-colors hover:border-black/[0.18] dark:hover:border-white/[0.22]">
+              <div className="w-10 h-10 rounded-xl bg-black/[0.04] dark:bg-white/[0.08] text-text-primary dark:text-white flex items-center justify-center mb-6">
+                <Cpu className="w-5 h-5 text-accent-fill" />
+              </div>
+              <h3 className="text-xl font-semibold mb-3 tracking-tight">2. Resiliencia Offline</h3>
+              <p className="text-sm text-text-secondary dark:text-gray-400 leading-relaxed font-normal">
+                Inspirado en sistemas de telemetría de campo, mis aplicaciones toleran caídas de red mediante colas locales, persistencia en el dispositivo y sincronización fluida al reconectar.
+              </p>
+            </div>
+
+            <div className="rounded-2xl border border-black/[0.08] dark:border-white/[0.1] bg-white dark:bg-[#161617] p-8 transition-colors hover:border-black/[0.18] dark:hover:border-white/[0.22]">
+              <div className="w-10 h-10 rounded-xl bg-black/[0.04] dark:bg-white/[0.08] text-text-primary dark:text-white flex items-center justify-center mb-6">
+                <ShieldCheck className="w-5 h-5 text-accent-fill" />
+              </div>
+              <h3 className="text-xl font-semibold mb-3 tracking-tight">3. Criterio y Accesibilidad</h3>
+              <p className="text-sm text-text-secondary dark:text-gray-400 leading-relaxed font-normal">
+                Las interfaces en operaciones críticas deben ser comprensibles al instante. Combino contratos estrictos en TypeScript con navegación por teclado, alto contraste y micro-interacciones.
+              </p>
             </div>
           </div>
-        </Section>
+        </div>
+      </Section>
 
-        {/* Principios Fundamentales */}
-        <Section variant="gray">
-          <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-16">
-              <span className="text-xs font-mono uppercase tracking-widest text-accent-fill font-bold">
-                Metodología
-              </span>
-              <h2 className="text-3xl md:text-4xl font-bold mt-2">Cómo construyo software</h2>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <SpotlightCard className="h-full">
-                <div className="w-12 h-12 rounded-2xl bg-accent-fill/10 text-accent-fill flex items-center justify-center mb-6">
-                  <Layers className="w-6 h-6" />
-                </div>
-                <h3 className="text-xl font-bold mb-3">1. Pensamiento de Sistemas Primero</h3>
-                <p className="text-sm text-text-secondary dark:text-gray-400 leading-relaxed">
-                  Antes de dibujar interfaces, defino el modelo de datos, la seguridad por roles, los contratos de API y los puntos críticos de fallo. Una arquitectura sólida evita refactorizaciones costosas.
-                </p>
-              </SpotlightCard>
-
-              <SpotlightCard className="h-full">
-                <div className="w-12 h-12 rounded-2xl bg-emerald-500/10 text-emerald-500 flex items-center justify-center mb-6">
-                  <Cpu className="w-6 h-6" />
-                </div>
-                <h3 className="text-xl font-bold mb-3">2. Resiliencia Fuera de Línea (Offline-First)</h3>
-                <p className="text-sm text-text-secondary dark:text-gray-400 leading-relaxed">
-                  Inspirado en simulaciones espaciales y sensores en campo, mis sistemas priorizan colas locales, persistencia en el borde y sincronización automática cuando vuelve la conectividad.
-                </p>
-              </SpotlightCard>
-
-              <SpotlightCard className="h-full">
-                <div className="w-12 h-12 rounded-2xl bg-purple-500/10 text-purple-500 flex items-center justify-center mb-6">
-                  <Sparkles className="w-6 h-6" />
-                </div>
-                <h3 className="text-xl font-bold mb-3">3. Atención al Detalle y Enfoque Humano</h3>
-                <p className="text-sm text-text-secondary dark:text-gray-400 leading-relaxed">
-                  Las aplicaciones en entornos críticos deben entenderse en segundos. Combino tipado estricto con micro-interacciones legibles, estados de alto contraste y accesibilidad total.
-                </p>
-              </SpotlightCard>
-            </div>
+      {/* Trayectoria — Línea temporal minimalista Apple */}
+      <Section variant="white">
+        <div className="max-w-4xl mx-auto px-4">
+          <div className="text-center mb-12">
+            <span className="text-xs font-semibold uppercase tracking-wider text-text-tertiary dark:text-gray-400 block mb-2">
+              Trayectoria
+            </span>
+            <h2 className="text-3xl md:text-4xl font-semibold tracking-tight">Hitos y Reconocimientos</h2>
           </div>
-        </Section>
 
-        {/* Hitos y Trayectoria */}
-        <Section variant="white">
-          <div className="max-w-5xl mx-auto">
-            <div className="text-center mb-16">
-              <span className="text-xs font-mono uppercase tracking-widest text-accent-fill font-bold">
-                Trayectoria
-              </span>
-              <h2 className="text-3xl md:text-4xl font-bold mt-2">Hitos y Reconocimientos</h2>
-            </div>
+          <div className="divide-y divide-black/[0.06] dark:divide-white/[0.08] border-y border-black/[0.06] dark:border-white/[0.08]">
+            {milestones.map((m, idx) => (
+              <div key={idx} className="py-8 flex flex-col md:flex-row md:items-baseline justify-between gap-4 md:gap-8">
+                <div className="md:w-48 flex-shrink-0">
+                  <span className="text-xs font-mono font-semibold text-accent-fill">
+                    {m.period}
+                  </span>
+                  <span className="block text-xs text-text-tertiary dark:text-gray-500 mt-0.5">
+                    {m.tag}
+                  </span>
+                </div>
+                <div className="flex-1">
+                  <h3 className="text-lg font-semibold text-text-primary dark:text-white mb-2 tracking-tight">
+                    {m.title}
+                  </h3>
+                  <p className="text-sm text-text-secondary dark:text-gray-400 leading-relaxed font-normal">
+                    {m.description}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </Section>
 
-            <div className="space-y-6">
-              {milestones.map((m, idx) => (
+      {/* Capacidades Técnicas — Grid minimalista Apple */}
+      <Section variant="gray">
+        <div className="max-w-5xl mx-auto px-4">
+          <div className="text-center mb-12">
+            <span className="text-xs font-semibold uppercase tracking-wider text-text-tertiary dark:text-gray-400 block mb-2">
+              Capacidades
+            </span>
+            <h2 className="text-3xl md:text-4xl font-semibold tracking-tight">Caja de Herramientas</h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {toolbox.map((tool) => {
+              const Icon = tool.icon;
+              return (
                 <div
-                  key={idx}
-                  className="p-8 rounded-3xl border border-black/5 dark:border-white/10 bg-bg-alt dark:bg-[#161617] hover:shadow-lg transition-all duration-300 flex flex-col md:flex-row md:items-center justify-between gap-6"
+                  key={tool.category}
+                  className="rounded-2xl border border-black/[0.08] dark:border-white/[0.1] bg-white dark:bg-[#161617] p-7 transition-colors hover:border-black/[0.18] dark:hover:border-white/[0.22]"
                 >
-                  <div className="flex-1">
-                    <div className="flex items-center gap-3 mb-2">
-                      <span className="text-xs font-mono font-bold text-accent-fill bg-accent-fill/10 px-3 py-1 rounded-full">
-                        {m.year}
-                      </span>
-                      <span className="text-xs font-medium text-text-tertiary">
-                        {m.tag}
-                      </span>
+                  <div className="flex items-center gap-3 mb-5">
+                    <div className="w-9 h-9 rounded-lg bg-black/[0.04] dark:bg-white/[0.08] text-accent-fill flex items-center justify-center">
+                      <Icon className="w-4 h-4" />
                     </div>
-                    <h3 className="text-xl font-bold text-text-primary dark:text-white mb-2">
-                      {m.title}
-                    </h3>
-                    <p className="text-sm text-text-secondary dark:text-gray-400 leading-relaxed">
-                      {m.description}
-                    </p>
+                    <h3 className="text-base font-semibold tracking-tight">{tool.category}</h3>
+                  </div>
+                  <div className="flex flex-wrap gap-2">
+                    {tool.skills.map((skill) => (
+                      <span
+                        key={skill}
+                        className="px-3 py-1 rounded-md text-xs font-medium bg-black/[0.03] dark:bg-white/[0.06] text-text-secondary dark:text-gray-300 border border-black/[0.04] dark:border-white/[0.06]"
+                      >
+                        {skill}
+                      </span>
+                    ))}
                   </div>
                 </div>
-              ))}
-            </div>
+              );
+            })}
           </div>
-        </Section>
-
-        {/* Herramientas Técnicas */}
-        <Section variant="gray">
-          <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-16">
-              <span className="text-xs font-mono uppercase tracking-widest text-accent-fill font-bold">
-                Habilidades
-              </span>
-              <h2 className="text-3xl md:text-4xl font-bold mt-2">Caja de Herramientas</h2>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {toolbox.map((tool) => {
-                const Icon = tool.icon;
-                return (
-                  <Tile key={tool.category} className="p-8">
-                    <div className="flex items-center gap-3 mb-6">
-                      <div className="w-10 h-10 rounded-xl bg-accent-fill/10 text-accent-fill flex items-center justify-center">
-                        <Icon className="w-5 h-5" />
-                      </div>
-                      <h3 className="text-xl font-bold">{tool.category}</h3>
-                    </div>
-                    <div className="flex flex-wrap gap-2.5">
-                      {tool.skills.map((skill) => (
-                        <span
-                          key={skill}
-                          className="px-4 py-2 rounded-full text-xs font-semibold bg-bg-alt dark:bg-white/10 text-text-secondary dark:text-gray-200 border border-black/5 dark:border-white/10 shadow-sm"
-                        >
-                          {skill}
-                        </span>
-                      ))}
-                    </div>
-                  </Tile>
-                );
-              })}
-            </div>
-          </div>
-        </Section>
-
-        {/* Closing chapter: always dark — variant A (statement) for detail page */}
-        <div className="chapter-dark">
-          <CtaSection variant="statement" lang={lang} />
-          <SiteFooter lang={lang} />
         </div>
+      </Section>
+
+      {/* Closing chapter: always dark */}
+      <div className="chapter-dark">
+        <CtaSection variant="statement" lang={lang} />
+        <SiteFooter lang={lang} />
       </div>
-    </ClickSpark>
+    </div>
   );
 }

@@ -2,27 +2,24 @@
   "meta": {
     "site": "Enmanuel Nunez Matias",
     "author": "Enmanuel Nunez Matias",
-    "description": "Full Stack Developer & Systems Designer de Santo Domingo, RD. Diseño sistemas confiables y construyo las interfaces que los impulsan. Plataformas de telemetría, dashboards en tiempo real, sistemas embebidos."
+    "description": "Full Stack Developer & Systems Designer. Diseño sistemas confiables y construyo las interfaces que los impulsan. React, TypeScript, Next.js y Python."
   },
   "nav": {
     "name": "Enmanuel Nunez",
     "links": [
       { "label": "Trabajo", "href": "/work" },
-      { "label": "Componentes", "href": "/components" },
-      { "label": "Productos", "href": "/products" },
       { "label": "Blog", "href": "/blog" },
-      { "label": "Acerca", "href": "/about" },
-      { "label": "Contacto", "href": "/contact" }
+      { "label": "Acerca", "href": "/about" }
     ]
   },
   "home": {
     "hero": {
-      "eyebrow": "Santo Domingo, RD",
+      "eyebrow": "Ingeniería Frontend y Full Stack",
       "headline": "Full Stack Developer & Systems Designer",
-      "lead": "Diseño sistemas que funcionan bajo presión, luego construyo las interfaces que los hacen posibles. Plataformas de telemetría, dashboards en tiempo real, redes de monitoreo de inundaciones—me enfoco en resolver problemas reales con código claro y performante.",
+      "lead": "Diseño sistemas que funcionan bajo presión, luego construyo las interfaces que los hacen posibles. Aplicaciones web de alto rendimiento, dashboards en tiempo real y arquitecturas distribuidas—construidas con código claro y performante.",
       "primaryCTA": { "label": "Ver casos de estudio", "href": "/work" },
-      "secondaryCTA": { "label": "Contactarme", "href": "/contact" },
-      "tertiaryCTA": { "label": "Explorar proyectos", "href": "/blog" }
+      "secondaryCTA": { "label": "Escríbeme", "href": "mailto:enmanuelnunezmatias@gmail.com" },
+      "tertiaryCTA": { "label": "Leer notas", "href": "/blog" }
     },
     "atGlance": {
       "headline": "Lo que aporto.",

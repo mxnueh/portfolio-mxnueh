@@ -2,24 +2,13 @@ import { GlobalNav } from '@/components/GlobalNav';
 import { SiteFooter } from '@/components/SiteFooter';
 import { CtaSection } from '@/components/CtaSection';
 import { Section } from '@/components/Section';
-import { Tile } from '@/components/Tile';
-import { siteConfig } from '@/config/site';
 import type { Metadata } from 'next';
-import {
-  AnimatedGradientText,
-  BorderBeam,
-  NumberTicker,
-  ShimmerButton,
-  InteractiveHoverButton,
-  DotPattern,
-} from '@/components/magicui';
-import { ClickSpark, SpotlightCard } from '@/components/reactbits';
-import { Code, Cpu, Award, BookOpen, Layers, Terminal, Sparkles, CheckCircle, ArrowRight } from 'lucide-react';
+import { Code, Cpu, Layers, Terminal, ShieldCheck, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
   title: 'About | Enmanuel Nunez Matias',
-  description: 'Full Stack Developer & Systems Designer from Santo Domingo, DR. Background, engineering philosophy, timeline, and technical toolbox.',
+  description: 'Full Stack Developer & Systems Designer. Engineering philosophy, trajectory, and technical capabilities.',
 };
 
 export default function AboutPage() {
@@ -27,221 +16,226 @@ export default function AboutPage() {
 
   const milestones = [
     {
-      year: '2024–2025',
+      period: '2024–2025',
       title: 'NASA Space Apps Challenge — 2x Global Finalist',
       description:
-        'Led telemetry and full-stack architecture for Mission Atabey (Mars-analog habitat) and NOVAX systems, competing against thousands of global engineering teams.',
-      tag: 'NASA Award',
+        'Architected telemetry engines and real-time dashboards for Mars-analog habitats and planetary systems, competing against thousands of global engineering teams.',
+      tag: 'NASA Finalist',
     },
     {
-      year: '2024–2025',
+      period: '2024–2025',
       title: 'NASA HERC — Telemetry Lead with AstroBosco',
       description:
-        'Engineered C++ microcontroller sensor streaming, battery management, and operator dashboard for competition Mars-analog rover in Huntsville, Alabama.',
-      tag: 'Aerospace & Embedded',
+        'Engineered C++ microcontroller telemetry streaming, power management, and operator interfaces for competition Mars rover in Huntsville, Alabama.',
+      tag: 'Aerospace Systems',
     },
     {
-      year: '2026',
+      period: '2026',
       title: 'Google Summer of Code — omegaUp Contributor',
       description:
-        'Selected contributor to the open-source competitive programming platform omegaUp, improving core evaluation pipelines and developer tooling.',
+        'Selected contributor to the open-source competitive programming platform omegaUp, improving core code evaluation pipelines and developer workflows.',
       tag: 'Open Source',
     },
     {
-      year: '2025',
+      period: '2025',
       title: 'CreaRD Hackathon — 4th Place Award (Floppy)',
       description:
-        'Conceived and deployed a community flood-monitoring IoT system with ultrasonic sensors, real-time alert thresholds, and responsive mapping.',
-      tag: 'IoT & Climate',
+        'Designed and deployed an ultrasonic community flood-monitoring IoT system with real-time alert thresholds and responsive mapping interfaces.',
+      tag: 'IoT Telemetry',
     },
     {
-      year: 'Education',
+      period: 'Education',
       title: 'Software Development at ITLA',
       description:
-        'Instituto Tecnológico de Las Américas (ITLA). Intensive training in data structures, systems architecture, relational databases, and enterprise software engineering.',
+        'Instituto Tecnológico de Las Américas. Rigorous focus on data structures, distributed architectures, database engines, and software engineering.',
       tag: 'Academic',
     },
   ];
 
   const toolbox = [
     {
-      category: 'Frontend & UI',
-      skills: ['React 19', 'Next.js 16', 'TypeScript', 'Tailwind CSS', 'Turbopack', 'HTML5 Canvas', 'Framer Motion'],
+      category: 'Frontend & Interfaces',
+      skills: ['React 19', 'Next.js 16', 'TypeScript', 'Tailwind CSS', 'Turbopack', 'HTML5 Canvas', 'Accessible UI'],
       icon: Code,
     },
     {
       category: 'Backend & Systems',
-      skills: ['Python', 'FastAPI', 'Flask', 'PostgreSQL', 'SQLite', 'Docker', 'REST & WebSockets', 'Supabase'],
+      skills: ['Python', 'FastAPI', 'Flask', 'PostgreSQL', 'SQLite', 'Docker', 'WebSockets', 'REST APIs'],
       icon: Terminal,
     },
     {
-      category: 'Telemetry & Hardware',
-      skills: ['ESP32', 'Arduino', 'C++', 'LoRa Protocol', 'MQTT', 'Raspberry Pi', 'Serial Communication'],
+      category: 'Telemetry & Embedded',
+      skills: ['ESP32', 'Arduino', 'C++', 'MQTT', 'LoRa Protocol', 'Raspberry Pi', 'Serial Protocols'],
       icon: Cpu,
     },
     {
       category: 'Architecture & Practices',
-      skills: ['Offline-First Queues', 'Role-Based Access (RBAC)', 'Telemetry Dashboards', 'CI/CD', 'Git Workflows'],
+      skills: ['Offline-First Sync', 'Role-Based Access (RBAC)', 'Telemetry Dashboards', 'CI/CD Pipelines', 'Clean Code'],
       icon: Layers,
     },
   ];
 
   return (
-    <ClickSpark sparkColor="#0071e3">
-      <div className="flex flex-col min-h-screen bg-white dark:bg-[#0c0c0e] text-text-primary dark:text-white transition-colors">
-        <GlobalNav lang={lang} />
+    <div className="flex flex-col min-h-screen bg-white dark:bg-[#0c0c0e] text-text-primary dark:text-white transition-colors">
+      <GlobalNav lang={lang} />
 
-        {/* Hero */}
-        <Section variant="white" className="relative overflow-hidden pt-20 pb-16">
-          <DotPattern className="opacity-30" />
-          <div className="relative z-10 max-w-4xl mx-auto text-center">
-            <div className="mb-4 flex justify-center">
-              <AnimatedGradientText>
-                👨‍💻 Engineering Profile & Philosophy
-              </AnimatedGradientText>
+      {/* Hero */}
+      <Section variant="white" className="pt-20 pb-16">
+        <div className="max-w-4xl mx-auto text-center px-4">
+          <span className="inline-block text-xs font-semibold uppercase tracking-wider text-text-secondary dark:text-gray-400 bg-black/[0.04] dark:bg-white/[0.08] px-4 py-1.5 rounded-full mb-6">
+            Engineering Profile &amp; Philosophy
+          </span>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight mb-8 leading-tight">
+            Designing systems that work <span className="text-accent-fill">reliably under pressure</span>.
+          </h1>
+          <p className="text-xl md:text-2xl text-text-secondary dark:text-gray-300 mb-10 max-w-3xl mx-auto leading-relaxed font-normal">
+            I am Enmanuel Núñez Matías, a Full Stack Developer &amp; Systems Designer.
+            I build resilient architectures, high-performance web applications, and intuitive interfaces with clean, maintainable code.
+          </p>
+          <div className="flex flex-wrap items-center justify-center gap-4">
+            <Link
+              href="/work"
+              className="inline-flex items-center justify-center rounded-full px-8 py-3.5 text-sm font-semibold bg-accent-fill text-white hover:bg-accent-hover transition-colors shadow-sm"
+              style={{ minHeight: '44px' }}
+            >
+              View case studies
+            </Link>
+            <a
+              href="mailto:enmanuelnunezmatias@gmail.com"
+              className="inline-flex items-center justify-center rounded-full px-8 py-3.5 text-sm font-semibold text-text-primary dark:text-white border border-black/10 dark:border-white/15 hover:border-black/30 dark:hover:border-white/30 transition-colors"
+              style={{ minHeight: '44px' }}
+            >
+              Email me
+            </a>
+          </div>
+        </div>
+      </Section>
+
+      {/* Methodology — Clean Apple Cards, No AI pastel/cursor slop */}
+      <Section variant="gray">
+        <div className="max-w-6xl mx-auto px-4">
+          <div className="text-center mb-12">
+            <span className="text-xs font-semibold uppercase tracking-wider text-text-tertiary dark:text-gray-400 block mb-2">
+              Methodology
+            </span>
+            <h2 className="text-3xl md:text-4xl font-semibold tracking-tight">How I build software</h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="rounded-2xl border border-black/[0.08] dark:border-white/[0.1] bg-white dark:bg-[#161617] p-8 transition-colors hover:border-black/[0.18] dark:hover:border-white/[0.22]">
+              <div className="w-10 h-10 rounded-xl bg-black/[0.04] dark:bg-white/[0.08] text-text-primary dark:text-white flex items-center justify-center mb-6">
+                <Layers className="w-5 h-5 text-accent-fill" />
+              </div>
+              <h3 className="text-xl font-semibold mb-3 tracking-tight">1. Systems-First Thinking</h3>
+              <p className="text-sm text-text-secondary dark:text-gray-400 leading-relaxed font-normal">
+                Before writing UI components, I structure the data models, role-based access, API contracts, and edge failure modes. Clear architecture eliminates technical debt.
+              </p>
             </div>
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-8">
-              Designing systems that work <span className="text-accent-fill">reliably under pressure</span>.
-            </h1>
-            <p className="text-xl md:text-2xl text-text-secondary dark:text-gray-400 mb-10 max-w-3xl mx-auto leading-relaxed">
-              I am Enmanuel Núñez Matías, a Full Stack Developer & Systems Designer based in Santo Domingo, Dominican Republic.
-              I bridge physical sensor telemetry with clean, high-performance web interfaces.
-            </p>
-            <div className="flex flex-wrap items-center justify-center gap-4">
-              <ShimmerButton href="/contact" background="#0071e3">
-                Start a Conversation
-              </ShimmerButton>
-              <InteractiveHoverButton href="/work" text="View Case Studies" />
+
+            <div className="rounded-2xl border border-black/[0.08] dark:border-white/[0.1] bg-white dark:bg-[#161617] p-8 transition-colors hover:border-black/[0.18] dark:hover:border-white/[0.22]">
+              <div className="w-10 h-10 rounded-xl bg-black/[0.04] dark:bg-white/[0.08] text-text-primary dark:text-white flex items-center justify-center mb-6">
+                <Cpu className="w-5 h-5 text-accent-fill" />
+              </div>
+              <h3 className="text-xl font-semibold mb-3 tracking-tight">2. Offline Resilience</h3>
+              <p className="text-sm text-text-secondary dark:text-gray-400 leading-relaxed font-normal">
+                Inspired by operational telemetry systems, my applications handle latency gracefully with optimistic updates, local caching, and reliable state recovery.
+              </p>
+            </div>
+
+            <div className="rounded-2xl border border-black/[0.08] dark:border-white/[0.1] bg-white dark:bg-[#161617] p-8 transition-colors hover:border-black/[0.18] dark:hover:border-white/[0.22]">
+              <div className="w-10 h-10 rounded-xl bg-black/[0.04] dark:bg-white/[0.08] text-text-primary dark:text-white flex items-center justify-center mb-6">
+                <ShieldCheck className="w-5 h-5 text-accent-fill" />
+              </div>
+              <h3 className="text-xl font-semibold mb-3 tracking-tight">3. Craft &amp; Accessibility</h3>
+              <p className="text-sm text-text-secondary dark:text-gray-400 leading-relaxed font-normal">
+                Critical interfaces must be immediately comprehensible. I combine strict TypeScript contracts with keyboard navigation, visible focus states, and responsive polish.
+              </p>
             </div>
           </div>
-        </Section>
+        </div>
+      </Section>
 
-        {/* Core Principles */}
-        <Section variant="gray">
-          <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-16">
-              <span className="text-xs font-mono uppercase tracking-widest text-accent-fill font-bold">
-                Methodology
-              </span>
-              <h2 className="text-3xl md:text-4xl font-bold mt-2">How I build software</h2>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <SpotlightCard className="h-full">
-                <div className="w-12 h-12 rounded-2xl bg-accent-fill/10 text-accent-fill flex items-center justify-center mb-6">
-                  <Layers className="w-6 h-6" />
-                </div>
-                <h3 className="text-xl font-bold mb-3">1. Systems-First Thinking</h3>
-                <p className="text-sm text-text-secondary dark:text-gray-400 leading-relaxed">
-                  Before touching pixels, I map out the data models, role-based permissions, API contracts, and critical failure modes. Strong architecture prevents painful rewrites.
-                </p>
-              </SpotlightCard>
-
-              <SpotlightCard className="h-full">
-                <div className="w-12 h-12 rounded-2xl bg-emerald-500/10 text-emerald-500 flex items-center justify-center mb-6">
-                  <Cpu className="w-6 h-6" />
-                </div>
-                <h3 className="text-xl font-bold mb-3">2. Offline Resilience</h3>
-                <p className="text-sm text-text-secondary dark:text-gray-400 leading-relaxed">
-                  Inspired by Mars-analog missions and field sensors, my systems prioritize local queues, edge persistence, and graceful synchronization when connectivity drops.
-                </p>
-              </SpotlightCard>
-
-              <SpotlightCard className="h-full">
-                <div className="w-12 h-12 rounded-2xl bg-purple-500/10 text-purple-500 flex items-center justify-center mb-6">
-                  <Sparkles className="w-6 h-6" />
-                </div>
-                <h3 className="text-xl font-bold mb-3">3. Craft & Human Focus</h3>
-                <p className="text-sm text-text-secondary dark:text-gray-400 leading-relaxed">
-                  High-pressure interfaces must be instantly comprehensible. I combine strict type safety with micro-interactions, high-contrast states, and accessible interactions.
-                </p>
-              </SpotlightCard>
-            </div>
+      {/* Trajectory — Refined Minimal Apple Timeline */}
+      <Section variant="white">
+        <div className="max-w-4xl mx-auto px-4">
+          <div className="text-center mb-12">
+            <span className="text-xs font-semibold uppercase tracking-wider text-text-tertiary dark:text-gray-400 block mb-2">
+              Trajectory
+            </span>
+            <h2 className="text-3xl md:text-4xl font-semibold tracking-tight">Key Milestones &amp; Honors</h2>
           </div>
-        </Section>
 
-        {/* Milestones & Timeline */}
-        <Section variant="white">
-          <div className="max-w-5xl mx-auto">
-            <div className="text-center mb-16">
-              <span className="text-xs font-mono uppercase tracking-widest text-accent-fill font-bold">
-                Trajectory
-              </span>
-              <h2 className="text-3xl md:text-4xl font-bold mt-2">Key Milestones & Honors</h2>
-            </div>
+          <div className="divide-y divide-black/[0.06] dark:divide-white/[0.08] border-y border-black/[0.06] dark:border-white/[0.08]">
+            {milestones.map((m, idx) => (
+              <div key={idx} className="py-8 flex flex-col md:flex-row md:items-baseline justify-between gap-4 md:gap-8">
+                <div className="md:w-48 flex-shrink-0">
+                  <span className="text-xs font-mono font-semibold text-accent-fill">
+                    {m.period}
+                  </span>
+                  <span className="block text-xs text-text-tertiary dark:text-gray-500 mt-0.5">
+                    {m.tag}
+                  </span>
+                </div>
+                <div className="flex-1">
+                  <h3 className="text-lg font-semibold text-text-primary dark:text-white mb-2 tracking-tight">
+                    {m.title}
+                  </h3>
+                  <p className="text-sm text-text-secondary dark:text-gray-400 leading-relaxed font-normal">
+                    {m.description}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </Section>
 
-            <div className="space-y-6">
-              {milestones.map((m, idx) => (
+      {/* Technical Capabilities — Minimal Apple Grid */}
+      <Section variant="gray">
+        <div className="max-w-5xl mx-auto px-4">
+          <div className="text-center mb-12">
+            <span className="text-xs font-semibold uppercase tracking-wider text-text-tertiary dark:text-gray-400 block mb-2">
+              Capabilities
+            </span>
+            <h2 className="text-3xl md:text-4xl font-semibold tracking-tight">Technical Toolbox</h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {toolbox.map((tool) => {
+              const Icon = tool.icon;
+              return (
                 <div
-                  key={idx}
-                  className="p-8 rounded-3xl border border-black/5 dark:border-white/10 bg-bg-alt dark:bg-[#161617] hover:shadow-lg transition-all duration-300 flex flex-col md:flex-row md:items-center justify-between gap-6"
+                  key={tool.category}
+                  className="rounded-2xl border border-black/[0.08] dark:border-white/[0.1] bg-white dark:bg-[#161617] p-7 transition-colors hover:border-black/[0.18] dark:hover:border-white/[0.22]"
                 >
-                  <div className="flex-1">
-                    <div className="flex items-center gap-3 mb-2">
-                      <span className="text-xs font-mono font-bold text-accent-fill bg-accent-fill/10 px-3 py-1 rounded-full">
-                        {m.year}
-                      </span>
-                      <span className="text-xs font-medium text-text-tertiary">
-                        {m.tag}
-                      </span>
+                  <div className="flex items-center gap-3 mb-5">
+                    <div className="w-9 h-9 rounded-lg bg-black/[0.04] dark:bg-white/[0.08] text-accent-fill flex items-center justify-center">
+                      <Icon className="w-4 h-4" />
                     </div>
-                    <h3 className="text-xl font-bold text-text-primary dark:text-white mb-2">
-                      {m.title}
-                    </h3>
-                    <p className="text-sm text-text-secondary dark:text-gray-400 leading-relaxed">
-                      {m.description}
-                    </p>
+                    <h3 className="text-base font-semibold tracking-tight">{tool.category}</h3>
+                  </div>
+                  <div className="flex flex-wrap gap-2">
+                    {tool.skills.map((skill) => (
+                      <span
+                        key={skill}
+                        className="px-3 py-1 rounded-md text-xs font-medium bg-black/[0.03] dark:bg-white/[0.06] text-text-secondary dark:text-gray-300 border border-black/[0.04] dark:border-white/[0.06]"
+                      >
+                        {skill}
+                      </span>
+                    ))}
                   </div>
                 </div>
-              ))}
-            </div>
+              );
+            })}
           </div>
-        </Section>
-
-        {/* Technical Toolbox */}
-        <Section variant="gray">
-          <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-16">
-              <span className="text-xs font-mono uppercase tracking-widest text-accent-fill font-bold">
-                Capabilities
-              </span>
-              <h2 className="text-3xl md:text-4xl font-bold mt-2">Technical Toolbox</h2>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {toolbox.map((tool) => {
-                const Icon = tool.icon;
-                return (
-                  <Tile key={tool.category} className="p-8">
-                    <div className="flex items-center gap-3 mb-6">
-                      <div className="w-10 h-10 rounded-xl bg-accent-fill/10 text-accent-fill flex items-center justify-center">
-                        <Icon className="w-5 h-5" />
-                      </div>
-                      <h3 className="text-xl font-bold">{tool.category}</h3>
-                    </div>
-                    <div className="flex flex-wrap gap-2.5">
-                      {tool.skills.map((skill) => (
-                        <span
-                          key={skill}
-                          className="px-4 py-2 rounded-full text-xs font-semibold bg-bg-alt dark:bg-white/10 text-text-secondary dark:text-gray-200 border border-black/5 dark:border-white/10 shadow-sm"
-                        >
-                          {skill}
-                        </span>
-                      ))}
-                    </div>
-                  </Tile>
-                );
-              })}
-            </div>
-          </div>
-        </Section>
-
-        {/* Closing chapter: always dark — variant A (statement) for detail page */}
-        <div className="chapter-dark">
-          <CtaSection variant="statement" lang={lang} />
-          <SiteFooter lang={lang} />
         </div>
+      </Section>
+
+      {/* Closing chapter: always dark */}
+      <div className="chapter-dark">
+        <CtaSection variant="statement" lang={lang} />
+        <SiteFooter lang={lang} />
       </div>
-    </ClickSpark>
+    </div>
   );
 }

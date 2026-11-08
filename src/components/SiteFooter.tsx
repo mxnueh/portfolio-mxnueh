@@ -1,22 +1,17 @@
 /**
  * SiteFooter — Full-width dark footer (Server Component)
  *
- * Layout (12-column grid):
- *   Brand     cols 1-5   Name, descriptor, location
- *   Navigate  cols 7-8   Work, Blog, About, Contact
+ * 12-column Apple-inspired grid:
+ *   Brand     cols 1-5   Name, role, philosophy
+ *   Navigate  cols 7-8   Work, Blog, About
  *   Elsewhere cols 9-10  GitHub, LinkedIn
- *   Contact   cols 11-12 Email + copy button, Discord
+ *   Direct    cols 11-12 Email + copy island, Discord
  *
  * Bottom row:
  *   Left  © year + name (computed at build time)
- *   Right language switch (if ES enabled) + theme toggle (client island)
+ *   Right Language switch + theme toggle (client island)
  *
- * E2: Oversized fluid wordmark "Enmanuel Nunez" in display
- * face, opacity 0.07, bottom ~30% clipped by overflow-hidden,
- * aria-hidden="true", placed below the bottom row.
- *
- * Always rendered inside .chapter-dark wrapper.
- * Hairline separator: rgba(255,255,255,0.16) = var(--separator).
+ * E2: Subtle fluid signature wordmark placed below the bottom row.
  */
 
 import Link from 'next/link';
@@ -29,15 +24,14 @@ interface SiteFooterProps {
 
 const copy = {
   en: {
-    descriptor: 'Full Stack Developer & Systems Designer',
-    location: 'Santo Domingo, Dominican Republic',
+    role: 'Frontend & Full Stack (React) Engineer',
+    bio: 'Designing clean software architectures, high-performance web applications, and intuitive user experiences.',
     nav: {
       title: 'Navigate',
       links: [
         { label: 'Work', href: '/work' },
         { label: 'Blog', href: '/blog' },
         { label: 'About', href: '/about' },
-        { label: 'Contact', href: '/contact' },
       ],
     },
     elsewhere: {
@@ -55,20 +49,19 @@ const copy = {
       discord: 'Discord',
       discordHandle: 'm4ti_.',
     },
-    copy: (year: number) => `© ${year} Enmanuel Nunez Matias`,
+    copyright: (year: number) => `© ${year} Enmanuel Núñez Matías. All rights reserved.`,
     langSwitch: 'ES',
     themeLabel: 'Theme',
   },
   es: {
-    descriptor: 'Desarrollador Full Stack y Diseñador de Sistemas',
-    location: 'Santo Domingo, República Dominicana',
+    role: 'Ingeniero Frontend y Full Stack (React)',
+    bio: 'Diseñando arquitecturas de software limpias, aplicaciones web de alto rendimiento y experiencias intuitivas.',
     nav: {
-      title: 'Navegar',
+      title: 'Navegación',
       links: [
         { label: 'Trabajo', href: '/es/work' },
         { label: 'Blog', href: '/es/blog' },
         { label: 'Sobre mí', href: '/es/about' },
-        { label: 'Contacto', href: '/es/contact' },
       ],
     },
     elsewhere: {
@@ -86,7 +79,7 @@ const copy = {
       discord: 'Discord',
       discordHandle: 'm4ti_.',
     },
-    copy: (year: number) => `© ${year} Enmanuel Nunez Matias`,
+    copyright: (year: number) => `© ${year} Enmanuel Núñez Matías. Todos los derechos reservados.`,
     langSwitch: 'EN',
     themeLabel: 'Tema',
   },
@@ -100,37 +93,29 @@ export function SiteFooter({ lang = 'en' }: SiteFooterProps) {
 
   return (
     <footer
-      className="relative overflow-hidden"
+      className="relative overflow-hidden bg-black text-white"
       style={{ backgroundColor: 'var(--bg-page)' }}
     >
-      {/* Hairline top border */}
+      {/* Hairline top separator */}
       <div
         aria-hidden="true"
-        style={{ height: '1px', backgroundColor: 'var(--separator)', width: '100%' }}
+        className="w-full h-px opacity-20"
+        style={{ backgroundColor: 'var(--separator)' }}
       />
 
-      <div className="max-w-container mx-auto px-8 md:px-12 lg:px-16 pt-16 pb-8">
+      <div className="max-w-container mx-auto px-6 md:px-12 lg:px-16 pt-16 pb-10">
         {/* 12-column grid */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-8 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-8 mb-16">
           {/* Brand — cols 1-5 */}
-          <div className="md:col-span-5">
-            <p
-              className="text-card-title font-semibold mb-4"
-              style={{ color: 'var(--text-primary)' }}
-            >
+          <div className="md:col-span-5 pr-0 md:pr-6">
+            <h3 className="text-xl font-semibold mb-2 tracking-tight text-white">
               {siteConfig.name}
+            </h3>
+            <p className="text-sm font-medium text-text-secondary dark:text-gray-400 mb-4">
+              {c.role}
             </p>
-            <p
-              className="text-body mb-4"
-              style={{ color: 'var(--text-secondary)' }}
-            >
-              {c.descriptor}
-            </p>
-            <p
-              className="text-caption"
-              style={{ color: 'var(--text-tertiary)' }}
-            >
-              {c.location}
+            <p className="text-sm text-text-tertiary dark:text-gray-500 leading-relaxed max-w-sm">
+              {c.bio}
             </p>
           </div>
 
@@ -139,19 +124,15 @@ export function SiteFooter({ lang = 'en' }: SiteFooterProps) {
 
           {/* Navigate — cols 7-8 */}
           <div className="md:col-span-2">
-            <p
-              className="text-eyebrow mb-8"
-              style={{ color: 'var(--text-tertiary)' }}
-            >
+            <p className="text-xs font-semibold uppercase tracking-wider text-text-tertiary dark:text-gray-500 mb-6">
               {c.nav.title}
             </p>
-            <ul className="space-y-8">
+            <ul className="space-y-4">
               {c.nav.links.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm font-medium transition-opacity hover:opacity-80 underline-offset-4 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white rounded-sm"
-                    style={{ color: 'var(--text-secondary)', textDecorationColor: 'var(--separator)' }}
+                    className="text-sm text-text-secondary dark:text-gray-400 hover:text-white transition-colors py-1 inline-block"
                   >
                     {link.label}
                   </Link>
@@ -162,21 +143,17 @@ export function SiteFooter({ lang = 'en' }: SiteFooterProps) {
 
           {/* Elsewhere — cols 9-10 */}
           <div className="md:col-span-2">
-            <p
-              className="text-eyebrow mb-8"
-              style={{ color: 'var(--text-tertiary)' }}
-            >
+            <p className="text-xs font-semibold uppercase tracking-wider text-text-tertiary dark:text-gray-500 mb-6">
               {c.elsewhere.title}
             </p>
-            <ul className="space-y-8">
+            <ul className="space-y-4">
               {c.elsewhere.links.map((link) => (
                 <li key={link.label}>
                   <a
                     href={link.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-sm font-medium transition-opacity hover:opacity-80 underline-offset-4 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white rounded-sm"
-                    style={{ color: 'var(--text-secondary)', textDecorationColor: 'var(--separator)' }}
+                    className="text-sm text-text-secondary dark:text-gray-400 hover:text-white transition-colors py-1 inline-block"
                   >
                     {link.label}
                   </a>
@@ -187,13 +164,10 @@ export function SiteFooter({ lang = 'en' }: SiteFooterProps) {
 
           {/* Contact — cols 11-12 */}
           <div className="md:col-span-2">
-            <p
-              className="text-eyebrow mb-8"
-              style={{ color: 'var(--text-tertiary)' }}
-            >
+            <p className="text-xs font-semibold uppercase tracking-wider text-text-tertiary dark:text-gray-500 mb-6">
               {c.contact.title}
             </p>
-            <div className="space-y-8">
+            <div className="space-y-6">
               <CopyEmailButton
                 email={EMAIL}
                 emailLabel={c.contact.emailLabel}
@@ -201,18 +175,12 @@ export function SiteFooter({ lang = 'en' }: SiteFooterProps) {
                 copiedLabel={c.contact.copiedLabel}
               />
               <div>
-                <p
-                    className="text-caption mb-4"
-                  style={{ color: 'var(--text-tertiary)' }}
-                >
+                <span className="text-xs text-text-tertiary dark:text-gray-500 block mb-1">
                   {c.contact.discord}
-                </p>
-                <p
-                  className="text-sm font-medium font-mono"
-                  style={{ color: 'var(--text-secondary)' }}
-                >
+                </span>
+                <span className="text-sm font-mono text-text-secondary dark:text-gray-400">
                   {c.contact.discordHandle}
-                </p>
+                </span>
               </div>
             </div>
           </div>
@@ -221,20 +189,16 @@ export function SiteFooter({ lang = 'en' }: SiteFooterProps) {
         {/* Hairline before bottom row */}
         <div
           aria-hidden="true"
-          style={{ height: '1px', backgroundColor: 'var(--separator)', marginBottom: '24px' }}
+          className="w-full h-px opacity-20 mb-8"
+          style={{ backgroundColor: 'var(--separator)' }}
         />
 
         {/* Bottom row */}
-        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-8">
-          {/* Copyright (year computed at build time) */}
-          <p
-            className="text-caption"
-            style={{ color: 'var(--text-tertiary)' }}
-          >
-            {c.copy(BUILD_YEAR)}
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
+          <p className="text-xs text-text-tertiary dark:text-gray-500">
+            {c.copyright(BUILD_YEAR)}
           </p>
 
-          {/* Controls: client islands for language and theme */}
           <FooterControls
             lang={lang}
             langSwitchLabel={c.langSwitch}
@@ -242,25 +206,19 @@ export function SiteFooter({ lang = 'en' }: SiteFooterProps) {
           />
         </div>
 
-        {/* E2: Oversized fluid signature wordmark
-            aria-hidden="true", color currentColor at --wordmark-opacity,
-            bottom ~30% clipped by parent overflow-hidden */}
+        {/* E2: Subtle fluid signature wordmark */}
         <p
           aria-hidden="true"
-          className="font-semibold select-none leading-none"
+          className="font-semibold select-none leading-none pointer-events-none mt-6 -mb-6 text-center"
           style={{
-            fontSize: 'clamp(72px, 14vw, 180px)',
+            fontSize: 'clamp(48px, 10vw, 120px)',
             color: 'currentColor',
-            opacity: 'var(--wordmark-opacity)',
-            marginTop: '16px',
-            marginBottom: '-30%',
+            opacity: 0.035,
             whiteSpace: 'nowrap',
-            overflow: 'hidden',
             letterSpacing: '-0.03em',
-            pointerEvents: 'none',
           }}
         >
-          Enmanuel Nunez
+          Enmanuel Núñez
         </p>
       </div>
     </footer>

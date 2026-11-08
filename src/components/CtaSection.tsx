@@ -2,21 +2,16 @@
  * CtaSection — Closing call-to-action component
  *
  * Variants:
- *   A "statement" — headline only (detail pages)
- *   B "actions"   — headline + lead + primary CTA + secondary link (default)
- *   C "evidence"  — B with optional screenshot (falls back to B if no image)
+ *   A "statement" — headline left, primary pill right (for detail pages & subpages)
+ *   B "actions"   — headline + lead + primary pill + secondary link (Home)
+ *   C "evidence"  — B with screenshot on right
  *
- * Design decisions:
- *   • Always dark: rendered inside .chapter-dark wrapper (see page integrations)
- *   • Solid accent fill background, radius-large (28px), no gradient
- *   • E1: CSS-only repeating grid pattern, aria-hidden, pointer-events-none
- *   • Primary CTA: 48px height desktop / 44px mobile, arrow nudges 3px on hover
- *   • Min heights: A=240px, B=360px, C=420px
- *   • Padding: 64px desktop, 48px tablet, 32px mobile
- *   • WCAG focus ring from globals.css (:focus-visible)
- *   • Respects prefers-reduced-motion
- *
- * Exceptions documented in docs/cta-footer-selection.md
+ * Design principles:
+ *   • Rendered inside .chapter-dark wrapper
+ *   • Solid accent fill background, Apple radius (20px-24px), no gradient
+ *   • Faint technical grid pattern (Exception E1)
+ *   • Separates software engineering completely from sensor hardware in copy
+ *   • 44px/48px touch targets, full reduced-motion support
  */
 
 import Link from 'next/link';
@@ -26,36 +21,28 @@ export type CtaVariant = 'statement' | 'actions' | 'evidence';
 interface CtaSectionProps {
   variant?: CtaVariant;
   lang?: 'en' | 'es';
-  /** Optional screenshot URL for variant C (falls back to B if undefined) */
   screenshotSrc?: string;
   screenshotAlt?: string;
 }
 
 const copy = {
   en: {
-    headline: 'Hiring a Frontend or Full Stack (React) developer? Email me.',
-    lead: 'I build systems from sensor data to the interface, with React, TypeScript, Python and PostgreSQL.',
+    headline: 'Looking for a Frontend or Full Stack (React) engineer?',
+    lead: 'I build high-performance web applications and scalable software architectures with React, TypeScript, Next.js, and Python.',
     primaryLabel: 'Email me',
     primaryHref: 'mailto:enmanuelnunezmatias@gmail.com',
-    secondaryLabel: 'View case studies',
+    secondaryLabel: 'View case studies ›',
     secondaryHref: '/work',
   },
   es: {
-    headline: '¿Buscas un desarrollador Frontend o Full Stack (React)? Escríbeme.',
-    lead: 'Construyo sistemas desde el dato del sensor hasta la interfaz, con React, TypeScript, Python y PostgreSQL.',
+    headline: '¿Buscas un desarrollador Frontend o Full Stack (React)?',
+    lead: 'Desarrollo aplicaciones web de alto rendimiento y arquitecturas escalables con React, TypeScript, Next.js y Python.',
     primaryLabel: 'Escríbeme',
     primaryHref: 'mailto:enmanuelnunezmatias@gmail.com',
-    secondaryLabel: 'Ver casos de estudio',
+    secondaryLabel: 'Ver casos de estudio ›',
     secondaryHref: '/es/work',
   },
 };
-
-/** Returns Tailwind min-height class per variant */
-function minHeight(variant: CtaVariant): string {
-  if (variant === 'statement') return 'min-h-[240px]';
-  if (variant === 'evidence') return 'min-h-[420px]';
-  return 'min-h-[360px]'; // actions
-}
 
 export function CtaSection({
   variant = 'actions',
@@ -64,41 +51,22 @@ export function CtaSection({
   screenshotAlt,
 }: CtaSectionProps) {
   const c = copy[lang];
-
-  // Variant C degrades to B when no screenshot provided
   const effectiveVariant: CtaVariant =
     variant === 'evidence' && !screenshotSrc ? 'actions' : variant;
 
   const isStatement = effectiveVariant === 'statement';
-  const showLead = !isStatement;
-  const showActions = !isStatement;
-  const showScreenshot = effectiveVariant === 'evidence' && !!screenshotSrc;
 
   return (
-    /* Outer: 64px bottom margin before the footer */
-    <div className="px-8 md:px-12 lg:px-16 mb-16">
+    <div className="px-6 md:px-12 lg:px-16 mb-16">
       <div
         className={[
-          /* Tile */
-          'relative overflow-hidden rounded-large',
+          'relative overflow-hidden rounded-2xl md:rounded-3xl',
           'bg-accent-fill',
-          /* Padding: 32px mobile → 48px tablet → 64px desktop */
-          'p-8 md:p-12 lg:p-16',
-          /* Min heights */
-          minHeight(effectiveVariant),
-          /* Flex layout */
+          isStatement ? 'p-8 md:p-10 lg:p-12' : 'p-8 md:p-12 lg:p-16',
           'flex flex-col justify-center',
-          /* Screenshot layout for variant C */
-          showScreenshot ? 'lg:flex-row lg:items-center lg:gap-16' : '',
-        ]
-          .filter(Boolean)
-          .join(' ')}
-        role="complementary"
-        aria-label={lang === 'es' ? 'Contáctame' : 'Contact me'}
+        ].join(' ')}
       >
-        {/* E1: CSS-only grid pattern — aria-hidden, pointer-events-none
-            64px cells, 1px lines at rgba(255,255,255,0.08),
-            radial mask fades toward edges */}
+        {/* E1: Faint CSS-only technical grid pattern */}
         <div
           aria-hidden="true"
           style={{
@@ -117,94 +85,91 @@ export function CtaSection({
           }}
         />
 
-        {/* Content — above the grid pattern */}
-        <div
-          className={[
-            'relative z-10',
-            showScreenshot ? 'flex-1' : '',
-            isStatement ? 'text-center max-w-3xl mx-auto w-full' : 'max-w-2xl',
-          ]
-            .filter(Boolean)
-            .join(' ')}
-        >
-          {/* Headline */}
-          <h2
-            className="text-subhead font-semibold mb-8 leading-snug"
-            style={{ color: 'var(--on-accent)', letterSpacing: 'var(--optical-display)' }}
-          >
-            {c.headline}
-          </h2>
-
-          {/* Lead (B + C only) */}
-          {showLead && (
-            <p
-              className="text-lead mb-12 leading-relaxed"
-              style={{ color: 'var(--on-accent-secondary)' }}
+        {/* Variant A: Statement layout (Headline left, Action button right) */}
+        {isStatement ? (
+          <div className="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-6 md:gap-10">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-semibold text-white tracking-tight max-w-xl leading-snug">
+              {c.headline}
+            </h2>
+            <a
+              href={c.primaryHref}
+              className="cta-pill group inline-flex items-center justify-center gap-3 rounded-full px-8 py-3.5 font-semibold text-sm bg-white text-accent-fill hover:bg-white/95 active:bg-white/90 transition-all duration-200 shadow-sm flex-shrink-0"
+              style={{ minHeight: '44px' }}
             >
-              {c.lead}
-            </p>
-          )}
-
-          {/* Actions (B + C only) */}
-          {showActions && (
-            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-8">
-              {/* Primary pill CTA */}
-              <a
-                href={c.primaryHref}
-                className="cta-pill group inline-flex items-center gap-4 rounded-full px-8 font-semibold text-sm transition-colors"
-                style={{
-                  height: '48px',
-                  minHeight: '44px',
-                  backgroundColor: 'var(--on-accent)',
-                  color: 'var(--accent-fill)',
-                }}
+              <span>{c.primaryLabel}</span>
+              <svg
+                aria-hidden="true"
+                width="16"
+                height="16"
+                viewBox="0 0 16 16"
+                fill="none"
+                className="cta-arrow transition-transform duration-200 group-hover:translate-x-1"
               >
-                <span>{c.primaryLabel}</span>
-                {/* Arrow nudges 3px on hover — CSS transition, reduced-motion respected */}
-                <svg
-                  aria-hidden="true"
-                  width="16"
-                  height="16"
-                  viewBox="0 0 16 16"
-                  fill="none"
-                  className="cta-arrow"
-                  style={{
-                    transition: `transform var(--duration-micro) var(--easing-smooth)`,
-                  }}
+                <path
+                  d="M3 8h10M9 4l4 4-4 4"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </a>
+          </div>
+        ) : (
+          /* Variant B & C: Actions layout */
+          <div className="relative z-10 flex flex-col lg:flex-row lg:items-center justify-between gap-8">
+            <div className="max-w-2xl">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-white mb-6 leading-tight tracking-tight">
+                {c.headline}
+              </h2>
+              <p className="text-lg md:text-xl text-white/90 mb-8 leading-relaxed font-normal">
+                {c.lead}
+              </p>
+              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6">
+                <a
+                  href={c.primaryHref}
+                  className="cta-pill group inline-flex items-center justify-center gap-3 rounded-full px-8 py-3.5 font-semibold text-sm bg-white text-accent-fill hover:bg-white/95 active:bg-white/90 transition-all duration-200 shadow-sm"
+                  style={{ minHeight: '44px' }}
                 >
-                  <path
-                    d="M3 8h10M9 4l4 4-4 4"
-                    stroke="currentColor"
-                    strokeWidth="1.5"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </a>
-
-              {/* Secondary text link */}
-              <Link
-                href={c.secondaryHref}
-                className="text-sm font-medium transition-opacity hover:opacity-80"
-                style={{ color: 'var(--on-accent-secondary)' }}
-              >
-                {c.secondaryLabel} ›
-              </Link>
+                  <span>{c.primaryLabel}</span>
+                  <svg
+                    aria-hidden="true"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 16 16"
+                    fill="none"
+                    className="cta-arrow transition-transform duration-200 group-hover:translate-x-1"
+                  >
+                    <path
+                      d="M3 8h10M9 4l4 4-4 4"
+                      stroke="currentColor"
+                      strokeWidth="1.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </a>
+                <Link
+                  href={c.secondaryHref}
+                  className="text-sm font-semibold text-white/90 hover:text-white underline-offset-4 hover:underline transition-colors py-2"
+                >
+                  {c.secondaryLabel}
+                </Link>
+              </div>
             </div>
-          )}
-        </div>
 
-        {/* Screenshot — variant C */}
-        {showScreenshot && (
-          <div className="relative z-10 flex-shrink-0 w-full lg:w-80 xl:w-96 mt-8 lg:mt-0">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src={screenshotSrc}
-              alt={screenshotAlt ?? ''}
-              className="rounded-large shadow-e3 w-full"
-              loading="lazy"
-              decoding="async"
-            />
+            {effectiveVariant === 'evidence' && screenshotSrc && (
+              <div className="relative z-10 flex-shrink-0 w-full lg:w-80 xl:w-96 mt-6 lg:mt-0">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={screenshotSrc}
+                  alt={screenshotAlt ?? ''}
+                  className="rounded-xl shadow-lg w-full"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+            )}
           </div>
         )}
       </div>
