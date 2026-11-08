@@ -1,5 +1,6 @@
 import { GlobalNav } from '@/components/GlobalNav';
-import { Footer } from '@/components/Footer';
+import { SiteFooter } from '@/components/SiteFooter';
+import { CtaSection } from '@/components/CtaSection';
 import { Section } from '@/components/Section';
 import { CategoryBadge } from '@/components/CategoryBadge';
 import { getPosts, getContent } from '@/lib/getContent';
@@ -77,7 +78,11 @@ export default async function EsBlogPage() {
           </div>
         </Section>
 
-        <Footer lang={lang} />
+        {/* Closing chapter: always dark — variant A (statement) on blog page per D-C */}
+        <div className="chapter-dark">
+          <CtaSection variant="statement" lang={lang} />
+          <SiteFooter lang={lang} />
+        </div>
       </div>
     </ClickSpark>
   );

@@ -1,7 +1,7 @@
 'use client';
 
 import { GlobalNav } from '@/components/GlobalNav';
-import { Footer } from '@/components/Footer';
+import { SiteFooter } from '@/components/SiteFooter';
 import { Section } from '@/components/Section';
 import { siteConfig } from '@/config/site';
 import { useState } from 'react';
@@ -147,8 +147,10 @@ export default function EsContactPage() {
             </div>
           </div>
         </Section>
-
-        <Footer lang={lang} />
+        {/* Closing chapter: always dark — no CTA on /contact per design rules */}
+        <div className="chapter-dark">
+          <SiteFooter lang={lang} />
+        </div>
       </div>
     </ClickSpark>
   );

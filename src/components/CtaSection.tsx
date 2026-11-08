@@ -76,7 +76,7 @@ export function CtaSection({
 
   return (
     /* Outer: 64px bottom margin before the footer */
-    <div className="px-8 pb-0 md:px-12 lg:px-16 mb-16">
+    <div className="px-8 md:px-12 lg:px-16 mb-16">
       <div
         className={[
           /* Tile */

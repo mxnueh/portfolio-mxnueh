@@ -2,7 +2,7 @@
 
 import React, { useRef, useState } from 'react';
 import { GlobalNav } from '@/components/GlobalNav';
-import { Footer } from '@/components/Footer';
+import { SiteFooter } from '@/components/SiteFooter';
 import { Section } from '@/components/Section';
 
 // MagicUI
@@ -716,7 +716,9 @@ export default function ComponentsShowcasePage() {
           </section>
         )}
 
-        <Footer lang="en" />
+        <div className="chapter-dark">
+          <SiteFooter lang="en" />
+        </div>
       </div>
     </ClickSpark>
   );

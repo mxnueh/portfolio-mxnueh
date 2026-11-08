@@ -1,7 +1,7 @@
 import { notFound } from 'next/navigation';
 import { siteConfig } from '@/config/site';
 import { GlobalNav } from '@/components/GlobalNav';
-import { Footer } from '@/components/Footer';
+import { SiteFooter } from '@/components/SiteFooter';
 import { Section } from '@/components/Section';
 import { Tile } from '@/components/Tile';
 import { Eyebrow } from '@/components/Eyebrow';
@@ -59,7 +59,9 @@ export default async function ProductsPage() {
         </div>
       </Section>
 
-      <Footer lang={lang} />
+      <div className="chapter-dark">
+        <SiteFooter lang={lang} />
+      </div>
     </div>
   );
 }

@@ -1,7 +1,7 @@
 import { notFound } from 'next/navigation';
 import { siteConfig } from '@/config/site';
 import { GlobalNav } from '@/components/GlobalNav';
-import { Footer } from '@/components/Footer';
+import { SiteFooter } from '@/components/SiteFooter';
 import { Section, Card } from '@/components/Section';
 import { Button, TextLink } from '@/components/Button';
 import { getProduct, getProducts } from '@/lib/getContent';
@@ -34,7 +34,9 @@ export default async function ProductPage({ params }: ProductPageProps) {
         <Section variant="white">
           <h1 className="text-section font-600 mb-4">Product not found</h1>
         </Section>
-        <Footer lang="en" />
+        <div className="chapter-dark">
+          <SiteFooter lang="en" />
+        </div>
       </div>
     );
   }
@@ -57,7 +59,9 @@ export default async function ProductPage({ params }: ProductPageProps) {
           </div>
         </div>
       </Section>
-      <Footer lang="en" />
+      <div className="chapter-dark">
+        <SiteFooter lang="en" />
+      </div>
     </div>
   );
 }

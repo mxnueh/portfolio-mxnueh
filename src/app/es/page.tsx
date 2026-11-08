@@ -1,5 +1,6 @@
 import { GlobalNav } from '@/components/GlobalNav';
-import { Footer } from '@/components/Footer';
+import { SiteFooter } from '@/components/SiteFooter';
+import { CtaSection } from '@/components/CtaSection';
 import { Button, TextLink } from '@/components/Button';
 import { Section, SectionHeading } from '@/components/Section';
 import { Tile } from '@/components/Tile';
@@ -237,20 +238,11 @@ export default async function EsHomePage() {
       </Section>
 
       {/* Closing CTA */}
-      <Section variant="white">
-        <div className="max-w-text mx-auto text-center">
-          <h2 className="text-subhead md:text-subhead-tablet lg:text-subhead-mobile font-600 mb-12">
-            {content.home.closing.headline}
-          </h2>
-          <div className="flex flex-col sm:flex-row gap-8 justify-center">
-            <Button href="/es/contact" variant="primary">
-              {content.home.closing.primaryCTA.label}
-            </Button>
-          </div>
-        </div>
-      </Section>
-
-        <Footer lang={lang} />
+      {/* Closing chapter: always dark */}
+      <div className="chapter-dark">
+        <CtaSection variant="actions" lang={lang} />
+        <SiteFooter lang={lang} />
+      </div>
       </div>
     </ClickSpark>
   );

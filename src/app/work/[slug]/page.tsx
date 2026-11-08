@@ -1,5 +1,6 @@
 import { GlobalNav } from '@/components/GlobalNav';
-import { Footer } from '@/components/Footer';
+import { SiteFooter } from '@/components/SiteFooter';
+import { CtaSection } from '@/components/CtaSection';
 import { Section } from '@/components/Section';
 import { TextLink } from '@/components/Button';
 import { Markdown } from '@/components/Markdown';
@@ -36,7 +37,9 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
             </Link>
           </div>
         </Section>
-        <Footer lang="en" />
+        <div className="chapter-dark">
+          <SiteFooter lang="en" />
+        </div>
       </div>
     );
   }
@@ -171,7 +174,11 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
           </div>
         </Section>
 
-        <Footer lang="en" />
+        {/* Closing chapter: always dark — variant A (statement) */}
+        <div className="chapter-dark">
+          <CtaSection variant="statement" lang="en" />
+          <SiteFooter lang="en" />
+        </div>
       </div>
     </ClickSpark>
   );

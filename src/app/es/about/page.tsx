@@ -1,5 +1,6 @@
 import { GlobalNav } from '@/components/GlobalNav';
-import { Footer } from '@/components/Footer';
+import { SiteFooter } from '@/components/SiteFooter';
+import { CtaSection } from '@/components/CtaSection';
 import { Section } from '@/components/Section';
 import { Tile } from '@/components/Tile';
 import type { Metadata } from 'next';
@@ -232,25 +233,11 @@ export default function EsAboutPage() {
           </div>
         </Section>
 
-        {/* CTA */}
-        <Section variant="white">
-          <div className="relative max-w-4xl mx-auto rounded-3xl overflow-hidden bg-accent-fill text-white p-12 text-center shadow-xl">
-            <BorderBeam size={220} duration={12} colorFrom="#ffffff" colorTo="#93c5fd" />
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 relative z-10">
-              Construyamos tu próximo sistema
-            </h2>
-            <p className="text-base md:text-lg text-white/90 max-w-xl mx-auto mb-8 relative z-10">
-              Disponible para puestos Full Stack / Frontend (React) y proyectos de software a la medida.
-            </p>
-            <div className="flex justify-center relative z-10">
-              <ShimmerButton href="/es/contact" background="rgba(255, 255, 255, 0.2)">
-                Contáctame →
-              </ShimmerButton>
-            </div>
-          </div>
-        </Section>
-
-        <Footer lang={lang} />
+        {/* Closing chapter: always dark — variant A (statement) for detail page */}
+        <div className="chapter-dark">
+          <CtaSection variant="statement" lang={lang} />
+          <SiteFooter lang={lang} />
+        </div>
       </div>
     </ClickSpark>
   );

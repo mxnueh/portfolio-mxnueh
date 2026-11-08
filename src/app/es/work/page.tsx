@@ -1,5 +1,6 @@
 import { GlobalNav } from '@/components/GlobalNav';
-import { Footer } from '@/components/Footer';
+import { SiteFooter } from '@/components/SiteFooter';
+import { CtaSection } from '@/components/CtaSection';
 import { Section } from '@/components/Section';
 import { getCaseStudies } from '@/lib/getContent';
 import Link from 'next/link';
@@ -124,24 +125,11 @@ export default async function EsWorkPage() {
           </div>
         </Section>
 
-        {/* Bottom CTA */}
-        <Section variant="white">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              ¿Tienes en mente un proyecto o una vacante de ingeniería?
-            </h2>
-            <p className="text-lg text-text-secondary dark:text-gray-400 mb-8 max-w-xl mx-auto">
-              Estoy disponible para oportunidades como Desarrollador Frontend y Full Stack (React/Python), así como arquitectura de sistemas a la medida.
-            </p>
-            <div className="flex justify-center">
-              <ShimmerButton href="/es/contact" background="#0071e3">
-                Conversemos sobre tu proyecto
-              </ShimmerButton>
-            </div>
-          </div>
-        </Section>
-
-        <Footer lang={lang} />
+        {/* Closing chapter: always dark — variant A (statement) on work page per D-C */}
+        <div className="chapter-dark">
+          <CtaSection variant="statement" lang={lang} />
+          <SiteFooter lang={lang} />
+        </div>
       </div>
     </ClickSpark>
   );

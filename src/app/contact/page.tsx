@@ -1,7 +1,7 @@
 'use client';
 
 import { GlobalNav } from '@/components/GlobalNav';
-import { Footer } from '@/components/Footer';
+import { SiteFooter } from '@/components/SiteFooter';
 import { Section } from '@/components/Section';
 import { Tile } from '@/components/Tile';
 import { Eyebrow } from '@/components/Eyebrow';
@@ -151,7 +151,10 @@ export default function ContactPage() {
           </div>
         </Section>
 
-        <Footer lang={lang} />
+        {/* Closing chapter: always dark — no CTA on /contact per design rules */}
+        <div className="chapter-dark">
+          <SiteFooter lang={lang} />
+        </div>
       </div>
     </ClickSpark>
   );

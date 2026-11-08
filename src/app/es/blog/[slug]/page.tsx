@@ -1,5 +1,6 @@
 import { GlobalNav } from '@/components/GlobalNav';
-import { Footer } from '@/components/Footer';
+import { SiteFooter } from '@/components/SiteFooter';
+import { CtaSection } from '@/components/CtaSection';
 import { Section } from '@/components/Section';
 import { TextLink } from '@/components/Button';
 import { Markdown } from '@/components/Markdown';
@@ -33,7 +34,9 @@ export default async function EsBlogPostPage({ params }: BlogPostPageProps) {
             <TextLink href="/es/blog">Volver al blog</TextLink>
           </div>
         </Section>
-        <Footer lang={lang} />
+        <div className="chapter-dark">
+          <SiteFooter lang={lang} />
+        </div>
       </div>
     );
   }
@@ -90,7 +93,11 @@ export default async function EsBlogPostPage({ params }: BlogPostPageProps) {
         </div>
       </Section>
 
-      <Footer lang={lang} />
+      {/* Closing chapter: always dark — variant A (statement) */}
+      <div className="chapter-dark">
+        <CtaSection variant="statement" lang={lang} />
+        <SiteFooter lang={lang} />
+      </div>
     </div>
   );
 }

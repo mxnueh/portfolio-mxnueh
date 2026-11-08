@@ -1,5 +1,6 @@
 import { GlobalNav } from '@/components/GlobalNav';
-import { Footer } from '@/components/Footer';
+import { SiteFooter } from '@/components/SiteFooter';
+import { CtaSection } from '@/components/CtaSection';
 import { Section } from '@/components/Section';
 import { Tile } from '@/components/Tile';
 import { getCaseStudies } from '@/lib/getContent';
@@ -126,24 +127,11 @@ export default async function WorkPage() {
           </div>
         </Section>
 
-        {/* Bottom CTA */}
-        <Section variant="white">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Have a project or engineering role in mind?
-            </h2>
-            <p className="text-lg text-text-secondary dark:text-gray-400 mb-8 max-w-xl mx-auto">
-              I am open to full-time Frontend & Full Stack (React/Python) engineering opportunities and custom telemetry systems development.
-            </p>
-            <div className="flex justify-center">
-              <ShimmerButton href="/contact" background="#0071e3">
-                Let's Talk About Your Project
-              </ShimmerButton>
-            </div>
-          </div>
-        </Section>
-
-        <Footer lang={lang} />
+        {/* Closing chapter: always dark — variant A (statement) on work page per D-C */}
+        <div className="chapter-dark">
+          <CtaSection variant="statement" lang={lang} />
+          <SiteFooter lang={lang} />
+        </div>
       </div>
     </ClickSpark>
   );

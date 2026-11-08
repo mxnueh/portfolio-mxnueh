@@ -1,5 +1,6 @@
 import { GlobalNav } from '@/components/GlobalNav';
-import { Footer } from '@/components/Footer';
+import { SiteFooter } from '@/components/SiteFooter';
+import { CtaSection } from '@/components/CtaSection';
 import { Button, TextLink } from '@/components/Button';
 import { Section } from '@/components/Section';
 import { Tile } from '@/components/Tile';
@@ -247,19 +248,11 @@ export default async function HomePage({ params }: HomePageProps) {
         </div>
       </Section>
 
-      {/* Closing CTA */}
-      <Section variant="white">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl md:text-5xl font-semibold mb-8">
-            Let's build something useful
-          </h2>
-          <Button href={siteConfig.ctas.closing.primary.href} variant="primary">
-            {siteConfig.ctas.closing.primary.label}
-          </Button>
-        </div>
-      </Section>
-
-        <Footer lang={lang} />
+      {/* Closing chapter: always dark */}
+      <div className="chapter-dark">
+        <CtaSection variant="actions" lang={lang} />
+        <SiteFooter lang={lang} />
+      </div>
       </div>
     </ClickSpark>
   );

@@ -26,13 +26,17 @@ const productsEnabled = /products:\s*true/.test(siteConfigContent);
 // Known valid routes (static + dynamic patterns)
 const validRoutes = [
   '/',
+  '/about',
   '/work',
   '/blog',
   '/contact',
+  '/components',
   '/es',
+  '/es/about',
   '/es/work',
   '/es/blog',
   '/es/contact',
+  '/es/components',
 ];
 
 // Conditionally add products routes

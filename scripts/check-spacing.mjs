@@ -22,7 +22,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const srcDir = path.join(__dirname, '../src');
 
 // Define allowed spacing tokens (in px)
-const allowedTokens = new Set(['4', '8', '12', '16', '24', '32', '48', '64', '80', '120']);
+const allowedTokens = new Set(['0', '4', '8', '12', '16', '24', '32', '48', '64', '80', '120']);
 
 // Map common non-token values to their closest token
 const tokenMappings = {

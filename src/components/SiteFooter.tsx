@@ -1,5 +1,5 @@
 /**
- * SiteFooter — Full-width dark footer
+ * SiteFooter — Full-width dark footer (Server Component)
  *
  * Layout (12-column grid):
  *   Brand     cols 1-5   Name, descriptor, location
@@ -8,8 +8,8 @@
  *   Contact   cols 11-12 Email + copy button, Discord
  *
  * Bottom row:
- *   Left  © year + name
- *   Right language switch (if ES enabled) + theme toggle
+ *   Left  © year + name (computed at build time)
+ *   Right language switch (if ES enabled) + theme toggle (client island)
  *
  * E2: Oversized fluid wordmark "Enmanuel Nunez" in display
  * face, opacity 0.07, bottom ~30% clipped by overflow-hidden,
@@ -19,11 +19,9 @@
  * Hairline separator: rgba(255,255,255,0.16) = var(--separator).
  */
 
-'use client';
-
 import Link from 'next/link';
-import { useState, useEffect } from 'react';
 import { siteConfig } from '@/config/site';
+import { CopyEmailButton, FooterControls } from '@/components/SiteFooterClient';
 
 interface SiteFooterProps {
   lang?: 'en' | 'es';
@@ -33,16 +31,22 @@ const copy = {
   en: {
     descriptor: 'Full Stack Developer & Systems Designer',
     location: 'Santo Domingo, Dominican Republic',
-    nav: { title: 'Navigate', links: [
-      { label: 'Work', href: '/work' },
-      { label: 'Blog', href: '/blog' },
-      { label: 'About', href: '/about' },
-      { label: 'Contact', href: '/contact' },
-    ]},
-    elsewhere: { title: 'Elsewhere', links: [
-      { label: 'GitHub', url: 'https://github.com/mxnueh' },
-      { label: 'LinkedIn', url: 'https://www.linkedin.com/in/enmanuel-nunez-matias-249560340/' },
-    ]},
+    nav: {
+      title: 'Navigate',
+      links: [
+        { label: 'Work', href: '/work' },
+        { label: 'Blog', href: '/blog' },
+        { label: 'About', href: '/about' },
+        { label: 'Contact', href: '/contact' },
+      ],
+    },
+    elsewhere: {
+      title: 'Elsewhere',
+      links: [
+        { label: 'GitHub', url: 'https://github.com/mxnueh' },
+        { label: 'LinkedIn', url: 'https://www.linkedin.com/in/enmanuel-nunez-matias-249560340/' },
+      ],
+    },
     contact: {
       title: 'Contact',
       emailLabel: 'Email',
@@ -58,16 +62,22 @@ const copy = {
   es: {
     descriptor: 'Desarrollador Full Stack y Diseñador de Sistemas',
     location: 'Santo Domingo, República Dominicana',
-    nav: { title: 'Navegar', links: [
-      { label: 'Trabajo', href: '/es/work' },
-      { label: 'Blog', href: '/es/blog' },
-      { label: 'Sobre mí', href: '/es/about' },
-      { label: 'Contacto', href: '/es/contact' },
-    ]},
-    elsewhere: { title: 'Redes', links: [
-      { label: 'GitHub', url: 'https://github.com/mxnueh' },
-      { label: 'LinkedIn', url: 'https://www.linkedin.com/in/enmanuel-nunez-matias-249560340/' },
-    ]},
+    nav: {
+      title: 'Navegar',
+      links: [
+        { label: 'Trabajo', href: '/es/work' },
+        { label: 'Blog', href: '/es/blog' },
+        { label: 'Sobre mí', href: '/es/about' },
+        { label: 'Contacto', href: '/es/contact' },
+      ],
+    },
+    elsewhere: {
+      title: 'Redes',
+      links: [
+        { label: 'GitHub', url: 'https://github.com/mxnueh' },
+        { label: 'LinkedIn', url: 'https://www.linkedin.com/in/enmanuel-nunez-matias-249560340/' },
+      ],
+    },
     contact: {
       title: 'Contacto',
       emailLabel: 'Correo',
@@ -83,78 +93,10 @@ const copy = {
 };
 
 const EMAIL = siteConfig.contact.email;
-
-function CopyEmailButton({ emailLabel, copyLabel, copiedLabel }: {
-  emailLabel: string;
-  copyLabel: string;
-  copiedLabel: string;
-}) {
-  const [copied, setCopied] = useState(false);
-
-  function handleCopy() {
-    navigator.clipboard.writeText(EMAIL).then(() => {
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
-    });
-  }
-
-  return (
-    <div className="flex flex-col gap-4">
-      <a
-        href={`mailto:${EMAIL}`}
-        className="text-sm font-medium transition-opacity hover:opacity-80"
-        style={{ color: 'var(--text-primary)' }}
-      >
-        {emailLabel}
-      </a>
-      <button
-        onClick={handleCopy}
-        className="inline-flex items-center gap-4 text-sm font-medium transition-opacity hover:opacity-80 w-fit"
-        style={{ color: 'var(--text-secondary)', minHeight: '44px', padding: '0' }}
-        aria-label={copied ? copiedLabel : `${copyLabel} email`}
-      >
-        <span aria-live="polite" aria-atomic="true">
-          {copied ? copiedLabel : copyLabel}
-        </span>
-        {!copied && (
-          <svg aria-hidden="true" width="14" height="14" viewBox="0 0 14 14" fill="none">
-            <rect x="4" y="4" width="8" height="8" rx="1.5" stroke="currentColor" strokeWidth="1.2"/>
-            <path d="M2 10V3a1 1 0 011-1h7" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round"/>
-          </svg>
-        )}
-      </button>
-    </div>
-  );
-}
+const BUILD_YEAR = new Date().getFullYear();
 
 export function SiteFooter({ lang = 'en' }: SiteFooterProps) {
-  const [year, setYear] = useState(new Date().getFullYear());
   const c = copy[lang];
-
-  useEffect(() => {
-    setYear(new Date().getFullYear());
-  }, []);
-
-  function handleLangSwitch() {
-    if (typeof window === 'undefined') return;
-    const path = window.location.pathname;
-    if (lang === 'es') {
-      const newPath = path.replace(/^\/es(\/|$)/, '$1') || '/';
-      window.location.href = newPath;
-    } else {
-      window.location.href = path === '/' ? '/es' : `/es${path}`;
-    }
-  }
-
-  function handleThemeToggle() {
-    if (typeof window === 'undefined') return;
-    document.documentElement.classList.toggle('dark');
-    try {
-      localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
-    } catch {
-      // storage not available
-    }
-  }
 
   return (
     <footer
@@ -208,7 +150,7 @@ export function SiteFooter({ lang = 'en' }: SiteFooterProps) {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm font-medium transition-opacity hover:opacity-80 underline-offset-4 hover:underline"
+                    className="text-sm font-medium transition-opacity hover:opacity-80 underline-offset-4 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white rounded-sm"
                     style={{ color: 'var(--text-secondary)', textDecorationColor: 'var(--separator)' }}
                   >
                     {link.label}
@@ -233,7 +175,7 @@ export function SiteFooter({ lang = 'en' }: SiteFooterProps) {
                     href={link.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-sm font-medium transition-opacity hover:opacity-80 underline-offset-4 hover:underline"
+                    className="text-sm font-medium transition-opacity hover:opacity-80 underline-offset-4 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white rounded-sm"
                     style={{ color: 'var(--text-secondary)', textDecorationColor: 'var(--separator)' }}
                   >
                     {link.label}
@@ -253,13 +195,14 @@ export function SiteFooter({ lang = 'en' }: SiteFooterProps) {
             </p>
             <div className="space-y-8">
               <CopyEmailButton
+                email={EMAIL}
                 emailLabel={c.contact.emailLabel}
                 copyLabel={c.contact.copyLabel}
                 copiedLabel={c.contact.copiedLabel}
               />
               <div>
                 <p
-                  className="text-caption mb-4"
+                    className="text-caption mb-4"
                   style={{ color: 'var(--text-tertiary)' }}
                 >
                   {c.contact.discord}
@@ -283,52 +226,20 @@ export function SiteFooter({ lang = 'en' }: SiteFooterProps) {
 
         {/* Bottom row */}
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-8">
-          {/* Copyright */}
+          {/* Copyright (year computed at build time) */}
           <p
             className="text-caption"
             style={{ color: 'var(--text-tertiary)' }}
           >
-            {c.copy(year)}
+            {c.copy(BUILD_YEAR)}
           </p>
 
-          {/* Controls */}
-          <div className="flex items-center gap-4">
-            {/* Language switch (only when multi-locale enabled) */}
-            {siteConfig.locales.length > 1 && (
-              <button
-                onClick={handleLangSwitch}
-                className="text-caption font-medium transition-opacity hover:opacity-80"
-                style={{
-                  color: 'var(--text-secondary)',
-                  minHeight: '44px',
-                  minWidth: '44px',
-                  padding: '0 8px',
-                  display: 'flex',
-                  alignItems: 'center',
-                }}
-                aria-label={lang === 'es' ? 'Switch to English' : 'Cambiar a Español'}
-              >
-                {c.langSwitch}
-              </button>
-            )}
-
-            {/* Theme toggle */}
-            <button
-              onClick={handleThemeToggle}
-              className="text-caption font-medium transition-opacity hover:opacity-80"
-              style={{
-                color: 'var(--text-secondary)',
-                minHeight: '44px',
-                minWidth: '44px',
-                padding: '0 8px',
-                display: 'flex',
-                alignItems: 'center',
-              }}
-              aria-label="Toggle dark/light mode"
-            >
-              {c.themeLabel}
-            </button>
-          </div>
+          {/* Controls: client islands for language and theme */}
+          <FooterControls
+            lang={lang}
+            langSwitchLabel={c.langSwitch}
+            themeLabel={c.themeLabel}
+          />
         </div>
 
         {/* E2: Oversized fluid signature wordmark
