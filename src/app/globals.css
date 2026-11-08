@@ -280,3 +280,21 @@ input:focus-visible {
 .animate-gradient-x {
   animation: gradient-x 6s ease infinite;
 }
+
+/* ============================================================
+   CtaSection — arrow nudge (E1 exception)
+   The .cta-pill:hover .cta-arrow rule nudges the arrow icon
+   3px right on hover. Reduced-motion is respected globally
+   via the @media block at top of file.
+   ============================================================ */
+.cta-pill:hover .cta-arrow {
+  transform: translateX(3px);
+}
+
+/* ============================================================
+   Chapter-dark — force color-scheme so native controls
+   (scrollbars, inputs) render dark inside this section
+   ============================================================ */
+.chapter-dark {
+  color-scheme: dark;
+}
