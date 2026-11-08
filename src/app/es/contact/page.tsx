@@ -3,6 +3,7 @@
 import { GlobalNav } from '@/components/GlobalNav';
 import { Footer } from '@/components/Footer';
 import { Section } from '@/components/Section';
+import { Tile } from '@/components/Tile';
 import { siteConfig } from '@/config/site';
 import { useState } from 'react';
 
@@ -32,7 +33,7 @@ export default function EsContactPage() {
           </p>
 
           {/* Email */}
-          <div className="bg-bg-alt dark:bg-dark-bg-card rounded-2xl p-8 mb-8">
+          <Tile className="mb-8">
             <p className="text-sm uppercase tracking-wider text-text-secondary mb-4">Correo</p>
             <p className="text-2xl font-semibold mb-6">{siteConfig.contact.email}</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -49,26 +50,27 @@ export default function EsContactPage() {
                 {copied ? '✓ ¡Copiado!' : 'Copiar correo'}
               </button>
             </div>
-          </div>
+          </Tile>
 
           {/* Social Links */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {siteConfig.contact.social.map((social) => {
               const href = 'url' in social ? social.url : `https://discord.com/users/${social.username}`;
               return (
-                <a
-                  key={social.label}
-                  href={href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="bg-bg-alt dark:bg-dark-bg-card rounded-2xl p-6 hover:shadow-lg transition-shadow"
-                >
-                  <p className="text-sm uppercase tracking-wider text-text-secondary mb-2">{social.label}</p>
-                  <p className="text-lg font-semibold text-accent-fill flex items-center justify-center gap-2">
-                    Ver perfil
-                    <span className="text-xs">→</span>
-                  </p>
-                </a>
+                <Tile key={social.label} interactive elevation="e1">
+                  <a
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block"
+                  >
+                    <p className="text-sm uppercase tracking-wider text-text-secondary mb-2">{social.label}</p>
+                    <p className="text-lg font-semibold text-accent-fill flex items-center justify-center gap-2">
+                      Ver perfil
+                      <span className="text-xs">→</span>
+                    </p>
+                  </a>
+                </Tile>
               );
             })}
           </div>

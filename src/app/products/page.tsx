@@ -3,6 +3,7 @@ import { siteConfig } from '@/config/site';
 import { GlobalNav } from '@/components/GlobalNav';
 import { Footer } from '@/components/Footer';
 import { Section } from '@/components/Section';
+import { Tile } from '@/components/Tile';
 import { Button } from '@/components/Button';
 import { getProducts } from '@/lib/getContent';
 import type { Metadata } from 'next';
@@ -33,7 +34,7 @@ export default async function ProductsPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {products.map((product) => (
-              <div key={product.id} className="bg-bg-alt dark:bg-dark-bg-card rounded-2xl p-8">
+              <Tile key={product.id}>
                 <p className="text-sm uppercase tracking-wider text-accent-fill mb-3">{product.category}</p>
                 <h2 className="text-2xl font-semibold mb-2">{product.name}</h2>
                 <p className="text-text-secondary mb-4">{product.tagline}</p>
@@ -51,7 +52,7 @@ export default async function ProductsPage() {
                     </Button>
                   )}
                 </div>
-              </div>
+              </Tile>
             ))}
           </div>
         </div>

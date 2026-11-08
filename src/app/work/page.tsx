@@ -1,6 +1,7 @@
 import { GlobalNav } from '@/components/GlobalNav';
 import { Footer } from '@/components/Footer';
 import { Section } from '@/components/Section';
+import { Tile } from '@/components/Tile';
 import { getCaseStudies } from '@/lib/getContent';
 import Link from 'next/link';
 import type { Metadata } from 'next';
@@ -28,7 +29,7 @@ export default async function WorkPage() {
           <div className="space-y-6">
             {caseStudies.map((study) => (
               <Link key={study.id} href={`/work/${study.slug}`} className="group block">
-                <div className="bg-bg-alt dark:bg-dark-bg-card rounded-2xl p-8 hover:shadow-lg transition-shadow">
+                <Tile interactive elevation="e1">
                   <div className="flex flex-col md:flex-row gap-8">
                     <div className="flex-1">
                       <p className="text-sm uppercase tracking-wider text-accent-fill mb-2">{study.eyebrow}</p>
@@ -39,7 +40,7 @@ export default async function WorkPage() {
                       {study.stack && study.stack.length > 0 && (
                         <div className="flex flex-wrap gap-2">
                           {study.stack.map((tech) => (
-                            <span key={tech} className="px-3 py-1 bg-white dark:bg-surface-dark rounded-full text-sm">
+                            <span key={tech} className="px-3 py-1 bg-bg-alt dark:bg-dark-bg-alt rounded-full text-sm">
                               {tech}
                             </span>
                           ))}
@@ -47,12 +48,12 @@ export default async function WorkPage() {
                       )}
                     </div>
                     {study.image && (
-                      <div className="w-full md:w-80 h-48 rounded-xl bg-bg-alt dark:bg-surface-dark flex items-center justify-center flex-shrink-0">
+                      <div className="w-full md:w-80 h-48 rounded-large bg-bg-alt dark:bg-dark-bg-alt flex items-center justify-center flex-shrink-0">
                         <span className="text-text-tertiary text-sm">{study.image}</span>
                       </div>
                     )}
                   </div>
-                </div>
+                </Tile>
               </Link>
             ))}
           </div>

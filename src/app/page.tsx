@@ -2,6 +2,7 @@ import { GlobalNav } from '@/components/GlobalNav';
 import { Footer } from '@/components/Footer';
 import { Button, TextLink } from '@/components/Button';
 import { Section } from '@/components/Section';
+import { Tile } from '@/components/Tile';
 import { getContent, getFeaturedPosts, getFeaturedProducts, getCaseStudies } from '@/lib/getContent';
 import { siteConfig } from '@/config/site';
 import Link from 'next/link';
@@ -51,7 +52,7 @@ export default async function HomePage({ params }: HomePageProps) {
           <h2 className="text-4xl md:text-5xl font-semibold mb-12 text-center">At a glance</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {/* Frontend to Backend */}
-            <div className="md:col-span-2 bg-white dark:bg-dark-bg-card rounded-2xl p-8">
+            <Tile className="md:col-span-2">
               <h3 className="text-2xl font-semibold mb-4">Frontend to backend</h3>
               <div className="flex flex-wrap gap-2">
                 {['React', 'TypeScript', 'Tailwind', 'Python', 'PostgreSQL'].map((tech) => (
@@ -60,38 +61,38 @@ export default async function HomePage({ params }: HomePageProps) {
                   </span>
                 ))}
               </div>
-            </div>
+            </Tile>
 
             {/* Hackathons */}
-            <div className="bg-white dark:bg-dark-bg-card rounded-2xl p-8 flex flex-col justify-center">
+            <Tile className="flex flex-col justify-center">
               <div className="text-5xl font-bold mb-2">4</div>
               <p className="text-text-secondary">hackathon finals, 2 of them NASA</p>
-            </div>
+            </Tile>
 
             {/* GSoC */}
-            <div className="bg-white dark:bg-dark-bg-card rounded-2xl p-8 flex flex-col justify-center">
+            <Tile className="flex flex-col justify-center">
               <h3 className="text-xl font-semibold mb-2">Google Summer of Code 2026</h3>
               <p className="text-text-secondary">omegaUp contributor</p>
-            </div>
+            </Tile>
 
             {/* Systems Design */}
-            <div className="bg-white dark:bg-dark-bg-card rounded-2xl p-8">
+            <Tile>
               <h3 className="text-xl font-semibold mb-2">Systems design</h3>
               <p className="text-text-secondary">Architecture, data flow, roles and permissions</p>
-            </div>
+            </Tile>
 
             {/* Education */}
-            <div className="bg-white dark:bg-dark-bg-card rounded-2xl p-8">
+            <Tile>
               <h3 className="text-xl font-semibold mb-2">English B2</h3>
               <p className="text-text-secondary">Software Development at ITLA</p>
-            </div>
+            </Tile>
 
             {/* CTA */}
-            <div className="md:col-span-2 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl p-8 text-white">
+            <div className="md:col-span-2 bg-accent-fill dark:bg-accent-fill rounded-large p-8 text-white flex flex-col justify-center">
               <h3 className="text-2xl font-semibold mb-4">
                 Open to Frontend / Full Stack (React) roles and custom software projects
               </h3>
-              <TextLink href="/contact">Get in touch</TextLink>
+              <TextLink href="/contact" className="text-white">Get in touch</TextLink>
             </div>
           </div>
         </div>
@@ -104,7 +105,7 @@ export default async function HomePage({ params }: HomePageProps) {
             <h2 className="text-4xl md:text-5xl font-semibold mb-12 text-center text-white">Products</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {featuredProducts.map((product) => (
-                <div key={product.id} className="bg-surface-dark rounded-2xl p-8">
+                <div key={product.id} className="bg-surface-dark rounded-large p-8">
                   <p className="text-sm uppercase tracking-wider text-blue-400 mb-3">{product.category}</p>
                   <h3 className="text-2xl font-semibold text-white mb-2">{product.name}</h3>
                   <p className="text-gray-400 mb-4">{product.tagline}</p>
@@ -115,7 +116,7 @@ export default async function HomePage({ params }: HomePageProps) {
                     </Button>
                   </div>
                   {product.hero && (
-                    <div className="rounded-xl bg-gradient-to-br from-blue-500 to-purple-600 h-40 mt-6 flex items-center justify-center text-white/60">
+                    <div className="rounded-large bg-dark-bg-alt h-40 mt-6 flex items-center justify-center text-white/60">
                       {product.hero}
                     </div>
                   )}
@@ -136,7 +137,7 @@ export default async function HomePage({ params }: HomePageProps) {
           <div className="space-y-6">
             {caseStudies.slice(0, 3).map((study) => (
               <Link key={study.id} href={`/work/${study.slug}`} className="group block">
-                <div className="bg-bg-alt dark:bg-dark-bg-card rounded-2xl p-8 hover:shadow-lg transition-shadow">
+                <Tile interactive elevation="e1">
                   <div className="flex flex-col md:flex-row gap-8">
                     <div className="flex-1">
                       <p className="text-sm uppercase tracking-wider text-accent-fill mb-2">{study.eyebrow}</p>
@@ -150,12 +151,12 @@ export default async function HomePage({ params }: HomePageProps) {
                       </div>
                     </div>
                     {study.image && (
-                      <div className="w-full md:w-80 h-48 rounded-xl bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-white/60 flex-shrink-0">
+                      <div className="w-full md:w-80 h-48 rounded-large bg-bg-alt dark:bg-dark-bg-alt flex items-center justify-center text-white/60 flex-shrink-0">
                         {study.image}
                       </div>
                     )}
                   </div>
-                </div>
+                </Tile>
               </Link>
             ))}
           </div>
@@ -172,7 +173,7 @@ export default async function HomePage({ params }: HomePageProps) {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {featuredPosts.map((post) => (
               <Link key={post.id} href={`/blog/${post.slug}`} className="group block">
-                <div className="bg-white dark:bg-dark-bg-card rounded-2xl p-6 h-full hover:shadow-lg transition-shadow">
+                <Tile interactive elevation="e1" className="h-full">
                   <p className="text-sm uppercase tracking-wider text-accent-fill mb-3">{post.category}</p>
                   <h3 className="text-xl font-semibold mb-3 group-hover:text-accent-fill transition-colors line-clamp-2">
                     {post.title}
@@ -182,7 +183,7 @@ export default async function HomePage({ params }: HomePageProps) {
                     <span>{post.readingTime} min read</span>
                     <span className="text-accent-fill">→</span>
                   </div>
-                </div>
+                </Tile>
               </Link>
             ))}
           </div>

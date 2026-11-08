@@ -95,6 +95,11 @@ const config: Config = {
         'text': '980px',
         'reading': '692px',
       },
+      boxShadow: {
+        'e1': 'var(--shadow-e1)',
+        'e2': 'var(--shadow-e2)',
+        'e3': 'var(--shadow-e3)',
+      },
       animation: {
         'fade-in': 'fadeIn 0.4s ease-out',
         'slide-up': 'slideUp 0.4s ease-out',

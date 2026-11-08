@@ -1,6 +1,7 @@
 import { GlobalNav } from '@/components/GlobalNav';
 import { Footer } from '@/components/Footer';
-import { Section, SectionHeading, Card } from '@/components/Section';
+import { Section, SectionHeading } from '@/components/Section';
+import { Tile } from '@/components/Tile';
 import { TextLink } from '@/components/Button';
 import { getPosts, getContent } from '@/lib/getContent';
 import Link from 'next/link';
@@ -19,7 +20,7 @@ export default async function EsBlogPage() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
           {posts.map((post) => (
             <Link key={post.id} href={`/es/blog/${post.slug}`} className="group block">
-              <Card>
+              <Tile interactive elevation="e1" className="h-full">
                 <p className="text-eyebrow text-text-tertiary mb-4 group-hover:text-text-secondary transition-colors">
                   {post.category}
                 </p>
@@ -33,7 +34,7 @@ export default async function EsBlogPage() {
                   </span>
                   <span className="text-caption text-text-tertiary">{post.readingTime} min</span>
                 </div>
-              </Card>
+              </Tile>
             </Link>
           ))}
         </div>

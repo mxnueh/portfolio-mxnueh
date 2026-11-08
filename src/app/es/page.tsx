@@ -1,7 +1,8 @@
 import { GlobalNav } from '@/components/GlobalNav';
 import { Footer } from '@/components/Footer';
 import { Button, TextLink } from '@/components/Button';
-import { Section, SectionHeading, Card } from '@/components/Section';
+import { Section, SectionHeading } from '@/components/Section';
+import { Tile } from '@/components/Tile';
 import { getContent, getFeaturedPosts, getFeaturedProducts, getCaseStudies } from '@/lib/getContent';
 import Link from 'next/link';
 
@@ -44,9 +45,9 @@ export default async function EsHomePage() {
         <SectionHeading headline={content.home.atGlance.headline} />
         <div className="grid grid-cols-1 md:grid-cols-4 gap-5">
           {content.home.atGlance.cards.map((card, idx) => (
-            <div
+            <Tile
               key={idx}
-              className={`rounded-large bg-bg-card dark:bg-dark-bg-card p-8 flex flex-col justify-between animate-fade-in ${
+              className={`p-8 flex flex-col justify-between animate-fade-in ${
                 card.span === 2 ? 'md:col-span-2' : ''
               }`}
               style={{ animationDelay: `${idx * 0.06}s` }}
@@ -85,7 +86,7 @@ export default async function EsHomePage() {
                   )}
                 </>
               )}
-            </div>
+            </Tile>
           ))}
         </div>
       </Section>
@@ -98,7 +99,7 @@ export default async function EsHomePage() {
           />
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
             {featuredProducts.map((product) => (
-              <Card key={product.id}>
+              <Tile key={product.id} className="bg-surface-dark dark:bg-surface-dark">
                 <p className="text-eyebrow text-text-tertiary dark:text-white mb-4">{product.category}</p>
                 <h3 className="text-card-title md:text-card-title-tablet lg:text-card-title-mobile font-600 text-text-primary dark:text-white mb-2">
                   {product.name}
@@ -110,11 +111,11 @@ export default async function EsHomePage() {
                   <TextLink href={`/es/products/${product.slug}`}>Aprende más</TextLink>
                 </div>
                 {product.hero && (
-                  <div className="rounded-large bg-gradient-to-br from-accent-fill to-purple-600 h-40 mt-8 flex items-center justify-center text-white text-center text-caption">
+                  <div className="rounded-large bg-dark-bg-alt h-40 mt-8 flex items-center justify-center text-white text-center text-caption">
                     {product.hero}
                   </div>
                 )}
-              </Card>
+              </Tile>
             ))}
           </div>
           <div className="text-center">
@@ -129,7 +130,7 @@ export default async function EsHomePage() {
         <div className="space-y-8 mb-12">
           {caseStudies.slice(0, 3).map((study) => (
             <Link key={study.id} href={`/es/work/${study.slug}`} className="group block">
-              <Card>
+              <Tile interactive elevation="e1">
                 <p className="text-eyebrow text-text-tertiary mb-4 group-hover:text-text-secondary transition-colors">
                   {study.eyebrow}
                 </p>
@@ -143,9 +144,9 @@ export default async function EsHomePage() {
                   Leer el caso de estudio
                   <span className="text-xs">›</span>
                 </div>
-              </Card>
+              </Tile>
               {study.image && (
-                <div className="rounded-large bg-gradient-to-br from-accent-fill to-purple-600 h-40 mt-8 flex items-center justify-center text-white text-center text-caption">
+                <div className="rounded-large bg-dark-bg-alt h-40 mt-8 flex items-center justify-center text-white text-center text-caption">
                   {study.image}
                 </div>
               )}
@@ -163,7 +164,7 @@ export default async function EsHomePage() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
           {featuredPosts.map((post) => (
             <Link key={post.id} href={`/es/blog/${post.slug}`} className="group block">
-              <Card>
+              <Tile interactive elevation="e1" className="h-full">
                 <p className="text-eyebrow text-text-tertiary mb-4 group-hover:text-text-secondary transition-colors">
                   {post.category}
                 </p>
@@ -178,7 +179,7 @@ export default async function EsHomePage() {
                     <span className="text-xs">›</span>
                   </div>
                 </div>
-              </Card>
+              </Tile>
             </Link>
           ))}
         </div>

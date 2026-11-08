@@ -1,6 +1,7 @@
 import { GlobalNav } from '@/components/GlobalNav';
 import { Footer } from '@/components/Footer';
 import { Section } from '@/components/Section';
+import { Tile } from '@/components/Tile';
 import { getPosts } from '@/lib/getContent';
 import Link from 'next/link';
 import type { Metadata } from 'next';
@@ -28,7 +29,7 @@ export default async function BlogPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {posts.map((post) => (
               <Link key={post.id} href={`/blog/${post.slug}`} className="group block">
-                <div className="bg-bg-alt dark:bg-dark-bg-card rounded-2xl p-6 h-full hover:shadow-lg transition-shadow">
+                <Tile interactive elevation="e1" className="h-full">
                   <p className="text-sm uppercase tracking-wider text-accent-fill mb-3">{post.category}</p>
                   <h2 className="text-xl font-semibold mb-3 group-hover:text-accent-fill transition-colors line-clamp-2">
                     {post.title}
@@ -38,7 +39,7 @@ export default async function BlogPage() {
                     <time dateTime={post.date}>{new Date(post.date).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}</time>
                     <span>{post.readingTime} min</span>
                   </div>
-                </div>
+                </Tile>
               </Link>
             ))}
           </div>

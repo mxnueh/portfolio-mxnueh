@@ -1,6 +1,7 @@
 import { GlobalNav } from '@/components/GlobalNav';
 import { Footer } from '@/components/Footer';
 import { Section, SectionHeading } from '@/components/Section';
+import { Tile } from '@/components/Tile';
 import { TextLink } from '@/components/Button';
 import { getCaseStudies, getContent } from '@/lib/getContent';
 import Link from 'next/link';
@@ -19,7 +20,7 @@ export default async function EsWorkPage() {
         <div className="space-y-8 mb-12">
           {caseStudies.map((study) => (
             <Link key={study.id} href={`/es/work/${study.slug}`} className="group block">
-              <div className="bg-bg-alt dark:bg-dark-bg-card rounded-2xl p-8 hover:shadow-lg transition-shadow">
+              <Tile interactive elevation="e1">
                 <div className="flex flex-col md:flex-row gap-8">
                   <div className="flex-1">
                     <p className="text-eyebrow text-text-tertiary mb-4 group-hover:text-text-secondary transition-colors">
@@ -44,12 +45,12 @@ export default async function EsWorkPage() {
                     </TextLink>
                   </div>
                   {study.image && (
-                    <div className="w-full md:w-80 h-48 rounded-xl bg-bg-alt dark:bg-surface-dark flex items-center justify-center flex-shrink-0">
+                    <div className="w-full md:w-80 h-48 rounded-large bg-bg-alt dark:bg-dark-bg-alt flex items-center justify-center flex-shrink-0">
                       <span className="text-text-tertiary text-sm">{study.image}</span>
                     </div>
                   )}
                 </div>
-              </div>
+              </Tile>
             </Link>
           ))}
         </div>

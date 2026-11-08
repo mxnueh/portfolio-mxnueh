@@ -14,18 +14,18 @@ const colors = {
     bg: '#FFFFFF',
     'bg-alt': '#F5F5F7',
     'text-primary': '#1D1D1F',
-    'text-secondary': '#6E6E73',
+    'text-secondary': '#5A5A5E', // Target: 7:1 on all surfaces
     'text-tertiary': '#767676',
     'accent-fill': '#0059D6',
     'accent-hover': '#0066E3',
-    'separator': '#D2D2D7',
+    'separator': '#C7C7CC',
   },
   dark: {
     bg: '#000000',
     'bg-alt': '#161617',
     'bg-card': '#1D1D1F',
     'text-primary': '#F5F5F7',
-    'text-secondary': '#A1A1A6',
+    'text-secondary': '#AEAEB2', // Lightened to reach 7:1 on dark-card
   },
 };
 
@@ -62,36 +62,40 @@ function getContrastRatio(color1, color2) {
 }
 
 // Check if contrast meets WCAG standards
-function checkContrast(ratio, isLargeText = false) {
-  const aaThreshold = isLargeText ? 3 : 4.5;
-  const aaaThreshold = isLargeText ? 4.5 : 7;
+function checkContrast(ratio, target = 4.5) {
   return {
-    pass: ratio >= aaThreshold,
-    passAAA: ratio >= aaaThreshold,
+    pass: ratio >= target,
     ratio: ratio.toFixed(2),
+    target: target.toFixed(1),
   };
 }
 
 // Test combinations
 const tests = [
-  // Light mode
-  { name: 'Light: Text Primary on BG', fg: colors.light['text-primary'], bg: colors.light.bg, isLarge: false },
-  { name: 'Light: Text Secondary on BG', fg: colors.light['text-secondary'], bg: colors.light.bg, isLarge: false },
-  { name: 'Light: Text Tertiary on BG', fg: colors.light['text-tertiary'], bg: colors.light.bg, isLarge: false },
-  { name: 'Light: Text Primary on BG Alt', fg: colors.light['text-primary'], bg: colors.light['bg-alt'], isLarge: false },
-  { name: 'Light: Text Secondary on BG Alt', fg: colors.light['text-secondary'], bg: colors.light['bg-alt'], isLarge: false },
-  { name: 'Light: Accent on BG', fg: colors.light['accent-fill'], bg: colors.light.bg, isLarge: false },
-  { name: 'Light: Accent on BG Alt', fg: colors.light['accent-fill'], bg: colors.light['bg-alt'], isLarge: false },
+  // Light mode - Secondary on all surfaces
+  { name: 'Light: Secondary on white BG', fg: colors.light['text-secondary'], bg: colors.light.bg, target: 7 },
+  { name: 'Light: Secondary on alt BG', fg: colors.light['text-secondary'], bg: colors.light['bg-alt'], target: 7 },
+  { name: 'Light: Secondary on white (large)', fg: colors.light['text-secondary'], bg: colors.light.bg, target: 3 },
   
-  // Dark mode
-  { name: 'Dark: Text Primary on BG', fg: colors.dark['text-primary'], bg: colors.dark.bg, isLarge: false },
-  { name: 'Dark: Text Secondary on BG', fg: colors.dark['text-secondary'], bg: colors.dark.bg, isLarge: false },
-  { name: 'Dark: Text Primary on BG Card', fg: colors.dark['text-primary'], bg: colors.dark['bg-card'], isLarge: false },
-  { name: 'Dark: Text Primary on BG Alt', fg: colors.dark['text-primary'], bg: colors.dark['bg-alt'], isLarge: false },
+  // Light mode - other text
+  { name: 'Light: Primary on white', fg: colors.light['text-primary'], bg: colors.light.bg, target: 4.5 },
+  { name: 'Light: Tertiary on white', fg: colors.light['text-tertiary'], bg: colors.light.bg, target: 4.5 },
+  { name: 'Light: Accent on white', fg: colors.light['accent-fill'], bg: colors.light.bg, target: 4.5 },
+  { name: 'Light: Accent on alt', fg: colors.light['accent-fill'], bg: colors.light['bg-alt'], target: 4.5 },
   
-  // Large text (18px+)
-  { name: 'Light: Text Secondary on BG (Large)', fg: colors.light['text-secondary'], bg: colors.light.bg, isLarge: true },
-  { name: 'Dark: Text Secondary on BG (Large)', fg: colors.dark['text-secondary'], bg: colors.dark.bg, isLarge: true },
+  // Light mode - Separators (interactive control borders)
+  { name: 'Light: Separator on white', fg: colors.light.separator, bg: colors.light.bg, target: 3 },
+  { name: 'Light: Separator on alt', fg: colors.light.separator, bg: colors.light['bg-alt'], target: 3 },
+  
+  // Dark mode - Secondary on all surfaces
+  { name: 'Dark: Secondary on black', fg: colors.dark['text-secondary'], bg: colors.dark.bg, target: 7 },
+  { name: 'Dark: Secondary on dark-card', fg: colors.dark['text-secondary'], bg: colors.dark['bg-card'], target: 7 },
+  { name: 'Dark: Secondary on dark-alt', fg: colors.dark['text-secondary'], bg: colors.dark['bg-alt'], target: 7 },
+  { name: 'Dark: Secondary on black (large)', fg: colors.dark['text-secondary'], bg: colors.dark.bg, target: 3 },
+  
+  // Dark mode - other text
+  { name: 'Dark: Primary on black', fg: colors.dark['text-primary'], bg: colors.dark.bg, target: 4.5 },
+  { name: 'Dark: Primary on dark-card', fg: colors.dark['text-primary'], bg: colors.dark['bg-card'], target: 4.5 },
 ];
 
 console.log('🎨 Checking color contrast ratios...\n');
@@ -116,14 +120,17 @@ const results = tests.map((test) => {
 // Display results
 results.forEach((result) => {
   const status = result.pass ? '✓' : '✗';
-  const aaaStatus = result.passAAA ? '✓' : '✗';
   console.log(`${status} ${result.name}`);
-  console.log(`   Ratio: ${result.ratio}:1 (AA: ${aaaStatus} AAA)\n`);
+  console.log(`   ${result.ratio}:1 (target: ${result.target}:1)\n`);
 });
 
 // Summary
+const failedCount = results.filter(r => !r.pass).length;
 console.log('\n📊 Summary:');
-console.log(`   WCAG AA (4.5:1): ${allPass ? '✓ PASS' : '✗ FAIL'}`);
-console.log(`   WCAG AAA (7:1):  ${allPassAAA ? '✓ PASS' : '✗ FAIL'}\n`);
-
-process.exit(allPass ? 0 : 1);
+if (failedCount === 0) {
+  console.log(`   ✓ All pairs meet their targets (${results.length} pairs)\n`);
+  process.exit(0);
+} else {
+  console.log(`   ✗ ${failedCount} pair(s) below target\n`);
+  process.exit(1);
+}
