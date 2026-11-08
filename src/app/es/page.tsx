@@ -8,6 +8,19 @@ import { getContent, getFeaturedPosts, getFeaturedProducts, getCaseStudies } fro
 import { decorativeMotion, decorativeDelay } from '@/lib/motion';
 import Link from 'next/link';
 
+import {
+  DotPattern,
+  SparklesText,
+  AnimatedGradientText,
+  ShimmerButton,
+  InteractiveHoverButton,
+  NumberTicker,
+  BorderBeam,
+  Marquee,
+  Terminal,
+} from '@/components/magicui';
+import { ClickSpark } from '@/components/reactbits';
+
 export default async function EsHomePage() {
   const lang = 'es';
   const content = getContent(lang);
@@ -16,82 +29,118 @@ export default async function EsHomePage() {
   const caseStudies = getCaseStudies(lang);
 
   return (
-    <div className="flex flex-col min-h-screen">
-      <GlobalNav lang={lang} />
+    <ClickSpark sparkColor="#0071e3">
+      <div className="flex flex-col min-h-screen">
+        <GlobalNav lang={lang} />
 
-      {/* Hero */}
-      <Section variant="white">
-        <div className="max-w-text mx-auto text-center">
-          <p className={`text-eyebrow text-text-tertiary dark:text-dark-text-secondary mb-8 ${decorativeMotion('animate-fade-in')}`}>
-            {content.home.hero.eyebrow}
-          </p>
-          <h1 className={`text-hero md:text-hero-tablet lg:text-hero-mobile font-600 mb-8 ${decorativeMotion('animate-fade-in')}`} style={decorativeDelay(0.08)}>
-            {content.home.hero.headline}
-          </h1>
-          <p className={`text-lead md:text-lead-tablet lg:text-lead-mobile text-text-secondary dark:text-dark-text-secondary mb-12 ${decorativeMotion('animate-fade-in')}`} style={decorativeDelay(0.16)}>
-            {content.home.hero.lead}
-          </p>
-          <div className={`flex flex-col sm:flex-row gap-8 justify-center mb-16 ${decorativeMotion('animate-fade-in')}`} style={decorativeDelay(0.24)}>
-            <Button href="/es/contact" variant="primary">
-              {content.home.hero.primaryCTA.label}
-            </Button>
-            <TextLink href="/es/work">
-              {content.home.hero.secondaryCTA.label}
-            </TextLink>
+        {/* Hero */}
+        <Section variant="white" className="relative overflow-hidden">
+          <DotPattern className="opacity-35" />
+          <div className="relative z-10 max-w-text mx-auto text-center">
+            <div className="mb-6 flex justify-center">
+              <AnimatedGradientText>
+                📍 {content.home.hero.eyebrow}
+              </AnimatedGradientText>
+            </div>
+            <h1 className="text-hero md:text-hero-tablet lg:text-hero-mobile font-600 mb-8 tracking-tight">
+              Desarrollador Full Stack & <SparklesText text="Diseñador de Sistemas" className="text-accent-fill" />
+            </h1>
+            <p className="text-lead md:text-lead-tablet lg:text-lead-mobile text-text-secondary dark:text-dark-text-secondary mb-12 max-w-3xl mx-auto leading-relaxed">
+              {content.home.hero.lead}
+            </p>
+            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-8">
+              <ShimmerButton href="/es/contact" background="#0071e3">
+                {content.home.hero.primaryCTA.label}
+              </ShimmerButton>
+              <InteractiveHoverButton
+                href="/es/work"
+                text={content.home.hero.secondaryCTA.label}
+              />
+            </div>
           </div>
-        </div>
-      </Section>
+        </Section>
 
-      {/* At a Glance */}
-      <Section variant="gray">
-        <SectionHeading headline={content.home.atGlance.headline} />
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-          {content.home.atGlance.cards.map((card, idx) => (
-            <Tile
-              key={idx}
-              className={`p-8 flex flex-col justify-between ${decorativeMotion('animate-fade-in')} ${
-                card.span === 2 ? 'md:col-span-2' : ''
-              }`}
-              style={decorativeDelay(idx * 0.06)}
-            >
-              {card.isHighlight ? (
-                <>
-                  <p className="text-card-title md:text-card-title-tablet lg:text-card-title-mobile font-600 mb-8">
-                    {card.title}
-                  </p>
-                  <TextLink href={card.cta?.href || '/'}>
-                    {card.cta?.label}
-                  </TextLink>
-                </>
-              ) : card.stat ? (
-                <>
-                  <p className="text-hero md:text-hero-tablet lg:text-hero-mobile font-600">{card.stat}</p>
-                  <p className="text-body text-text-secondary dark:text-dark-text-secondary">{card.label}</p>
-                </>
-              ) : (
-                <>
-                  <p className="text-card-title md:text-card-title-tablet lg:text-card-title-mobile font-600 mb-4">
-                    {card.title}
-                  </p>
-                  <p className="text-body text-text-secondary dark:text-dark-text-secondary mb-4">{card.label}</p>
-                  {card.chips && (
-                    <div className="flex flex-wrap gap-4 mt-auto">
-                      {card.chips.map((chip) => (
-                        <span
-                          key={chip}
-                          className="inline-flex px-4 py-4 rounded-full bg-bg-alt dark:bg-dark-bg-alt text-caption text-text-secondary dark:text-dark-text-secondary"
-                        >
-                          {chip}
-                        </span>
-                      ))}
-                    </div>
-                  )}
-                </>
-              )}
-            </Tile>
-          ))}
+        {/* Tech Marquee Ticker */}
+        <div className="border-y border-black/5 dark:border-white/10 bg-bg-alt py-4 overflow-hidden">
+          <Marquee pauseOnHover duration="35s">
+            {['React 19', 'Next.js 16', 'TypeScript', 'Tailwind CSS', 'Python', 'FastAPI', 'PostgreSQL', 'Docker', 'Telemetría IoT', 'Finalista NASA Space Apps', 'Arquitectura de Sistemas'].map((tech) => (
+              <span
+                key={tech}
+                className="mx-3 px-4 py-2 rounded-full bg-white dark:bg-zinc-800 border border-black/5 dark:border-white/10 text-xs font-semibold shadow-sm text-text-secondary hover:text-accent-fill transition-colors"
+              >
+                ✦ {tech}
+              </span>
+            ))}
+          </Marquee>
         </div>
-      </Section>
+
+        {/* At a Glance */}
+        <Section variant="gray">
+          <SectionHeading headline={content.home.atGlance.headline} />
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+            {content.home.atGlance.cards.map((card, idx) => (
+              <Tile
+                key={idx}
+                className={`p-8 flex flex-col justify-between ${
+                  card.span === 2 ? 'md:col-span-2' : ''
+                } ${card.isHighlight ? 'relative overflow-hidden' : ''}`}
+              >
+                {card.isHighlight ? (
+                  <>
+                    <BorderBeam size={180} duration={10} colorFrom="#ffffff" colorTo="#93c5fd" />
+                    <p className="text-card-title md:text-card-title-tablet lg:text-card-title-mobile font-600 mb-8 relative z-10">
+                      {card.title}
+                    </p>
+                    <TextLink href={card.cta?.href || '/'} className="relative z-10 font-semibold">
+                      {card.cta?.label} →
+                    </TextLink>
+                  </>
+                ) : card.stat ? (
+                  <>
+                    <p className="text-hero md:text-hero-tablet lg:text-hero-mobile font-600 text-accent-fill">
+                      <NumberTicker value={parseInt(card.stat, 10) || 4} />
+                    </p>
+                    <p className="text-body text-text-secondary dark:text-dark-text-secondary">{card.label}</p>
+                  </>
+                ) : (
+                  <>
+                    <p className="text-card-title md:text-card-title-tablet lg:text-card-title-mobile font-600 mb-4">
+                      {card.title}
+                    </p>
+                    <p className="text-body text-text-secondary dark:text-dark-text-secondary mb-4">{card.label}</p>
+                    {card.chips && (
+                      <div className="flex flex-wrap gap-4 mt-auto">
+                        {card.chips.map((chip) => (
+                          <span
+                            key={chip}
+                            className="inline-flex px-4 py-4 rounded-full bg-bg-alt dark:bg-dark-bg-alt text-caption text-text-secondary dark:text-dark-text-secondary font-medium"
+                          >
+                            {chip}
+                          </span>
+                        ))}
+                      </div>
+                    )}
+                  </>
+                )}
+              </Tile>
+            ))}
+          </div>
+
+          {/* Consola Terminal */}
+          <div className="mt-12 flex justify-center">
+            <Terminal
+              title="enmanuel@portfolio ~ motor-telemetria"
+              lines={[
+                { text: 'whoami', type: 'command' },
+                { text: 'Enmanuel Núñez Matías — Desarrollador Full Stack & Diseñador de Sistemas', type: 'output' },
+                { text: 'cat mision_principal.json', type: 'command' },
+                { text: '{\n  "enfoque": "Arquitecturas web y telemetría de alta fiabilidad",\n  "reconocimientos": "Finalista Global 2x NASA Space Apps",\n  "estado": "Disponible para retos de ingeniería ambiciosos"\n}', type: 'output' },
+                { text: 'curl -s https://enmanuelnunez.dev/salud', type: 'command' },
+                { text: 'estado: 200 OK — 99.98% entrega de paquetes', type: 'success' },
+              ]}
+            />
+          </div>
+        </Section>
 
       {/* Products */}
       {featuredProducts.length > 0 && (
@@ -101,7 +150,7 @@ export default async function EsHomePage() {
           />
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
             {featuredProducts.map((product) => (
-              <Tile key={product.id} className="bg-surface-dark dark:bg-surface-dark">
+              <Tile key={product.id}>
                 <p className="text-eyebrow text-text-tertiary dark:text-white mb-4">{product.category}</p>
                 <h3 className="text-card-title md:text-card-title-tablet lg:text-card-title-mobile font-600 text-text-primary dark:text-white mb-4">
                   {product.name}
@@ -113,7 +162,7 @@ export default async function EsHomePage() {
                   <TextLink href={`/es/products/${product.slug}`}>Aprende más</TextLink>
                 </div>
                 {product.hero && (
-                  <div className="rounded-large bg-dark-bg-alt h-40 mt-8 flex items-center justify-center text-white text-center text-caption">
+                  <div className="rounded-large bg-bg-alt h-40 mt-8 flex items-center justify-center text-text-tertiary text-center text-caption">
                     {product.hero}
                   </div>
                 )}
@@ -145,7 +194,7 @@ export default async function EsHomePage() {
                 </div>
               </Tile>
               {study.image && (
-                <div className="rounded-large bg-dark-bg-alt h-40 mt-8 flex items-center justify-center text-white text-center text-caption">
+                <div className="rounded-large bg-bg-alt h-40 mt-8 flex items-center justify-center text-text-tertiary text-center text-caption">
                   {study.image}
                 </div>
               )}
@@ -201,7 +250,8 @@ export default async function EsHomePage() {
         </div>
       </Section>
 
-      <Footer lang={lang} />
-    </div>
+        <Footer lang={lang} />
+      </div>
+    </ClickSpark>
   );
 }

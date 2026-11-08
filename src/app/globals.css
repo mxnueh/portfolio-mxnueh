@@ -1,5 +1,40 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-bg-page: #ffffff;
+  --color-bg-alt: #f5f5f7;
+  --color-bg-card: #ffffff;
+  --color-bg-chapter-dark: #000000;
+  --color-surface-dark: #1d1d1f;
+  --color-text-primary: #1d1d1f;
+  --color-text-secondary: #5a5a5e;
+  --color-text-tertiary: #86868b;
+  --color-accent-fill: #0071e3;
+  --color-accent-hover: #0077ed;
+  --color-accent-pressed: #006edb;
+  --color-link: #0066cc;
+  --color-separator: #c7c7cc;
+  --color-category-case-bg: #e8f1ff;
+  --color-category-case-text: #0a4fb3;
+  --color-category-notes-bg: #eeebff;
+  --color-category-notes-text: #4b3fc7;
+  --color-category-beyond-bg: #fff1db;
+  --color-category-beyond-text: #8a4b00;
+  --color-category-status-bg: #e3f6e8;
+  --color-category-status-text: #1b6b34;
+  --color-dark-bg-alt: #f5f5f7;
+  --color-dark-text-primary: #1d1d1f;
+  --color-dark-text-secondary: #5a5a5e;
+  --radius-small: 12px;
+  --radius-medium: 18px;
+  --radius-large: 28px;
+  --shadow-e1: 0 1px 2px rgba(0, 0, 0, 0.04), 0 4px 12px rgba(0, 0, 0, 0.05);
+  --shadow-e2: 0 2px 4px rgba(0, 0, 0, 0.05), 0 12px 32px rgba(0, 0, 0, 0.08);
+  --shadow-e3: 0 8px 40px rgba(0, 0, 0, 0.12);
+}
+
 /* Light Theme */
 :root {
   /* Colors */
@@ -66,66 +101,14 @@
   --duration-hero: 900ms;
 }
 
-/* Dark Theme */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg-page: #000000;
-    --bg-alt: #161617;
-    --bg-card: #1D1D1F;
-    --text-primary: #F5F5F7;
-    --text-secondary: #AEAEB2;
-    --link: #2997FF;
-    --separator: rgba(255, 255, 255, 0.16);
-    
-    /* Elevation shadows - dark theme */
-    --shadow-e1: inset 0 1px 0 rgba(255, 255, 255, 0.06), 0 1px 2px rgba(0, 0, 0, 0.4);
-    --shadow-e2: inset 0 1px 0 rgba(255, 255, 255, 0.06), 0 4px 12px rgba(0, 0, 0, 0.5);
-    --shadow-e3: inset 0 1px 0 rgba(255, 255, 255, 0.06), 0 8px 24px rgba(0, 0, 0, 0.5);
-    
-    /* Category tints - dark theme (semi-transparent with lighter text) */
-    --category-case-bg: rgba(10, 79, 179, 0.16);
-    --category-case-text: #8CB8FF;
-    --category-notes-bg: rgba(75, 63, 199, 0.16);
-    --category-notes-text: #B5A9FF;
-    --category-beyond-bg: rgba(138, 75, 0, 0.16);
-    --category-beyond-text: #FFC15E;
-    --category-status-bg: rgba(27, 107, 52, 0.16);
-    --category-status-text: #6BD98A;
-  }
-}
-
-/* Dark class for manual toggle */
-.dark {
-  --bg-page: #000000;
-  --bg-alt: #161617;
-  --bg-card: #1D1D1F;
-  --text-primary: #F5F5F7;
-  --text-secondary: #AEAEB2;
-  --link: #2997FF;
-  --separator: rgba(255, 255, 255, 0.16);
-  
-  /* Elevation shadows - dark theme */
-  --shadow-e1: inset 0 1px 0 rgba(255, 255, 255, 0.06), 0 1px 2px rgba(0, 0, 0, 0.4);
-  --shadow-e2: inset 0 1px 0 rgba(255, 255, 255, 0.06), 0 4px 12px rgba(0, 0, 0, 0.5);
-  --shadow-e3: inset 0 1px 0 rgba(255, 255, 255, 0.06), 0 8px 24px rgba(0, 0, 0, 0.5);
-  
-  /* Category tints - dark theme */
-  --category-case-bg: rgba(10, 79, 179, 0.16);
-  --category-case-text: #8CB8FF;
-  --category-notes-bg: rgba(75, 63, 199, 0.16);
-  --category-notes-text: #B5A9FF;
-  --category-beyond-bg: rgba(138, 75, 0, 0.16);
-  --category-beyond-text: #FFC15E;
-  --category-status-bg: rgba(27, 107, 52, 0.16);
-  --category-status-text: #6BD98A;
-}
-
 html {
   scroll-behavior: smooth;
+  background-color: #ffffff;
+  color-scheme: light;
 }
 
 body {
-  background-color: var(--bg-page);
+  background-color: #ffffff;
   color: var(--text-primary);
   font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Inter", "Helvetica Neue", Arial, sans-serif;
 }
@@ -150,4 +133,110 @@ input:focus-visible {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
+}
+
+/* Animations for MagicUI and ReactBits */
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-100%); }
+}
+
+@keyframes marquee-vertical {
+  0% { transform: translateY(0%); }
+  100% { transform: translateY(-100%); }
+}
+
+@keyframes orbit {
+  0% {
+    transform: rotate(0deg) translateY(calc(var(--radius) * 1px)) rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg) translateY(calc(var(--radius) * 1px)) rotate(-360deg);
+  }
+}
+
+@keyframes shine {
+  0% { background-position: 0% 0%; }
+  50% { background-position: 100% 100%; }
+  100% { background-position: 0% 0%; }
+}
+
+@keyframes meteor {
+  0% { transform: rotate(215deg) translateX(0); opacity: 1; }
+  70% { opacity: 1; }
+  100% { transform: rotate(215deg) translateX(-500px); opacity: 0; }
+}
+
+@keyframes ripple {
+  0%, 100% { transform: translate(-50%, -50%) scale(1); }
+  50% { transform: translate(-50%, -50%) scale(0.9); }
+}
+
+@keyframes border-beam {
+  100% {
+    offset-distance: 100%;
+  }
+}
+
+@keyframes retro-grid {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(40px); }
+}
+
+@keyframes glitch {
+  0% { transform: translate(0); }
+  20% { transform: translate(-2px, 2px); }
+  40% { transform: translate(-2px, -2px); }
+  60% { transform: translate(2px, 2px); }
+  80% { transform: translate(2px, -2px); }
+  100% { transform: translate(0); }
+}
+
+@keyframes gradient-x {
+  0%, 100% {
+    background-size: 200% 200%;
+    background-position: left center;
+  }
+  50% {
+    background-size: 200% 200%;
+    background-position: right center;
+  }
+}
+
+@keyframes star-movement-bottom {
+  0% { transform: translate(0%, 0%); opacity: 1; }
+  100% { transform: translate(-100%, 0%); opacity: 0; }
+}
+
+@keyframes star-movement-top {
+  0% { transform: translate(0%, 0%); opacity: 1; }
+  100% { transform: translate(100%, 0%); opacity: 0; }
+}
+
+.animate-marquee {
+  animation: marquee var(--duration, 30s) linear infinite;
+}
+
+.animate-marquee-vertical {
+  animation: marquee-vertical var(--duration, 30s) linear infinite;
+}
+
+.animate-orbit {
+  animation: orbit calc(var(--duration) * 1s) linear infinite;
+}
+
+.animate-shine {
+  animation: shine var(--duration, 14s) ease infinite;
+}
+
+.animate-meteor {
+  animation: meteor var(--duration, 5s) linear infinite;
+}
+
+.animate-retro-grid {
+  animation: retro-grid 20s linear infinite;
+}
+
+.animate-gradient-x {
+  animation: gradient-x 6s ease infinite;
 }

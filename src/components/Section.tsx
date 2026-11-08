@@ -8,15 +8,15 @@ interface SectionProps {
 
 export function Section({ variant = 'white', className = '', children }: SectionProps) {
   const variantClasses = {
-    white: 'bg-white dark:bg-black',
-    gray: 'bg-bg-alt dark:bg-dark-bg-alt',
-    black: 'bg-bg-chapter-dark dark:bg-black',
+    white: 'bg-white',
+    gray: 'bg-bg-alt',
+    black: 'bg-white',
   };
 
-  const textColor = variant === 'black' ? 'text-white' : 'text-text-primary dark:text-dark-text-primary';
+  const textColor = 'text-text-primary';
 
   return (
-    <section className={`${variantClasses[variant]} ${textColor} py-120 md:py-120 lg:py-120 ${className}`}>
+    <section className={`${variantClasses[variant]} ${textColor} py-16 md:py-24 ${className}`}>
       <div className="max-w-container mx-auto px-8">
         {children}
       </div>
@@ -32,7 +32,7 @@ interface SectionHeadingProps {
 
 export function SectionHeading({ headline, lead, children }: SectionHeadingProps) {
   return (
-    <div className="max-w-text mx-auto text-center mb-16 md:mb-24 lg:mb-32">
+    <div className="max-w-text mx-auto text-center mb-10 md:mb-12">
       <h2 className="text-section md:text-section-tablet lg:text-section-mobile font-600 mb-8">
         {headline}
       </h2>

@@ -24,11 +24,11 @@ export function GlobalNav({ lang }: GlobalNavProps) {
   });
 
   return (
-    <nav className="sticky top-0 z-40 h-12 bg-white/72 dark:bg-black/72 backdrop-blur-nav border-b border-separator dark:border-separator transition-opacity duration-ui">
+    <nav className="sticky top-0 z-40 h-14 bg-white/80 backdrop-blur-md border-b border-separator">
       <div className="h-full max-w-container mx-auto px-8 flex items-center justify-between">
         {/* Logo / Home link */}
         <Link
-          href={`/${lang === 'es' ? 'es' : ''}`}
+          href={lang === 'es' ? '/es' : '/'}
           className="text-body font-600 text-text-primary dark:text-dark-text-primary hover:opacity-75 transition-opacity duration-ui"
         >
           {content.nav.name}
@@ -36,25 +36,34 @@ export function GlobalNav({ lang }: GlobalNavProps) {
 
         {/* Desktop nav */}
         <div className="hidden md:flex items-center gap-8">
-          {navLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={`/${lang === 'es' ? 'es' : ''}${link.href}`}
-              className="text-body text-text-secondary dark:text-dark-text-secondary hover:text-text-primary dark:hover:text-dark-text-primary transition-colors duration-ui"
-            >
-              {link.label}
-            </Link>
-          ))}
+          {navLinks.map((link) => {
+            const href = lang === 'es' ? `/es${link.href}` : link.href;
+            return (
+              <Link
+                key={link.href}
+                href={href}
+                className="text-body text-text-secondary dark:text-dark-text-secondary hover:text-text-primary dark:hover:text-dark-text-primary transition-colors duration-ui"
+              >
+                {link.label}
+              </Link>
+            );
+          })}
         </div>
 
         {/* Language toggle (no CTA pill per D3) */}
         <div className="hidden md:flex items-center gap-4">
           <button
             onClick={() => {
-              const newLang = lang === 'es' ? 'en' : 'es';
-              window.location.href = `/${newLang === 'es' ? 'es' : ''}${window.location.pathname.replace(/^\/(es|en)?/, '')}`;
+              const currentPath = window.location.pathname;
+              if (lang === 'es') {
+                const newPath = currentPath.replace(/^\/es(\/|$)/, '$1') || '/';
+                window.location.href = newPath;
+              } else {
+                const newPath = currentPath === '/' ? '/es' : `/es${currentPath.startsWith('/') ? '' : '/'}${currentPath}`;
+                window.location.href = newPath;
+              }
             }}
-            className="text-caption text-text-secondary dark:text-dark-text-secondary hover:text-text-primary dark:hover:text-dark-text-primary transition-colors duration-ui"
+            className="text-caption text-text-secondary dark:text-dark-text-secondary hover:text-text-primary dark:hover:text-dark-text-primary transition-colors duration-ui font-medium"
           >
             {lang === 'es' ? 'EN' : 'ES'}
           </button>
@@ -76,18 +85,21 @@ export function GlobalNav({ lang }: GlobalNavProps) {
 
       {/* Mobile menu */}
       {isMenuOpen && (
-        <div className={`md:hidden absolute top-12 left-0 right-0 bg-white dark:bg-black border-b border-separator dark:border-separator p-8 flex flex-col gap-4 ${decorativeMotion('animate-fade-in')}`}>
-          {navLinks.map((link, i) => (
-            <Link
-              key={link.href}
-              href={`/${lang === 'es' ? 'es' : ''}${link.href}`}
-              className="text-body text-text-secondary dark:text-dark-text-secondary hover:text-text-primary dark:hover:text-dark-text-primary transition-colors duration-ui"
-              style={{ animation: `slideUp 0.3s ease-out ${i * 0.04}s both` }}
-              onClick={() => setIsMenuOpen(false)}
-            >
-              {link.label}
-            </Link>
-          ))}
+        <div className={`md:hidden absolute top-14 left-0 right-0 bg-white dark:bg-[#18181b] border-b border-separator p-8 flex flex-col gap-4 ${decorativeMotion('animate-fade-in')}`}>
+          {navLinks.map((link, i) => {
+            const href = lang === 'es' ? `/es${link.href}` : link.href;
+            return (
+              <Link
+                key={link.href}
+                href={href}
+                className="text-body text-text-secondary dark:text-dark-text-secondary hover:text-text-primary dark:hover:text-dark-text-primary transition-colors duration-ui"
+                style={{ animation: `slideUp 0.3s ease-out ${i * 0.04}s both` }}
+                onClick={() => setIsMenuOpen(false)}
+              >
+                {link.label}
+              </Link>
+            );
+          })}
         </div>
       )}
     </nav>

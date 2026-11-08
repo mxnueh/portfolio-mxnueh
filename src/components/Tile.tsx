@@ -46,7 +46,7 @@ export function Tile({
     <div
       style={style}
       className={`
-        bg-white dark:bg-dark-bg-card rounded-large p-8
+        bg-white rounded-large p-8 shadow-e1
         ${elevationMap[elevation]}
         ${interactiveClass}
         ${className}

@@ -8,6 +8,7 @@
     "name": "Enmanuel Nunez",
     "links": [
       { "label": "Trabajo", "href": "/work" },
+      { "label": "Componentes", "href": "/components" },
       { "label": "Productos", "href": "/products" },
       { "label": "Blog", "href": "/blog" },
       { "label": "Acerca", "href": "/about" },
