@@ -21,7 +21,7 @@ const config: Config = {
         },
         'text': {
           primary: '#1D1D1F',
-          secondary: '#6E6E73',
+          secondary: '#5A5A5E',
           tertiary: '#767676',
         },
         'accent': {
@@ -30,7 +30,7 @@ const config: Config = {
           pressed: '#005AC9',
         },
         'link': '#0066CC',
-        'separator': '#D2D2D7',
+        'separator': '#C7C7CC',
         'status': {
           dot: '#34C759',
         },
@@ -41,7 +41,7 @@ const config: Config = {
         },
         'dark-text': {
           primary: '#F5F5F7',
-          secondary: '#A1A1A6',
+          secondary: '#AEAEB2',
         },
         'dark-link': '#2997FF',
       },

@@ -10,7 +10,7 @@
   --surface-dark: #1D1D1F;
   
   --text-primary: #1D1D1F;
-  --text-secondary: #6E6E73;
+  --text-secondary: #5A5A5E;
   --text-tertiary: #86868B;
   
   --accent-fill: #0071E3;
@@ -18,8 +18,34 @@
   --accent-pressed: #006EDB;
   
   --link: #0066CC;
-  --separator: #D2D2D7;
+  --separator: #C7C7CC;
   --status-dot: #34C759;
+  
+  /* Elevation shadows - light theme */
+  --shadow-e1: 0 1px 2px rgba(0, 0, 0, 0.04), 0 4px 12px rgba(0, 0, 0, 0.05);
+  --shadow-e2: 0 2px 4px rgba(0, 0, 0, 0.05), 0 12px 32px rgba(0, 0, 0, 0.08);
+  --shadow-e3: 0 8px 40px rgba(0, 0, 0, 0.12);
+  
+  /* Spacing scale (already in tailwind.config.ts, mirrored here for reference) */
+  --spacing-4: 4px;
+  --spacing-8: 8px;
+  --spacing-12: 12px;
+  --spacing-16: 16px;
+  --spacing-24: 24px;
+  --spacing-32: 32px;
+  --spacing-48: 48px;
+  --spacing-64: 64px;
+  --spacing-80: 80px;
+  --spacing-120: 120px;
+  
+  /* Border radius scale */
+  --radius-small: 12px;
+  --radius-medium: 18px;
+  --radius-large: 28px;
+  
+  /* Optical alignment for typography */
+  --optical-display: -0.02em;
+  --optical-icon: 0.125em;
   
   /* Motion */
   --easing-smooth: cubic-bezier(0.28, 0.11, 0.32, 1);
@@ -37,9 +63,14 @@
     --bg-alt: #161617;
     --bg-card: #1D1D1F;
     --text-primary: #F5F5F7;
-    --text-secondary: #A1A1A6;
+    --text-secondary: #AEAEB2;
     --link: #2997FF;
     --separator: rgba(255, 255, 255, 0.16);
+    
+    /* Elevation shadows - dark theme */
+    --shadow-e1: inset 0 1px 0 rgba(255, 255, 255, 0.06), 0 1px 2px rgba(0, 0, 0, 0.4);
+    --shadow-e2: inset 0 1px 0 rgba(255, 255, 255, 0.06), 0 4px 12px rgba(0, 0, 0, 0.5);
+    --shadow-e3: inset 0 1px 0 rgba(255, 255, 255, 0.06), 0 8px 24px rgba(0, 0, 0, 0.5);
   }
 }
 
@@ -49,9 +80,14 @@
   --bg-alt: #161617;
   --bg-card: #1D1D1F;
   --text-primary: #F5F5F7;
-  --text-secondary: #A1A1A6;
+  --text-secondary: #AEAEB2;
   --link: #2997FF;
   --separator: rgba(255, 255, 255, 0.16);
+  
+  /* Elevation shadows - dark theme */
+  --shadow-e1: inset 0 1px 0 rgba(255, 255, 255, 0.06), 0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow-e2: inset 0 1px 0 rgba(255, 255, 255, 0.06), 0 4px 12px rgba(0, 0, 0, 0.5);
+  --shadow-e3: inset 0 1px 0 rgba(255, 255, 255, 0.06), 0 8px 24px rgba(0, 0, 0, 0.5);
 }
 
 html {
