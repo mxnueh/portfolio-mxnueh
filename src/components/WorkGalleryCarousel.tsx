@@ -6,10 +6,11 @@ import type { Language } from '@/lib/types';
 
 interface WorkGalleryCarouselProps {
   lang: Language;
+  intro: ReactNode;
   children: ReactNode[];
 }
 
-export function WorkGalleryCarousel({ lang, children }: WorkGalleryCarouselProps) {
+export function WorkGalleryCarousel({ lang, intro, children }: WorkGalleryCarouselProps) {
   const galleryId = useId();
   const galleryRef = useRef<HTMLUListElement>(null);
   const [activeProject, setActiveProject] = useState(0);
@@ -41,36 +42,39 @@ export function WorkGalleryCarousel({ lang, children }: WorkGalleryCarouselProps
   }
 
   return (
-    <div className="work-gallery">
-      {projectCount > 1 && (
-        <div className="work-gallery-controls">
-          <button
-            type="button"
-            aria-label={isSpanish ? 'Proyecto anterior' : 'Previous project'}
-            aria-controls={galleryId}
-            aria-disabled={activeProject === 0}
-            onClick={() => showProject(activeProject - 1)}
-          >
-            <ArrowLeft size={20} aria-hidden="true" />
-          </button>
-          <span className="work-gallery-position" role="status">
-            <span className="sr-only">{isSpanish ? 'Proyecto ' : 'Project '}</span>
-            {activeProject + 1}
-            <span aria-hidden="true"> / </span>
-            <span className="sr-only">{isSpanish ? ' de ' : ' of '}</span>
-            {projectCount}
-          </span>
-          <button
-            type="button"
-            aria-label={isSpanish ? 'Proyecto siguiente' : 'Next project'}
-            aria-controls={galleryId}
-            aria-disabled={activeProject === projectCount - 1}
-            onClick={() => showProject(activeProject + 1)}
-          >
-            <ArrowRight size={20} aria-hidden="true" />
-          </button>
-        </div>
-      )}
+    <>
+      <div className="work-gallery-header">
+        {intro}
+        {projectCount > 1 && (
+          <div className="work-gallery-controls">
+            <button
+              type="button"
+              aria-label={isSpanish ? 'Proyecto anterior' : 'Previous project'}
+              aria-controls={galleryId}
+              aria-disabled={activeProject === 0}
+              onClick={() => showProject(activeProject - 1)}
+            >
+              <ArrowLeft size={20} aria-hidden="true" />
+            </button>
+            <span className="work-gallery-position" role="status">
+              <span className="sr-only">{isSpanish ? 'Proyecto ' : 'Project '}</span>
+              {activeProject + 1}
+              <span aria-hidden="true"> / </span>
+              <span className="sr-only">{isSpanish ? ' de ' : ' of '}</span>
+              {projectCount}
+            </span>
+            <button
+              type="button"
+              aria-label={isSpanish ? 'Proyecto siguiente' : 'Next project'}
+              aria-controls={galleryId}
+              aria-disabled={activeProject === projectCount - 1}
+              onClick={() => showProject(activeProject + 1)}
+            >
+              <ArrowRight size={20} aria-hidden="true" />
+            </button>
+          </div>
+        )}
+      </div>
 
       <ul
         id={galleryId}
@@ -84,6 +88,6 @@ export function WorkGalleryCarousel({ lang, children }: WorkGalleryCarouselProps
       >
         {children}
       </ul>
-    </div>
+    </>
   );
 }

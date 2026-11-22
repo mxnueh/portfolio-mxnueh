@@ -2,11 +2,9 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 import { CategoryBadge } from '@/components/CategoryBadge';
-import { Section } from '@/components/Section';
+import { linkedCardClass, Section } from '@/components/Section';
 import { getPosts } from '@/lib/getContent';
 import type { Language, Post } from '@/lib/types';
-
-const cardClass = 'group flex h-full flex-col justify-between overflow-hidden rounded-2xl border border-black/[0.08] dark:border-white/[0.1] bg-white dark:bg-[#161617] transition-colors hover:border-black/[0.2] dark:hover:border-white/[0.25]';
 
 function PostMeta({ post, lang, onImage = false }: { post: Post; lang: Language; onImage?: boolean }) {
   const date = new Intl.DateTimeFormat(lang === 'es' ? 'es-ES' : 'en-US', {
@@ -94,7 +92,7 @@ export function BlogPosts({ lang }: { lang: Language }) {
             </h2>
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
               {more.map(post => (
-                <Link data-reveal key={post.id} href={base + '/' + post.slug} className={cardClass}>
+                <Link data-reveal key={post.id} href={base + '/' + post.slug} className={linkedCardClass}>
                   {post.image && (
                     <div className="relative aspect-[2.5] w-full">
                       <Image src={post.image} alt="" fill sizes="(min-width: 1024px) 370px, (min-width: 768px) 50vw, 100vw" className="object-cover" />
