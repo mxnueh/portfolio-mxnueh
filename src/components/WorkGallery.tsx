@@ -30,12 +30,12 @@ function FeaturedProject({ study, href, lang }: { study: CaseStudy; href: string
   const copy = workPageCopy[lang];
 
   return (
-    <li className="work-gallery-card">
+    <li className="work-gallery-card project-cover">
       <header className="work-gallery-card-header">
         <p className="mb-3 font-mono text-xs font-semibold uppercase tracking-wider">{study.eyebrow}</p>
-        <h2 className="work-gallery-title">
+        <h3 className="work-gallery-title">
           <Link href={href}>{study.title}</Link>
-        </h2>
+        </h3>
       </header>
 
       <div className="work-gallery-details">
@@ -90,7 +90,7 @@ export function WorkGallery({ lang }: { lang: Language }) {
         lang={lang}
         intro={(
           <header className="work-gallery-intro">
-            <h1 className="text-4xl font-semibold tracking-tight sm:text-5xl lg:text-6xl">{copy.title}</h1>
+            <h2 className="text-4xl font-semibold tracking-tight sm:text-5xl lg:text-6xl">{copy.title}</h2>
             <p className="mt-2 max-w-[62ch] text-base leading-relaxed text-text-secondary dark:text-gray-300">
               {copy.description}
             </p>
