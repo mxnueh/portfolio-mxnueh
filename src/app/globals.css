@@ -782,7 +782,7 @@ input:focus-visible {
 
 .home-heading {
   font-size: clamp(2.5rem, 7.3vw, 7.75rem);
-  font-weight: 100;
+  font-weight: 900;
   letter-spacing: -0.06em;
   line-height: 0.99;
 }
