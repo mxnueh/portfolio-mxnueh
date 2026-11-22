@@ -61,10 +61,10 @@
 .work-gallery-card {
   --work-title-space: clamp(186px, 27vw, 250px);
   --work-navy: #0a1730;
-  --project-cover-deep-stop: calc(var(--work-title-space) * 0.4);
-  --project-cover-royal-stop: calc(var(--work-title-space) * 0.75);
-  --project-cover-blue-stop: var(--work-title-space);
-  --project-cover-sky-stop: calc(var(--work-title-space) + 32px);
+  --project-cover-deep-stop: calc(var(--work-title-space) * 0.33);
+  --project-cover-royal-stop: calc(var(--work-title-space) * 0.57);
+  --project-cover-blue-stop: calc(var(--work-title-space) * 0.83);
+  --project-cover-sky-stop: calc(var(--work-title-space) + 76px);
   position: relative;
   display: flex;
   flex: 0 0 100%;
@@ -79,6 +79,10 @@
   overflow: hidden;
   scroll-snap-align: start;
   scroll-snap-stop: always;
+}
+
+.work-gallery-card.project-cover::before {
+  opacity: 0.18;
 }
 
 .work-gallery-card-header {
