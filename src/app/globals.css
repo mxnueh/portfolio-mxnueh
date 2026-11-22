@@ -518,22 +518,27 @@ input:focus-visible {
   position: relative;
   transition: flex 0.4s ease;
   color: #fff;
-  isolation: isolate;
-  background-color: #03195b;
-  background-image: linear-gradient(
-    to bottom,
-    #03195b,
-    #0b2cb1 21%,
-    #1951fc var(--selected-work-royal-stop, 45%),
-    #3781fc var(--selected-work-blue-stop, 60%),
-    #6bb8ff var(--selected-work-sky-stop, 78%),
-    #cbe9fd
-  );
   display: flex;
   flex-direction: column;
   min-width: 0;
 }
 
+.project-cover,
+.selected-work .st {
+  isolation: isolate;
+  background-color: #03195b;
+  background-image: linear-gradient(
+    to bottom,
+    #03195b,
+    #0b2cb1 var(--project-cover-deep-stop, 21%),
+    #1951fc var(--project-cover-royal-stop, 45%),
+    #3781fc var(--project-cover-blue-stop, 60%),
+    #6bb8ff var(--project-cover-sky-stop, 78%),
+    #cbe9fd
+  );
+}
+
+.project-cover::before,
 .selected-work .st::before {
   content: "";
   position: absolute;
@@ -699,9 +704,9 @@ input:focus-visible {
     flex: none !important;
   }
   .selected-work .st.on {
-    --selected-work-royal-stop: 37%;
-    --selected-work-blue-stop: 47%;
-    --selected-work-sky-stop: 64%;
+    --project-cover-royal-stop: 37%;
+    --project-cover-blue-stop: 47%;
+    --project-cover-sky-stop: 64%;
     min-height: 420px;
   }
   .selected-work .st:not(.on) .sb .ct {
