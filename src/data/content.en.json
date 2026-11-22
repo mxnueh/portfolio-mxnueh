@@ -85,7 +85,6 @@
           "title": "Mission Atabey 1",
           "description": "Telemetry for a Mars-analog habitat over intermittent LoRa networks.",
           "tags": ["Python", "FastAPI", "React"],
-          "coverGradient": "linear-gradient(to bottom, #09172E, #153F80 48%, #2366B4)",
           "projectUrl": "/work/mission-atabey",
           "docsUrl": "https://github.com/mxnueh"
         },
@@ -94,7 +93,6 @@
           "title": "Conducete",
           "description": "Mobile road-safety education app for Dominican drivers.",
           "tags": ["Flutter", "Flask", "PostgreSQL"],
-          "coverGradient": "linear-gradient(to bottom, #121C3F, #283F7F 46%, #3A63A9)",
           "projectUrl": "/work/conduete",
           "docsUrl": "https://github.com/mxnueh"
         },
@@ -103,7 +101,6 @@
           "title": "Floppy",
           "description": "Community early flood warning system built on IoT.",
           "tags": ["ESP32", "Flask"],
-          "coverGradient": "linear-gradient(to bottom, #071D30, #104568 50%, #1F6B9E)",
           "projectUrl": "/work/floppy",
           "docsUrl": "https://github.com/mxnueh/floppy"
         }

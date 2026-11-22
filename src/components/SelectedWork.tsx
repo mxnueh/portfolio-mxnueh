@@ -53,7 +53,6 @@ export function SelectedWork({ lang }: SelectedWorkProps) {
                 <div
                   key={project.id}
                   className={`st ${isOpen ? 'on' : ''}`}
-                  style={{ backgroundImage: project.coverGradient }}
                 >
                   <h3 className="st-h3">
                     <button

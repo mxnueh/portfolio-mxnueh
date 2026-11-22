@@ -519,7 +519,16 @@ input:focus-visible {
   transition: flex 0.4s ease;
   color: #fff;
   isolation: isolate;
-  background-color: #09172e;
+  background-color: #03195b;
+  background-image: linear-gradient(
+    to bottom,
+    #03195b,
+    #0b2cb1 21%,
+    #1951fc var(--selected-work-royal-stop, 45%),
+    #3781fc var(--selected-work-blue-stop, 60%),
+    #6bb8ff var(--selected-work-sky-stop, 78%),
+    #cbe9fd
+  );
   display: flex;
   flex-direction: column;
   min-width: 0;
@@ -605,7 +614,6 @@ input:focus-visible {
 .selected-work .ar {
   font: 400 13px/20px ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   letter-spacing: 0.02em;
-  color: rgb(255 255 255 / 85%);
 }
 
 .selected-work .sx {
@@ -613,6 +621,7 @@ input:focus-visible {
   padding: 0 24px 24px;
   gap: 12px;
   flex-direction: column;
+  color: #03195b;
 }
 
 .selected-work .st.on .sx {
@@ -623,7 +632,6 @@ input:focus-visible {
   font-size: clamp(15px, 1.1vw, 16px);
   line-height: 1.5;
   max-width: 60ch;
-  color: rgb(255 255 255 / 92%);
 }
 
 .selected-work .sx .acts {
@@ -655,7 +663,6 @@ input:focus-visible {
 }
 
 .selected-work .sx .lnk {
-  color: #fff;
   text-decoration: underline;
   font-weight: 500;
   min-height: 44px;
@@ -692,6 +699,9 @@ input:focus-visible {
     flex: none !important;
   }
   .selected-work .st.on {
+    --selected-work-royal-stop: 37%;
+    --selected-work-blue-stop: 47%;
+    --selected-work-sky-stop: 64%;
     min-height: 420px;
   }
   .selected-work .st:not(.on) .sb .ct {

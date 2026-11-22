@@ -96,7 +96,6 @@ export interface SelectedWorkProject {
   architecture?: string;
   description: string;
   tags: string[];
-  coverGradient: string;
   cover?: string;
   projectUrl: string;
   docsUrl?: string;
