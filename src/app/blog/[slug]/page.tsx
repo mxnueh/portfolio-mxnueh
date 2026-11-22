@@ -1,6 +1,5 @@
 import { GlobalNav } from '@/components/GlobalNav';
 import { SiteFooter } from '@/components/SiteFooter';
-import { CtaSection } from '@/components/CtaSection';
 import { Section } from '@/components/Section';
 import { CategoryBadge } from '@/components/CategoryBadge';
 import { Markdown } from '@/components/Markdown';
@@ -38,9 +37,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             </Link>
           </div>
         </Section>
-        <div className="chapter-dark">
-          <SiteFooter lang={lang} />
-        </div>
+        <SiteFooter lang={lang} />
       </div>
     );
   }
@@ -53,7 +50,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     <div className="flex flex-col min-h-screen bg-white dark:bg-[#0c0c0e] text-text-primary dark:text-white transition-colors">
       <GlobalNav lang={lang} />
 
-      <Section variant="white" className="pt-12 pb-20">
+      <Section reveal variant="white" className="pt-12 pb-20">
         <article className="max-w-3xl mx-auto px-4">
           {/* Back link */}
           <div className="mb-8">
@@ -84,13 +81,13 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           </header>
 
           {/* Article Content */}
-          <div className="prose prose-lg dark:prose-invert max-w-none prose-headings:font-semibold prose-headings:tracking-tight prose-a:text-accent-fill prose-pre:bg-[#161617] prose-pre:border prose-pre:border-white/10 leading-relaxed font-normal">
+          <div data-reveal-children className="prose prose-lg dark:prose-invert max-w-none prose-headings:font-semibold prose-headings:tracking-tight prose-a:text-accent-fill prose-pre:bg-[#161617] prose-pre:border prose-pre:border-white/10 leading-relaxed font-normal">
             <Markdown content={post.content} />
           </div>
 
           {/* Prev / Next Navigation */}
           {(prevPost || nextPost) && (
-            <nav className="mt-16 pt-8 border-t border-black/[0.06] dark:border-white/[0.08] grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <nav data-reveal-children className="mt-16 pt-8 border-t border-black/[0.06] dark:border-white/[0.08] grid grid-cols-1 sm:grid-cols-2 gap-4">
               {prevPost ? (
                 <Link
                   href={`/blog/${prevPost.slug}`}
@@ -122,11 +119,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         </article>
       </Section>
 
-      {/* Closing chapter: always dark — variant A */}
-      <div className="chapter-dark">
-        <CtaSection variant="statement" lang={lang} />
-        <SiteFooter lang={lang} />
-      </div>
+      <SiteFooter cta="statement" lang={lang} />
     </div>
   );
 }

@@ -706,9 +706,7 @@ export default function EsComponentsShowcasePage() {
           </section>
         )}
 
-        <div className="chapter-dark">
-          <SiteFooter lang="es" />
-        </div>
+        <SiteFooter lang="es" />
       </div>
     </ClickSpark>
   );

@@ -716,9 +716,7 @@ export default function ComponentsShowcasePage() {
           </section>
         )}
 
-        <div className="chapter-dark">
-          <SiteFooter lang="en" />
-        </div>
+        <SiteFooter lang="en" />
       </div>
     </ClickSpark>
   );

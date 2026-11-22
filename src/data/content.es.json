@@ -16,44 +16,53 @@
     "hero": {
       "eyebrow": "Ingeniería Frontend y Full Stack",
       "headline": "Full Stack Developer & Systems Designer",
-      "lead": "Diseño sistemas que funcionan bajo presión, luego construyo las interfaces que los hacen posibles. Aplicaciones web de alto rendimiento, dashboards en tiempo real y arquitecturas distribuidas—construidas con código claro y performante.",
+      "lead": "Diseño sistemas que funcionan bajo presión, luego construyo las interfaces que los hacen posibles. Aplicaciones web de alto rendimiento, dashboards en tiempo real y arquitecturas distribuidas, construidas con código claro y performante.",
       "primaryCTA": { "label": "Ver casos de estudio", "href": "/work" },
       "secondaryCTA": { "label": "Escríbeme", "href": "mailto:enmanuelnunezmatias@gmail.com" },
       "tertiaryCTA": { "label": "Leer notas", "href": "/blog" }
     },
-    "atGlance": {
-      "headline": "Lo que aporto.",
-      "cards": [
+    "techMarquee": {
+      "ariaLabel": "Tecnologías con las que trabajo",
+      "pauseLabel": "Pausar animación",
+      "resumeLabel": "Reanudar animación"
+    },
+    "stackedPanels": {
+      "headline": "Enmanuel Nunez Matias",
+      "panels": [
         {
-          "span": 2,
-          "title": "Sistemas full stack",
-          "chips": ["React", "TypeScript", "Python", "PostgreSQL", "Embedded Systems"]
+          "id": "panel-1",
+          "label": "Enmanuel Nunez Matias",
+          "headline": "Cuatro finales de hackatón y Google Summer of Code 2026.",
+          "hint": "Desplaza",
+          "navLabel": "Portada"
         },
         {
-          "span": 1,
-          "stat": "4",
-          "label": "finales de hackathon (2 NASA)"
+          "id": "panel-2",
+          "label": "Hackatones",
+          "value": "4",
+          "description": "Finales de hackatón, dos de ellas NASA (HERC y Space Apps).",
+          "navLabel": "Finales de hackatón"
         },
         {
-          "span": 1,
-          "title": "Tiempo real y offline",
-          "label": "Telemetría, MQTT, LoRa, sincronización SQLite"
+          "id": "panel-3",
+          "label": "Código abierto",
+          "value": "GSoC 2026",
+          "description": "Contribuidor de omegaUp mediante Google Summer of Code.",
+          "navLabel": "Google Summer of Code"
         },
         {
-          "span": 1,
-          "title": "Pensamiento sistémico",
-          "label": "Arquitectura, permisos, confiabilidad"
+          "id": "panel-4",
+          "label": "Idiomas",
+          "value": "B2",
+          "description": "Nivel de inglés.",
+          "navLabel": "Nivel de inglés"
         },
         {
-          "span": 1,
-          "title": "Bilingüe",
-          "label": "Español nativo, Inglés B2"
-        },
-        {
-          "span": 2,
-          "isHighlight": true,
-          "title": "Abierto a: roles Full Stack (React), consultoría de sistemas, software personalizado",
-          "cta": { "label": "Conversemos", "href": "/contact" }
+          "id": "panel-5",
+          "label": "Estudios",
+          "value": "ITLA",
+          "description": "Estudiando Desarrollo de Software.",
+          "navLabel": "Estudios"
         }
       ]
     },
@@ -61,9 +70,44 @@
       "headline": "Proyectos.",
       "cta": { "label": "Todos los proyectos", "href": "/blog" }
     },
-    "work": {
-      "headline": "Casos de estudio.",
-      "cta": { "label": "Todos los casos", "href": "/work" }
+    "selectedWork": {
+      "headline": "Trabajo seleccionado",
+      "viewAll": {
+        "label": "Ver todo el trabajo →",
+        "href": "/es/work"
+      },
+      "btnProject": "Ver proyecto",
+      "btnDocs": "Ver documentación",
+      "placeholderCover": "Cover placeholder: replace with a real screenshot",
+      "projects": [
+        {
+          "id": "mission-atabey",
+          "title": "Mission Atabey 1",
+          "description": "Telemetría para un hábitat análogo a Marte sobre redes LoRa intermitentes.",
+          "tags": ["Python", "FastAPI", "React"],
+          "coverGradient": "linear-gradient(to top, #070B14 0%, #4B150E 38%, #DF4620 68%, #F47441 100%)",
+          "projectUrl": "/es/work/mission-atabey",
+          "docsUrl": "https://github.com/mxnueh"
+        },
+        {
+          "id": "conduete",
+          "title": "Conducete",
+          "description": "App móvil de educación vial para conductores dominicanos.",
+          "tags": ["Flutter", "Flask", "PostgreSQL"],
+          "coverGradient": "linear-gradient(to top, #18392B 0%, #2F6B4F 45%, #6FAE78 75%, #D7C94C 100%)",
+          "projectUrl": "/es/work/conduete",
+          "docsUrl": "https://github.com/mxnueh"
+        },
+        {
+          "id": "floppy",
+          "title": "Floppy",
+          "description": "Sistema comunitario de alerta temprana de inundaciones basado en IoT.",
+          "tags": ["ESP32", "Flask"],
+          "coverGradient": "linear-gradient(to top, #071C17 0%, #124B38 50%, #25866A 100%)",
+          "projectUrl": "/es/work/floppy",
+          "docsUrl": "https://github.com/mxnueh/floppy"
+        }
+      ]
     },
     "blog": {
       "headline": "Pensamientos y lecciones.",

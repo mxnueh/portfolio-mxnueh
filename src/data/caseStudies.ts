@@ -5,7 +5,7 @@ export const caseStudiesEN: CaseStudy[] = [
     id: '1',
     slug: 'mission-atabey',
     eyebrow: 'NASA Space Apps Global Finalist',
-    title: 'Mission Atabey — Mars-Analog Telemetry Platform',
+    title: 'Mission Atabey: Mars-Analog Telemetry Platform',
     description:
       'An end-to-end telemetry and monitoring platform for a Mars-analog habitat, synchronizing real-time crew biometrics, atmospheric sensors, and automated crop dome irrigation over intermittent LoRa networks.',
     role: 'Full Stack Developer & Telemetry Lead',
@@ -71,7 +71,7 @@ The architecture was engineered with a resilient **three-tier offline-first pipe
     id: '2',
     slug: 'conduete',
     eyebrow: 'Mobile Telemetry & Gamification',
-    title: 'CONDÚCETE — Road Safety Telemetry App',
+    title: 'Conducete: Road Safety Telemetry App',
     description:
       'A gamified mobile application transforming driving culture in the Dominican Republic through real-time inertial telemetry scoring, defensive driving rewards, and community safety milestones.',
     role: 'Full Stack Developer & UI/UX Systems Integrator',
@@ -83,7 +83,7 @@ The architecture was engineered with a resilient **three-tier offline-first pipe
 
 The Dominican Republic consistently ranks among the countries with the highest traffic fatality rates in the Americas. Traditional enforcement strategies (traffic fines, punitive driver points) have proven insufficient to foster lasting behavioral change.
 
-**CONDÚCETE** was built to reverse this dynamic through gamification, positive reinforcement, and real-time mobile sensor telemetry.
+**Conducete** was built to reverse this dynamic through gamification, positive reinforcement, and real-time mobile sensor telemetry.
 
 ---
 
@@ -95,7 +95,7 @@ Drivers in dense urban centers like Santo Domingo encounter aggressive traffic d
 
 ## The Solution: Telemetry-Driven Behavioral Feedback
 
-CONDÚCETE tracks vehicular dynamics passively while driving, computing an objective safety index based on three key parameters:
+Conducete tracks vehicular dynamics passively while driving, computing an objective safety index based on three key parameters:
 1. **Acceleration Dynamics**: Penalizes sudden jackrabbit starts that waste fuel and hazard pedestrians.
 2. **Braking Predictability**: Detects abrupt braking events indicating tailgating or inattention.
 3. **Speed Consistency**: Rewards compliance with local corridor speed limits.
@@ -122,8 +122,8 @@ Drivers accumulate safety tokens that unlock regional discounts and community le
   {
     id: '3',
     slug: 'floppy',
-    eyebrow: '4th Place — CreaRD Hackathon',
-    title: 'Floppy — Community Early Flood Warning System',
+    eyebrow: '4th Place: CreaRD Hackathon',
+    title: 'Floppy: Community Early Flood Warning System',
     description:
       'An early-warning IoT flood monitoring network designed for vulnerable riverside communities, delivering real-time water level alerts via SMS, push notifications, and live hydrograph dashboards.',
     role: 'Full Stack Developer & IoT Systems Engineer',
@@ -171,7 +171,7 @@ Developed during the **CreaRD 2025 Hackathon**, **Floppy** won **4th Place** as 
     id: '4',
     slug: 'real-estate-crm',
     eyebrow: 'Full Stack Enterprise Platform',
-    title: 'GFB Inmobiliaria CRM — Geospatial Property Platform',
+    title: 'GFB Inmobiliaria CRM: Geospatial Property Platform',
     description:
       'A full-stack property management and lead pipeline CRM with geospatial map filtering, granular role-based security, automated client follow-ups, and sales analytics.',
     role: 'Full Stack Developer',
@@ -209,7 +209,7 @@ GFB Inmobiliaria, a growing real estate brokerage, struggled with fragmented spr
     id: '5',
     slug: 'marco-seguro',
     eyebrow: 'E-Commerce & Parametric Configurator',
-    title: 'Marco Seguro — Parametric PVC Quoting Engine',
+    title: 'Marco Seguro: Parametric PVC Quoting Engine',
     description:
       'An e-commerce platform and real-time PVC roofing & wall tile parametric configurator, enabling instant dimension calculation, material quotes, and installation scheduling.',
     role: 'Frontend Architect & UI Developer',
@@ -236,7 +236,7 @@ I designed and engineered an interactive parametric configurator where customers
     id: '6',
     slug: 'nasa-herc',
     eyebrow: 'NASA Human Exploration Rover Challenge',
-    title: 'NASA HERC — AstroBosco Rover Telemetry Suite',
+    title: 'NASA HERC: AstroBosco Rover Telemetry Suite',
     description:
       'Real-time telemetry, embedded sensor networks, and cockpit operator diagnostics for an international Mars-analog competition rover at the NASA Marshall Space Flight Center.',
     role: 'Telemetry Lead & Embedded Firmware Engineer',
@@ -283,7 +283,7 @@ export const caseStudiesES: CaseStudy[] = [
     id: '1',
     slug: 'mission-atabey',
     eyebrow: 'Finalista Global NASA Space Apps',
-    title: 'Misión Atabey — Plataforma de Telemetría Análoga a Marte',
+    title: 'Misión Atabey: Plataforma de Telemetría Análoga a Marte',
     description:
       'Plataforma integral de telemetría y monitoreo para un hábitat análogo a Marte, sincronizando en tiempo real biometría de tripulación, sensores atmosféricos y domo de cultivos sobre redes LoRa intermitentes.',
     role: 'Líder de Telemetría & Desarrollador Full Stack',
@@ -341,7 +341,7 @@ El sistema fue diseñado con una **tubería de 3 niveles con enfoque Offline-Fir
     id: '2',
     slug: 'conduete',
     eyebrow: 'Telemetría Móvil y Gamificación',
-    title: 'CONDÚCETE — Aplicación Móvil de Seguridad Vial',
+    title: 'Conducete: Aplicación Móvil de Seguridad Vial',
     description:
       'Aplicación móvil gamificada que fomenta hábitos de conducción segura en la República Dominicana mediante telemetría inercial en tiempo real, recompensas defensivas y metas comunitarias.',
     role: 'Desarrollador Full Stack & Integrador de UI/UX',
@@ -353,7 +353,7 @@ El sistema fue diseñado con una **tubería de 3 niveles con enfoque Offline-Fir
 
 La República Dominicana enfrenta altos índices de siniestralidad vial. Los esquemas tradicionales basados en sanciones punitivas han demostrado ser insuficientes para generar una transformación de hábitos a largo plazo.
 
-**CONDÚCETE** fue creada para transformar este panorama utilizando gamificación, refuerzo positivo y telemetría de sensores móviles en tiempo real.
+**Conducete** fue creada para transformar este panorama utilizando gamificación, refuerzo positivo y telemetría de sensores móviles en tiempo real.
 
 ---
 
@@ -382,8 +382,8 @@ La aplicación procesa los sensores inerciales del smartphone para calcular un �
   {
     id: '3',
     slug: 'floppy',
-    eyebrow: '4to Lugar — Hackatón CreaRD',
-    title: 'Floppy — Red de Alerta Temprana ante Inundaciones',
+    eyebrow: '4to Lugar: Hackatón CreaRD',
+    title: 'Floppy: Red de Alerta Temprana ante Inundaciones',
     description:
       'Sistema IoT de monitoreo y alerta temprana de inundaciones para comunidades vulnerables cerca de ríos, con avisos vía SMS, notificaciones push y paneles hidrométricos en vivo.',
     role: 'Desarrollador Full Stack & Ingeniero de Sistemas IoT',
@@ -417,7 +417,7 @@ Desarrollado en la **Hackatón CreaRD 2025**, **Floppy** obtuvo el **4to Lugar**
     id: '4',
     slug: 'real-estate-crm',
     eyebrow: 'Plataforma Empresarial Full Stack',
-    title: 'CRM Inmobiliario GFB — Plataforma Geoespacial',
+    title: 'CRM Inmobiliario GFB: Plataforma Geoespacial',
     description:
       'CRM inmobiliario integral con filtrado geoespacial interactivo en mapa, seguridad estricta basada en roles, seguimiento automatizado de prospectos y métricas de ventas.',
     role: 'Desarrollador Full Stack',
@@ -445,7 +445,7 @@ GFB Inmobiliaria gestionaba inventarios dispersos en hojas de cálculo y llamada
     id: '5',
     slug: 'marco-seguro',
     eyebrow: 'Comercio Electrónico y Configurador',
-    title: 'Marco Seguro — Cotizador Paramétrico de Tejas PVC',
+    title: 'Marco Seguro: Cotizador Paramétrico de Tejas PVC',
     description:
       'Plataforma web y cotizador paramétrico de tejas de PVC para techos y revestimientos, calculando despieces, presupuestos instantáneos y solicitudes de instalación.',
     role: 'Arquitecto Frontend & Desarrollador UI',
@@ -471,7 +471,7 @@ Diseñé un cotizador interactivo paramétrico donde los usuarios eligen dimensi
     id: '6',
     slug: 'nasa-herc',
     eyebrow: 'NASA Human Exploration Rover Challenge',
-    title: 'NASA HERC — Telemetría del Rover AstroBosco',
+    title: 'NASA HERC: Telemetría del Rover AstroBosco',
     description:
       'Diseño de telemetría en tiempo real, red de sensores embebidos y diagnóstico en cabina para un rover de competencia análogo a Marte en el NASA Marshall Space Flight Center.',
     role: 'Líder de Telemetría & Ingeniero de Firmware Embebido',

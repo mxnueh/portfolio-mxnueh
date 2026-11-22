@@ -1,6 +1,6 @@
+import { GeneratedLead } from '@/components/GeneratedLead';
 import { GlobalNav } from '@/components/GlobalNav';
 import { SiteFooter } from '@/components/SiteFooter';
-import { CtaSection } from '@/components/CtaSection';
 import { Section } from '@/components/Section';
 import type { Metadata } from 'next';
 import { Code, Cpu, Layers, Terminal, ShieldCheck, ArrowRight } from 'lucide-react';
@@ -17,28 +17,28 @@ export default function AboutPage() {
   const milestones = [
     {
       period: '2024–2025',
-      title: 'NASA Space Apps Challenge — 2x Global Finalist',
+      title: 'NASA Space Apps Challenge: 2x Global Finalist',
       description:
         'Architected telemetry engines and real-time dashboards for Mars-analog habitats and planetary systems, competing against thousands of global engineering teams.',
       tag: 'NASA Finalist',
     },
     {
       period: '2024–2025',
-      title: 'NASA HERC — Telemetry Lead with AstroBosco',
+      title: 'NASA HERC: Telemetry Lead with AstroBosco',
       description:
         'Engineered C++ microcontroller telemetry streaming, power management, and operator interfaces for competition Mars rover in Huntsville, Alabama.',
       tag: 'Aerospace Systems',
     },
     {
       period: '2026',
-      title: 'Google Summer of Code — omegaUp Contributor',
+      title: 'Google Summer of Code: omegaUp Contributor',
       description:
         'Selected contributor to the open-source competitive programming platform omegaUp, improving core code evaluation pipelines and developer workflows.',
       tag: 'Open Source',
     },
     {
       period: '2025',
-      title: 'CreaRD Hackathon — 4th Place Award (Floppy)',
+      title: 'CreaRD Hackathon: 4th Place Award (Floppy)',
       description:
         'Designed and deployed an ultrasonic community flood-monitoring IoT system with real-time alert thresholds and responsive mapping interfaces.',
       tag: 'IoT Telemetry',
@@ -80,19 +80,16 @@ export default function AboutPage() {
       <GlobalNav lang={lang} />
 
       {/* Hero */}
-      <Section variant="white" className="pt-20 pb-16">
+      <Section reveal variant="white" className="pt-20 pb-16">
         <div className="max-w-4xl mx-auto text-center px-4">
-          <span className="inline-block text-xs font-semibold uppercase tracking-wider text-text-secondary dark:text-gray-400 bg-black/[0.04] dark:bg-white/[0.08] px-4 py-1.5 rounded-full mb-6">
-            Engineering Profile &amp; Philosophy
-          </span>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight mb-8 leading-tight">
+          <h1 data-reveal className="heading-ink intro-heading font-semibold leading-tight tracking-tight mb-8">
             Designing systems that work <span className="text-accent-fill">reliably under pressure</span>.
           </h1>
-          <p className="text-xl md:text-2xl text-text-secondary dark:text-gray-300 mb-10 max-w-3xl mx-auto leading-relaxed font-normal">
+          <GeneratedLead className="max-w-2xl mb-10 mx-auto text-text-secondary dark:text-gray-300">
             I am Enmanuel Núñez Matías, a Full Stack Developer &amp; Systems Designer.
             I build resilient architectures, high-performance web applications, and intuitive interfaces with clean, maintainable code.
-          </p>
-          <div className="flex flex-wrap items-center justify-center gap-4">
+          </GeneratedLead>
+          <div data-reveal-children className="about-actions flex flex-wrap items-center justify-center gap-4">
             <Link
               href="/work"
               className="inline-flex items-center justify-center rounded-full px-8 py-3.5 text-sm font-semibold bg-accent-fill text-white hover:bg-accent-hover transition-colors shadow-sm"
@@ -111,18 +108,18 @@ export default function AboutPage() {
         </div>
       </Section>
 
-      {/* Methodology — Clean Apple Cards, No AI pastel/cursor slop */}
-      <Section variant="gray">
+      {/* Methodology: Clean Apple Cards, No AI pastel/cursor slop */}
+      <Section reveal variant="gray">
         <div className="max-w-6xl mx-auto px-4">
-          <div className="text-center mb-12">
+          <div data-reveal className="text-center mb-12">
             <span className="text-xs font-semibold uppercase tracking-wider text-text-tertiary dark:text-gray-400 block mb-2">
               Methodology
             </span>
-            <h2 className="text-3xl md:text-4xl font-semibold tracking-tight">How I build software</h2>
+            <h2 className="heading-ink text-3xl md:text-4xl font-semibold tracking-tight">How I build software</h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="rounded-2xl border border-black/[0.08] dark:border-white/[0.1] bg-white dark:bg-[#161617] p-8 transition-colors hover:border-black/[0.18] dark:hover:border-white/[0.22]">
+            <div data-reveal className="rounded-2xl border border-black/[0.08] dark:border-white/[0.1] bg-white dark:bg-[#161617] p-8 transition-colors hover:border-black/[0.18] dark:hover:border-white/[0.22]">
               <div className="w-10 h-10 rounded-xl bg-black/[0.04] dark:bg-white/[0.08] text-text-primary dark:text-white flex items-center justify-center mb-6">
                 <Layers className="w-5 h-5 text-accent-fill" />
               </div>
@@ -132,7 +129,7 @@ export default function AboutPage() {
               </p>
             </div>
 
-            <div className="rounded-2xl border border-black/[0.08] dark:border-white/[0.1] bg-white dark:bg-[#161617] p-8 transition-colors hover:border-black/[0.18] dark:hover:border-white/[0.22]">
+            <div data-reveal className="rounded-2xl border border-black/[0.08] dark:border-white/[0.1] bg-white dark:bg-[#161617] p-8 transition-colors hover:border-black/[0.18] dark:hover:border-white/[0.22]">
               <div className="w-10 h-10 rounded-xl bg-black/[0.04] dark:bg-white/[0.08] text-text-primary dark:text-white flex items-center justify-center mb-6">
                 <Cpu className="w-5 h-5 text-accent-fill" />
               </div>
@@ -142,7 +139,7 @@ export default function AboutPage() {
               </p>
             </div>
 
-            <div className="rounded-2xl border border-black/[0.08] dark:border-white/[0.1] bg-white dark:bg-[#161617] p-8 transition-colors hover:border-black/[0.18] dark:hover:border-white/[0.22]">
+            <div data-reveal className="rounded-2xl border border-black/[0.08] dark:border-white/[0.1] bg-white dark:bg-[#161617] p-8 transition-colors hover:border-black/[0.18] dark:hover:border-white/[0.22]">
               <div className="w-10 h-10 rounded-xl bg-black/[0.04] dark:bg-white/[0.08] text-text-primary dark:text-white flex items-center justify-center mb-6">
                 <ShieldCheck className="w-5 h-5 text-accent-fill" />
               </div>
@@ -155,19 +152,19 @@ export default function AboutPage() {
         </div>
       </Section>
 
-      {/* Trajectory — Refined Minimal Apple Timeline */}
-      <Section variant="white">
+      {/* Trajectory: Refined Minimal Apple Timeline */}
+      <Section reveal variant="white">
         <div className="max-w-4xl mx-auto px-4">
-          <div className="text-center mb-12">
+          <div data-reveal className="text-center mb-12">
             <span className="text-xs font-semibold uppercase tracking-wider text-text-tertiary dark:text-gray-400 block mb-2">
               Trajectory
             </span>
-            <h2 className="text-3xl md:text-4xl font-semibold tracking-tight">Key Milestones &amp; Honors</h2>
+            <h2 className="heading-ink text-3xl md:text-4xl font-semibold tracking-tight">Key Milestones &amp; Honors</h2>
           </div>
 
           <div className="divide-y divide-black/[0.06] dark:divide-white/[0.08] border-y border-black/[0.06] dark:border-white/[0.08]">
             {milestones.map((m, idx) => (
-              <div key={idx} className="py-8 flex flex-col md:flex-row md:items-baseline justify-between gap-4 md:gap-8">
+              <div data-reveal key={idx} className="py-8 flex flex-col md:flex-row md:items-baseline justify-between gap-4 md:gap-8">
                 <div className="md:w-48 flex-shrink-0">
                   <span className="text-xs font-mono font-semibold text-accent-fill">
                     {m.period}
@@ -190,14 +187,14 @@ export default function AboutPage() {
         </div>
       </Section>
 
-      {/* Technical Capabilities — Minimal Apple Grid */}
-      <Section variant="gray">
+      {/* Technical Capabilities: Minimal Apple Grid */}
+      <Section reveal variant="gray">
         <div className="max-w-5xl mx-auto px-4">
-          <div className="text-center mb-12">
+          <div data-reveal className="text-center mb-12">
             <span className="text-xs font-semibold uppercase tracking-wider text-text-tertiary dark:text-gray-400 block mb-2">
               Capabilities
             </span>
-            <h2 className="text-3xl md:text-4xl font-semibold tracking-tight">Technical Toolbox</h2>
+            <h2 className="heading-ink text-3xl md:text-4xl font-semibold tracking-tight">Technical Toolbox</h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -206,6 +203,7 @@ export default function AboutPage() {
               return (
                 <div
                   key={tool.category}
+                  data-reveal
                   className="rounded-2xl border border-black/[0.08] dark:border-white/[0.1] bg-white dark:bg-[#161617] p-7 transition-colors hover:border-black/[0.18] dark:hover:border-white/[0.22]"
                 >
                   <div className="flex items-center gap-3 mb-5">
@@ -231,11 +229,7 @@ export default function AboutPage() {
         </div>
       </Section>
 
-      {/* Closing chapter: always dark */}
-      <div className="chapter-dark">
-        <CtaSection variant="statement" lang={lang} />
-        <SiteFooter lang={lang} />
-      </div>
+      <SiteFooter cta="statement" lang={lang} />
     </div>
   );
 }

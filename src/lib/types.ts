@@ -74,3 +74,44 @@ export interface ToolboxCategory {
   title: string;
   items: string[];
 }
+
+export interface StackedPanelData {
+  id: string;
+  label: string;
+  headline?: string;
+  value?: string;
+  description?: string;
+  hint?: string;
+  navLabel: string;
+}
+
+export interface StackedPanelsContent {
+  headline: string;
+  panels: StackedPanelData[];
+}
+
+export interface SelectedWorkProject {
+  id: string;
+  title: string;
+  architecture?: string;
+  description: string;
+  tags: string[];
+  coverGradient: string;
+  cover?: string;
+  projectUrl: string;
+  docsUrl?: string;
+}
+
+export interface SelectedWorkData {
+  headline: string;
+  viewAll: {
+    label: string;
+    href: string;
+  };
+  btnProject: string;
+  btnDocs: string;
+  placeholderCover: string;
+  projects: SelectedWorkProject[];
+}
+
+

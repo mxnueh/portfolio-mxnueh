@@ -34,9 +34,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
         <Section variant="white">
           <h1 className="text-section font-600 mb-4">Product not found</h1>
         </Section>
-        <div className="chapter-dark">
-          <SiteFooter lang="en" />
-        </div>
+        <SiteFooter lang="en" />
       </div>
     );
   }
@@ -59,9 +57,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
           </div>
         </div>
       </Section>
-      <div className="chapter-dark">
-        <SiteFooter lang="en" />
-      </div>
+      <SiteFooter lang="en" />
     </div>
   );
 }

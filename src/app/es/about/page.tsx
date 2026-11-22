@@ -1,6 +1,6 @@
+import { GeneratedLead } from '@/components/GeneratedLead';
 import { GlobalNav } from '@/components/GlobalNav';
 import { SiteFooter } from '@/components/SiteFooter';
-import { CtaSection } from '@/components/CtaSection';
 import { Section } from '@/components/Section';
 import type { Metadata } from 'next';
 import { Code, Cpu, Layers, Terminal, ShieldCheck } from 'lucide-react';
@@ -17,28 +17,28 @@ export default function EsAboutPage() {
   const milestones = [
     {
       period: '2024–2025',
-      title: 'NASA Space Apps Challenge — 2x Finalista Global',
+      title: 'NASA Space Apps Challenge: 2x Finalista Global',
       description:
         'Lideré la telemetría y la arquitectura full stack para Misión Atabey (hábitat análogo a Marte) y sistemas NOVAX, compitiendo frente a miles de equipos de ingeniería a nivel mundial.',
       tag: 'Finalista NASA',
     },
     {
       period: '2024–2025',
-      title: 'NASA HERC — Líder de Telemetría con AstroBosco',
+      title: 'NASA HERC: Líder de Telemetría con AstroBosco',
       description:
         'Desarrollé la transmisión de datos por microcontrolador en C++, gestión de energía de baterías y panel de operador para el rover análogo a Marte en Huntsville, Alabama.',
       tag: 'Sistemas Aeroespaciales',
     },
     {
       period: '2026',
-      title: 'Google Summer of Code — Contribuidor en omegaUp',
+      title: 'Google Summer of Code: Contribuidor en omegaUp',
       description:
         'Seleccionado como contribuidor para la plataforma de programación competitiva de código abierto omegaUp, optimizando pipelines de evaluación y herramientas de desarrollo.',
       tag: 'Código Abierto',
     },
     {
       period: '2025',
-      title: 'Hackatón CreaRD — 4to Lugar (Floppy)',
+      title: 'Hackatón CreaRD: 4to Lugar (Floppy)',
       description:
         'Ideé e implementé un sistema IoT para monitoreo comunitario de inundaciones con sensores ultrasónicos, umbrales de alerta en tiempo real y mapas interactivos.',
       tag: 'Telemetría IoT',
@@ -80,19 +80,16 @@ export default function EsAboutPage() {
       <GlobalNav lang={lang} />
 
       {/* Hero */}
-      <Section variant="white" className="pt-20 pb-16">
+      <Section reveal variant="white" className="pt-20 pb-16">
         <div className="max-w-4xl mx-auto text-center px-4">
-          <span className="inline-block text-xs font-semibold uppercase tracking-wider text-text-secondary dark:text-gray-400 bg-black/[0.04] dark:bg-white/[0.08] px-4 py-1.5 rounded-full mb-6">
-            Perfil de Ingeniería y Filosofía
-          </span>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight mb-8 leading-tight">
+          <h1 data-reveal className="heading-ink intro-heading font-semibold leading-tight tracking-tight mb-8">
             Diseñando sistemas que funcionan <span className="text-accent-fill">bajo presión real</span>.
           </h1>
-          <p className="text-xl md:text-2xl text-text-secondary dark:text-gray-300 mb-10 max-w-3xl mx-auto leading-relaxed font-normal">
+          <GeneratedLead className="max-w-2xl mb-10 mx-auto text-text-secondary dark:text-gray-300">
             Soy Enmanuel Núñez Matías, Desarrollador Full Stack y Diseñador de Sistemas.
             Construyo arquitecturas resilientes, aplicaciones web de alto rendimiento e interfaces intuitivas con código limpio y mantenible.
-          </p>
-          <div className="flex flex-wrap items-center justify-center gap-4">
+          </GeneratedLead>
+          <div data-reveal-children className="about-actions flex flex-wrap items-center justify-center gap-4">
             <Link
               href="/es/work"
               className="inline-flex items-center justify-center rounded-full px-8 py-3.5 text-sm font-semibold bg-accent-fill text-white hover:bg-accent-hover transition-colors shadow-sm"
@@ -111,18 +108,18 @@ export default function EsAboutPage() {
         </div>
       </Section>
 
-      {/* Metodología — Clean Apple Cards, sin artefactos IA */}
-      <Section variant="gray">
+      {/* Metodología: Clean Apple Cards, sin artefactos IA */}
+      <Section reveal variant="gray">
         <div className="max-w-6xl mx-auto px-4">
-          <div className="text-center mb-12">
+          <div data-reveal className="text-center mb-12">
             <span className="text-xs font-semibold uppercase tracking-wider text-text-tertiary dark:text-gray-400 block mb-2">
               Metodología
             </span>
-            <h2 className="text-3xl md:text-4xl font-semibold tracking-tight">Cómo construyo software</h2>
+            <h2 className="heading-ink text-3xl md:text-4xl font-semibold tracking-tight">Cómo construyo software</h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="rounded-2xl border border-black/[0.08] dark:border-white/[0.1] bg-white dark:bg-[#161617] p-8 transition-colors hover:border-black/[0.18] dark:hover:border-white/[0.22]">
+            <div data-reveal className="rounded-2xl border border-black/[0.08] dark:border-white/[0.1] bg-white dark:bg-[#161617] p-8 transition-colors hover:border-black/[0.18] dark:hover:border-white/[0.22]">
               <div className="w-10 h-10 rounded-xl bg-black/[0.04] dark:bg-white/[0.08] text-text-primary dark:text-white flex items-center justify-center mb-6">
                 <Layers className="w-5 h-5 text-accent-fill" />
               </div>
@@ -132,7 +129,7 @@ export default function EsAboutPage() {
               </p>
             </div>
 
-            <div className="rounded-2xl border border-black/[0.08] dark:border-white/[0.1] bg-white dark:bg-[#161617] p-8 transition-colors hover:border-black/[0.18] dark:hover:border-white/[0.22]">
+            <div data-reveal className="rounded-2xl border border-black/[0.08] dark:border-white/[0.1] bg-white dark:bg-[#161617] p-8 transition-colors hover:border-black/[0.18] dark:hover:border-white/[0.22]">
               <div className="w-10 h-10 rounded-xl bg-black/[0.04] dark:bg-white/[0.08] text-text-primary dark:text-white flex items-center justify-center mb-6">
                 <Cpu className="w-5 h-5 text-accent-fill" />
               </div>
@@ -142,7 +139,7 @@ export default function EsAboutPage() {
               </p>
             </div>
 
-            <div className="rounded-2xl border border-black/[0.08] dark:border-white/[0.1] bg-white dark:bg-[#161617] p-8 transition-colors hover:border-black/[0.18] dark:hover:border-white/[0.22]">
+            <div data-reveal className="rounded-2xl border border-black/[0.08] dark:border-white/[0.1] bg-white dark:bg-[#161617] p-8 transition-colors hover:border-black/[0.18] dark:hover:border-white/[0.22]">
               <div className="w-10 h-10 rounded-xl bg-black/[0.04] dark:bg-white/[0.08] text-text-primary dark:text-white flex items-center justify-center mb-6">
                 <ShieldCheck className="w-5 h-5 text-accent-fill" />
               </div>
@@ -155,19 +152,19 @@ export default function EsAboutPage() {
         </div>
       </Section>
 
-      {/* Trayectoria — Línea temporal minimalista Apple */}
-      <Section variant="white">
+      {/* Trayectoria: Línea temporal minimalista Apple */}
+      <Section reveal variant="white">
         <div className="max-w-4xl mx-auto px-4">
-          <div className="text-center mb-12">
+          <div data-reveal className="text-center mb-12">
             <span className="text-xs font-semibold uppercase tracking-wider text-text-tertiary dark:text-gray-400 block mb-2">
               Trayectoria
             </span>
-            <h2 className="text-3xl md:text-4xl font-semibold tracking-tight">Hitos y Reconocimientos</h2>
+            <h2 className="heading-ink text-3xl md:text-4xl font-semibold tracking-tight">Hitos y Reconocimientos</h2>
           </div>
 
           <div className="divide-y divide-black/[0.06] dark:divide-white/[0.08] border-y border-black/[0.06] dark:border-white/[0.08]">
             {milestones.map((m, idx) => (
-              <div key={idx} className="py-8 flex flex-col md:flex-row md:items-baseline justify-between gap-4 md:gap-8">
+              <div data-reveal key={idx} className="py-8 flex flex-col md:flex-row md:items-baseline justify-between gap-4 md:gap-8">
                 <div className="md:w-48 flex-shrink-0">
                   <span className="text-xs font-mono font-semibold text-accent-fill">
                     {m.period}
@@ -190,14 +187,14 @@ export default function EsAboutPage() {
         </div>
       </Section>
 
-      {/* Capacidades Técnicas — Grid minimalista Apple */}
-      <Section variant="gray">
+      {/* Capacidades Técnicas: Grid minimalista Apple */}
+      <Section reveal variant="gray">
         <div className="max-w-5xl mx-auto px-4">
-          <div className="text-center mb-12">
+          <div data-reveal className="text-center mb-12">
             <span className="text-xs font-semibold uppercase tracking-wider text-text-tertiary dark:text-gray-400 block mb-2">
               Capacidades
             </span>
-            <h2 className="text-3xl md:text-4xl font-semibold tracking-tight">Caja de Herramientas</h2>
+            <h2 className="heading-ink text-3xl md:text-4xl font-semibold tracking-tight">Caja de Herramientas</h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -206,6 +203,7 @@ export default function EsAboutPage() {
               return (
                 <div
                   key={tool.category}
+                  data-reveal
                   className="rounded-2xl border border-black/[0.08] dark:border-white/[0.1] bg-white dark:bg-[#161617] p-7 transition-colors hover:border-black/[0.18] dark:hover:border-white/[0.22]"
                 >
                   <div className="flex items-center gap-3 mb-5">
@@ -231,11 +229,7 @@ export default function EsAboutPage() {
         </div>
       </Section>
 
-      {/* Closing chapter: always dark */}
-      <div className="chapter-dark">
-        <CtaSection variant="statement" lang={lang} />
-        <SiteFooter lang={lang} />
-      </div>
+      <SiteFooter cta="statement" lang={lang} />
     </div>
   );
 }

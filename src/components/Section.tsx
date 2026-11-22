@@ -1,25 +1,28 @@
 import { ReactNode } from 'react';
+import { RevealGroup } from './RevealGroup';
 
 interface SectionProps {
+  reveal?: boolean;
   variant?: 'white' | 'gray' | 'black';
   className?: string;
   children: ReactNode;
 }
 
-export function Section({ variant = 'white', className = '', children }: SectionProps) {
+export function Section({ variant = 'white', className = '', reveal = false, children }: SectionProps) {
   const variantClasses = {
     white: 'bg-white',
     gray: 'bg-bg-alt',
     black: 'bg-white',
   };
 
+  const Container = reveal ? RevealGroup : 'div';
   const textColor = 'text-text-primary';
 
   return (
     <section className={`${variantClasses[variant]} ${textColor} py-16 md:py-24 ${className}`}>
-      <div className="max-w-container mx-auto px-8">
+      <Container className="max-w-container mx-auto px-8">
         {children}
-      </div>
+      </Container>
     </section>
   );
 }

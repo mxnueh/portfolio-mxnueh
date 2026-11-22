@@ -1,6 +1,5 @@
 import { GlobalNav } from '@/components/GlobalNav';
 import { SiteFooter } from '@/components/SiteFooter';
-import { CtaSection } from '@/components/CtaSection';
 import { Section } from '@/components/Section';
 import { Markdown } from '@/components/Markdown';
 import { getCaseStudy, getCaseStudies } from '@/lib/getContent';
@@ -34,9 +33,7 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
             </Link>
           </div>
         </Section>
-        <div className="chapter-dark">
-          <SiteFooter lang="en" />
-        </div>
+        <SiteFooter lang="en" />
       </div>
     );
   }
@@ -49,7 +46,7 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
     <div className="flex flex-col min-h-screen bg-white dark:bg-[#0c0c0e] text-text-primary dark:text-white transition-colors">
       <GlobalNav lang="en" />
 
-      <Section variant="white" className="pt-12 pb-20">
+      <Section reveal variant="white" className="pt-12 pb-20">
         <article className="max-w-3xl mx-auto px-4">
           {/* Back link */}
           <div className="mb-8">
@@ -76,7 +73,7 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
           </header>
 
           {/* Metadata Card */}
-          <div className="p-6 sm:p-8 rounded-2xl bg-[#F5F5F7] dark:bg-[#161617] border border-black/[0.08] dark:border-white/[0.1] mb-12">
+          <div data-reveal className="p-6 sm:p-8 rounded-2xl bg-[#F5F5F7] dark:bg-[#161617] border border-black/[0.08] dark:border-white/[0.1] mb-12">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
                 <span className="text-xs uppercase font-medium tracking-wider text-text-tertiary dark:text-gray-400 block mb-1">
@@ -131,13 +128,13 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
           </div>
 
           {/* Markdown Content */}
-          <div className="max-w-none">
+          <div data-reveal-children className="max-w-none">
             <Markdown content={study.content} />
           </div>
 
           {/* Prev / Next Navigation */}
           {(prevStudy || nextStudy) && (
-            <nav className="mt-16 pt-8 border-t border-black/[0.08] dark:border-white/[0.1] grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <nav data-reveal-children className="mt-16 pt-8 border-t border-black/[0.08] dark:border-white/[0.1] grid grid-cols-1 sm:grid-cols-2 gap-4">
               {prevStudy ? (
                 <Link
                   href={`/work/${prevStudy.slug}`}
@@ -169,11 +166,7 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
         </article>
       </Section>
 
-      {/* Closing chapter: always dark — variant A (statement) */}
-      <div className="chapter-dark">
-        <CtaSection variant="statement" lang="en" />
-        <SiteFooter lang="en" />
-      </div>
+      <SiteFooter cta="statement" lang="en" />
     </div>
   );
 }

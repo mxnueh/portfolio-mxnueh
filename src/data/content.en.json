@@ -16,44 +16,53 @@
     "hero": {
       "eyebrow": "Frontend & Full Stack Engineering",
       "headline": "Full Stack Developer & Systems Designer",
-      "lead": "I design systems that work reliably under pressure, then build the interfaces that bring them to life. High-performance web applications, real-time dashboards, and distributed architectures—built with clear, performant code.",
+      "lead": "I design systems that work reliably under pressure, then build the interfaces that bring them to life. High-performance web applications, real-time dashboards, and distributed architectures, built with clear, performant code.",
       "primaryCTA": { "label": "View case studies", "href": "/work" },
       "secondaryCTA": { "label": "Email me", "href": "mailto:enmanuelnunezmatias@gmail.com" },
       "tertiaryCTA": { "label": "Read notes", "href": "/blog" }
     },
-    "atGlance": {
-      "headline": "What I bring.",
-      "cards": [
+    "techMarquee": {
+      "ariaLabel": "Technologies I work with",
+      "pauseLabel": "Pause animation",
+      "resumeLabel": "Resume animation"
+    },
+    "stackedPanels": {
+      "headline": "Enmanuel Nunez Matias",
+      "panels": [
         {
-          "span": 2,
-          "title": "Full stack systems",
-          "chips": ["React", "TypeScript", "Python", "PostgreSQL", "Embedded Systems"]
+          "id": "panel-1",
+          "label": "Enmanuel Nunez Matias",
+          "headline": "Four hackathon finals and Google Summer of Code 2026.",
+          "hint": "Scroll",
+          "navLabel": "Cover"
         },
         {
-          "span": 1,
-          "stat": "4",
-          "label": "hackathon finals (2 NASA)"
+          "id": "panel-2",
+          "label": "Hackathons",
+          "value": "4",
+          "description": "Hackathon finals, two of them NASA (HERC and Space Apps).",
+          "navLabel": "Hackathon finals"
         },
         {
-          "span": 1,
-          "title": "Real-time & offline",
-          "label": "Telemetry, MQTT, LoRa, SQLite sync"
+          "id": "panel-3",
+          "label": "Open source",
+          "value": "GSoC 2026",
+          "description": "Contributor to omegaUp through Google Summer of Code.",
+          "navLabel": "Google Summer of Code"
         },
         {
-          "span": 1,
-          "title": "Systems thinking",
-          "label": "Architecture, permissions, reliability"
+          "id": "panel-4",
+          "label": "Languages",
+          "value": "B2",
+          "description": "English level.",
+          "navLabel": "English level"
         },
         {
-          "span": 1,
-          "title": "Bilingual",
-          "label": "Spanish native, English B2"
-        },
-        {
-          "span": 2,
-          "isHighlight": true,
-          "title": "Open to contracts: Full Stack (React) roles, systems design consulting, custom software",
-          "cta": { "label": "Let's talk", "href": "/contact" }
+          "id": "panel-5",
+          "label": "Studies",
+          "value": "ITLA",
+          "description": "Studying Software Development.",
+          "navLabel": "Studies"
         }
       ]
     },
@@ -61,9 +70,44 @@
       "headline": "Projects.",
       "cta": { "label": "All projects", "href": "/blog" }
     },
-    "work": {
-      "headline": "Case studies.",
-      "cta": { "label": "All case studies", "href": "/work" }
+    "selectedWork": {
+      "headline": "Selected work",
+      "viewAll": {
+        "label": "View all work →",
+        "href": "/work"
+      },
+      "btnProject": "View project",
+      "btnDocs": "View documentation",
+      "placeholderCover": "Cover placeholder: replace with a real screenshot",
+      "projects": [
+        {
+          "id": "mission-atabey",
+          "title": "Mission Atabey 1",
+          "description": "Telemetry for a Mars-analog habitat over intermittent LoRa networks.",
+          "tags": ["Python", "FastAPI", "React"],
+          "coverGradient": "linear-gradient(to top, #070B14 0%, #4B150E 38%, #DF4620 68%, #F47441 100%)",
+          "projectUrl": "/work/mission-atabey",
+          "docsUrl": "https://github.com/mxnueh"
+        },
+        {
+          "id": "conduete",
+          "title": "Conducete",
+          "description": "Mobile road-safety education app for Dominican drivers.",
+          "tags": ["Flutter", "Flask", "PostgreSQL"],
+          "coverGradient": "linear-gradient(to top, #18392B 0%, #2F6B4F 45%, #6FAE78 75%, #D7C94C 100%)",
+          "projectUrl": "/work/conduete",
+          "docsUrl": "https://github.com/mxnueh"
+        },
+        {
+          "id": "floppy",
+          "title": "Floppy",
+          "description": "Community early flood warning system built on IoT.",
+          "tags": ["ESP32", "Flask"],
+          "coverGradient": "linear-gradient(to top, #071C17 0%, #124B38 50%, #25866A 100%)",
+          "projectUrl": "/work/floppy",
+          "docsUrl": "https://github.com/mxnueh/floppy"
+        }
+      ]
     },
     "blog": {
       "headline": "Thoughts & lessons.",

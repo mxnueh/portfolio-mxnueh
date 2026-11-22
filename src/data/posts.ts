@@ -4,6 +4,7 @@ export const postsEN: Post[] = [
   {
     id: '1',
     slug: 'mission-atabey',
+    image: '/img/blog/mission-atabey.webp',
     title: 'Mission Atabey: A Telemetry Platform for Mars-Analog Exploration',
     excerpt: 'Building a real-time telemetry system for a Dominican Mars-analog mission with crop monitoring and crew biometrics.',
     category: 'Case study',
@@ -17,7 +18,8 @@ export const postsEN: Post[] = [
   {
     id: '2',
     slug: 'conduete-app',
-    title: 'CONDÚCETE: Gamified Road Safety for Dominican Drivers',
+    image: '/img/conducete_cover.webp',
+    title: 'Conducete: Gamified Road Safety for Dominican Drivers',
     excerpt: 'A mobile app promoting safe driving through gamification and real-time feedback.',
     category: 'Case study',
     date: '2024-05-20',
@@ -25,11 +27,12 @@ export const postsEN: Post[] = [
     featured: true,
     lang: 'en',
     stack: ['Flutter', 'Dart', 'Python', 'Flask', 'PostgreSQL'],
-    content: 'CONDÚCETE is a road safety app for Dominican drivers, built with Flutter/Dart and a Python/Flask backend.',
+    content: 'Conducete is a road safety app for Dominican drivers, built with Flutter/Dart and a Python/Flask backend.',
   },
   {
     id: '3',
     slug: 'floppy-flood-monitoring',
+    image: '/img/blog/floppy-flood-monitoring.webp',
     title: 'Floppy: A Flood-Monitoring Prototype',
     excerpt: '4th place at CreaRD hackathon. Real-time water level alerts for communities at risk.',
     category: 'Case study',
@@ -43,6 +46,7 @@ export const postsEN: Post[] = [
   {
     id: '4',
     slug: 'working-with-ai-agents',
+    image: '/img/blog/working-with-ai-agents.webp',
     title: 'How I Work with AI Coding Agents',
     excerpt: 'Spec-first prompts, Conventional Commits, and CI loops for reliable, maintainable code.',
     category: 'Notes',
@@ -56,6 +60,7 @@ export const postsEN: Post[] = [
   {
     id: '5',
     slug: 'mentoring-space-apps',
+    image: '/img/blog/mentoring-space-apps.webp',
     title: 'Mentoring a NASA Space Apps Challenge Team',
     excerpt: 'Lessons learned helping organize and guide NOVAX, our team project at NASA Space Apps 2024.',
     category: 'Beyond code',
@@ -69,6 +74,7 @@ export const postsEN: Post[] = [
   {
     id: '6',
     slug: 'systems-design-frontend',
+    image: '/img/blog/systems-design-frontend.webp',
     title: 'Why Systems Design Matters for Frontend Engineers',
     excerpt: 'Understanding data flow and permissions at the systems level makes you a better builder.',
     category: 'Notes',
@@ -82,6 +88,7 @@ export const postsEN: Post[] = [
   {
     id: '7',
     slug: 'opensource-contributions',
+    image: '/img/blog/opensource-contributions.webp',
     title: 'Open Source and Repos',
     excerpt: 'Small projects, big lessons. Here is what I have shipped on GitHub.',
     category: 'Beyond code',
@@ -95,6 +102,7 @@ export const postsEN: Post[] = [
   {
     id: '8',
     slug: 'dominican-tech-culture',
+    image: '/img/blog/dominican-tech-culture.webp',
     title: 'Dominican History, Culture, and Tech',
     excerpt: 'Why representation in tech matters, and how we are building it in Santo Domingo.',
     category: 'Beyond code',

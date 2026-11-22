@@ -21,7 +21,7 @@ export function Terminal({
   title = 'bash - enmanuel@portfolio ~',
   lines = [
     { text: 'whoami', type: 'command' },
-    { text: 'Enmanuel Nunez Matias — Full Stack Developer & Systems Designer', type: 'output' },
+    { text: 'Enmanuel Nunez Matias: Full Stack Developer & Systems Designer', type: 'output' },
     { text: 'cat current_focus.json', type: 'command' },
     { text: '{\n  "role": "Full Stack / React & Python",\n  "telemetry": "NASA Space Apps Finalist & HERC",\n  "status": "Ready to build ambitious systems"\n}', type: 'output' },
     { text: 'ping -c 3 opportunity.world', type: 'command' },

@@ -1,6 +1,6 @@
+import { GeneratedLead } from '@/components/GeneratedLead';
 import { GlobalNav } from '@/components/GlobalNav';
 import { SiteFooter } from '@/components/SiteFooter';
-import { CtaSection } from '@/components/CtaSection';
 import { Section } from '@/components/Section';
 import { getCaseStudies } from '@/lib/getContent';
 import Link from 'next/link';
@@ -24,24 +24,22 @@ export default async function EsWorkPage() {
       {/* Hero */}
       <Section variant="white" className="pt-20 pb-14">
         <div className="max-w-4xl mx-auto text-center px-4">
-          <span className="inline-block text-xs font-semibold uppercase tracking-wider text-text-secondary dark:text-gray-400 bg-black/[0.04] dark:bg-white/[0.08] px-4 py-1.5 rounded-full mb-6">
-            Sistemas de Software y Casos de Estudio
-          </span>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight mb-6 leading-tight">
+          <h1 data-reveal className="heading-ink intro-heading font-semibold leading-tight tracking-tight mb-6">
             Proyectos &amp; <span className="text-accent-fill">Arquitectura</span>
           </h1>
-          <p className="text-lg md:text-xl text-text-secondary dark:text-gray-300 max-w-2xl mx-auto leading-relaxed font-normal">
+          <GeneratedLead className="max-w-2xl mx-auto text-text-secondary dark:text-gray-300">
             Sistemas en producción diseñados para entornos reales: desde plataformas de telemetría y apps offline-first hasta motores paramétricos y APIs distribuidas.
-          </p>
+          </GeneratedLead>
         </div>
       </Section>
 
-      {/* Case Studies List — Clean Apple Design */}
-      <Section variant="gray">
+      {/* Case Studies List: Clean Apple Design */}
+      <Section reveal variant="gray">
         <div className="max-w-5xl mx-auto px-4 space-y-8">
           {caseStudies.map((study) => (
             <div
               key={study.id}
+              data-reveal
               className="rounded-2xl border border-black/[0.08] dark:border-white/[0.1] bg-white dark:bg-[#161617] p-8 md:p-10 transition-colors hover:border-black/[0.2] dark:hover:border-white/[0.25]"
             >
               <div className="flex flex-col lg:flex-row lg:items-start justify-between gap-8">
@@ -122,11 +120,7 @@ export default async function EsWorkPage() {
         </div>
       </Section>
 
-      {/* Closing chapter: always dark — variant A */}
-      <div className="chapter-dark">
-        <CtaSection variant="statement" lang={lang} />
-        <SiteFooter lang={lang} />
-      </div>
+      <SiteFooter cta="statement" lang={lang} />
     </div>
   );
 }

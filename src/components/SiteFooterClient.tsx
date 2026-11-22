@@ -31,7 +31,7 @@ export function CopyEmailButton({
     <div className="flex flex-col gap-4">
       <a
         href={`mailto:${email}`}
-        className="text-sm font-medium transition-opacity hover:opacity-80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white rounded-sm"
+        className="text-sm font-medium transition-opacity hover:opacity-80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-fill rounded-sm"
         style={{ color: 'var(--text-primary)' }}
       >
         {emailLabel}
@@ -39,7 +39,7 @@ export function CopyEmailButton({
       <button
         type="button"
         onClick={handleCopy}
-        className="inline-flex items-center gap-4 text-sm font-medium transition-opacity hover:opacity-80 w-fit focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white rounded-sm"
+        className="inline-flex items-center gap-4 text-sm font-medium transition-opacity hover:opacity-80 w-fit focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-fill rounded-sm"
         style={{ color: 'var(--text-secondary)', minHeight: '44px', padding: '0' }}
         aria-label={copied ? copiedLabel : `${copyLabel} email`}
       >
@@ -95,7 +95,7 @@ export function FooterControls({
         <button
           type="button"
           onClick={handleLangSwitch}
-          className="text-caption font-medium transition-opacity hover:opacity-80 rounded-md border focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white inline-flex items-center justify-center"
+          className="text-caption font-medium transition-opacity hover:opacity-80 rounded-md border focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-fill inline-flex items-center justify-center"
           style={{
             color: 'var(--text-secondary)',
             borderColor: 'var(--separator)',
@@ -112,7 +112,7 @@ export function FooterControls({
       <button
         type="button"
         onClick={handleThemeToggle}
-        className="text-caption font-medium transition-opacity hover:opacity-80 rounded-md border focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white inline-flex items-center justify-center"
+        className="text-caption font-medium transition-opacity hover:opacity-80 rounded-md border focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-fill inline-flex items-center justify-center"
         style={{
           color: 'var(--text-secondary)',
           borderColor: 'var(--separator)',

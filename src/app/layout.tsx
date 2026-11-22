@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Geist, Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeScript } from "@/components/ThemeScript";
 
 const inter = Inter({ subsets: ['latin'], display: 'swap' });
+
+const geist = Geist({ subsets: ['latin'], display: 'swap', variable: '--font-geist-sans' });
 
 export const metadata: Metadata = {
   title: "Enmanuel Nunez Matias | Full Stack Developer & Systems Designer",
@@ -12,7 +14,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`h-full antialiased light ${inter.className}`} suppressHydrationWarning>
+    <html lang="en" className={`h-full antialiased light ${inter.className} ${geist.variable}`} suppressHydrationWarning>
       <body className="min-h-full flex flex-col bg-white text-text-primary">
         <ThemeScript />
         {children}

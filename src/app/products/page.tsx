@@ -28,7 +28,7 @@ export default async function ProductsPage() {
 
       <Section variant="white">
         <div className="max-w-6xl mx-auto">
-          <h1 className="text-5xl md:text-6xl font-semibold mb-8">Products</h1>
+          <h1 className="heading-ink text-5xl md:text-6xl font-semibold mb-8">Products</h1>
           <p className="text-xl text-text-secondary mb-12 max-w-3xl">
             Digital products and tools.
           </p>
@@ -59,9 +59,7 @@ export default async function ProductsPage() {
         </div>
       </Section>
 
-      <div className="chapter-dark">
-        <SiteFooter lang={lang} />
-      </div>
+      <SiteFooter lang={lang} />
     </div>
   );
 }

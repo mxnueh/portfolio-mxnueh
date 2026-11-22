@@ -1,5 +1,5 @@
 /**
- * SiteFooter — Full-width dark footer (Server Component)
+ * SiteFooter: Full-width footer (Server Component)
  *
  * 12-column Apple-inspired grid:
  *   Brand     cols 1-5   Name, role, philosophy
@@ -14,11 +14,14 @@
  * E2: Subtle fluid signature wordmark placed below the bottom row.
  */
 
+import Image from 'next/image';
 import Link from 'next/link';
+import { CtaSection } from './CtaSection';
 import { siteConfig } from '@/config/site';
 import { CopyEmailButton, FooterControls } from '@/components/SiteFooterClient';
 
 interface SiteFooterProps {
+  cta?: 'statement' | 'actions';
   lang?: 'en' | 'es';
 }
 
@@ -88,14 +91,12 @@ const copy = {
 const EMAIL = siteConfig.contact.email;
 const BUILD_YEAR = new Date().getFullYear();
 
-export function SiteFooter({ lang = 'en' }: SiteFooterProps) {
+export function SiteFooter({ lang = 'en', cta }: SiteFooterProps) {
   const c = copy[lang];
 
   return (
-    <footer
-      className="relative overflow-hidden bg-black text-white"
-      style={{ backgroundColor: 'var(--bg-page)' }}
-    >
+    <footer className="site-footer relative overflow-hidden bg-white text-text-primary">
+      {cta && <CtaSection variant={cta} lang={lang} />}
       {/* Hairline top separator */}
       <div
         aria-hidden="true"
@@ -106,15 +107,18 @@ export function SiteFooter({ lang = 'en' }: SiteFooterProps) {
       <div className="max-w-container mx-auto px-6 md:px-12 lg:px-16 pt-16 pb-10">
         {/* 12-column grid */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-8 mb-16">
-          {/* Brand — cols 1-5 */}
+          {/* Brand: cols 1-5 */}
           <div className="md:col-span-5 pr-0 md:pr-6">
-            <h3 className="text-xl font-semibold mb-2 tracking-tight text-white">
+            {!cta && (
+              <Image src="/img/enmanuel_cover.png" alt="Enmanuel Nunez Matias" width={1448} height={1086} sizes="192px" className="mb-5 h-auto w-48" />
+            )}
+            <h3 className="text-xl font-semibold mb-2 tracking-tight text-text-primary">
               {siteConfig.name}
             </h3>
-            <p className="text-sm font-medium text-text-secondary dark:text-gray-400 mb-4">
+            <p className="text-sm font-medium text-text-secondary mb-4">
               {c.role}
             </p>
-            <p className="text-sm text-text-tertiary dark:text-gray-500 leading-relaxed max-w-sm">
+            <p className="text-sm text-text-secondary leading-relaxed max-w-sm">
               {c.bio}
             </p>
           </div>
@@ -122,9 +126,9 @@ export function SiteFooter({ lang = 'en' }: SiteFooterProps) {
           {/* Spacer col 6 */}
           <div className="hidden md:block md:col-span-1" />
 
-          {/* Navigate — cols 7-8 */}
+          {/* Navigate: cols 7-8 */}
           <div className="md:col-span-2">
-            <p className="text-xs font-semibold uppercase tracking-wider text-text-tertiary dark:text-gray-500 mb-6">
+            <p className="text-xs font-semibold uppercase tracking-wider text-text-secondary mb-6">
               {c.nav.title}
             </p>
             <ul className="space-y-4">
@@ -132,7 +136,7 @@ export function SiteFooter({ lang = 'en' }: SiteFooterProps) {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm text-text-secondary dark:text-gray-400 hover:text-white transition-colors py-1 inline-block"
+                    className="text-sm text-text-secondary hover:text-link transition-colors py-1 inline-block"
                   >
                     {link.label}
                   </Link>
@@ -141,9 +145,9 @@ export function SiteFooter({ lang = 'en' }: SiteFooterProps) {
             </ul>
           </div>
 
-          {/* Elsewhere — cols 9-10 */}
+          {/* Elsewhere: cols 9-10 */}
           <div className="md:col-span-2">
-            <p className="text-xs font-semibold uppercase tracking-wider text-text-tertiary dark:text-gray-500 mb-6">
+            <p className="text-xs font-semibold uppercase tracking-wider text-text-secondary mb-6">
               {c.elsewhere.title}
             </p>
             <ul className="space-y-4">
@@ -153,7 +157,7 @@ export function SiteFooter({ lang = 'en' }: SiteFooterProps) {
                     href={link.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-sm text-text-secondary dark:text-gray-400 hover:text-white transition-colors py-1 inline-block"
+                    className="text-sm text-text-secondary hover:text-link transition-colors py-1 inline-block"
                   >
                     {link.label}
                   </a>
@@ -162,9 +166,9 @@ export function SiteFooter({ lang = 'en' }: SiteFooterProps) {
             </ul>
           </div>
 
-          {/* Contact — cols 11-12 */}
+          {/* Contact: cols 11-12 */}
           <div className="md:col-span-2">
-            <p className="text-xs font-semibold uppercase tracking-wider text-text-tertiary dark:text-gray-500 mb-6">
+            <p className="text-xs font-semibold uppercase tracking-wider text-text-secondary mb-6">
               {c.contact.title}
             </p>
             <div className="space-y-6">
@@ -175,10 +179,10 @@ export function SiteFooter({ lang = 'en' }: SiteFooterProps) {
                 copiedLabel={c.contact.copiedLabel}
               />
               <div>
-                <span className="text-xs text-text-tertiary dark:text-gray-500 block mb-1">
+                <span className="text-xs text-text-secondary block mb-1">
                   {c.contact.discord}
                 </span>
-                <span className="text-sm font-mono text-text-secondary dark:text-gray-400">
+                <span className="text-sm font-mono text-text-secondary">
                   {c.contact.discordHandle}
                 </span>
               </div>
@@ -195,7 +199,7 @@ export function SiteFooter({ lang = 'en' }: SiteFooterProps) {
 
         {/* Bottom row */}
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
-          <p className="text-xs text-text-tertiary dark:text-gray-500">
+          <p className="text-xs text-text-secondary">
             {c.copyright(BUILD_YEAR)}
           </p>
 

@@ -1,7 +1,8 @@
 'use client';
 
 import Link from 'next/link';
-import { useState } from 'react';
+import { useEffect, useState, type CSSProperties } from 'react';
+import { Globe } from 'lucide-react';
 import { Language } from '@/lib/types';
 import { getContent } from '@/lib/getContent';
 import { siteConfig } from '@/config/site';
@@ -9,11 +10,24 @@ import { decorativeMotion } from '@/lib/motion';
 
 interface GlobalNavProps {
   lang: Language;
+  home?: boolean;
 }
 
-export function GlobalNav({ lang }: GlobalNavProps) {
+let documentNavMounted = false;
+
+export function GlobalNav({ lang, home = false }: GlobalNavProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [playIntro, setPlayIntro] = useState(false);
+
+  useEffect(() => {
+    if (documentNavMounted) return;
+    documentNavMounted = true;
+    if (home) setPlayIntro(true);
+  }, [home]);
+
   const content = getContent(lang);
+  const fullName = content.meta.author;
+  const words = fullName.split(" ");
 
   // Filter nav links based on feature flags
   const navLinks = content.nav.links.filter(link => {
@@ -24,18 +38,40 @@ export function GlobalNav({ lang }: GlobalNavProps) {
   });
 
   return (
-    <nav className="sticky top-0 z-40 h-14 bg-white/80 backdrop-blur-md border-b border-separator">
+    <nav className="portfolio-nav sticky top-0 z-70 h-14 bg-white/80 backdrop-blur-md border-b border-separator">
       <div className="h-full max-w-container mx-auto px-8 flex items-center justify-between">
         {/* Logo / Home link */}
         <Link
           href={lang === 'es' ? '/es' : '/'}
-          className="text-body font-600 text-text-primary dark:text-dark-text-primary hover:opacity-75 transition-opacity duration-ui"
+          aria-label={fullName}
+          className="text-body font-semibold text-text-primary dark:text-dark-text-primary hover:opacity-75 transition-opacity duration-ui"
         >
-          {content.nav.name}
+          <span
+            className={home && playIntro ? 'nav-name nav-name-intro' : 'nav-name'}
+            aria-hidden="true"
+            onAnimationEnd={(event) => {
+              if (event.animationName === 'nav-name-join') setPlayIntro(false);
+            }}
+          >
+            {words.map((word, wordIndex) => {
+              const offset = words.slice(0, wordIndex).join(' ').length + Number(wordIndex > 0);
+              return (
+                <span key={wordIndex} className={wordIndex === 1 ? undefined : 'nav-name-outside'}>
+                  <span>
+                    {Array.from(word, (letter, index) => (
+                      <span key={index} className="nav-name-letter" style={{ '--letter-id': offset + index } as CSSProperties}>
+                        {letter}
+                      </span>
+                    ))}
+                  </span>
+                </span>
+              );
+            })}
+          </span>
         </Link>
 
         {/* Desktop nav */}
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden lg:flex items-center gap-8">
           {navLinks.map((link) => {
             const href = lang === 'es' ? `/es${link.href}` : link.href;
             return (
@@ -51,20 +87,20 @@ export function GlobalNav({ lang }: GlobalNavProps) {
         </div>
 
         {/* Language toggle (no CTA pill per D3) */}
-        <div className="hidden md:flex items-center gap-4">
+        <div className="ml-auto flex shrink-0 items-center lg:ml-0">
           <button
+            type="button"
             onClick={() => {
-              const currentPath = window.location.pathname;
-              if (lang === 'es') {
-                const newPath = currentPath.replace(/^\/es(\/|$)/, '$1') || '/';
-                window.location.href = newPath;
-              } else {
-                const newPath = currentPath === '/' ? '/es' : `/es${currentPath.startsWith('/') ? '' : '/'}${currentPath}`;
-                window.location.href = newPath;
-              }
+              const url = new URL(window.location.href);
+              url.pathname = lang === 'es'
+                ? url.pathname.replace(/^\/es(?=\/|$)/, '') || '/'
+                : '/es' + (url.pathname === '/' ? '' : url.pathname);
+              window.location.assign(url);
             }}
-            className="text-caption text-text-secondary dark:text-dark-text-secondary hover:text-text-primary dark:hover:text-dark-text-primary transition-colors duration-ui font-medium"
+            className="inline-flex min-h-9 items-center gap-1.5 rounded-3xl border-1 border-text-secondary/70 px-2.5 text-sm font-medium text-text-secondary hover:border-text-secondary hover:text-text-primary transition-colors duration-ui"
+            aria-label={lang === 'es' ? 'Cambiar a inglés' : 'Switch to Spanish'}
           >
+            <Globe className="size-4" aria-hidden="true" />
             {lang === 'es' ? 'EN' : 'ES'}
           </button>
         </div>
@@ -72,8 +108,10 @@ export function GlobalNav({ lang }: GlobalNavProps) {
         {/* Mobile menu button */}
         <button
           onClick={() => setIsMenuOpen(!isMenuOpen)}
-          className="md:hidden p-4"
-          aria-label="Toggle menu"
+          type="button"
+          className="lg:hidden ml-1 p-2"
+          aria-label={lang === "es" ? "Menú" : "Menu"}
+          aria-expanded={isMenuOpen}
         >
           <div className="w-6 h-5 flex flex-col justify-between">
             <span className={`h-0.5 w-full bg-text-primary dark:bg-dark-text-primary transition-all duration-ui ${isMenuOpen ? 'rotate-45 translate-y-2' : ''}`} />
@@ -85,7 +123,7 @@ export function GlobalNav({ lang }: GlobalNavProps) {
 
       {/* Mobile menu */}
       {isMenuOpen && (
-        <div className={`md:hidden absolute top-14 left-0 right-0 bg-white dark:bg-[#18181b] border-b border-separator p-8 flex flex-col gap-4 ${decorativeMotion('animate-fade-in')}`}>
+        <div className={`lg:hidden absolute top-14 left-0 right-0 bg-white dark:bg-[#18181b] border-b border-separator p-8 flex flex-col gap-4 ${decorativeMotion('animate-fade-in')}`}>
           {navLinks.map((link, i) => {
             const href = lang === 'es' ? `/es${link.href}` : link.href;
             return (

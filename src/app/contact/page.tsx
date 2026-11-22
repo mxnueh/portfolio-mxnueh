@@ -33,7 +33,7 @@ export default function ContactPage() {
             <span className="inline-block text-xs font-semibold tracking-wider uppercase text-accent-fill bg-accent-fill/[0.08] dark:bg-accent-fill/[0.15] px-3 py-1 rounded-full mb-4">
               Contact
             </span>
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight mb-4 leading-tight">
+            <h1 className="heading-ink text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight mb-4 leading-tight">
               Let's work together.
             </h1>
             <p className="text-lg text-text-secondary dark:text-gray-300 leading-relaxed">
@@ -114,9 +114,7 @@ export default function ContactPage() {
         </div>
       </Section>
 
-      <div className="chapter-dark">
-        <SiteFooter lang={lang} />
-      </div>
+      <SiteFooter lang={lang} />
     </div>
   );
 }

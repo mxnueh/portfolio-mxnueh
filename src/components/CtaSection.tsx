@@ -1,19 +1,19 @@
 /**
- * CtaSection — Closing call-to-action component
+ * CtaSection: Closing call-to-action component
  *
  * Variants:
- *   A "statement" — headline left, primary pill right (for detail pages & subpages)
- *   B "actions"   — headline + lead + primary pill + secondary link (Home)
- *   C "evidence"  — B with screenshot on right
+ *   A "statement": headline left, primary pill right (for detail pages & subpages)
+ *   B "actions":   headline + lead + primary pill + secondary link (Home)
+ *   C "evidence":  B with screenshot on right
  *
  * Design principles:
- *   • Rendered inside .chapter-dark wrapper
  *   • Solid accent fill background, Apple radius (20px-24px), no gradient
  *   • Faint technical grid pattern (Exception E1)
  *   • Separates software engineering completely from sensor hardware in copy
  *   • 44px/48px touch targets, full reduced-motion support
  */
 
+import Image from 'next/image';
 import Link from 'next/link';
 
 export type CtaVariant = 'statement' | 'actions' | 'evidence';
@@ -27,7 +27,7 @@ interface CtaSectionProps {
 
 const copy = {
   en: {
-    headline: 'Looking for a Frontend or Full Stack (React) engineer?',
+    headline: 'Looking for a Frontend or Full Stack engineer?',
     lead: 'I build high-performance web applications and scalable software architectures with React, TypeScript, Next.js, and Python.',
     primaryLabel: 'Email me',
     primaryHref: 'mailto:enmanuelnunezmatias@gmail.com',
@@ -35,7 +35,7 @@ const copy = {
     secondaryHref: '/work',
   },
   es: {
-    headline: '¿Buscas un desarrollador Frontend o Full Stack (React)?',
+    headline: '¿Buscas un desarrollador Frontend o Ingeniero Full Stack?',
     lead: 'Desarrollo aplicaciones web de alto rendimiento y arquitecturas escalables con React, TypeScript, Next.js y Python.',
     primaryLabel: 'Escríbeme',
     primaryHref: 'mailto:enmanuelnunezmatias@gmail.com',
@@ -55,12 +55,14 @@ export function CtaSection({
     variant === 'evidence' && !screenshotSrc ? 'actions' : variant;
 
   const isStatement = effectiveVariant === 'statement';
+  const showPortrait = effectiveVariant !== 'evidence';
 
   return (
-    <div className="px-6 md:px-12 lg:px-16 mb-16">
+    <div className="pt-12 md:pt-16 lg:pt-20 px-6 md:px-12 lg:px-16 mb-16">
       <div
         className={[
-          'relative overflow-hidden rounded-2xl md:rounded-3xl',
+          'relative rounded-2xl md:rounded-3xl',
+          showPortrait ? 'cta-with-portrait' : 'overflow-hidden',
           'bg-accent-fill',
           isStatement ? 'p-8 md:p-10 lg:p-12' : 'p-8 md:p-12 lg:p-16',
           'flex flex-col justify-center',
@@ -72,6 +74,7 @@ export function CtaSection({
           style={{
             position: 'absolute',
             inset: 0,
+            borderRadius: 'inherit',
             backgroundImage: [
               'repeating-linear-gradient(0deg, var(--cta-grid-line) 0px, var(--cta-grid-line) 1px, transparent 1px, transparent var(--cta-grid-cell))',
               'repeating-linear-gradient(90deg, var(--cta-grid-line) 0px, var(--cta-grid-line) 1px, transparent 1px, transparent var(--cta-grid-cell))',
@@ -87,7 +90,7 @@ export function CtaSection({
 
         {/* Variant A: Statement layout (Headline left, Action button right) */}
         {isStatement ? (
-          <div className="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-6 md:gap-10">
+          <div className="cta-portrait-copy relative z-10 flex flex-col items-start gap-6">
             <h2 className="text-2xl md:text-3xl lg:text-4xl font-semibold text-white tracking-tight max-w-xl leading-snug">
               {c.headline}
             </h2>
@@ -118,7 +121,7 @@ export function CtaSection({
         ) : (
           /* Variant B & C: Actions layout */
           <div className="relative z-10 flex flex-col lg:flex-row lg:items-center justify-between gap-8">
-            <div className="max-w-2xl">
+            <div className={showPortrait ? "cta-portrait-copy max-w-2xl" : "max-w-2xl"}>
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-white mb-6 leading-tight tracking-tight">
                 {c.headline}
               </h2>
@@ -171,6 +174,16 @@ export function CtaSection({
               </div>
             )}
           </div>
+        )}
+        {showPortrait && (
+          <Image
+            src="/img/enmanuel_cover.png"
+            alt="Enmanuel Nunez Matias"
+            width={1448}
+            height={1086}
+            sizes="(min-width: 768px) 48vw, (min-width: 480px) 400px, 90vw"
+            className={isStatement ? "cta-portrait cta-portrait-statement" : "cta-portrait"}
+          />
         )}
       </div>
     </div>
