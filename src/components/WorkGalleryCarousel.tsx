@@ -49,6 +49,7 @@ export function WorkGalleryCarousel({ lang, intro, children }: WorkGalleryCarous
           <div className="work-gallery-controls">
             <button
               type="button"
+              className="portfolio-button portfolio-button-icon"
               aria-label={isSpanish ? 'Proyecto anterior' : 'Previous project'}
               aria-controls={galleryId}
               aria-disabled={activeProject === 0}
@@ -65,6 +66,7 @@ export function WorkGalleryCarousel({ lang, intro, children }: WorkGalleryCarous
             </span>
             <button
               type="button"
+              className="portfolio-button portfolio-button-icon"
               aria-label={isSpanish ? 'Proyecto siguiente' : 'Next project'}
               aria-controls={galleryId}
               aria-disabled={activeProject === projectCount - 1}

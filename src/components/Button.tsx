@@ -18,15 +18,7 @@ export function Button({
   children,
   external = false,
 }: ButtonProps) {
-  const baseClasses = 'h-11 px-8 rounded-full font-500 text-button flex items-center justify-center transition-colors duration-ui focus-visible';
-
-  const variantClasses = {
-    primary: 'bg-accent-fill hover:bg-accent-hover text-white dark:bg-accent-fill dark:hover:bg-accent-hover',
-    secondary: 'border border-accent-fill text-accent-fill hover:bg-accent-fill/10 dark:border-dark-link dark:text-dark-link dark:hover:bg-dark-link/10',
-    tertiary: 'text-link dark:text-dark-link hover:opacity-75',
-  };
-
-  const classes = `${baseClasses} ${variantClasses[variant]} ${className}`;
+  const classes = `portfolio-button${variant === 'primary' ? ' portfolio-button-primary' : ''} ${className}`;
 
   if (href) {
     if (external) {

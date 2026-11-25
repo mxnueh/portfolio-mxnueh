@@ -1,18 +1,16 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
-import { Language, StackedPanelData } from '@/lib/types';
-import { getContent } from '@/lib/getContent';
+import type { Language, StackedPanelData } from '@/lib/types';
+import { Meteors } from '@/components/magicui/Meteors';
+import { Ripple } from '@/components/magicui/Ripple';
 
 interface StackedPanelsProps {
   lang: Language;
+  panels: StackedPanelData[];
 }
 
-export function StackedPanels({ lang }: StackedPanelsProps) {
-  const content = getContent(lang);
-  const stackedPanelsData = content.home.stackedPanels;
-  const panels: StackedPanelData[] = (stackedPanelsData?.panels || []) as StackedPanelData[];
-
+export function StackedPanels({ lang, panels }: StackedPanelsProps) {
   const containerRef = useRef<HTMLElement>(null);
   const panelRefs = useRef<(HTMLElement | null)[]>([]);
 
@@ -23,75 +21,64 @@ export function StackedPanels({ lang }: StackedPanelsProps) {
     const container = containerRef.current;
     if (!container) return;
 
-    // IntersectionObserver to show side dots only when #at-a-glance is in viewport
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          setIsSectionVisible(entry.isIntersecting);
-        });
-      },
-      { threshold: 0 }
+    const activePanels = panelRefs.current.flatMap(panel =>
+      panel ? [{ panel, inner: panel.querySelector<HTMLElement>('.in') }] : [],
     );
-
-    observer.observe(container);
-
-    // Scroll & Resize handler with requestAnimationFrame throttling
-    let tick = false;
+    let frame = 0;
+    let visible = false;
     const isReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     function update() {
-      const activePanels = panelRefs.current.filter(Boolean) as HTMLElement[];
-      if (activePanels.length === 0) {
-        tick = false;
-        return;
-      }
-
-      const vh = window.innerHeight;
+      frame = 0;
+      const viewportHeight = window.innerHeight;
+      // Read positions before applying any transforms.
+      const progress = activePanels.map((_, index) => {
+        const nextPanel = activePanels[index + 1]?.panel;
+        return nextPanel
+          ? Math.min(1, Math.max(0, 1 - nextPanel.getBoundingClientRect().top / viewportHeight))
+          : 0;
+      });
       let active = 0;
 
-      activePanels.forEach((p, i) => {
-        const nextPanel = activePanels[i + 1];
-        let progress = 0;
-        if (nextPanel) {
-          progress = Math.min(1, Math.max(0, 1 - nextPanel.getBoundingClientRect().top / vh));
-        }
-        if (progress >= 0.5) {
-          active = i + 1;
-        }
-
-        if (!isReducedMotion) {
-          const inner = p.querySelector('.in') as HTMLElement | null;
-          if (inner) {
-            inner.style.transform = `scale(${1 - 0.08 * progress})`;
-            inner.style.opacity = '1';
-          }
+      progress.forEach((amount, index) => {
+        if (amount >= 0.5) active = index + 1;
+        const { inner } = activePanels[index];
+        if (!isReducedMotion && inner) {
+          inner.style.transform = `scale(${1 - 0.08 * amount})`;
         }
       });
 
       setCurIndex(active);
-      tick = false;
     }
 
-    function onScroll() {
-      if (!tick) {
-        tick = true;
-        requestAnimationFrame(update);
+    function scheduleUpdate() {
+      if (visible && !frame) frame = requestAnimationFrame(update);
+    }
+
+    const observer = new IntersectionObserver(([entry]) => {
+      visible = entry.isIntersecting;
+      setIsSectionVisible(visible);
+      if (visible) {
+        scheduleUpdate();
+      } else {
+        cancelAnimationFrame(frame);
+        frame = 0;
       }
-    }
-
-    window.addEventListener('scroll', onScroll, { passive: true });
-    window.addEventListener('resize', update);
-    update();
+    });
+    observer.observe(container);
+    window.addEventListener('scroll', scheduleUpdate, { passive: true });
+    window.addEventListener('resize', scheduleUpdate);
 
     return () => {
       observer.disconnect();
-      window.removeEventListener('scroll', onScroll);
-      window.removeEventListener('resize', update);
+      cancelAnimationFrame(frame);
+      window.removeEventListener('scroll', scheduleUpdate);
+      window.removeEventListener('resize', scheduleUpdate);
     };
-  }, []);
+  }, [panels]);
 
   return (
-    <section id="at-a-glance" ref={containerRef} className="stacked-panels-container">
+    <section id="at-a-glance" ref={containerRef} className="stacked-panels-container" data-visible={isSectionVisible}>
       {/* Side Navigation Dots (5 items) */}
       <nav
         className={`stacked-panels-nav ${isSectionVisible ? '' : 'hidden-nav'}`}
@@ -130,18 +117,26 @@ export function StackedPanels({ lang }: StackedPanelsProps) {
             }}
             aria-label={panel.navLabel}
           >
+            {panel.id === 'panel-3' && (
+              <div aria-hidden="true" className="pointer-events-none absolute inset-0 mask-[linear-gradient(120deg,transparent,black_58%)] motion-reduce:hidden">
+                <Meteors number={24} />
+              </div>
+            )}
+            {panel.id === 'panel-4' && (
+              <Ripple
+                className="text-white [--ripple-x:15%] max-md:[--ripple-x:22%]"
+                mainCircleSize={260}
+                mainCircleOpacity={0.33}
+                numCircles={10}
+              />
+            )}
             <div className="in">
               <p className="eb" style={{ color: `var(--sp-s${panelNum})` }}>
                 {panel.label}
               </p>
 
               {isCover ? (
-                <>
-                  <h2 className="heading-ink" style={{ color: `var(--sp-t${panelNum})` }}>{panel.headline}</h2>
-                  <p className="hint" style={{ color: `var(--sp-s${panelNum})` }}>
-                    {panel.hint} <span aria-hidden="true">↓</span>
-                  </p>
-                </>
+                <h2 className="heading-ink" style={{ color: `var(--sp-t${panelNum})` }}>{panel.headline}</h2>
               ) : (
                 <div className="row">
                   <h3

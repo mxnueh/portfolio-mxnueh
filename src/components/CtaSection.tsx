@@ -30,7 +30,7 @@ const copy = {
     headline: 'Looking for a Frontend or Full Stack engineer?',
     lead: 'I build high-performance web applications and scalable software architectures with React, TypeScript, Next.js, and Python.',
     primaryLabel: 'Email me',
-    primaryHref: 'mailto:enmanuelnunezmatias@gmail.com',
+    primaryHref: '/contact',
     secondaryLabel: 'View case studies ›',
     secondaryHref: '/work',
   },
@@ -38,7 +38,7 @@ const copy = {
     headline: '¿Buscas un desarrollador Frontend o Ingeniero Full Stack?',
     lead: 'Desarrollo aplicaciones web de alto rendimiento y arquitecturas escalables con React, TypeScript, Next.js y Python.',
     primaryLabel: 'Escríbeme',
-    primaryHref: 'mailto:enmanuelnunezmatias@gmail.com',
+    primaryHref: '/es/contact',
     secondaryLabel: 'Ver casos de estudio ›',
     secondaryHref: '/es/work',
   },
@@ -64,6 +64,7 @@ export function CtaSection({
           'relative rounded-2xl md:rounded-3xl',
           showPortrait ? 'cta-with-portrait' : 'overflow-hidden',
           'bg-accent-fill',
+          '[--portfolio-button-focus:#fff]',
           isStatement ? 'p-8 md:p-10 lg:p-12' : 'p-8 md:p-12 lg:p-16',
           'flex flex-col justify-center',
         ].join(' ')}
@@ -94,10 +95,9 @@ export function CtaSection({
             <h2 className="text-2xl md:text-3xl lg:text-4xl font-semibold text-white tracking-tight max-w-xl leading-snug">
               {c.headline}
             </h2>
-            <a
+            <Link
               href={c.primaryHref}
-              className="cta-pill group inline-flex items-center justify-center gap-3 rounded-full px-8 py-3.5 font-semibold text-sm bg-white text-accent-fill hover:bg-white/95 active:bg-white/90 transition-all duration-200 shadow-sm flex-shrink-0"
-              style={{ minHeight: '44px' }}
+              className="portfolio-button portfolio-button-primary"
             >
               <span>{c.primaryLabel}</span>
               <svg
@@ -106,7 +106,6 @@ export function CtaSection({
                 height="16"
                 viewBox="0 0 16 16"
                 fill="none"
-                className="cta-arrow transition-transform duration-200 group-hover:translate-x-1"
               >
                 <path
                   d="M3 8h10M9 4l4 4-4 4"
@@ -116,7 +115,7 @@ export function CtaSection({
                   strokeLinejoin="round"
                 />
               </svg>
-            </a>
+            </Link>
           </div>
         ) : (
           /* Variant B & C: Actions layout */
@@ -129,10 +128,9 @@ export function CtaSection({
                 {c.lead}
               </p>
               <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6">
-                <a
+                <Link
                   href={c.primaryHref}
-                  className="cta-pill group inline-flex items-center justify-center gap-3 rounded-full px-8 py-3.5 font-semibold text-sm bg-white text-accent-fill hover:bg-white/95 active:bg-white/90 transition-all duration-200 shadow-sm"
-                  style={{ minHeight: '44px' }}
+                  className="portfolio-button portfolio-button-primary"
                 >
                   <span>{c.primaryLabel}</span>
                   <svg
@@ -141,7 +139,6 @@ export function CtaSection({
                     height="16"
                     viewBox="0 0 16 16"
                     fill="none"
-                    className="cta-arrow transition-transform duration-200 group-hover:translate-x-1"
                   >
                     <path
                       d="M3 8h10M9 4l4 4-4 4"
@@ -151,10 +148,10 @@ export function CtaSection({
                       strokeLinejoin="round"
                     />
                   </svg>
-                </a>
+                </Link>
                 <Link
                   href={c.secondaryHref}
-                  className="text-sm font-semibold text-white/90 hover:text-white underline-offset-4 hover:underline transition-colors py-2"
+                  className="portfolio-button"
                 >
                   {c.secondaryLabel}
                 </Link>

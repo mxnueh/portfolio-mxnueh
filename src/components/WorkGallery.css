@@ -19,27 +19,6 @@
   margin-inline-start: auto;
 }
 
-.work-gallery-controls button {
-  display: grid;
-  place-items: center;
-  width: 44px;
-  height: 44px;
-  border: 1px solid var(--separator);
-  border-radius: 50%;
-  background-color: var(--bg-card);
-  color: var(--text-primary);
-  cursor: pointer;
-}
-
-.work-gallery-controls button:not([aria-disabled="true"]):hover {
-  background-color: var(--bg-alt);
-}
-
-.work-gallery-controls button[aria-disabled="true"] {
-  opacity: 0.45;
-  cursor: default;
-}
-
 .work-gallery-position {
   min-width: 3em;
   text-align: center;
@@ -58,88 +37,10 @@
   scrollbar-width: none;
 }
 
-.work-gallery-card {
-  --work-title-space: clamp(186px, 27vw, 250px);
-  --work-navy: #0a1730;
-  --project-cover-deep-stop: calc(var(--work-title-space) * 0.33);
-  --project-cover-royal-stop: calc(var(--work-title-space) * 0.57);
-  --project-cover-blue-stop: calc(var(--work-title-space) * 0.83);
-  --project-cover-sky-stop: calc(var(--work-title-space) + 76px);
-  position: relative;
-  display: flex;
+.work-gallery-track > .project-cover-card {
   flex: 0 0 100%;
-  flex-direction: column;
-  justify-content: space-between;
-  gap: 20px;
-  min-width: 0;
-  min-height: clamp(440px, 58svh, 560px);
-  padding: clamp(18px, 4vw, 44px);
-  border-radius: 24px;
-  box-shadow: inset 0 0 0 1px rgb(10 23 48 / 9%);
-  overflow: hidden;
   scroll-snap-align: start;
   scroll-snap-stop: always;
-}
-
-.work-gallery-card.project-cover::before {
-  opacity: 0.18;
-}
-
-.work-gallery-card-header {
-  min-height: var(--work-title-space);
-  color: #fff;
-}
-
-.work-gallery-title {
-  max-width: 26ch;
-  font-family: var(--font-geist-sans), sans-serif;
-  font-size: clamp(26px, 4.7vw, 62px);
-  font-weight: 350;
-  letter-spacing: -0.04em;
-  line-height: 1.06;
-  overflow-wrap: anywhere;
-}
-
-.work-gallery-title a:focus-visible {
-  outline-color: #fff;
-}
-
-.work-gallery-details {
-  display: grid;
-  gap: 12px;
-  color: var(--work-navy);
-}
-
-.work-gallery-actions {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 8px 16px;
-  margin-top: 4px;
-}
-
-.work-gallery-actions a {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  min-height: 44px;
-  font-size: 13px;
-  font-weight: 600;
-}
-
-.work-gallery-actions a:focus-visible {
-  outline-color: var(--work-navy);
-}
-
-.work-gallery-actions svg {
-  flex-shrink: 0;
-}
-
-.work-gallery-primary-action {
-  padding: 8px 14px;
-  border-radius: 999px;
-  background-color: var(--work-navy);
-  color: #fff;
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -113,43 +113,6 @@ export function Footer({ lang }: FooterProps) {
 
           {/* Controls */}
           <div className="flex items-center gap-8">
-            {/* Language */}
-            {siteConfig.locales.length > 1 && (
-              <button
-                onClick={() => {
-                  const currentPath = window.location.pathname;
-                  if (lang === 'es') {
-                    const newPath = currentPath.replace(/^\/es(\/|$)/, '$1') || '/';
-                    window.location.href = newPath;
-                  } else {
-                    const newPath = currentPath === '/' ? '/es' : `/es${currentPath.startsWith('/') ? '' : '/'}${currentPath}`;
-                    window.location.href = newPath;
-                  }
-                }}
-                className="text-caption text-text-secondary dark:text-dark-text-secondary hover:text-text-primary dark:hover:text-dark-text-primary transition-colors duration-ui min-h-[44px] px-4 flex items-center font-medium"
-                aria-label="Switch language"
-              >
-                {lang === 'es' ? 'EN' : 'ES'}
-              </button>
-            )}
-
-            {/* Theme toggle */}
-            <button
-              onClick={() => {
-                const html = document.documentElement;
-                html.classList.toggle('dark');
-                try {
-                  localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
-                } catch (e) {
-                  // Storage not available
-                }
-              }}
-              className="text-caption text-text-secondary dark:text-dark-text-secondary hover:text-text-primary dark:hover:text-dark-text-primary transition-colors duration-ui min-h-[44px] px-4 flex items-center"
-              aria-label="Toggle dark mode"
-            >
-              {lang === 'es' ? 'Tema' : 'Theme'}
-            </button>
-
             {/* Pause animations */}
             <button
               onClick={() => {
@@ -160,7 +123,7 @@ export function Footer({ lang }: FooterProps) {
                   // Storage not available
                 }
               }}
-              className="text-caption text-text-secondary dark:text-dark-text-secondary hover:text-text-primary dark:hover:text-dark-text-primary transition-colors duration-ui min-h-[44px] px-4 flex items-center"
+              className="portfolio-button"
               aria-label="Toggle animations"
             >
               {lang === 'es' ? (animationsEnabled ? 'Pausar' : 'Reanudar') : (animationsEnabled ? 'Pause' : 'Resume')}

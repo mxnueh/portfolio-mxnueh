@@ -36,7 +36,7 @@ export function EmptyState({ title, description, action, icon }: EmptyStateProps
       {action && (
         <a
           href={action.href}
-          className="h-11 px-8 rounded-full bg-accent-fill hover:bg-accent-hover text-white text-button font-500 flex items-center justify-center transition-colors duration-ui"
+          className="portfolio-button portfolio-button-primary"
         >
           {action.label}
         </a>

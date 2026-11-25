@@ -34,7 +34,7 @@ export function Meteors({ number = 20, className }: MeteorsProps) {
         <span
           key={idx}
           className={cn(
-            'pointer-events-none absolute h-0.5 w-0.5 rotate-[215deg] animate-meteor rounded-[9999px] bg-slate-400 shadow-[0_0_0_1px_#ffffff10]',
+            'pointer-events-none absolute h-0.5 w-0.5 [transform:rotate(215deg)] animate-meteor rounded-[9999px] bg-slate-400 shadow-[0_0_0_1px_#ffffff10]',
             className
           )}
           style={{
@@ -45,7 +45,7 @@ export function Meteors({ number = 20, className }: MeteorsProps) {
           }}
         >
           {/* Meteor Tail */}
-          <div className="pointer-events-none absolute top-1/2 -z-10 h-[1px] w-[50px] -translate-y-1/2 bg-gradient-to-r from-slate-400 to-transparent" />
+          <span className="pointer-events-none absolute top-1/2 -z-10 h-[1px] w-[50px] -translate-y-1/2 bg-gradient-to-r from-slate-400 to-transparent" />
         </span>
       ))}
     </div>

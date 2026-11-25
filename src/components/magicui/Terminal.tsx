@@ -68,8 +68,9 @@ export function Terminal({
           </span>
         </div>
         <button
+          type="button"
           onClick={copyCode}
-          className="text-white/40 hover:text-white transition-colors p-1 rounded hover:bg-white/5"
+          className="portfolio-button portfolio-button-icon"
           title="Copy output"
         >
           {copied ? <Check className="w-3.5 h-3.5 text-green-400" /> : <Copy className="w-3.5 h-3.5" />}

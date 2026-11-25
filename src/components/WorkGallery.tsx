@@ -4,6 +4,7 @@ import { GithubIcon } from '@/components/icons';
 import { linkedCardClass } from '@/components/Section';
 import { getCaseStudies } from '@/lib/getContent';
 import type { CaseStudy, Language } from '@/lib/types';
+import { ProjectCoverCard } from './ProjectCoverCard';
 import { WorkGalleryCarousel } from './WorkGalleryCarousel';
 import './WorkGallery.css';
 
@@ -30,34 +31,13 @@ function FeaturedProject({ study, href, lang }: { study: CaseStudy; href: string
   const copy = workPageCopy[lang];
 
   return (
-    <li className="work-gallery-card project-cover">
-      <header className="work-gallery-card-header">
-        <p className="mb-3 font-mono text-xs font-semibold uppercase tracking-wider">{study.eyebrow}</p>
-        <h3 className="work-gallery-title">
-          <Link href={href}>{study.title}</Link>
-        </h3>
-      </header>
-
-      <div className="work-gallery-details">
-        <p className="text-sm">
-          {copy.role}: <strong className="font-semibold">{study.role}</strong>
-        </p>
-        <p className="max-w-[65ch] text-base leading-relaxed">{study.description}</p>
-
-        <div className="flex flex-wrap gap-2">
-          {study.stack.map(tech => (
-            <span key={tech} className="rounded-md bg-slate-100 px-3 py-1 text-xs font-medium">
-              {tech}
-            </span>
-          ))}
-        </div>
-
-        <div className="work-gallery-actions">
-          <Link href={href} className="work-gallery-primary-action">
-            {copy.read}
-            <ArrowRight size={16} aria-hidden="true" />
-          </Link>
-
+    <ProjectCoverCard
+      title={study.title}
+      href={href}
+      eyebrow={<p className="font-mono text-xs font-semibold uppercase tracking-wider">{study.eyebrow}</p>}
+      actionLabel={copy.read}
+      secondaryActions={(
+        <>
           {study.links?.map(link => (
             <a key={link.label} href={link.url} target="_blank" rel="noopener noreferrer">
               <ExternalLink size={14} aria-hidden="true" />
@@ -71,9 +51,22 @@ function FeaturedProject({ study, href, lang }: { study: CaseStudy; href: string
               {copy.source}
             </a>
           )}
-        </div>
+        </>
+      )}
+    >
+      <p className="text-sm">
+        {copy.role}: <strong className="font-semibold">{study.role}</strong>
+      </p>
+      <p className="max-w-[65ch] text-base leading-relaxed">{study.description}</p>
+
+      <div className="flex flex-wrap gap-2">
+        {study.stack.map(tech => (
+          <span key={tech} className="rounded-md bg-slate-100 px-3 py-1 text-xs font-medium">
+            {tech}
+          </span>
+        ))}
       </div>
-    </li>
+    </ProjectCoverCard>
   );
 }
 

@@ -51,20 +51,16 @@ export const siteConfig = {
 
   /**
    * D4: Contact implementation
-   * mailto: button + copy-email button + social links
-   * No backend, no form
+   * Direct contact details and a project questionnaire with a prefilled Gmail message
    */
   contact: {
     email: 'enmanuelnunezmatias@gmail.com',
-    social: [
-      {
-        label: 'LinkedIn',
-        url: 'https://www.linkedin.com/in/enmanuel-nunez-matias-249560340/',
-        icon: 'linkedin',
-      },
-      { label: 'GitHub', url: 'https://github.com/mxnueh', icon: 'github' },
-      { label: 'Discord', username: 'm4ti_', icon: 'discord' },
+    subject: 'cliente portafolio',
+    profiles: [
+      { label: 'GitHub', url: 'https://github.com/mxnueh' },
+      { label: 'LinkedIn', url: 'https://www.linkedin.com/in/enmanuel-nunez-matias-249560340/' },
     ],
+    discord: 'm4ti_',
   },
 
   /**

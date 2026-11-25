@@ -92,18 +92,16 @@ export default function AboutPage() {
           <div data-reveal-children className="about-actions flex flex-wrap items-center justify-center gap-4">
             <Link
               href="/work"
-              className="inline-flex items-center justify-center rounded-full px-8 py-3.5 text-sm font-semibold bg-accent-fill text-white hover:bg-accent-hover transition-colors shadow-sm"
-              style={{ minHeight: '44px' }}
+              className="portfolio-button portfolio-button-primary"
             >
               View case studies
             </Link>
-            <a
-              href="mailto:enmanuelnunezmatias@gmail.com"
-              className="inline-flex items-center justify-center rounded-full px-8 py-3.5 text-sm font-semibold text-text-primary dark:text-white border border-black/10 dark:border-white/15 hover:border-black/30 dark:hover:border-white/30 transition-colors"
-              style={{ minHeight: '44px' }}
+            <Link
+              href="/contact"
+              className="portfolio-button"
             >
               Email me
-            </a>
+            </Link>
           </div>
         </div>
       </Section>

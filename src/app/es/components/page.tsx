@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useRef, useState } from 'react';
+import Link from 'next/link';
 import { GlobalNav } from '@/components/GlobalNav';
 import { SiteFooter } from '@/components/SiteFooter';
 
@@ -116,25 +117,23 @@ export default function EsComponentsShowcasePage() {
             </p>
 
             <div className="flex flex-wrap items-center justify-center gap-4">
-              <ShimmerButton
+              <button
+                type="button"
                 onClick={() => fireConfetti()}
-                background="#0071e3"
-                className="font-medium"
+                className="portfolio-button portfolio-button-primary"
               >
                 <Sparkles className="w-4 h-4 mr-1" />
                 Lanzar Confeti de Celebración
-              </ShimmerButton>
+              </button>
 
-              <div className="inline-flex rounded-full p-1 bg-black/5 dark:bg-white/10 border border-black/10 dark:border-white/10">
+              <div className="inline-flex flex-wrap justify-center gap-1">
                 {(['all', 'magicui', 'reactbits'] as const).map((tab) => (
                   <button
                     key={tab}
+                    type="button"
                     onClick={() => setActiveTab(tab)}
-                    className={`px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider transition-all duration-200 ${
-                      activeTab === tab
-                        ? 'bg-white dark:bg-zinc-800 text-accent-fill shadow-sm'
-                        : 'text-text-secondary dark:text-gray-400 hover:text-text-primary'
-                    }`}
+                    aria-pressed={activeTab === tab}
+                    className={`portfolio-button${activeTab === tab ? ' portfolio-button-primary' : ''}`}
                   >
                     {tab === 'all' ? 'Todos (38+)' : tab === 'magicui' ? 'Magic UI' : 'ReactBits'}
                   </button>
@@ -392,7 +391,7 @@ export default function EsComponentsShowcasePage() {
                 </p>
                 <div className="flex items-center gap-3">
                   <Magnet magnetStrength={0.4}>
-                    <button className="px-4 py-2 rounded-full bg-accent-fill text-white text-xs font-semibold shadow hover:bg-accent-hover transition-colors">
+                    <button type="button" className="portfolio-button portfolio-button-primary">
                       Botón Magnético
                     </button>
                   </Magnet>
@@ -616,10 +615,10 @@ export default function EsComponentsShowcasePage() {
                     <LinkedinIcon className="w-5 h-5" />
                   </a>
                 </DockIcon>
-                <DockIcon label="Email">
-                  <a href="mailto:enmanuelnunezmatias@gmail.com">
+                <DockIcon label="Contacto">
+                  <Link href="/es/contact" aria-label="Contacto">
                     <Mail className="w-5 h-5" />
-                  </a>
+                  </Link>
                 </DockIcon>
                 <DockIcon label="Proyectos">
                   <a href="/es/work">
@@ -698,9 +697,9 @@ export default function EsComponentsShowcasePage() {
                 </p>
               </div>
               <div className="relative z-10 text-center">
-                <ShimmerButton href="/es/work/mission-atabey" background="rgba(255,255,255,0.15)">
+                <Link href="/es/work/mission-atabey" className="portfolio-button">
                   Ver Telemetría de Misión Atabey
-                </ShimmerButton>
+                </Link>
               </div>
             </div>
           </section>

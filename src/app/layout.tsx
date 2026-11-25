@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Inter } from "next/font/google";
 import "./globals.css";
-import { ThemeScript } from "@/components/ThemeScript";
 
 const inter = Inter({ subsets: ['latin'], display: 'swap' });
 
@@ -14,9 +13,8 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`h-full antialiased light ${inter.className} ${geist.variable}`} suppressHydrationWarning>
+    <html lang="en" className={`h-full antialiased ${inter.className} ${geist.variable}`}>
       <body className="min-h-full flex flex-col bg-white text-text-primary">
-        <ThemeScript />
         {children}
       </body>
     </html>

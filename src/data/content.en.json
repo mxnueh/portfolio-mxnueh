@@ -9,17 +9,30 @@
     "links": [
       { "label": "Work", "href": "/work" },
       { "label": "Blog", "href": "/blog" },
-      { "label": "About", "href": "/about" }
+      { "label": "About", "href": "/about" },
+      { "label": "Contact", "href": "/contact" }
     ]
   },
   "home": {
     "hero": {
       "eyebrow": "Frontend & Full Stack Engineering",
-      "headline": "Full Stack Developer & Systems Designer",
-      "lead": "I design systems that work reliably under pressure, then build the interfaces that bring them to life. High-performance web applications, real-time dashboards, and distributed architectures, built with clear, performant code.",
+      "headline": "Full Stack Developer &",
+      "headlineAccent": "Systems Designer",
+      "lead": "I design reliable systems and build web applications and real-time dashboards.",
       "primaryCTA": { "label": "View case studies", "href": "/work" },
-      "secondaryCTA": { "label": "Email me", "href": "mailto:enmanuelnunezmatias@gmail.com" },
-      "tertiaryCTA": { "label": "Read notes", "href": "/blog" }
+      "secondaryCTA": { "label": "Email me", "href": "/contact" },
+      "tertiaryCTA": { "label": "Read notes", "href": "/blog" },
+      "highlights": [
+        { "value": "4", "label": "Hackathon finals" },
+        { "value": "GSoC 2026", "label": "Open source" },
+        { "value": "ITLA", "label": "Software Development" }
+      ],
+      "contactCard": {
+        "label": "Frontend and Full Stack",
+        "title": "Open to roles and projects",
+        "description": "Share a few details and I’ll suggest a next step.",
+        "href": "/contact"
+      }
     },
     "techMarquee": {
       "ariaLabel": "Technologies I work with",
@@ -33,7 +46,6 @@
           "id": "panel-1",
           "label": "Enmanuel Nunez Matias",
           "headline": "Four hackathon finals and Google Summer of Code 2026.",
-          "hint": "Scroll",
           "navLabel": "Cover"
         },
         {
@@ -116,13 +128,25 @@
     }
   },
   "contact": {
-    "headline": "Let's work together.",
-    "email": "enmanuelnunezmatias@gmail.com",
-    "links": [
-      { "label": "LinkedIn", "url": "https://www.linkedin.com/in/enmanuel-nunez-matias-249560340/" },
-      { "label": "GitHub", "url": "https://github.com/mxnueh" },
-      { "label": "Discord", "url": "discord:m4ti_" }
-    ]
+    "headline": "Tell me about your project",
+    "intro": "A few details will help me understand what you need and suggest a next step.",
+    "projectType": "What would you like to discuss?",
+    "projectTypes": ["Website", "Web application", "Dashboard or data tool", "Improvements to an existing product", "Job opportunity", "Something else"],
+    "details": "What would you like to accomplish?",
+    "detailsPlaceholder": "Tell me who it's for and what problem it should solve.",
+    "name": "Your name",
+    "timing": "When would you like to start?",
+    "timingOptions": ["As soon as possible", "In the next few months", "I'm exploring options"],
+    "optional": "Optional",
+    "submit": "Continue to Gmail",
+    "submitNote": "Review your message in Gmail before sending it."
+  },
+  "contactDetails": {
+    "heading": "Contact information",
+    "openGmail": "Write via Gmail",
+    "copyEmail": "Copy email",
+    "copied": "Email copied",
+    "copyError": "Couldn’t copy email"
   },
   "footer": {
     "columns": [

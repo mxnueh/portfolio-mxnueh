@@ -9,17 +9,30 @@
     "links": [
       { "label": "Trabajo", "href": "/work" },
       { "label": "Blog", "href": "/blog" },
-      { "label": "Acerca", "href": "/about" }
+      { "label": "Acerca", "href": "/about" },
+      { "label": "Contacto", "href": "/contact" }
     ]
   },
   "home": {
     "hero": {
       "eyebrow": "Ingeniería Frontend y Full Stack",
-      "headline": "Full Stack Developer & Systems Designer",
-      "lead": "Diseño sistemas que funcionan bajo presión, luego construyo las interfaces que los hacen posibles. Aplicaciones web de alto rendimiento, dashboards en tiempo real y arquitecturas distribuidas, construidas con código claro y performante.",
-      "primaryCTA": { "label": "Ver casos de estudio", "href": "/work" },
-      "secondaryCTA": { "label": "Escríbeme", "href": "mailto:enmanuelnunezmatias@gmail.com" },
-      "tertiaryCTA": { "label": "Leer notas", "href": "/blog" }
+      "headline": "Desarrollador Full Stack &",
+      "headlineAccent": "Diseñador de Sistemas",
+      "lead": "Diseño sistemas confiables y desarrollo aplicaciones web y dashboards en tiempo real.",
+      "primaryCTA": { "label": "Ver casos de estudio", "href": "/es/work" },
+      "secondaryCTA": { "label": "Escríbeme", "href": "/es/contact" },
+      "tertiaryCTA": { "label": "Leer notas", "href": "/blog" },
+      "highlights": [
+        { "value": "4", "label": "Finales de hackatón" },
+        { "value": "GSoC 2026", "label": "Código abierto" },
+        { "value": "ITLA", "label": "Desarrollo de Software" }
+      ],
+      "contactCard": {
+        "label": "Frontend y Full Stack",
+        "title": "Abierto a vacantes y proyectos",
+        "description": "Cuéntame qué tienes en mente y te propondré un siguiente paso.",
+        "href": "/es/contact"
+      }
     },
     "techMarquee": {
       "ariaLabel": "Tecnologías con las que trabajo",
@@ -33,7 +46,6 @@
           "id": "panel-1",
           "label": "Enmanuel Nunez Matias",
           "headline": "Cuatro finales de hackatón y Google Summer of Code 2026.",
-          "hint": "Desplaza",
           "navLabel": "Portada"
         },
         {
@@ -116,13 +128,25 @@
     }
   },
   "contact": {
-    "headline": "Contactarme.",
-    "email": "enmanuelnunezmatias@gmail.com",
-    "links": [
-      { "label": "LinkedIn", "url": "https://www.linkedin.com/in/enmanuel-nunez-matias-249560340/" },
-      { "label": "GitHub", "url": "https://github.com/mxnueh" },
-      { "label": "Discord", "url": "discord:m4ti_" }
-    ]
+    "headline": "Cuéntame sobre tu proyecto",
+    "intro": "Con unos pocos detalles podré entender qué necesitas y proponerte un siguiente paso.",
+    "projectType": "¿De qué te gustaría hablar?",
+    "projectTypes": ["Sitio web", "Aplicación web", "Dashboard o herramienta de datos", "Mejoras a un producto existente", "Oportunidad laboral", "Otra idea"],
+    "details": "¿Qué quieres lograr?",
+    "detailsPlaceholder": "Cuéntame para quién es y qué problema quieres resolver.",
+    "name": "Tu nombre",
+    "timing": "¿Cuándo te gustaría empezar?",
+    "timingOptions": ["Lo antes posible", "En los próximos meses", "Estoy explorando opciones"],
+    "optional": "Opcional",
+    "submit": "Continuar a Gmail",
+    "submitNote": "Revisa tu mensaje en Gmail antes de enviarlo."
+  },
+  "contactDetails": {
+    "heading": "Información de contacto",
+    "openGmail": "Escribir por Gmail",
+    "copyEmail": "Copiar correo",
+    "copied": "Correo copiado",
+    "copyError": "No se pudo copiar el correo"
   },
   "footer": {
     "columns": [

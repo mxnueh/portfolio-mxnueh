@@ -2,22 +2,17 @@
 
 import { useRef, useState } from 'react';
 import Link from 'next/link';
-import { Language, SelectedWorkData } from '@/lib/types';
-import { getContent } from '@/lib/getContent';
+import type { SelectedWorkData } from '@/lib/types';
 
 interface SelectedWorkProps {
-  lang: Language;
+  selectedWork: SelectedWorkData;
 }
 
-export function SelectedWork({ lang }: SelectedWorkProps) {
-  const content = getContent(lang);
-  const selectedWork: SelectedWorkData | undefined = content.home.selectedWork;
-  const projects = selectedWork?.projects || [];
+export function SelectedWork({ selectedWork }: SelectedWorkProps) {
+  const { projects } = selectedWork;
 
   const stripBtnRefs = useRef<(HTMLButtonElement | null)[]>([]);
   const [activeStrip, setActiveStrip] = useState(0);
-
-  if (!selectedWork) return null;
 
   function handleStripKeyDown(e: React.KeyboardEvent, idx: number) {
     const key = e.key;
@@ -74,7 +69,7 @@ export function SelectedWork({ lang }: SelectedWorkProps) {
                     {project.architecture && <p className="ar">{project.architecture}</p>}
                     <p className="desc">{project.description}</p>
                     <div className="acts">
-                      <Link href={project.projectUrl} className="btn">
+                      <Link href={project.projectUrl} className="portfolio-button portfolio-button-blue min-h-9 rounded-full px-4">
                         {selectedWork.btnProject}
                       </Link>
                       {project.docsUrl && (
@@ -97,7 +92,7 @@ export function SelectedWork({ lang }: SelectedWorkProps) {
 
         {/* View All Work Link */}
         {selectedWork.viewAll && (
-          <Link href={selectedWork.viewAll.href} className="more">
+          <Link href={selectedWork.viewAll.href} className="portfolio-button portfolio-button-blue justify-self-start">
             {selectedWork.viewAll.label}
           </Link>
         )}
