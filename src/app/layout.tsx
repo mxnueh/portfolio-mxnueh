@@ -1,10 +1,13 @@
 import type { Metadata } from "next";
-import { Geist, Inter } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 
-const inter = Inter({ subsets: ['latin'], display: 'swap' });
-
-const geist = Geist({ subsets: ['latin'], display: 'swap', variable: '--font-geist-sans' });
+const geist = localFont({
+  src: './geist-latin.woff2',
+  weight: '100 900',
+  display: 'swap',
+  variable: '--font-geist-sans',
+});
 
 export const metadata: Metadata = {
   title: "Enmanuel Nunez Matias | Full Stack Developer & Systems Designer",
@@ -13,7 +16,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`h-full antialiased ${inter.className} ${geist.variable}`}>
+    <html lang="en" data-scroll-behavior="smooth" className={`h-full antialiased ${geist.variable}`}>
       <body className="min-h-full flex flex-col bg-white text-text-primary">
         {children}
       </body>

@@ -151,7 +151,7 @@ export function CtaSection({
                 </Link>
                 <Link
                   href={c.secondaryHref}
-                  className="portfolio-button"
+                  className="inline-flex min-h-11 items-center text-sm font-semibold text-white underline underline-offset-4"
                 >
                   {c.secondaryLabel}
                 </Link>

@@ -1,9 +1,11 @@
 import { GeneratedLead } from '@/components/GeneratedLead';
+import { AboutMethodology } from '@/components/AboutMethodology';
+import { AboutMilestones } from '@/components/AboutMilestones';
 import { GlobalNav } from '@/components/GlobalNav';
 import { SiteFooter } from '@/components/SiteFooter';
 import { Section } from '@/components/Section';
 import type { Metadata } from 'next';
-import { Code, Cpu, Layers, Terminal, ShieldCheck, ArrowRight } from 'lucide-react';
+import { Code, Cpu, Layers, Terminal } from 'lucide-react';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
@@ -106,84 +108,9 @@ export default function AboutPage() {
         </div>
       </Section>
 
-      {/* Methodology: Clean Apple Cards, No AI pastel/cursor slop */}
-      <Section reveal variant="gray">
-        <div className="max-w-6xl mx-auto px-4">
-          <div data-reveal className="text-center mb-12">
-            <span className="text-xs font-semibold uppercase tracking-wider text-text-tertiary dark:text-gray-400 block mb-2">
-              Methodology
-            </span>
-            <h2 className="heading-ink text-3xl md:text-4xl font-semibold tracking-tight">How I build software</h2>
-          </div>
+      <AboutMethodology lang={lang} />
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div data-reveal className="rounded-2xl border border-black/[0.08] dark:border-white/[0.1] bg-white dark:bg-[#161617] p-8 transition-colors hover:border-black/[0.18] dark:hover:border-white/[0.22]">
-              <div className="w-10 h-10 rounded-xl bg-black/[0.04] dark:bg-white/[0.08] text-text-primary dark:text-white flex items-center justify-center mb-6">
-                <Layers className="w-5 h-5 text-accent-fill" />
-              </div>
-              <h3 className="text-xl font-semibold mb-3 tracking-tight">1. Systems-First Thinking</h3>
-              <p className="text-sm text-text-secondary dark:text-gray-400 leading-relaxed font-normal">
-                Before writing UI components, I structure the data models, role-based access, API contracts, and edge failure modes. Clear architecture eliminates technical debt.
-              </p>
-            </div>
-
-            <div data-reveal className="rounded-2xl border border-black/[0.08] dark:border-white/[0.1] bg-white dark:bg-[#161617] p-8 transition-colors hover:border-black/[0.18] dark:hover:border-white/[0.22]">
-              <div className="w-10 h-10 rounded-xl bg-black/[0.04] dark:bg-white/[0.08] text-text-primary dark:text-white flex items-center justify-center mb-6">
-                <Cpu className="w-5 h-5 text-accent-fill" />
-              </div>
-              <h3 className="text-xl font-semibold mb-3 tracking-tight">2. Offline Resilience</h3>
-              <p className="text-sm text-text-secondary dark:text-gray-400 leading-relaxed font-normal">
-                Inspired by operational telemetry systems, my applications handle latency gracefully with optimistic updates, local caching, and reliable state recovery.
-              </p>
-            </div>
-
-            <div data-reveal className="rounded-2xl border border-black/[0.08] dark:border-white/[0.1] bg-white dark:bg-[#161617] p-8 transition-colors hover:border-black/[0.18] dark:hover:border-white/[0.22]">
-              <div className="w-10 h-10 rounded-xl bg-black/[0.04] dark:bg-white/[0.08] text-text-primary dark:text-white flex items-center justify-center mb-6">
-                <ShieldCheck className="w-5 h-5 text-accent-fill" />
-              </div>
-              <h3 className="text-xl font-semibold mb-3 tracking-tight">3. Craft &amp; Accessibility</h3>
-              <p className="text-sm text-text-secondary dark:text-gray-400 leading-relaxed font-normal">
-                Critical interfaces must be immediately comprehensible. I combine strict TypeScript contracts with keyboard navigation, visible focus states, and responsive polish.
-              </p>
-            </div>
-          </div>
-        </div>
-      </Section>
-
-      {/* Trajectory: Refined Minimal Apple Timeline */}
-      <Section reveal variant="white">
-        <div className="max-w-4xl mx-auto px-4">
-          <div data-reveal className="text-center mb-12">
-            <span className="text-xs font-semibold uppercase tracking-wider text-text-tertiary dark:text-gray-400 block mb-2">
-              Trajectory
-            </span>
-            <h2 className="heading-ink text-3xl md:text-4xl font-semibold tracking-tight">Key Milestones &amp; Honors</h2>
-          </div>
-
-          <div className="divide-y divide-black/[0.06] dark:divide-white/[0.08] border-y border-black/[0.06] dark:border-white/[0.08]">
-            {milestones.map((m, idx) => (
-              <div data-reveal key={idx} className="py-8 flex flex-col md:flex-row md:items-baseline justify-between gap-4 md:gap-8">
-                <div className="md:w-48 flex-shrink-0">
-                  <span className="text-xs font-mono font-semibold text-accent-fill">
-                    {m.period}
-                  </span>
-                  <span className="block text-xs text-text-tertiary dark:text-gray-500 mt-0.5">
-                    {m.tag}
-                  </span>
-                </div>
-                <div className="flex-1">
-                  <h3 className="text-lg font-semibold text-text-primary dark:text-white mb-2 tracking-tight">
-                    {m.title}
-                  </h3>
-                  <p className="text-sm text-text-secondary dark:text-gray-400 leading-relaxed font-normal">
-                    {m.description}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </Section>
+      <AboutMilestones label="Trajectory" title="Key Milestones & Honors" milestones={milestones} />
 
       {/* Technical Capabilities: Minimal Apple Grid */}
       <Section reveal variant="gray">

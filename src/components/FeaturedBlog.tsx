@@ -32,7 +32,7 @@ export function FeaturedBlog({ lang }: { lang: Language }) {
           ))}
         </ul>
         <div className="mt-10 text-center">
-          <Link href={base} className="portfolio-button">
+          <Link href={base} className="inline-flex min-h-11 items-center text-sm font-semibold text-link underline underline-offset-4">
             {spanish ? 'Todas las notas técnicas →' : 'All engineering notes →'}
           </Link>
         </div>

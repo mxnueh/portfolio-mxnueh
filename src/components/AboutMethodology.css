@@ -1,0 +1,103 @@
+.about-methodology {
+  background: #131f2c;
+  color: #f7f8fa;
+}
+
+.methodology-card {
+  display: grid;
+  grid-template-rows: minmax(11rem, 1fr) auto;
+  gap: 1rem;
+  min-width: 0;
+  min-height: clamp(23rem, 36vw, 29rem);
+  padding: clamp(1rem, 2.2vw, 1.875rem);
+  border: 1px solid rgb(255 255 255 / 65%);
+  border-radius: 22px;
+  background: linear-gradient(180deg, #fbfcfb 0%, #f4f5f3 48%, #d9dcd8 100%);
+  box-shadow: 0 12px 30px rgb(5 12 18 / 20%);
+  overflow: hidden;
+}
+
+.methodology-card-copy {
+  display: grid;
+  justify-items: center;
+  gap: 0.75rem;
+  text-align: center;
+}
+
+.methodology-card-copy h3 {
+  color: #151b22;
+  font-family: var(--font-geist-sans, system-ui), sans-serif;
+  font-size: clamp(1.25rem, 2vw, 1.625rem);
+  font-weight: 600;
+  letter-spacing: -0.035em;
+  line-height: 1.16;
+  text-wrap: balance;
+}
+
+.methodology-card-copy p {
+  max-width: 36ch;
+  color: #3b4549;
+  font-size: 0.875rem;
+  line-height: 1.55;
+  text-wrap: pretty;
+}
+
+.methodology-art {
+  display: grid;
+  width: min(100%, 15.5rem);
+  place-items: center;
+  justify-self: center;
+  align-self: center;
+  min-height: 10rem;
+}
+
+.methodology-art span {
+  grid-area: 1 / 1;
+  width: 67%;
+  aspect-ratio: 1.4;
+  border-radius: 14px;
+}
+
+.methodology-art-back {
+  transform: var(--art-back);
+  background: linear-gradient(145deg, #b4e4ff, #75bfff);
+}
+
+.methodology-art-middle {
+  transform: var(--art-middle);
+  background: linear-gradient(145deg, #82c8ff, #4289ed);
+}
+
+.methodology-art-face {
+  display: grid;
+  place-items: center;
+  transform: var(--art-face);
+  border: 1px solid rgb(255 255 255 / 35%);
+  background: linear-gradient(155deg, #8ed2ff 5%, #5ba6f8 61%, #3474d5);
+  box-shadow: 0 12px 24px rgb(20 64 125 / 18%);
+  color: #092755;
+}
+
+.methodology-art--systems {
+  --art-back: translate(18%, -18%) rotate(11deg);
+  --art-middle: translate(-14%, 16%) rotate(-18deg);
+  --art-face: rotate(-8deg) skewY(-3deg);
+}
+
+.methodology-art--workflows {
+  --art-back: translate(-19%, -15%) rotate(-17deg);
+  --art-middle: translate(16%, 17%) rotate(14deg);
+  --art-face: rotate(5deg);
+}
+
+.methodology-art--accessibility {
+  --art-back: translate(15%, -12%) rotate(46deg);
+  --art-middle: translate(-14%, 12%) rotate(-35deg);
+  --art-face: rotate(-4deg);
+}
+
+.methodology-art--accessibility span {
+  width: 54%;
+  aspect-ratio: 1;
+  border-radius: 21px;
+}

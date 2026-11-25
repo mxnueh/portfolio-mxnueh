@@ -58,7 +58,7 @@
   margin-top: 4px;
 }
 
-.project-cover .project-cover-card-actions a {
+.project-cover .project-cover-card-actions a:not(.portfolio-button) {
   display: inline-flex;
   min-height: 44px;
   align-items: center;
@@ -73,13 +73,6 @@
 
 .project-cover .project-cover-card-actions svg {
   flex-shrink: 0;
-}
-
-.project-cover .project-cover-card-primary-action {
-  padding: 8px 14px;
-  border-radius: 999px;
-  background-color: var(--project-navy);
-  color: #fff;
 }
 
 .project-cover-card--compact {

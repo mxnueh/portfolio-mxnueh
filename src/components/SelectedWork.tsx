@@ -92,7 +92,7 @@ export function SelectedWork({ selectedWork }: SelectedWorkProps) {
 
         {/* View All Work Link */}
         {selectedWork.viewAll && (
-          <Link href={selectedWork.viewAll.href} className="portfolio-button portfolio-button-blue justify-self-start">
+          <Link href={selectedWork.viewAll.href} className="inline-flex min-h-11 items-center justify-self-start font-medium text-link underline underline-offset-4">
             {selectedWork.viewAll.label}
           </Link>
         )}

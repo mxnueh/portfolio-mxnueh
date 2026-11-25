@@ -47,7 +47,7 @@ export function HomeHero({ lang }: { lang: Language }) {
       <div className="relative isolate mx-auto max-w-[96rem] rounded-large bg-bg-alt lg:flex lg:min-h-[clamp(30rem,35vw,36rem)] lg:items-center dark:bg-surface-dark">
         <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10 overflow-hidden rounded-[inherit]">
           <div className="home-hero-ribbon absolute inset-x-0 bottom-4 mx-auto aspect-square max-w-[34rem] lg:inset-x-auto lg:top-[-15%] lg:left-[60.5%] lg:mx-0 lg:h-[112%] lg:w-1/2 lg:max-w-none">
-            <div className="absolute inset-0 bg-[url('/assets/blue_ribbon.png')] bg-size-[100%_100%] bg-no-repeat lg:origin-top-left lg:[transform:skewX(-10deg)_rotate(4deg)]" />
+            <div className="absolute inset-0 bg-[url('/assets/blue_ribbon.webp')] bg-size-[100%_100%] bg-no-repeat lg:origin-top-left lg:[transform:skewX(-10deg)_rotate(4deg)]" />
           </div>
         </div>
         <div className="px-5 pt-8 pb-6 sm:px-10 sm:pt-12 lg:w-[58%] lg:py-10 lg:pr-4 xl:py-12 xl:pl-16">
@@ -65,18 +65,18 @@ export function HomeHero({ lang }: { lang: Language }) {
             </span>
           </h1>
           <HeroLead text={hero.lead} />
-          <div className="home-actions flex flex-wrap items-center gap-3">
+          <div className="home-actions flex flex-wrap items-center gap-2">
             <div className="home-hero-action flex">
               <Link
                 href={hero.primaryCTA.href}
-                className="portfolio-button portfolio-button-blue"
+                className="portfolio-button min-h-[38px] border-accent-fill bg-accent-fill px-3 py-1.5 text-white"
               >
                 {hero.primaryCTA.label}
               </Link>
             </div>
             <Link
               href={hero.secondaryCTA.href}
-              className="portfolio-button portfolio-button-blue-light home-hero-action"
+              className="portfolio-button home-hero-action min-h-[38px] px-3 py-1.5"
               style={staggerIndex(1)}
             >
               {hero.secondaryCTA.label}

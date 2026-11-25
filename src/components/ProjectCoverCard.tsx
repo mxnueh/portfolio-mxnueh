@@ -30,7 +30,7 @@ export function ProjectCoverCard({
         <div className="project-cover-card-actions">
           <Link
             href={href}
-            className={compact ? 'portfolio-button portfolio-button-primary project-cover-card-primary-action' : 'project-cover-card-primary-action'}
+            className="portfolio-button portfolio-button-primary project-cover-card-primary-action"
             aria-label={compact ? `${actionLabel}: ${title}` : undefined}
           >
             {actionLabel}

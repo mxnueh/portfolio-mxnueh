@@ -4,9 +4,13 @@ const nextConfig: NextConfig = {
   /* config options here */
   cacheComponents: true,
   partialPrefetching: true,
+  experimental: {
+    turbopackPluginRuntimeStrategy: "workerThreads",
+  },
   turbopack: {
+    root: __dirname,
     rules: {
-      "*.css": {
+      "globals.css": {
         loaders: ["@tailwindcss/turbopack"],
         as: "*.css",
       },
