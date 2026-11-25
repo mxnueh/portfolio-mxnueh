@@ -66,7 +66,8 @@
           "id": "panel-4",
           "label": "Languages",
           "value": "B2",
-          "description": "English level.",
+          "headline": "English level.",
+          "description": "Upper-intermediate proficiency in English.",
           "navLabel": "English level"
         },
         {

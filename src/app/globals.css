@@ -105,7 +105,7 @@
 
   /* Stacked Panels Color Tokens (Light Theme Default) */
   --sp-bg1: #F5F5F7; --sp-t1: #1D1D1F; --sp-s1: #6E6E73;
-  --sp-bg2: #FFFFFF; --sp-t2: #1D1D1F; --sp-s2: #6E6E73; --sp-val2: #0071E3;
+  --sp-bg2: #FFFFFF; --sp-t2: #1D1D1F; --sp-s2: #6E6E73;
   --sp-bg3: #1D1D1F; --sp-t3: #F5F5F7; --sp-s3: #A1A1A6;
   --sp-bg4: #0071E3; --sp-t4: #FFFFFF; --sp-s4: #FFFFFF;
   --sp-bg5: #F5F5F7; --sp-t5: #1D1D1F; --sp-s5: #6E6E73;
@@ -116,7 +116,7 @@
 .dark {
   --tech-icon: #F5F5F7;
   --sp-bg1: #000000; --sp-t1: #F5F5F7; --sp-s1: #A1A1A6;
-  --sp-bg2: #1C1C1E; --sp-t2: #F5F5F7; --sp-s2: #A1A1A6; --sp-val2: #0071E3;
+  --sp-bg2: #1C1C1E; --sp-t2: #F5F5F7; --sp-s2: #A1A1A6;
   --sp-bg3: #F5F5F7; --sp-t3: #1D1D1F; --sp-s3: #6E6E73;
   --sp-bg4: #0071E3; --sp-t4: #FFFFFF; --sp-s4: #FFFFFF;
   --sp-bg5: #2C2C2E; --sp-t5: #F5F5F7; --sp-s5: #A1A1A6;
@@ -350,10 +350,6 @@ input:focus-visible {
   overflow-x: clip;
 }
 
-.stacked-panels-container[data-visible="false"] :is(.animate-meteor, .animate-ripple) {
-  animation-play-state: paused;
-}
-
 .stacked-panel {
   position: sticky;
   top: 0;
@@ -396,9 +392,9 @@ input:focus-visible {
 }
 
 .stacked-panel .eb {
-  font-size: clamp(17px, 2vw, 24px);
+  font-size: clamp(1.125rem, 1.75vw, 1.75rem);
   line-height: 1.2;
-  font-weight: 350;
+  font-weight: 500;
 }
 
 .stacked-panel .big {
@@ -463,6 +459,241 @@ input:focus-visible {
 @media (min-width: 768px) {
   .stacked-panel .row {
     grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+  }
+}
+
+.stacked-panel--hackathons {
+  --hackathons-accent: #0055d4;
+  --sp-bg2: #fafbfe;
+  --sp-t2: #0c1428;
+  --sp-s2: #4d5c75;
+  background-image:
+    radial-gradient(ellipse at 88% -8%, #9fc4ff, transparent 44%),
+    radial-gradient(ellipse at 100% 104%, #bad4ff, transparent 36%),
+    radial-gradient(ellipse at 0% 106%, #accdff, transparent 27%),
+    radial-gradient(ellipse at 15% 53%, #dbe8ff, transparent 26%);
+  padding-inline-end: max(clamp(24px, 6vw, 96px), 3rem);
+}
+
+.stacked-panel--hackathons .in {
+  gap: clamp(1rem, 2.5vw, 2.5rem);
+  max-width: 90rem;
+}
+
+.stacked-panel--hackathons .big {
+  color: var(--hackathons-accent);
+  font-size: clamp(8rem, min(43vw, 37svh), 19rem);
+  font-weight: 900;
+  justify-self: start;
+  line-height: 0.82;
+}
+
+.stacked-panel--hackathons .d {
+  max-width: 31ch;
+  font-size: clamp(1.5rem, 3.7vw, 4rem);
+  font-weight: 550;
+  letter-spacing: -0.04em;
+  line-height: 1.12;
+  text-wrap: pretty;
+}
+
+.hackathons-accent {
+  color: var(--hackathons-accent);
+  font-weight: 650;
+}
+
+@media (min-width: 768px) {
+  .stacked-panel--hackathons .row {
+    grid-template-columns: minmax(0, 0.55fr) minmax(0, 1fr);
+    gap: clamp(2rem, 3.25vw, 3.75rem);
+  }
+
+  .stacked-panel--hackathons .big {
+    font-size: clamp(13rem, min(34vw, 58svh), 35rem);
+  }
+}
+
+.stacked-panel--open-source {
+  --sp-bg3: #080e19;
+  --sp-t3: #ffffff;
+  --sp-s3: #9bbbf0;
+  padding-inline-end: max(clamp(24px, 6vw, 96px), 3rem);
+}
+
+.stacked-panel--open-source .in {
+  gap: clamp(1.25rem, 3vw, 3rem);
+  max-width: 90rem;
+}
+
+.stacked-panel--open-source .big.w {
+  font-size: clamp(4.5rem, 12vw, 5.75rem);
+  font-weight: 750;
+  letter-spacing: -0.065em;
+  line-height: 0.86;
+}
+
+.open-source-year {
+  display: block;
+  width: fit-content;
+  padding-inline-end: 0.08em;
+}
+
+.stacked-panel--open-source .d {
+  color: #eef2fb;
+  font-size: clamp(1.5rem, 3.25vw, 3.5rem);
+  font-weight: 450;
+  letter-spacing: -0.035em;
+  line-height: 1.13;
+  max-width: 25ch;
+  text-wrap: pretty;
+}
+
+.panel-gradient-text {
+  color: var(--panel-gradient-fallback, #89baff);
+}
+
+@supports (background-clip: text) {
+  .panel-gradient-text {
+    background-image: var(--panel-text-gradient, linear-gradient(110deg, #b4dcff, #69a5ff 70%, #6199ff));
+    background-clip: text;
+    color: transparent;
+  }
+}
+
+@media (min-width: 768px) {
+  .stacked-panel--open-source .row {
+    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1fr);
+  }
+
+  .stacked-panel--open-source .big.w {
+    font-size: clamp(4.5rem, min(12vw, 28svh), 12.5rem);
+  }
+}
+
+@media (forced-colors: active) {
+  .panel-gradient-text {
+    background-image: none;
+    color: CanvasText;
+  }
+}
+
+.stacked-panel--languages {
+  --sp-bg4: #1355c7;
+  --sp-t4: #ffffff;
+  --sp-s4: #d2e2ff;
+  padding-inline-end: max(clamp(24px, 6vw, 96px), 3rem);
+}
+
+.stacked-panel + .stacked-panel--languages {
+  box-shadow: none;
+}
+
+.stacked-panel--languages .in {
+  max-width: 90rem;
+}
+
+.stacked-panel--languages .row {
+  gap: clamp(1.75rem, 4vw, 4rem);
+}
+
+.stacked-panel--languages .big.w {
+  --panel-gradient-fallback: #ffffff;
+  --panel-text-gradient: linear-gradient(180deg, #ffffff 43%, #d5e9ff 74%, #84baff);
+  width: fit-content;
+  padding-inline-end: 0.04em;
+  font-size: clamp(6rem, 29vw, 10rem);
+  font-weight: 800;
+  letter-spacing: -0.06em;
+  line-height: 0.86;
+}
+
+.stacked-panel--languages .d {
+  font-size: clamp(2rem, 4.4vw, 4.75rem);
+  font-weight: 550;
+  letter-spacing: -0.04em;
+  line-height: 1.1;
+  text-wrap: pretty;
+}
+
+.languages-accent {
+  color: #8ccaff;
+}
+
+.languages-subtitle {
+  margin-top: clamp(0.75rem, 1.6vw, 1.375rem);
+  color: #d2e2ff;
+  font-size: clamp(1rem, 1.55vw, 1.5rem);
+  line-height: 1.45;
+  text-wrap: pretty;
+}
+
+@media (min-width: 768px) {
+  .stacked-panel--languages .row {
+    grid-template-columns: minmax(0, 0.85fr) 1px minmax(0, 1fr);
+  }
+
+  .stacked-panel--languages .row::before {
+    content: "";
+    grid-area: 1 / 2;
+    align-self: stretch;
+    background-image: linear-gradient(180deg, transparent, #69daff 50%, transparent);
+  }
+
+  .stacked-panel--languages .big.w {
+    font-size: clamp(6rem, min(17vw, 40svh), 18rem);
+  }
+}
+
+.stacked-panel--studies {
+  --sp-bg5: #f8fafc;
+  --sp-t5: #101b30;
+  --sp-s5: #536176;
+  background-image:
+    radial-gradient(ellipse at 84% 26%, #deedff, transparent 58%),
+    linear-gradient(135deg, #f8fafc 30%, #edf5ff);
+  padding-inline-end: max(clamp(24px, 6vw, 96px), 3rem);
+}
+
+.stacked-panel + .stacked-panel--studies {
+  box-shadow: none;
+}
+
+.stacked-panel--studies .in {
+  max-width: 90rem;
+}
+
+.stacked-panel--studies .row {
+  gap: clamp(2rem, 5vw, 5rem);
+}
+
+.stacked-panel--studies .big.w {
+  color: #000000;
+  font-size: clamp(5.25rem, 24vw, 9.25rem);
+  font-weight: 800;
+  letter-spacing: 0.01em;
+  line-height: 0.85;
+}
+
+.stacked-panel--studies .d {
+  font-size: clamp(1.75rem, 4.2vw, 4.5rem);
+  font-weight: 550;
+  letter-spacing: -0.045em;
+  line-height: 1.1;
+  max-width: 19ch;
+  text-wrap: pretty;
+}
+
+.studies-accent {
+  color: #0759cc;
+}
+
+@media (min-width: 768px) {
+  .stacked-panel--studies .row {
+    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1fr);
+  }
+
+  .stacked-panel--studies .big.w {
+    font-size: clamp(5.25rem, min(13vw, 31svh), 13.5rem);
   }
 }
 

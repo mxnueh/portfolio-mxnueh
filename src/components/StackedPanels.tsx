@@ -2,12 +2,30 @@
 
 import { useEffect, useRef, useState } from 'react';
 import type { Language, StackedPanelData } from '@/lib/types';
-import { Meteors } from '@/components/magicui/Meteors';
-import { Ripple } from '@/components/magicui/Ripple';
 
 interface StackedPanelsProps {
   lang: Language;
   panels: StackedPanelData[];
+}
+
+const panelVariants: Record<string, string> = {
+  'panel-2': 'stacked-panel--hackathons',
+  'panel-3': 'stacked-panel--open-source',
+  'panel-4': 'stacked-panel--languages',
+  'panel-5': 'stacked-panel--studies',
+};
+
+function highlight(text: string | undefined, phrase: string, className: string) {
+  const index = text?.indexOf(phrase) ?? -1;
+  if (!text || index < 0) return text;
+
+  return (
+    <>
+      {text.slice(0, index)}
+      <span className={className}>{phrase}</span>
+      {text.slice(index + phrase.length)}
+    </>
+  );
 }
 
 export function StackedPanels({ lang, panels }: StackedPanelsProps) {
@@ -100,6 +118,10 @@ export function StackedPanels({ lang, panels }: StackedPanelsProps) {
       {/* 5 Stacked Panels */}
       {panels.map((panel, idx) => {
         const isCover = idx === 0;
+        const isHackathons = panel.id === 'panel-2';
+        const isOpenSource = panel.id === 'panel-3';
+        const isLanguages = panel.id === 'panel-4';
+        const isStudies = panel.id === 'panel-5';
         const panelNum = idx + 1;
 
         return (
@@ -109,7 +131,7 @@ export function StackedPanels({ lang, panels }: StackedPanelsProps) {
             ref={(el) => {
               panelRefs.current[idx] = el;
             }}
-            className={`stacked-panel ${isCover ? 'cover' : ''}`}
+            className={`stacked-panel ${isCover ? 'cover' : panelVariants[panel.id] ?? ''}`}
             style={{
               backgroundColor: `var(--sp-bg${panelNum})`,
               color: `var(--sp-t${panelNum})`,
@@ -117,19 +139,6 @@ export function StackedPanels({ lang, panels }: StackedPanelsProps) {
             }}
             aria-label={panel.navLabel}
           >
-            {panel.id === 'panel-3' && (
-              <div aria-hidden="true" className="pointer-events-none absolute inset-0 mask-[linear-gradient(120deg,transparent,black_58%)] motion-reduce:hidden">
-                <Meteors number={24} />
-              </div>
-            )}
-            {panel.id === 'panel-4' && (
-              <Ripple
-                className="text-white [--ripple-x:15%] max-md:[--ripple-x:22%]"
-                mainCircleSize={260}
-                mainCircleOpacity={0.33}
-                numCircles={10}
-              />
-            )}
             <div className="in">
               <p className="eb" style={{ color: `var(--sp-s${panelNum})` }}>
                 {panel.label}
@@ -137,15 +146,30 @@ export function StackedPanels({ lang, panels }: StackedPanelsProps) {
 
               {isCover ? (
                 <h2 className="heading-ink" style={{ color: `var(--sp-t${panelNum})` }}>{panel.headline}</h2>
+              ) : isLanguages || isStudies ? (
+                <div className="row">
+                  <p className={isLanguages ? 'big w panel-gradient-text' : 'big w'}>{panel.value}</p>
+                  <div>
+                    <h3 className="d">
+                      {isLanguages
+                        ? highlight(panel.headline, lang === 'es' ? 'Nivel' : 'level.', 'languages-accent')
+                        : highlight(panel.description, lang === 'es' ? 'Desarrollo de Software' : 'Software Development', 'studies-accent')}
+                    </h3>
+                    {isLanguages && <p className="languages-subtitle">{panel.description}</p>}
+                  </div>
+                </div>
               ) : (
                 <div className="row">
                   <h3
-                    className={`big ${panel.value && (panel.value.length > 3 || isNaN(Number(panel.value))) ? 'w' : ''}`}
-                    style={idx === 1 ? { color: 'var(--sp-val2)' } : undefined}
+                    className={`big${panel.value && (panel.value.length > 3 || isNaN(Number(panel.value))) ? ' w' : ''}`}
                   >
-                    {panel.value}
+                    {isOpenSource ? highlight(panel.value, '2026', 'panel-gradient-text open-source-year') : panel.value}
                   </h3>
-                  <p className="d">{panel.description}</p>
+                  <p className="d">
+                    {isOpenSource
+                      ? highlight(panel.description, 'Google Summer of Code', 'panel-gradient-text')
+                      : isHackathons ? highlight(panel.description, 'NASA', 'hackathons-accent') : panel.description}
+                  </p>
                 </div>
               )}
             </div>

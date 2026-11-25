@@ -66,7 +66,8 @@
           "id": "panel-4",
           "label": "Idiomas",
           "value": "B2",
-          "description": "Nivel de inglés.",
+          "headline": "Nivel de inglés.",
+          "description": "Dominio intermedio alto del inglés.",
           "navLabel": "Nivel de inglés"
         },
         {
