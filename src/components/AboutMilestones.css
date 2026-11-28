@@ -1,0 +1,52 @@
+.about-milestones {
+  --milestones-sticky-top: clamp(5rem, 12svh, 7rem);
+  display: grid;
+  align-items: start;
+  gap: clamp(1.5rem, 5vw, 5rem);
+  width: 100%;
+  max-width: 96rem;
+  margin-inline: auto;
+  padding: clamp(4rem, 7vw, 6rem) clamp(1.25rem, 5vw, 4rem);
+}
+
+.about-milestone + .about-milestone {
+  margin-top: 1rem;
+}
+
+.about-milestones .about-milestone {
+  --project-title-space: clamp(13rem, 24vw, 15rem);
+  min-height: clamp(24rem, 58svh, 34rem);
+  box-shadow: inset 0 0 0 1px rgb(10 23 48 / 9%), 0 -4px 20px rgb(10 23 48 / 8%);
+}
+
+.about-milestone .project-cover-card-title {
+  font-size: clamp(1.75rem, 3.8vw, 3.5rem);
+}
+
+@media (min-width: 56rem) {
+  .about-milestones {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr);
+  }
+}
+
+@media (min-width: 56rem) and (min-height: 38rem) and (prefers-reduced-motion: no-preference) {
+  .about-milestones-heading,
+  .about-milestones .about-milestone {
+    position: sticky;
+    top: var(--milestones-sticky-top);
+  }
+
+  .about-milestones .about-milestone {
+    top: calc(var(--milestones-sticky-top) + var(--milestone-offset));
+  }
+
+  .about-milestone + .about-milestone {
+    margin-top: clamp(5rem, 15svh, 9rem);
+  }
+
+  .about-milestones-list::after {
+    content: "";
+    display: block;
+    height: clamp(4rem, 13svh, 8rem);
+  }
+}

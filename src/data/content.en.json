@@ -1,0 +1,181 @@
+{
+  "meta": {
+    "site": "Enmanuel Nunez Matias",
+    "author": "Enmanuel Nunez Matias",
+    "description": "Full Stack Developer & Systems Designer. I design reliable systems and build the interfaces that power them. React, TypeScript, Next.js, and Python."
+  },
+  "nav": {
+    "name": "Enmanuel Nunez",
+    "links": [
+      { "label": "Work", "href": "/work" },
+      { "label": "Blog", "href": "/blog" },
+      { "label": "About", "href": "/about" },
+      { "label": "Contact", "href": "/contact" }
+    ]
+  },
+  "home": {
+    "hero": {
+      "eyebrow": "Frontend & Full Stack Engineering",
+      "headline": "Full Stack Developer &",
+      "headlineAccent": "Systems Designer",
+      "lead": "I design reliable systems and build web applications and real-time dashboards.",
+      "primaryCTA": { "label": "View case studies", "href": "/work" },
+      "secondaryCTA": { "label": "Email me", "href": "/contact" },
+      "tertiaryCTA": { "label": "Read notes", "href": "/blog" },
+      "highlights": [
+        { "value": "NASA HERC", "label": "Robotics engineering" },
+        { "value": "Space Apps", "label": "Finalist & mentor" },
+        { "value": "Open Source", "label": "Software contributor" }
+      ],
+      "contactCard": {
+        "label": "Frontend and Full Stack",
+        "title": "Open to roles and projects",
+        "description": "Share a few details and I’ll suggest a next step.",
+        "href": "/contact"
+      }
+    },
+    "techMarquee": {
+      "ariaLabel": "Technologies I work with",
+      "pauseLabel": "Pause animation",
+      "resumeLabel": "Resume animation"
+    },
+    "stackedPanels": {
+      "headline": "Enmanuel Nunez Matias",
+      "panels": [
+        {
+          "id": "panel-1",
+          "label": "Enmanuel Nunez Matias",
+          "headline": "Four hackathon finals and Google Summer of Code 2026.",
+          "navLabel": "Cover"
+        },
+        {
+          "id": "panel-2",
+          "label": "Hackathons",
+          "value": "4",
+          "description": "Hackathon finals, two of them NASA (HERC and Space Apps).",
+          "navLabel": "Hackathon finals"
+        },
+        {
+          "id": "panel-3",
+          "label": "Open source",
+          "value": "GSoC 2026",
+          "description": "Contributor to omegaUp through Google Summer of Code.",
+          "navLabel": "Google Summer of Code"
+        },
+        {
+          "id": "panel-4",
+          "label": "Languages",
+          "value": "B2",
+          "headline": "English level.",
+          "description": "Upper-intermediate proficiency in English.",
+          "navLabel": "English level"
+        },
+        {
+          "id": "panel-5",
+          "label": "Studies",
+          "value": "ITLA",
+          "description": "Studying Software Development.",
+          "navLabel": "Studies"
+        }
+      ]
+    },
+    "products": {
+      "headline": "Projects.",
+      "cta": { "label": "All projects", "href": "/blog" }
+    },
+    "selectedWork": {
+      "headline": "Selected work",
+      "viewAll": {
+        "label": "View all work →",
+        "href": "/work"
+      },
+      "btnProject": "View project",
+      "placeholderCover": "Cover placeholder: replace with a real screenshot",
+      "projects": [
+        {
+          "id": "mission-atabey",
+          "title": "Mission Atabey 1",
+          "description": "Telemetry for a Mars-analog habitat over intermittent LoRa networks.",
+          "tags": ["Python", "FastAPI", "React"],
+          "projectUrl": "/work/mission-atabey",
+          "externalLink": { "label": "Official mission website", "url": "https://atabey.space/" }
+        },
+        {
+          "id": "conduete",
+          "title": "Conducete",
+          "description": "Mobile road-safety education app for Dominican drivers.",
+          "tags": ["Flutter", "Flask", "PostgreSQL"],
+          "projectUrl": "/work/conduete"
+        },
+        {
+          "id": "floppy",
+          "title": "Floppy",
+          "description": "Community early flood warning system built on IoT.",
+          "tags": ["ESP32", "Flask"],
+          "projectUrl": "/work/floppy",
+          "externalLink": { "label": "Source code", "url": "https://github.com/mxnueh/floppy" }
+        }
+      ]
+    },
+    "blog": {
+      "headline": "Thoughts & lessons.",
+      "cta": { "label": "All posts", "href": "/blog" }
+    },
+    "closing": {
+      "headline": "Ready to build something reliable?",
+      "primaryCTA": { "label": "Start a conversation", "href": "/contact" }
+    }
+  },
+  "contact": {
+    "headline": "Tell me about your project",
+    "intro": "A few details will help me understand what you need and suggest a next step.",
+    "projectType": "What would you like to discuss?",
+    "projectTypes": ["Website", "Web application", "Dashboard or data tool", "Improvements to an existing product", "Job opportunity", "Something else"],
+    "details": "What would you like to accomplish?",
+    "detailsPlaceholder": "Tell me who it's for and what problem it should solve.",
+    "name": "Your name",
+    "timing": "When would you like to start?",
+    "timingOptions": ["As soon as possible", "In the next few months", "I'm exploring options"],
+    "optional": "Optional",
+    "submit": "Continue to Gmail",
+    "submitNote": "Review your message in Gmail before sending it."
+  },
+  "contactDetails": {
+    "heading": "Contact information",
+    "openGmail": "Write via Gmail",
+    "copyEmail": "Copy email",
+    "copied": "Email copied",
+    "copyError": "Couldn’t copy email"
+  },
+  "footer": {
+    "columns": [
+      {
+        "title": "Work",
+        "links": [
+          { "label": "All case studies", "href": "/work" },
+          { "label": "GitHub", "url": "https://github.com/mxnueh" },
+          { "label": "Public repositories", "url": "https://github.com/mxnueh?tab=repositories" }
+        ]
+      },
+      {
+        "title": "Products",
+        "links": [
+          { "label": "All products", "href": "/products" }
+        ]
+      },
+      {
+        "title": "Learn",
+        "links": [
+          { "label": "Blog", "href": "/blog" },
+          { "label": "About", "href": "/about" },
+          { "label": "Contact", "href": "/contact" }
+        ]
+      }
+    ],
+    "legal": [
+      { "label": "Privacy", "href": "/privacy" },
+      { "label": "Terms", "href": "/terms" },
+      { "label": "Refunds", "href": "/refunds" }
+    ]
+  }
+}

@@ -1,0 +1,181 @@
+{
+  "meta": {
+    "site": "Enmanuel Nunez Matias",
+    "author": "Enmanuel Nunez Matias",
+    "description": "Full Stack Developer & Systems Designer. Diseño sistemas confiables y construyo las interfaces que los impulsan. React, TypeScript, Next.js y Python."
+  },
+  "nav": {
+    "name": "Enmanuel Nunez",
+    "links": [
+      { "label": "Trabajo", "href": "/work" },
+      { "label": "Blog", "href": "/blog" },
+      { "label": "Acerca", "href": "/about" },
+      { "label": "Contacto", "href": "/contact" }
+    ]
+  },
+  "home": {
+    "hero": {
+      "eyebrow": "Ingeniería Frontend y Full Stack",
+      "headline": "Desarrollador Full Stack &",
+      "headlineAccent": "Diseñador de Sistemas",
+      "lead": "Diseño sistemas confiables y desarrollo aplicaciones web y dashboards en tiempo real.",
+      "primaryCTA": { "label": "Ver casos de estudio", "href": "/es/work" },
+      "secondaryCTA": { "label": "Escríbeme", "href": "/es/contact" },
+      "tertiaryCTA": { "label": "Leer notas", "href": "/blog" },
+      "highlights": [
+        { "value": "NASA HERC", "label": "Ingeniería robótica" },
+        { "value": "Space Apps", "label": "Finalista y mentor" },
+        { "value": "Código abierto", "label": "Colaborador de software" }
+      ],
+      "contactCard": {
+        "label": "Frontend y Full Stack",
+        "title": "Abierto a vacantes y proyectos",
+        "description": "Cuéntame qué tienes en mente y te propondré un siguiente paso.",
+        "href": "/es/contact"
+      }
+    },
+    "techMarquee": {
+      "ariaLabel": "Tecnologías con las que trabajo",
+      "pauseLabel": "Pausar animación",
+      "resumeLabel": "Reanudar animación"
+    },
+    "stackedPanels": {
+      "headline": "Enmanuel Nunez Matias",
+      "panels": [
+        {
+          "id": "panel-1",
+          "label": "Enmanuel Nunez Matias",
+          "headline": "Cuatro finales de hackatón y Google Summer of Code 2026.",
+          "navLabel": "Portada"
+        },
+        {
+          "id": "panel-2",
+          "label": "Hackatones",
+          "value": "4",
+          "description": "Finales de hackatón, dos de ellas NASA (HERC y Space Apps).",
+          "navLabel": "Finales de hackatón"
+        },
+        {
+          "id": "panel-3",
+          "label": "Código abierto",
+          "value": "GSoC 2026",
+          "description": "Contribuidor de omegaUp mediante Google Summer of Code.",
+          "navLabel": "Google Summer of Code"
+        },
+        {
+          "id": "panel-4",
+          "label": "Idiomas",
+          "value": "B2",
+          "headline": "Nivel de inglés.",
+          "description": "Dominio intermedio alto del inglés.",
+          "navLabel": "Nivel de inglés"
+        },
+        {
+          "id": "panel-5",
+          "label": "Estudios",
+          "value": "ITLA",
+          "description": "Estudiando Desarrollo de Software.",
+          "navLabel": "Estudios"
+        }
+      ]
+    },
+    "products": {
+      "headline": "Proyectos.",
+      "cta": { "label": "Todos los proyectos", "href": "/blog" }
+    },
+    "selectedWork": {
+      "headline": "Trabajo seleccionado",
+      "viewAll": {
+        "label": "Ver todo el trabajo →",
+        "href": "/es/work"
+      },
+      "btnProject": "Ver proyecto",
+      "placeholderCover": "Cover placeholder: replace with a real screenshot",
+      "projects": [
+        {
+          "id": "mission-atabey",
+          "title": "Mission Atabey 1",
+          "description": "Telemetría para un hábitat análogo a Marte sobre redes LoRa intermitentes.",
+          "tags": ["Python", "FastAPI", "React"],
+          "projectUrl": "/es/work/mission-atabey",
+          "externalLink": { "label": "Sitio oficial de la misión", "url": "https://atabey.space/" }
+        },
+        {
+          "id": "conduete",
+          "title": "Conducete",
+          "description": "App móvil de educación vial para conductores dominicanos.",
+          "tags": ["Flutter", "Flask", "PostgreSQL"],
+          "projectUrl": "/es/work/conduete"
+        },
+        {
+          "id": "floppy",
+          "title": "Floppy",
+          "description": "Sistema comunitario de alerta temprana de inundaciones basado en IoT.",
+          "tags": ["ESP32", "Flask"],
+          "projectUrl": "/es/work/floppy",
+          "externalLink": { "label": "Código fuente", "url": "https://github.com/mxnueh/floppy" }
+        }
+      ]
+    },
+    "blog": {
+      "headline": "Pensamientos y lecciones.",
+      "cta": { "label": "Todos los posts", "href": "/blog" }
+    },
+    "closing": {
+      "headline": "¿Listo para construir algo confiable?",
+      "primaryCTA": { "label": "Iniciar una conversación", "href": "/contact" }
+    }
+  },
+  "contact": {
+    "headline": "Cuéntame sobre tu proyecto",
+    "intro": "Con unos pocos detalles podré entender qué necesitas y proponerte un siguiente paso.",
+    "projectType": "¿De qué te gustaría hablar?",
+    "projectTypes": ["Sitio web", "Aplicación web", "Dashboard o herramienta de datos", "Mejoras a un producto existente", "Oportunidad laboral", "Otra idea"],
+    "details": "¿Qué quieres lograr?",
+    "detailsPlaceholder": "Cuéntame para quién es y qué problema quieres resolver.",
+    "name": "Tu nombre",
+    "timing": "¿Cuándo te gustaría empezar?",
+    "timingOptions": ["Lo antes posible", "En los próximos meses", "Estoy explorando opciones"],
+    "optional": "Opcional",
+    "submit": "Continuar a Gmail",
+    "submitNote": "Revisa tu mensaje en Gmail antes de enviarlo."
+  },
+  "contactDetails": {
+    "heading": "Información de contacto",
+    "openGmail": "Escribir por Gmail",
+    "copyEmail": "Copiar correo",
+    "copied": "Correo copiado",
+    "copyError": "No se pudo copiar el correo"
+  },
+  "footer": {
+    "columns": [
+      {
+        "title": "Trabajo",
+        "links": [
+          { "label": "Todos los casos de estudio", "href": "/work" },
+          { "label": "GitHub", "url": "https://github.com/mxnueh" },
+          { "label": "Repositorios públicos", "url": "https://github.com/mxnueh?tab=repositories" }
+        ]
+      },
+      {
+        "title": "Productos",
+        "links": [
+          { "label": "Todos los productos", "href": "/products" }
+        ]
+      },
+      {
+        "title": "Aprende",
+        "links": [
+          { "label": "Blog", "href": "/blog" },
+          { "label": "Acerca", "href": "/about" },
+          { "label": "Contacto", "href": "/contact" }
+        ]
+      }
+    ],
+    "legal": [
+      { "label": "Privacidad", "href": "/privacy" },
+      { "label": "Términos", "href": "/terms" },
+      { "label": "Reembolsos", "href": "/refunds" }
+    ]
+  }
+}

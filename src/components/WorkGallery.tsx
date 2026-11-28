@@ -1,0 +1,118 @@
+import { ExternalLink } from 'lucide-react';
+import { GithubIcon } from '@/components/icons';
+import { getCaseStudies } from '@/lib/getContent';
+import type { CaseStudy, Language } from '@/lib/types';
+import { ProjectCoverCard } from './ProjectCoverCard';
+import { WorkGalleryCarousel } from './WorkGalleryCarousel';
+import './WorkGallery.css';
+
+export const workPageCopy = {
+  en: {
+    title: 'Systems I’ve Built',
+    description: 'I build telemetry platforms, mobile apps, and web tools for real-world constraints.',
+    more: 'More projects and work',
+    role: 'Role',
+    read: 'Read deep dive',
+    source: 'Source code',
+  },
+  es: {
+    title: 'Sistemas que he construido',
+    description: 'Desarrollo plataformas de telemetría, apps móviles y herramientas web para entornos reales.',
+    more: 'Más proyectos y trabajos',
+    role: 'Rol',
+    read: 'Ver caso de estudio completo',
+    source: 'Código fuente',
+  },
+};
+
+function FeaturedProject({ study, href, lang }: { study: CaseStudy; href: string; lang: Language }) {
+  const copy = workPageCopy[lang];
+
+  return (
+    <ProjectCoverCard
+      title={study.title}
+      href={href}
+      eyebrow={<p className="font-mono text-xs font-semibold uppercase tracking-wider">{study.eyebrow}</p>}
+      actionLabel={copy.read}
+      secondaryActions={(
+        <>
+          {study.links?.map(link => (
+            <a key={link.label} href={link.url} target="_blank" rel="noopener noreferrer">
+              <ExternalLink size={14} aria-hidden="true" />
+              {link.label}
+            </a>
+          ))}
+
+          {study.github && (
+            <a href={study.github} target="_blank" rel="noopener noreferrer">
+              <GithubIcon width={14} height={14} aria-hidden="true" />
+              {copy.source}
+            </a>
+          )}
+        </>
+      )}
+    >
+      <p className="text-sm">
+        {copy.role}: <strong className="font-semibold">{study.role}</strong>
+      </p>
+      <p className="max-w-[65ch] text-base leading-relaxed">{study.description}</p>
+
+      <div className="flex flex-wrap gap-2">
+        {study.stack.map(tech => (
+          <span key={tech} className="rounded-md bg-slate-100 px-3 py-1 text-xs font-medium">
+            {tech}
+          </span>
+        ))}
+      </div>
+    </ProjectCoverCard>
+  );
+}
+
+export function WorkGallery({ lang }: { lang: Language }) {
+  const caseStudies = getCaseStudies(lang);
+  const featured = caseStudies.slice(0, 3);
+  const more = caseStudies.slice(3);
+  const projectsPath = lang === 'es' ? '/es/work' : '/work';
+  const copy = workPageCopy[lang];
+
+  return (
+    <div className="work-gallery">
+      <WorkGalleryCarousel
+        lang={lang}
+        intro={(
+          <header className="work-gallery-intro">
+            <h2 className="text-4xl font-semibold tracking-tight sm:text-5xl lg:text-6xl">{copy.title}</h2>
+            <p className="mt-2 max-w-[62ch] text-base leading-relaxed text-text-secondary dark:text-gray-300">
+              {copy.description}
+            </p>
+          </header>
+        )}
+      >
+        {featured.map(study => (
+          <FeaturedProject key={study.id} study={study} href={`${projectsPath}/${study.slug}`} lang={lang} />
+        ))}
+      </WorkGalleryCarousel>
+
+      {more.length > 0 && (
+        <section className="mt-12" aria-labelledby="more-projects">
+          <h2 id="more-projects" className="mb-5 text-2xl font-semibold tracking-tight">{copy.more}</h2>
+          <ul className="grid gap-6 md:grid-cols-2 lg:grid-cols-3" role="list">
+            {more.map(study => (
+              <ProjectCoverCard
+                key={study.id}
+                title={study.title}
+                href={`${projectsPath}/${study.slug}`}
+                eyebrow={<p className="font-mono text-xs font-semibold uppercase tracking-wider">{study.eyebrow}</p>}
+                actionLabel={copy.read}
+                compact
+              >
+                <p className="text-sm leading-relaxed">{study.description}</p>
+                <p className="text-xs">{study.role}</p>
+              </ProjectCoverCard>
+            ))}
+          </ul>
+        </section>
+      )}
+    </div>
+  );
+}

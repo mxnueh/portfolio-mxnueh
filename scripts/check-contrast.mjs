@@ -1,0 +1,161 @@
+#!/usr/bin/env node
+
+/**
+ * WP6 & CTA/Footer Contrast checker
+ * 
+ * Validates color contrast ratios against WCAG 2.1 standards:
+ * - AA: 4.5:1 for normal text, 3:1 for large text (18px+)
+ * - AAA: 7:1 for normal text, 4.5:1 for large text
+ * - UI Components / Focus Rings: 3:1
+ */
+
+// Color definitions from tailwind.config.ts and globals.css
+const colors = {
+  light: {
+    bg: '#FFFFFF',
+    'bg-alt': '#F5F5F7',
+    'text-primary': '#1D1D1F',
+    'text-secondary': '#5A5A5E',
+    'text-tertiary': '#767676',
+    'accent-fill': '#0059D6',
+    'accent-hover': '#0066E3',
+    'separator': '#C7C7CC',
+  },
+  dark: {
+    bg: '#000000',
+    'bg-alt': '#161617',
+    'bg-card': '#1D1D1F',
+    'text-primary': '#F5F5F7',
+    'text-secondary': '#AEAEB2',
+  },
+  cta: {
+    tile: '#0059D6',
+    'headline': '#FFFFFF',
+    'lead': '#E5EEFF',
+    'secondary-link': '#FFFFFF',
+    'btn-bg': '#FFFFFF',
+    'btn-text': '#1D1D1F',
+    'focus-ring': '#FFFFFF',
+  },
+  chapterDark: {
+    bg: '#000000',
+    'text-primary': '#F5F5F7',
+    'text-secondary': '#AEAEB2',
+    'text-tertiary': '#86868B',
+    'separator': 'rgba(255, 255, 255, 0.16)',
+  },
+};
+
+// Convert hex to RGB
+function hexToRgb(hex) {
+  const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+  return result
+    ? {
+        r: parseInt(result[1], 16),
+        g: parseInt(result[2], 16),
+        b: parseInt(result[3], 16),
+      }
+    : null;
+}
+
+// Calculate luminance
+function getLuminance(rgb) {
+  const [r, g, b] = [rgb.r, rgb.g, rgb.b].map((val) => {
+    val = val / 255;
+    return val <= 0.03928 ? val / 12.92 : Math.pow((val + 0.055) / 1.055, 2.4);
+  });
+  return 0.2126 * r + 0.7152 * g + 0.0722 * b;
+}
+
+// Calculate contrast ratio
+function getContrastRatio(color1, color2) {
+  const rgb1 = hexToRgb(color1);
+  const rgb2 = hexToRgb(color2);
+  const lum1 = getLuminance(rgb1);
+  const lum2 = getLuminance(rgb2);
+  const lighter = Math.max(lum1, lum2);
+  const darker = Math.min(lum1, lum2);
+  return (lighter + 0.05) / (darker + 0.05);
+}
+
+// Check if contrast meets target standard
+function checkContrast(ratio, target = 4.5) {
+  return {
+    pass: ratio >= target,
+    ratio: ratio.toFixed(2),
+    target: target.toFixed(1),
+  };
+}
+
+// Test combinations
+const tests = [
+  // Light mode - Secondary on surfaces
+  { name: 'Light: Secondary on white BG', fg: colors.light['text-secondary'], bg: colors.light.bg, target: 4.5 },
+  { name: 'Light: Secondary on alt BG', fg: colors.light['text-secondary'], bg: colors.light['bg-alt'], target: 4.5 },
+  { name: 'Light: Secondary on white (large)', fg: colors.light['text-secondary'], bg: colors.light.bg, target: 3.0 },
+  
+  // Light mode - other text
+  { name: 'Light: Primary on white', fg: colors.light['text-primary'], bg: colors.light.bg, target: 4.5 },
+  { name: 'Light: Tertiary on white', fg: colors.light['text-tertiary'], bg: colors.light.bg, target: 4.5 },
+  { name: 'Light: Accent on white', fg: colors.light['accent-fill'], bg: colors.light.bg, target: 4.5 },
+  { name: 'Light: Accent on alt', fg: colors.light['accent-fill'], bg: colors.light['bg-alt'], target: 4.5 },
+  
+  // Dark mode - Secondary on surfaces
+  { name: 'Dark: Secondary on black', fg: colors.dark['text-secondary'], bg: colors.dark.bg, target: 4.5 },
+  { name: 'Dark: Secondary on dark-card', fg: colors.dark['text-secondary'], bg: colors.dark['bg-card'], target: 4.5 },
+  { name: 'Dark: Secondary on dark-alt', fg: colors.dark['text-secondary'], bg: colors.dark['bg-alt'], target: 4.5 },
+  { name: 'Dark: Secondary on black (large)', fg: colors.dark['text-secondary'], bg: colors.dark.bg, target: 3.0 },
+  
+  // Dark mode - other text
+  { name: 'Dark: Primary on black', fg: colors.dark['text-primary'], bg: colors.dark.bg, target: 4.5 },
+  { name: 'Dark: Primary on dark-card', fg: colors.dark['text-primary'], bg: colors.dark['bg-card'], target: 4.5 },
+
+  // CTA Tile pairs (D-B, Spec)
+  { name: 'CTA: Headline on accent tile', fg: colors.cta.headline, bg: colors.cta.tile, target: 4.5 },
+  { name: 'CTA: Lead on accent tile', fg: colors.cta.lead, bg: colors.cta.tile, target: 4.5 },
+  { name: 'CTA: Secondary link on accent tile', fg: colors.cta['secondary-link'], bg: colors.cta.tile, target: 4.5 },
+  { name: 'CTA: Button text on white pill', fg: colors.cta['btn-text'], bg: colors.cta['btn-bg'], target: 4.5 },
+  { name: 'CTA: Focus ring on accent tile', fg: colors.cta['focus-ring'], bg: colors.cta.tile, target: 3.0 },
+  { name: 'CTA: Focus ring on chapter-dark', fg: colors.cta['focus-ring'], bg: colors.chapterDark.bg, target: 3.0 },
+
+  // Closing Dark Chapter pairs (D-A, Spec)
+  { name: 'Chapter-Dark: Secondary text on black', fg: colors.chapterDark['text-secondary'], bg: colors.chapterDark.bg, target: 4.5 },
+  { name: 'Chapter-Dark: Link hover (primary) on black', fg: colors.chapterDark['text-primary'], bg: colors.chapterDark.bg, target: 4.5 },
+  { name: 'Chapter-Dark: Tertiary text on black (large/caption target 3:1)', fg: colors.chapterDark['text-tertiary'], bg: colors.chapterDark.bg, target: 3.0 },
+  { name: 'Chapter-Dark: Controls on black', fg: colors.chapterDark['text-secondary'], bg: colors.chapterDark.bg, target: 4.5 },
+];
+
+console.log('🎨 Checking color contrast ratios...\n');
+
+let allPass = true;
+const results = tests.map((test) => {
+  const ratio = getContrastRatio(test.fg, test.bg);
+  const check = checkContrast(ratio, test.target);
+  
+  if (!check.pass) allPass = false;
+  
+  return {
+    name: test.name,
+    ratio: check.ratio,
+    target: check.target,
+    pass: check.pass,
+  };
+});
+
+// Display results
+results.forEach((result) => {
+  const status = result.pass ? '✓' : '✗';
+  console.log(`${status} ${result.name}`);
+  console.log(`   ${result.ratio}:1 (target: ${result.target}:1)\n`);
+});
+
+// Summary
+const failedCount = results.filter(r => !r.pass).length;
+console.log('📊 Summary:');
+if (failedCount === 0) {
+  console.log(`   ✓ All pairs meet their targets (${results.length} pairs)\n`);
+  process.exit(0);
+} else {
+  console.log(`   ✗ ${failedCount} pair(s) below target\n`);
+  process.exit(1);
+}

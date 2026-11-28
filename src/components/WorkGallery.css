@@ -1,0 +1,50 @@
+.work-gallery {
+  max-width: 1180px;
+  margin-inline: auto;
+}
+
+.work-gallery-header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 16px 24px;
+  margin-bottom: 24px;
+}
+
+.work-gallery-controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-inline-start: auto;
+}
+
+.work-gallery-position {
+  min-width: 3em;
+  text-align: center;
+  font-size: 14px;
+  font-variant-numeric: tabular-nums;
+}
+
+.work-gallery-track {
+  position: relative;
+  display: flex;
+  gap: clamp(12px, 2vw, 20px);
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+}
+
+.work-gallery-track > .project-cover-card {
+  flex: 0 0 100%;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .work-gallery-track {
+    scroll-behavior: auto;
+  }
+}
