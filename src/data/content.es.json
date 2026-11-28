@@ -23,9 +23,9 @@
       "secondaryCTA": { "label": "Escríbeme", "href": "/es/contact" },
       "tertiaryCTA": { "label": "Leer notas", "href": "/blog" },
       "highlights": [
-        { "value": "4", "label": "Finales de hackatón" },
-        { "value": "GSoC 2026", "label": "Código abierto" },
-        { "value": "ITLA", "label": "Desarrollo de Software" }
+        { "value": "NASA HERC", "label": "Ingeniería robótica" },
+        { "value": "Space Apps", "label": "Finalista y mentor" },
+        { "value": "Código abierto", "label": "Colaborador de software" }
       ],
       "contactCard": {
         "label": "Frontend y Full Stack",
@@ -90,7 +90,6 @@
         "href": "/es/work"
       },
       "btnProject": "Ver proyecto",
-      "btnDocs": "Ver documentación",
       "placeholderCover": "Cover placeholder: replace with a real screenshot",
       "projects": [
         {
@@ -99,15 +98,14 @@
           "description": "Telemetría para un hábitat análogo a Marte sobre redes LoRa intermitentes.",
           "tags": ["Python", "FastAPI", "React"],
           "projectUrl": "/es/work/mission-atabey",
-          "docsUrl": "https://github.com/mxnueh"
+          "externalLink": { "label": "Sitio oficial de la misión", "url": "https://atabey.space/" }
         },
         {
           "id": "conduete",
           "title": "Conducete",
           "description": "App móvil de educación vial para conductores dominicanos.",
           "tags": ["Flutter", "Flask", "PostgreSQL"],
-          "projectUrl": "/es/work/conduete",
-          "docsUrl": "https://github.com/mxnueh"
+          "projectUrl": "/es/work/conduete"
         },
         {
           "id": "floppy",
@@ -115,7 +113,7 @@
           "description": "Sistema comunitario de alerta temprana de inundaciones basado en IoT.",
           "tags": ["ESP32", "Flask"],
           "projectUrl": "/es/work/floppy",
-          "docsUrl": "https://github.com/mxnueh/floppy"
+          "externalLink": { "label": "Código fuente", "url": "https://github.com/mxnueh/floppy" }
         }
       ]
     },
@@ -156,7 +154,7 @@
         "links": [
           { "label": "Todos los casos de estudio", "href": "/work" },
           { "label": "GitHub", "url": "https://github.com/mxnueh" },
-          { "label": "Repos de código abierto", "url": "https://github.com/mxnueh" }
+          { "label": "Repositorios públicos", "url": "https://github.com/mxnueh?tab=repositories" }
         ]
       },
       {

@@ -616,8 +616,8 @@ export default function ComponentsShowcasePage() {
               <span className="text-xs font-mono text-text-tertiary mb-4">MagicUI / Interactive Dock</span>
               <Dock>
                 <DockIcon label="GitHub">
-                  <a href="https://github.com/mxnueh" target="_blank" rel="noopener noreferrer">
-                    <GithubIcon className="w-5 h-5" />
+                  <a href="https://github.com/mxnueh" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile">
+                    <GithubIcon className="w-5 h-5" aria-hidden="true" />
                   </a>
                 </DockIcon>
                 <DockIcon label="LinkedIn">

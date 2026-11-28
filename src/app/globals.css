@@ -1164,41 +1164,6 @@ input:focus-visible {
   }
 }
 
-.blog-feature {
-  position: relative;
-  isolation: isolate;
-  display: flex;
-  align-items: flex-end;
-  min-height: clamp(23rem, 35vw, 30rem);
-  overflow: hidden;
-  border-radius: 1rem;
-  padding: clamp(1rem, 2.5vw, 1.75rem);
-  background-color: #272329;
-  color: white;
-}
-
-.blog-feature::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to top, rgb(10 9 12 / 91%), rgb(10 9 12 / 55%) 34%, transparent 70%);
-  pointer-events: none;
-}
-
-.blog-feature-copy {
-  position: relative;
-  z-index: 1;
-  display: grid;
-  gap: 0.45rem;
-  width: min(100%, 28rem);
-}
-
-.blog-feature:hover h2 {
-  text-decoration: underline;
-  text-decoration-thickness: 1px;
-  text-underline-offset: 0.15em;
-}
-
 @media (min-width: 48rem) {
   .cta-portrait-statement {
     object-fit: contain;

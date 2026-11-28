@@ -10,14 +10,16 @@ interface ProjectCoverCardProps {
   actionLabel: string;
   children: ReactNode;
   secondaryActions?: ReactNode;
+  cover?: ReactNode;
   compact?: boolean;
 }
 
 export function ProjectCoverCard({
-  title, href, eyebrow, actionLabel, children, secondaryActions, compact = false,
+  title, href, eyebrow, actionLabel, children, secondaryActions, cover, compact = false,
 }: ProjectCoverCardProps) {
   return (
     <li className={`project-cover-card ${compact ? 'project-cover-card--compact' : 'project-cover'}`}>
+      {cover && <div className="project-cover-card-image">{cover}</div>}
       <header className="project-cover-card-header">
         <div className="mb-3">{eyebrow}</div>
         <h3 className="project-cover-card-title">

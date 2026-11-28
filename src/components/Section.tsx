@@ -61,5 +61,3 @@ export function Card({ className = '', children }: CardProps) {
     </div>
   );
 }
-
-export const linkedCardClass = 'group flex h-full flex-col justify-between overflow-hidden rounded-2xl border border-black/[0.08] dark:border-white/[0.1] bg-white dark:bg-[#161617] transition-colors hover:border-black/[0.2] dark:hover:border-white/[0.25]';

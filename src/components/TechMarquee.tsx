@@ -9,6 +9,7 @@ import {
   siFastapi,
   siFlask,
   siNodedotjs,
+  siDotnet,
   siPostgresql,
   siSupabase,
   siMysql,
@@ -34,7 +35,7 @@ const TECH_ITEMS = [
   siFastapi,
   siFlask,
   siNodedotjs,
-  { title: 'C#', Component: CsharpIcon },
+  { title: 'C#', Component: CsharpIcon, hex: siDotnet.hex },
   siPostgresql,
   siSupabase,
   siMysql,
@@ -48,15 +49,22 @@ const trackClassName = 'flex items-center motion-safe:w-max motion-safe:shrink-0
 export function TechMarquee({ lang }: TechMarqueeProps) {
   const { techMarquee } = getContent(lang).home;
   const items = TECH_ITEMS.map((item) => (
-    <li key={item.title} className="flex shrink-0 items-center gap-2.5 whitespace-nowrap text-base font-bold md:gap-3 md:text-lg">
+    <li key={item.title} className="flex shrink-0 items-center gap-2.5 whitespace-nowrap text-base md:gap-3 md:text-lg">
       {'Component' in item ? (
-        <item.Component aria-hidden="true" className={iconClassName} />
+        <item.Component aria-hidden="true" fill={`#${item.hex}`} className={iconClassName} />
       ) : (
-        <svg aria-hidden="true" viewBox="0 0 24 24" fill="currentColor" className={iconClassName}>
+        <svg
+          aria-hidden="true"
+          viewBox="0 0 24 24"
+          fill={`#${item.hex}`}
+          className={item === siNextdotjs || item === siGithub ? `${iconClassName} dark:fill-white` : iconClassName}
+        >
           <path d={item.path} />
         </svg>
       )}
-      <span>{item.title}</span>
+      <span className="[font-family:var(--font-geist-sans),system-ui,sans-serif] font-[450] tracking-[-0.02em]">
+        {item.title}
+      </span>
     </li>
   ));
 

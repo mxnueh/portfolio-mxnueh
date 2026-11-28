@@ -9,6 +9,7 @@ export interface Post {
   date: string;
   readingTime: number;
   image?: string;
+  heroImage?: string;
   featured: boolean;
   content: string;
   stack?: string[];
@@ -98,7 +99,7 @@ export interface SelectedWorkProject {
   tags: string[];
   cover?: string;
   projectUrl: string;
-  docsUrl?: string;
+  externalLink?: { label: string; url: string };
 }
 
 export interface SelectedWorkData {
@@ -108,7 +109,6 @@ export interface SelectedWorkData {
     href: string;
   };
   btnProject: string;
-  btnDocs: string;
   placeholderCover: string;
   projects: SelectedWorkProject[];
 }

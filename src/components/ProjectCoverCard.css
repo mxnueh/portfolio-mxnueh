@@ -1,6 +1,7 @@
 .project-cover-card {
   --project-title-space: clamp(186px, 27vw, 250px);
   --project-navy: #0a1730;
+  --project-card-padding: clamp(18px, 4vw, 44px);
   position: relative;
   display: flex;
   flex-direction: column;
@@ -8,7 +9,7 @@
   gap: 20px;
   min-width: 0;
   min-height: clamp(440px, 58svh, 560px);
-  padding: clamp(18px, 4vw, 44px);
+  padding: var(--project-card-padding);
   border-radius: 24px;
   box-shadow: inset 0 0 0 1px rgb(10 23 48 / 9%);
   overflow: hidden;
@@ -77,9 +78,25 @@
 
 .project-cover-card--compact {
   --project-title-space: 176px;
+  --project-card-padding: clamp(16px, 2vw, 24px);
   min-height: 21rem;
-  padding: clamp(16px, 2vw, 24px);
   background-color: #fff;
+}
+
+.project-cover-card--compact:has(> .project-cover-card-image) {
+  --project-title-space: auto;
+  justify-content: flex-start;
+}
+
+.project-cover-card-image {
+  position: relative;
+  aspect-ratio: 2.35;
+  margin-block-start: calc(-1 * var(--project-card-padding));
+  margin-inline: calc(-1 * var(--project-card-padding));
+}
+
+.project-cover-card-image ~ .project-cover-card-details {
+  margin-top: auto;
 }
 
 .project-cover-card--compact .project-cover-card-header {

@@ -23,9 +23,9 @@
       "secondaryCTA": { "label": "Email me", "href": "/contact" },
       "tertiaryCTA": { "label": "Read notes", "href": "/blog" },
       "highlights": [
-        { "value": "4", "label": "Hackathon finals" },
-        { "value": "GSoC 2026", "label": "Open source" },
-        { "value": "ITLA", "label": "Software Development" }
+        { "value": "NASA HERC", "label": "Robotics engineering" },
+        { "value": "Space Apps", "label": "Finalist & mentor" },
+        { "value": "Open Source", "label": "Software contributor" }
       ],
       "contactCard": {
         "label": "Frontend and Full Stack",
@@ -90,7 +90,6 @@
         "href": "/work"
       },
       "btnProject": "View project",
-      "btnDocs": "View documentation",
       "placeholderCover": "Cover placeholder: replace with a real screenshot",
       "projects": [
         {
@@ -99,15 +98,14 @@
           "description": "Telemetry for a Mars-analog habitat over intermittent LoRa networks.",
           "tags": ["Python", "FastAPI", "React"],
           "projectUrl": "/work/mission-atabey",
-          "docsUrl": "https://github.com/mxnueh"
+          "externalLink": { "label": "Official mission website", "url": "https://atabey.space/" }
         },
         {
           "id": "conduete",
           "title": "Conducete",
           "description": "Mobile road-safety education app for Dominican drivers.",
           "tags": ["Flutter", "Flask", "PostgreSQL"],
-          "projectUrl": "/work/conduete",
-          "docsUrl": "https://github.com/mxnueh"
+          "projectUrl": "/work/conduete"
         },
         {
           "id": "floppy",
@@ -115,7 +113,7 @@
           "description": "Community early flood warning system built on IoT.",
           "tags": ["ESP32", "Flask"],
           "projectUrl": "/work/floppy",
-          "docsUrl": "https://github.com/mxnueh/floppy"
+          "externalLink": { "label": "Source code", "url": "https://github.com/mxnueh/floppy" }
         }
       ]
     },
@@ -156,7 +154,7 @@
         "links": [
           { "label": "All case studies", "href": "/work" },
           { "label": "GitHub", "url": "https://github.com/mxnueh" },
-          { "label": "Open source repos", "url": "https://github.com/mxnueh" }
+          { "label": "Public repositories", "url": "https://github.com/mxnueh?tab=repositories" }
         ]
       },
       {

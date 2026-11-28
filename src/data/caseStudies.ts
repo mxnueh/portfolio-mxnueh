@@ -1,5 +1,10 @@
 import { CaseStudy } from '@/lib/types';
 
+const atabeyWebsite = 'https://atabey.space/';
+const floppyRepository = 'https://github.com/mxnueh/floppy';
+const astroBoscoRepository = 'https://github.com/mxnueh/Raspberry-Pi';
+const roverChallengeWebsite = 'https://www.nasa.gov/learning-resources/nasa-human-exploration-rover-challenge/';
+
 export const caseStudiesEN: CaseStudy[] = [
   {
     id: '1',
@@ -10,11 +15,7 @@ export const caseStudiesEN: CaseStudy[] = [
       'An end-to-end telemetry and monitoring platform for a Mars-analog habitat, synchronizing real-time crew biometrics, atmospheric sensors, and automated crop dome irrigation over intermittent LoRa networks.',
     role: 'Full Stack Developer & Telemetry Lead',
     stack: ['Python', 'FastAPI', 'PostgreSQL', 'React 19', 'TypeScript', 'MQTT', 'ESP32', 'LoRa', 'Docker'],
-    github: 'https://github.com/mxnueh',
-    links: [
-      { label: 'View Architecture', url: 'https://github.com/mxnueh' },
-      { label: 'NASA Space Apps Finalist', url: 'https://www.spaceappschallenge.org/' },
-    ],
+    links: [{ label: 'Official mission website', url: atabeyWebsite }],
     lang: 'en',
     content: `## Executive Summary
 
@@ -76,8 +77,6 @@ The architecture was engineered with a resilient **three-tier offline-first pipe
       'A gamified mobile application transforming driving culture in the Dominican Republic through real-time inertial telemetry scoring, defensive driving rewards, and community safety milestones.',
     role: 'Full Stack Developer & UI/UX Systems Integrator',
     stack: ['Flutter', 'Dart', 'Python', 'Flask', 'PostgreSQL', 'Google Maps API', 'Firebase'],
-    github: 'https://github.com/mxnueh',
-    links: [{ label: 'GitHub Repository', url: 'https://github.com/mxnueh' }],
     lang: 'en',
     content: `## Executive Summary
 
@@ -128,11 +127,7 @@ Drivers accumulate safety tokens that unlock regional discounts and community le
       'An early-warning IoT flood monitoring network designed for vulnerable riverside communities, delivering real-time water level alerts via SMS, push notifications, and live hydrograph dashboards.',
     role: 'Full Stack Developer & IoT Systems Engineer',
     stack: ['ESP32', 'Flask', 'React', 'TypeScript', 'SQLite', 'Twilio SMS', 'Firebase Cloud Messaging'],
-    github: 'https://github.com/mxnueh/floppy',
-    links: [
-      { label: 'View Source Code', url: 'https://github.com/mxnueh/floppy' },
-      { label: 'Hackathon Award', url: 'https://github.com/mxnueh/floppy' },
-    ],
+    github: floppyRepository,
     lang: 'en',
     content: `## Executive Summary
 
@@ -176,8 +171,6 @@ Developed during the **CreaRD 2025 Hackathon**, **Floppy** won **4th Place** as 
       'A full-stack property management and lead pipeline CRM with geospatial map filtering, granular role-based security, automated client follow-ups, and sales analytics.',
     role: 'Full Stack Developer',
     stack: ['React', 'TypeScript', 'Tailwind CSS', 'Supabase', 'PostgreSQL', 'Mapbox GL'],
-    github: 'https://github.com/mxnueh',
-    links: [{ label: 'GitHub Profile', url: 'https://github.com/mxnueh' }],
     lang: 'en',
     content: `## Executive Summary
 
@@ -214,8 +207,6 @@ GFB Inmobiliaria, a growing real estate brokerage, struggled with fragmented spr
       'An e-commerce platform and real-time PVC roofing & wall tile parametric configurator, enabling instant dimension calculation, material quotes, and installation scheduling.',
     role: 'Frontend Architect & UI Developer',
     stack: ['React', 'TypeScript', 'Vite', 'Tailwind CSS'],
-    github: 'https://github.com/mxnueh',
-    links: [{ label: 'GitHub Repository', url: 'https://github.com/mxnueh' }],
     lang: 'en',
     content: `## Executive Summary
 
@@ -241,11 +232,8 @@ I designed and engineered an interactive parametric configurator where customers
       'Real-time telemetry, embedded sensor networks, and cockpit operator diagnostics for an international Mars-analog competition rover at the NASA Marshall Space Flight Center.',
     role: 'Telemetry Lead & Embedded Firmware Engineer',
     stack: ['Python', 'C++', 'Arduino', 'ESP32', 'RS-485 Serial', 'Embedded Systems'],
-    github: 'https://github.com/mxnueh',
-    links: [
-      { label: 'NASA HERC Competition', url: 'https://www.nasa.gov/roverchallenge/' },
-      { label: 'GitHub Repository', url: 'https://github.com/mxnueh' },
-    ],
+    github: astroBoscoRepository,
+    links: [{ label: 'NASA HERC Competition', url: roverChallengeWebsite }],
     lang: 'en',
     content: `## Executive Summary
 
@@ -288,11 +276,7 @@ export const caseStudiesES: CaseStudy[] = [
       'Plataforma integral de telemetría y monitoreo para un hábitat análogo a Marte, sincronizando en tiempo real biometría de tripulación, sensores atmosféricos y domo de cultivos sobre redes LoRa intermitentes.',
     role: 'Líder de Telemetría & Desarrollador Full Stack',
     stack: ['Python', 'FastAPI', 'PostgreSQL', 'React 19', 'TypeScript', 'MQTT', 'ESP32', 'LoRa', 'Docker'],
-    github: 'https://github.com/mxnueh',
-    links: [
-      { label: 'Ver Arquitectura', url: 'https://github.com/mxnueh' },
-      { label: 'Finalista NASA Space Apps', url: 'https://www.spaceappschallenge.org/' },
-    ],
+    links: [{ label: 'Sitio oficial de la misión', url: atabeyWebsite }],
     lang: 'es',
     content: `## Resumen Ejecutivo
 
@@ -346,8 +330,6 @@ El sistema fue diseñado con una **tubería de 3 niveles con enfoque Offline-Fir
       'Aplicación móvil gamificada que fomenta hábitos de conducción segura en la República Dominicana mediante telemetría inercial en tiempo real, recompensas defensivas y metas comunitarias.',
     role: 'Desarrollador Full Stack & Integrador de UI/UX',
     stack: ['Flutter', 'Dart', 'Python', 'Flask', 'PostgreSQL', 'Google Maps API', 'Firebase'],
-    github: 'https://github.com/mxnueh',
-    links: [{ label: 'Repositorio GitHub', url: 'https://github.com/mxnueh' }],
     lang: 'es',
     content: `## Resumen Ejecutivo
 
@@ -388,11 +370,7 @@ La aplicación procesa los sensores inerciales del smartphone para calcular un �
       'Sistema IoT de monitoreo y alerta temprana de inundaciones para comunidades vulnerables cerca de ríos, con avisos vía SMS, notificaciones push y paneles hidrométricos en vivo.',
     role: 'Desarrollador Full Stack & Ingeniero de Sistemas IoT',
     stack: ['ESP32', 'Flask', 'React', 'TypeScript', 'SQLite', 'Twilio SMS', 'Firebase Cloud Messaging'],
-    github: 'https://github.com/mxnueh/floppy',
-    links: [
-      { label: 'Código Fuente', url: 'https://github.com/mxnueh/floppy' },
-      { label: 'Premio Hackatón', url: 'https://github.com/mxnueh/floppy' },
-    ],
+    github: floppyRepository,
     lang: 'es',
     content: `## Resumen Ejecutivo
 
@@ -422,8 +400,6 @@ Desarrollado en la **Hackatón CreaRD 2025**, **Floppy** obtuvo el **4to Lugar**
       'CRM inmobiliario integral con filtrado geoespacial interactivo en mapa, seguridad estricta basada en roles, seguimiento automatizado de prospectos y métricas de ventas.',
     role: 'Desarrollador Full Stack',
     stack: ['React', 'TypeScript', 'Tailwind CSS', 'Supabase', 'PostgreSQL', 'Mapbox GL'],
-    github: 'https://github.com/mxnueh',
-    links: [{ label: 'Perfil GitHub', url: 'https://github.com/mxnueh' }],
     lang: 'es',
     content: `## Resumen Ejecutivo
 
@@ -450,8 +426,6 @@ GFB Inmobiliaria gestionaba inventarios dispersos en hojas de cálculo y llamada
       'Plataforma web y cotizador paramétrico de tejas de PVC para techos y revestimientos, calculando despieces, presupuestos instantáneos y solicitudes de instalación.',
     role: 'Arquitecto Frontend & Desarrollador UI',
     stack: ['React', 'TypeScript', 'Vite', 'Tailwind CSS'],
-    github: 'https://github.com/mxnueh',
-    links: [{ label: 'Repositorio GitHub', url: 'https://github.com/mxnueh' }],
     lang: 'es',
     content: `## Resumen Ejecutivo
 
@@ -476,11 +450,8 @@ Diseñé un cotizador interactivo paramétrico donde los usuarios eligen dimensi
       'Diseño de telemetría en tiempo real, red de sensores embebidos y diagnóstico en cabina para un rover de competencia análogo a Marte en el NASA Marshall Space Flight Center.',
     role: 'Líder de Telemetría & Ingeniero de Firmware Embebido',
     stack: ['Python', 'C++', 'Arduino', 'ESP32', 'Serial RS-485', 'Sistemas Embebidos'],
-    github: 'https://github.com/mxnueh',
-    links: [
-      { label: 'Competencia NASA HERC', url: 'https://www.nasa.gov/roverchallenge/' },
-      { label: 'Repositorio GitHub', url: 'https://github.com/mxnueh' },
-    ],
+    github: astroBoscoRepository,
+    links: [{ label: 'Competencia NASA HERC', url: roverChallengeWebsite }],
     lang: 'es',
     content: `## Resumen Ejecutivo
 

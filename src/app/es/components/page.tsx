@@ -606,8 +606,8 @@ export default function EsComponentsShowcasePage() {
               <span className="text-xs font-mono text-text-tertiary mb-4">MagicUI / Dock Interactivo</span>
               <Dock>
                 <DockIcon label="GitHub">
-                  <a href="https://github.com/mxnueh" target="_blank" rel="noopener noreferrer">
-                    <GithubIcon className="w-5 h-5" />
+                  <a href="https://github.com/mxnueh" target="_blank" rel="noopener noreferrer" aria-label="Perfil de GitHub">
+                    <GithubIcon className="w-5 h-5" aria-hidden="true" />
                   </a>
                 </DockIcon>
                 <DockIcon label="LinkedIn">

@@ -72,14 +72,14 @@ export function SelectedWork({ selectedWork }: SelectedWorkProps) {
                       <Link href={project.projectUrl} className="portfolio-button portfolio-button-blue min-h-9 rounded-full px-4">
                         {selectedWork.btnProject}
                       </Link>
-                      {project.docsUrl && (
+                      {project.externalLink && (
                         <a
-                          href={project.docsUrl}
+                          href={project.externalLink.url}
                           className="lnk"
                           target="_blank"
                           rel="noopener noreferrer"
                         >
-                          {selectedWork.btnDocs}
+                          {project.externalLink.label}
                         </a>
                       )}
                     </div>

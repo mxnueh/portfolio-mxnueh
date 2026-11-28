@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { ArrowRight } from 'lucide-react';
 import { CategoryBadge } from '@/components/CategoryBadge';
 import { ProjectCoverCard } from '@/components/ProjectCoverCard';
 import { Section } from '@/components/Section';
@@ -32,8 +33,9 @@ export function FeaturedBlog({ lang }: { lang: Language }) {
           ))}
         </ul>
         <div className="mt-10 text-center">
-          <Link href={base} className="inline-flex min-h-11 items-center text-sm font-semibold text-link underline underline-offset-4">
-            {spanish ? 'Todas las notas técnicas →' : 'All engineering notes →'}
+          <Link href={base} className="inline-flex min-h-11 items-center gap-2 [font-family:var(--font-geist-sans),system-ui,sans-serif] text-sm font-medium tracking-tight text-text-secondary underline decoration-current/30 underline-offset-4">
+            {spanish ? 'Todas las notas técnicas' : 'All engineering notes'}
+            <ArrowRight size={15} aria-hidden="true" />
           </Link>
         </div>
       </div>

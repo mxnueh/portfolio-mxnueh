@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useCallback, useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { cn } from '@/lib/utils';
 
 interface FlickeringGridProps {
@@ -12,6 +12,7 @@ interface FlickeringGridProps {
   height?: number;
   className?: string;
   maxOpacity?: number;
+  connectionChance?: number;
 }
 
 export function FlickeringGrid({
@@ -21,23 +22,22 @@ export function FlickeringGrid({
   color = 'rgb(0, 113, 227)',
   className,
   maxOpacity = 0.3,
+  connectionChance = 0,
 }: FlickeringGridProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
 
   useEffect(() => {
-    const updateSize = () => {
-      if (containerRef.current) {
-        setDimensions({
-          width: containerRef.current.clientWidth,
-          height: containerRef.current.clientHeight,
-        });
-      }
-    };
-    updateSize();
-    window.addEventListener('resize', updateSize);
-    return () => window.removeEventListener('resize', updateSize);
+    const container = containerRef.current;
+    if (!container) return;
+
+    const observer = new ResizeObserver(([entry]) => {
+      const { width, height } = entry.contentRect;
+      setDimensions({ width, height });
+    });
+    observer.observe(container);
+    return () => observer.disconnect();
   }, []);
 
   useEffect(() => {
@@ -52,18 +52,41 @@ export function FlickeringGrid({
     canvas.height = dimensions.height * dpr;
     ctx.scale(dpr, dpr);
 
-    const cols = Math.floor(dimensions.width / (squareSize + gridGap));
-    const rows = Math.floor(dimensions.height / (squareSize + gridGap));
+    const step = squareSize + gridGap;
+    const cols = Math.floor(dimensions.width / step);
+    const rows = Math.floor(dimensions.height / step);
     const opacities = new Float32Array(cols * rows);
 
     for (let i = 0; i < opacities.length; i++) {
       opacities[i] = Math.random() * maxOpacity;
     }
 
+    const connections = new Path2D();
+    if (connectionChance > 0) {
+      for (let col = 0; col < cols - 1; col++) {
+        for (let row = 0; row < rows - 1; row++) {
+          if (Math.random() >= connectionChance) continue;
+
+          const x = col * step + squareSize / 2;
+          const y = row * step + squareSize / 2;
+          const horizontal = Math.random() < 0.5;
+          connections.moveTo(x, y);
+          connections.lineTo(horizontal ? x + step : x, horizontal ? y : y + step);
+        }
+      }
+    }
+
+    ctx.fillStyle = color;
+    ctx.strokeStyle = color;
     let animationId: number;
 
     const render = () => {
       ctx.clearRect(0, 0, dimensions.width, dimensions.height);
+
+      if (connectionChance > 0) {
+        ctx.globalAlpha = maxOpacity * 0.6;
+        ctx.stroke(connections);
+      }
 
       for (let i = 0; i < cols; i++) {
         for (let j = 0; j < rows; j++) {
@@ -72,14 +95,8 @@ export function FlickeringGrid({
             opacities[idx] = Math.random() * maxOpacity;
           }
 
-          ctx.fillStyle = color;
           ctx.globalAlpha = opacities[idx];
-          ctx.fillRect(
-            i * (squareSize + gridGap),
-            j * (squareSize + gridGap),
-            squareSize,
-            squareSize
-          );
+          ctx.fillRect(i * step, j * step, squareSize, squareSize);
         }
       }
 
@@ -88,10 +105,10 @@ export function FlickeringGrid({
 
     render();
     return () => cancelAnimationFrame(animationId);
-  }, [dimensions, squareSize, gridGap, flickerChance, color, maxOpacity]);
+  }, [dimensions, squareSize, gridGap, flickerChance, color, maxOpacity, connectionChance]);
 
   return (
-    <div ref={containerRef} className={cn('absolute inset-0 pointer-events-none', className)}>
+    <div ref={containerRef} className={cn('absolute inset-0 pointer-events-none', className)} aria-hidden="true">
       <canvas ref={canvasRef} className="size-full" />
     </div>
   );

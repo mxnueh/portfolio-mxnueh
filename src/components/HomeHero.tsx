@@ -82,11 +82,11 @@ export function HomeHero({ lang }: { lang: Language }) {
               {hero.secondaryCTA.label}
             </Link>
           </div>
-          <dl className="mt-8 grid grid-cols-[minmax(0,1fr)_auto] gap-x-3 gap-y-4 min-[380px]:grid-cols-[minmax(0,1fr)_auto_minmax(0,1.2fr)] sm:flex sm:flex-wrap sm:gap-x-8">
+          <dl className="mt-8 grid grid-cols-2 gap-x-3 gap-y-4 min-[480px]:grid-cols-3 sm:max-w-[34rem] sm:gap-x-6">
             {hero.highlights.map(({ value, label }, index) => (
-              <div key={label} className="home-hero-highlight flex flex-col-reverse justify-end gap-1" style={staggerIndex(index)}>
-                <dt className="wrap-break-word text-sm text-text-secondary dark:text-gray-300">{label}</dt>
-                <dd className="text-2xl font-semibold tracking-tight">{value}</dd>
+              <div key={value} className="home-hero-highlight space-y-1" style={staggerIndex(index)}>
+                <dt className="text-xl font-semibold tracking-tight sm:text-2xl">{value}</dt>
+                <dd className="text-sm text-text-secondary dark:text-gray-300">{label}</dd>
               </div>
             ))}
           </dl>

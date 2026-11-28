@@ -1,5 +1,3 @@
-import { ReactNode } from 'react';
-
 type CategoryType = 'Case study' | 'Notes' | 'Beyond code' | 'Status';
 
 interface CategoryBadgeProps {
@@ -41,10 +39,13 @@ export function CategoryBadge({ category, className = '', compact = false }: Cat
   };
 
   const { bg, text } = categoryMap[category];
+  const appearance = compact
+    ? 'rounded-full px-2.5 py-0.5 [font-family:var(--font-geist-sans),system-ui,sans-serif] text-xs font-bold tracking-[-0.02em]'
+    : 'rounded-large px-4 py-4 text-sm font-600 uppercase tracking-wider';
 
   return (
     <span
-      className={`inline-flex items-center ${compact ? 'px-2 py-0.5 rounded-full text-[11px] leading-4' : 'px-4 py-4 rounded-large text-sm'} font-600 uppercase tracking-wider ${bg} ${text} ${className}`}
+      className={`inline-flex items-center ${appearance} ${bg} ${text} ${className}`}
     >
       {category}
     </span>

@@ -2,21 +2,16 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 ## Getting Started
 
-First, run the development server:
+Use Node.js 24.x and install dependencies from the npm lockfile.
 
 ```bash
+npm ci
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+You can start editing the home page in `src/app/page.tsx`. The page auto-updates as you edit the file.
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
@@ -31,6 +26,23 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 
 ## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Push the branch you want to deploy to `mxnueh/portfolio-mxnueh`, then import the GitHub repository in Vercel. [Import in Vercel](https://vercel.com/new)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+| Setting | Value |
+| --- | --- |
+| Framework preset | Next.js |
+| Root directory | Repository root |
+| Node.js version | 24.x, set in `package.json` |
+| Install command | Vercel default for npm |
+| Build command | `npm run build` |
+| Output directory | Vercel default for Next.js |
+| Environment variables | None required |
+
+The contact form opens a draft in Gmail with the visitor's details. The site itself uses public assets and local content files.
+
+Run the production build and site checks before pushing.
+
+```bash
+npm run build
+npm run check:site
+```

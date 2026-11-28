@@ -1,7 +1,5 @@
-import Link from 'next/link';
-import { ArrowRight, ExternalLink } from 'lucide-react';
+import { ExternalLink } from 'lucide-react';
 import { GithubIcon } from '@/components/icons';
-import { linkedCardClass } from '@/components/Section';
 import { getCaseStudies } from '@/lib/getContent';
 import type { CaseStudy, Language } from '@/lib/types';
 import { ProjectCoverCard } from './ProjectCoverCard';
@@ -98,23 +96,21 @@ export function WorkGallery({ lang }: { lang: Language }) {
       {more.length > 0 && (
         <section className="mt-12" aria-labelledby="more-projects">
           <h2 id="more-projects" className="mb-5 text-2xl font-semibold tracking-tight">{copy.more}</h2>
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <ul className="grid gap-6 md:grid-cols-2 lg:grid-cols-3" role="list">
             {more.map(study => (
-              <Link key={study.id} href={`${projectsPath}/${study.slug}`} className={linkedCardClass}>
-                <div className="flex-1 px-5 pt-4">
-                  <p className="font-mono text-xs font-medium text-text-secondary dark:text-gray-400">{study.eyebrow}</p>
-                  <h3 className="mb-2 mt-2 text-xl font-semibold leading-snug tracking-tight group-hover:text-accent-fill">
-                    {study.title}
-                  </h3>
-                  <p className="text-sm leading-relaxed text-text-secondary dark:text-gray-400">{study.description}</p>
-                </div>
-                <div className="flex items-center justify-between gap-3 px-5 pb-5 pt-4 text-xs text-text-secondary dark:text-gray-400">
-                  <span>{study.role}</span>
-                  <ArrowRight size={16} className="shrink-0 text-accent-fill" aria-hidden="true" />
-                </div>
-              </Link>
+              <ProjectCoverCard
+                key={study.id}
+                title={study.title}
+                href={`${projectsPath}/${study.slug}`}
+                eyebrow={<p className="font-mono text-xs font-semibold uppercase tracking-wider">{study.eyebrow}</p>}
+                actionLabel={copy.read}
+                compact
+              >
+                <p className="text-sm leading-relaxed">{study.description}</p>
+                <p className="text-xs">{study.role}</p>
+              </ProjectCoverCard>
             ))}
-          </div>
+          </ul>
         </section>
       )}
     </div>

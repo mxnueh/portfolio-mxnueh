@@ -4,8 +4,8 @@ import { AboutMilestones } from '@/components/AboutMilestones';
 import { GlobalNav } from '@/components/GlobalNav';
 import { SiteFooter } from '@/components/SiteFooter';
 import { Section } from '@/components/Section';
+import { TechnicalToolbox } from '@/components/TechnicalToolbox';
 import type { Metadata } from 'next';
-import { Code, Cpu, Layers, Terminal } from 'lucide-react';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
@@ -54,29 +54,6 @@ export default function AboutPage() {
     },
   ];
 
-  const toolbox = [
-    {
-      category: 'Frontend & Interfaces',
-      skills: ['React 19', 'Next.js 16', 'TypeScript', 'Tailwind CSS', 'Turbopack', 'HTML5 Canvas', 'Accessible UI'],
-      icon: Code,
-    },
-    {
-      category: 'Backend & Systems',
-      skills: ['Python', 'FastAPI', 'Flask', 'PostgreSQL', 'SQLite', 'Docker', 'WebSockets', 'REST APIs'],
-      icon: Terminal,
-    },
-    {
-      category: 'Telemetry & Embedded',
-      skills: ['ESP32', 'Arduino', 'C++', 'MQTT', 'LoRa Protocol', 'Raspberry Pi', 'Serial Protocols'],
-      icon: Cpu,
-    },
-    {
-      category: 'Architecture & Practices',
-      skills: ['Offline-First Sync', 'Role-Based Access (RBAC)', 'Telemetry Dashboards', 'CI/CD Pipelines', 'Clean Code'],
-      icon: Layers,
-    },
-  ];
-
   return (
     <div className="flex flex-col min-h-screen bg-white dark:bg-[#0c0c0e] text-text-primary dark:text-white transition-colors">
       <GlobalNav lang={lang} />
@@ -112,47 +89,7 @@ export default function AboutPage() {
 
       <AboutMilestones label="Trajectory" title="Key Milestones & Honors" milestones={milestones} />
 
-      {/* Technical Capabilities: Minimal Apple Grid */}
-      <Section reveal variant="gray">
-        <div className="max-w-5xl mx-auto px-4">
-          <div data-reveal className="text-center mb-12">
-            <span className="text-xs font-semibold uppercase tracking-wider text-text-tertiary dark:text-gray-400 block mb-2">
-              Capabilities
-            </span>
-            <h2 className="heading-ink text-3xl md:text-4xl font-semibold tracking-tight">Technical Toolbox</h2>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {toolbox.map((tool) => {
-              const Icon = tool.icon;
-              return (
-                <div
-                  key={tool.category}
-                  data-reveal
-                  className="rounded-2xl border border-black/[0.08] dark:border-white/[0.1] bg-white dark:bg-[#161617] p-7 transition-colors hover:border-black/[0.18] dark:hover:border-white/[0.22]"
-                >
-                  <div className="flex items-center gap-3 mb-5">
-                    <div className="w-9 h-9 rounded-lg bg-black/[0.04] dark:bg-white/[0.08] text-accent-fill flex items-center justify-center">
-                      <Icon className="w-4 h-4" />
-                    </div>
-                    <h3 className="text-base font-semibold tracking-tight">{tool.category}</h3>
-                  </div>
-                  <div className="flex flex-wrap gap-2">
-                    {tool.skills.map((skill) => (
-                      <span
-                        key={skill}
-                        className="px-3 py-1 rounded-md text-xs font-medium bg-black/[0.03] dark:bg-white/[0.06] text-text-secondary dark:text-gray-300 border border-black/[0.04] dark:border-white/[0.06]"
-                      >
-                        {skill}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </Section>
+      <TechnicalToolbox lang={lang} />
 
       <SiteFooter cta="statement" lang={lang} />
     </div>
